@@ -129,9 +129,9 @@ function install_pkg() {
     
     # install kernel
     apt install -y --no-install-recommends $TARGET_KERNEL_PACKAGE
-    sudo apt install software-properties-common
-    sudo add-apt-repository -y ppa:cappelikan/ppa
-    sudo apt install mainline
+    apt install -y software-properties-common
+    add-apt-repository -y ppa:cappelikan/ppa
+    apt install -y mainline
     mainline --install-latest --yes
     mainline --uninstall-old --yes
 
