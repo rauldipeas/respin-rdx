@@ -128,10 +128,11 @@ function install_pkg() {
     esac
     
     # install kernel
-    mkdir -p /etc/apt/sources.list.d
-    echo 'deb [trusted=yes] https://rauldipeas.fury.site/apt/ * * # Raul Dipeas'>/etc/apt/sources.list.d/rauldipeas.list
-    apt update
     apt install -y --no-install-recommends $TARGET_KERNEL_PACKAGE
+    sudo add-apt-repository -y ppa:cappelikan/ppa
+    sudo apt install mainline
+    mainline --install-latest --yes
+    mainline --uninstall-old --yes
 
     # graphic installer - ubiquity
     apt install -y \

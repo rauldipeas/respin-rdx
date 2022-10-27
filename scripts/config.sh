@@ -15,7 +15,7 @@ export TARGET_UBUNTU_MIRROR="http://br.archive.ubuntu.com/ubuntu/"
 
 # The packaged version of the Linux kernel to install on target image.
 # See https://wiki.ubuntu.com/Kernel/LTSEnablementStack for details
-export TARGET_KERNEL_PACKAGE="linux-rdx"
+export TARGET_KERNEL_PACKAGE="linux-generic"
 
 # The file (no extension) of the ISO containing the generated disk image,
 # the volume id, and the hostname of the live environment are set from this name.
