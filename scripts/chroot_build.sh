@@ -54,7 +54,8 @@ function check_host() {
 
 function setup_host() {
     echo "=====> running setup_host ..."
-    cat <<EOF > /etc/apt/sources.list
+
+   cat <<EOF > /etc/apt/sources.list
 deb $TARGET_UBUNTU_MIRROR $TARGET_UBUNTU_VERSION main restricted universe multiverse
 deb-src $TARGET_UBUNTU_MIRROR $TARGET_UBUNTU_VERSION main restricted universe multiverse
 
@@ -64,8 +65,6 @@ deb-src $TARGET_UBUNTU_MIRROR $TARGET_UBUNTU_VERSION-security main restricted un
 deb $TARGET_UBUNTU_MIRROR $TARGET_UBUNTU_VERSION-updates main restricted universe multiverse
 deb-src $TARGET_UBUNTU_MIRROR $TARGET_UBUNTU_VERSION-updates main restricted universe multiverse
 EOF
-    mkdir -p /etc/apt/sources.list.d
-    echo 'deb [trusted=yes] https://rauldipeas.fury.site/apt/ * * # Raul Dipeas'>/etc/apt/sources.list.d/rauldipeas.list
 
     echo "$TARGET_NAME" > /etc/hostname
 
@@ -129,6 +128,9 @@ function install_pkg() {
     esac
     
     # install kernel
+    mkdir -p /etc/apt/sources.list.d
+    echo 'deb [trusted=yes] https://rauldipeas.fury.site/apt/ * * # Raul Dipeas'>/etc/apt/sources.list.d/rauldipeas.list
+    apt update
     apt-get install -y --no-install-recommends $TARGET_KERNEL_PACKAGE
 
     # graphic installer - ubiquity
