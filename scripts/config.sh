@@ -22,10 +22,10 @@ export TARGET_KERNEL_PACKAGE="linux-rdx"
 export TARGET_NAME="kubuntu-rdx"
 
 # The text label shown in GRUB for booting into the live environment
-export GRUB_LIVEBOOT_LABEL="Testar o Kubuntu FS sem instalar"
+export GRUB_LIVEBOOT_LABEL="Testar o Kubuntu RDX sem instalar"
 
 # The text label shown in GRUB for starting installation
-export GRUB_INSTALL_LABEL="Instalar o Kubuntu FS"
+export GRUB_INSTALL_LABEL="Instalar o Kubuntu RDX"
 
 # Packages to be removed from the target system after installation completes succesfully
 export TARGET_PACKAGE_REMOVE="
@@ -43,29 +43,24 @@ function customize_image() {
     apt install -y kubuntu-desktop
 
     # useful tools
-    apt install -y \
+#    apt install -y \
     python3-pip \
-    python3-tk \
-    ubuntustudio-lowlatency-settings \
-    ubuntustudio-performance-tweaks
+    python3-tk
 
     # purge
 #    apt purge -y \
-#    transmission-gtk \
-#    transmission-common \
-#    gnome-mahjongg \
-#    gnome-mines \
-#    gnome-sudoku \
-#    aisleriot \
-#    hitori
 
 	# rtcqs
+    apt install -y python3-pip python3-tk
 	pip install -q rtcqs
 	wget -qO /usr/share/applications/rtcqs.desktop https://github.com/autostatic/rtcqs/raw/main/rtcqs.desktop
 	wget -qO /usr/share/icons/rtcqs.svg https://github.com/autostatic/rtcqs/raw/main/rtcqs_logo.svg
 
 	# GRUB
 	echo 'GRUB_CMDLINE_LINUX_DEFAULT="cpufreq.default_governor=performance mitigations=off preempt=full quiet splash threadirqs"'|tee /etc/default/grub.d/cmdline-linux-default.cfg >/dev/null
+
+    # Swap
+    echo 'vm.swappiness = 10'|tee /etc/sysctl.d/swappiness.conf >/dev/null
 
 	# CPU DMA latency
 	wget -qO /etc/udev/rules.d/99-cpu-dma-latency.rules https://raw.githubusercontent.com/Ardour/ardour/master/tools/udev/99-cpu-dma-latency.rules
