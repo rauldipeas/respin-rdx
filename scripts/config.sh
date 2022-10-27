@@ -15,7 +15,7 @@ export TARGET_UBUNTU_MIRROR="http://br.archive.ubuntu.com/ubuntu/"
 
 # The packaged version of the Linux kernel to install on target image.
 # See https://wiki.ubuntu.com/Kernel/LTSEnablementStack for details
-export TARGET_KERNEL_PACKAGE="linux-generic"
+export TARGET_KERNEL_PACKAGE="linux-lowlatency"
 
 # The file (no extension) of the ISO containing the generated disk image,
 # the volume id, and the hostname of the live environment are set from this name.
@@ -44,11 +44,13 @@ function customize_image() {
 
     # useful tools
 #    apt install -y \
-#    python3-pip \
-#    python3-tk
 
     # purge
 #    apt purge -y \
+
+    # mainline
+    add-apt-repository -y ppa:cappelikan/ppa
+    apt install -y mainline
 
 	# rtcqs
     apt install -y python3-pip python3-tk
@@ -64,6 +66,9 @@ function customize_image() {
 
 	# CPU DMA latency
 	wget -qO /etc/udev/rules.d/99-cpu-dma-latency.rules https://raw.githubusercontent.com/Ardour/ardour/master/tools/udev/99-cpu-dma-latency.rules
+
+    # Raul Dipeas
+    bash <(wget -qO- https://raw.githubusercontent.com/rauldipeas/apt-repository/main/apt-repository.sh)
 }
 
 # Used to version the configuration.  If breaking changes occur, manual

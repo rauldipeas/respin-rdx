@@ -128,12 +128,7 @@ function install_pkg() {
     esac
     
     # install kernel
-#    apt install -y --no-install-recommends $TARGET_KERNEL_PACKAGE
-    apt install -y software-properties-common
-    add-apt-repository -y ppa:cappelikan/ppa
-    apt install -y mainline
-    mainline --install-latest --yes
-#    apt autoremove --purge $(dpkg -l linux-{image,headers}-5*)
+    apt install -y --no-install-recommends $TARGET_KERNEL_PACKAGE
 
     # graphic installer - ubiquity
     apt install -y \
