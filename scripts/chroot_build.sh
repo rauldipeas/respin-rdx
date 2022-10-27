@@ -54,7 +54,7 @@ function check_host() {
 
 function setup_host() {
     echo "=====> running setup_host ..."
-    mkdir -p /etc/apt/sources.list.d
+
    cat <<EOF > /etc/apt/sources.list
 deb $TARGET_UBUNTU_MIRROR $TARGET_UBUNTU_VERSION main restricted universe multiverse
 deb-src $TARGET_UBUNTU_MIRROR $TARGET_UBUNTU_VERSION main restricted universe multiverse
@@ -68,13 +68,13 @@ EOF
 
     cat <<EOF > /etc/apt/sources.list.d/rauldipeas.list
 deb [trusted=yes] https://rauldipeas.fury.site/apt/ * * # Raul Dipeas
-EOF    
+EOF
 
     echo "$TARGET_NAME" > /etc/hostname
 
     # we need to install systemd first, to configure machine id
-    apt update
-    apt install -y libterm-readline-gnu-perl systemd-sysv
+    apt-get update
+    apt-get install -y libterm-readline-gnu-perl systemd-sysv
 
     #configure machine id
     dbus-uuidgen > /etc/machine-id
@@ -100,10 +100,10 @@ function load_config() {
 
 function install_pkg() {
     echo "=====> running install_pkg ... will take a long time ..."
-    apt -y upgrade
+    apt-get -y upgrade
 
     # install live packages
-    apt install -y \
+    apt-get install -y \
     sudo \
     ubuntu-standard \
     casper \
@@ -124,7 +124,7 @@ function install_pkg() {
     
     case $TARGET_UBUNTU_VERSION in
         "focal" | "bionic")
-            apt install -y lupin-casper
+            apt-get install -y lupin-casper
             ;;
         *)
             echo "Package lupin-casper is not needed. Skipping."
@@ -132,10 +132,10 @@ function install_pkg() {
     esac
     
     # install kernel
-    apt install -y --no-install-recommends $TARGET_KERNEL_PACKAGE
+    apt-get install -y --no-install-recommends $TARGET_KERNEL_PACKAGE
 
     # graphic installer - ubiquity
-    apt install -y \
+    apt-get install -y \
     ubiquity \
     ubiquity-casper \
     ubiquity-frontend-kde \
@@ -146,7 +146,7 @@ function install_pkg() {
     customize_image
 
     # remove unused and clean up apt cache
-    apt autoremove -y
+    apt-get autoremove -y
 
     # final touch
     dpkg-reconfigure locales
@@ -165,7 +165,7 @@ EOF
 
     dpkg-reconfigure network-manager
 
-    apt clean -y
+    apt-get clean -y
 }
 
 function finish_up() { 
@@ -216,4 +216,3 @@ for ((ii=$start_index; ii<$end_index; ii++)); do
 done
 
 echo "$0 - Initial build is done!"
-

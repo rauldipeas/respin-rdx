@@ -171,7 +171,7 @@ menuentry "${GRUB_INSTALL_LABEL}" {
    initrd /casper/initrd
 }
 
-menuentry "Procurar por defeitos no disco" {
+menuentry "Pesquisar por defeitos na imagem de instalação" {
    linux /casper/vmlinuz boot=casper integrity-check quiet splash ---
    initrd /casper/initrd
 }
@@ -180,7 +180,7 @@ menuentry "Testar memória Memtest86+ (BIOS)" {
    linux16 /install/memtest86+
 }
 
-menuentry "Testar memória Memtest86 (UEFI, long período de carregamento)" {
+menuentry "Testar memória Memtest86 (UEFI, long load time)" {
    insmod part_gpt
    insmod search_fs_uuid
    insmod chain
