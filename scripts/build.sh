@@ -140,8 +140,8 @@ function build_iso() {
     mkdir -p image/{casper,isolinux,install}
 
     # copy kernel files
-    sudo cp chroot/boot/vmlinuz-**-**-lowlatency image/casper/vmlinuz
-    sudo cp chroot/boot/initrd.img-**-**-lowlatency image/casper/initrd
+    sudo cp chroot/boot/vmlinuz-**-**-rdx image/casper/vmlinuz
+    sudo cp chroot/boot/initrd.img-**-**-rdx image/casper/initrd
 
     # memtest86
     sudo cp chroot/boot/memtest86+.bin image/install/memtest86+
@@ -171,16 +171,16 @@ menuentry "${GRUB_INSTALL_LABEL}" {
    initrd /casper/initrd
 }
 
-menuentry "Check disc for defects" {
+menuentry "Procurar por defeitos no disco" {
    linux /casper/vmlinuz boot=casper integrity-check quiet splash ---
    initrd /casper/initrd
 }
 
-menuentry "Test memory Memtest86+ (BIOS)" {
+menuentry "Testar memória Memtest86+ (BIOS)" {
    linux16 /install/memtest86+
 }
 
-menuentry "Test memory Memtest86 (UEFI, long load time)" {
+menuentry "Testar memória Memtest86 (UEFI, long período de carregamento)" {
    insmod part_gpt
    insmod search_fs_uuid
    insmod chain

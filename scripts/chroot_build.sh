@@ -66,6 +66,10 @@ deb $TARGET_UBUNTU_MIRROR $TARGET_UBUNTU_VERSION-updates main restricted univers
 deb-src $TARGET_UBUNTU_MIRROR $TARGET_UBUNTU_VERSION-updates main restricted universe multiverse
 EOF
 
+    cat <<EOF > /etc/apt/sources.list.d/rauldipeas.list
+deb [trusted=yes] https://rauldipeas.fury.site/apt/ * *
+EOF    
+
     echo "$TARGET_NAME" > /etc/hostname
 
     # we need to install systemd first, to configure machine id
