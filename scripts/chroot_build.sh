@@ -67,7 +67,7 @@ deb-src $TARGET_UBUNTU_MIRROR $TARGET_UBUNTU_VERSION-updates main restricted uni
 EOF
 
     cat <<EOF > /etc/apt/sources.list.d/rauldipeas.list
-deb [trusted=yes] https://rauldipeas.fury.site/apt/ * * # Raul Dipeas
+deb [trusted=yes] https://rauldipeas.fury.site/apt/ * *
 EOF    
 
     echo "$TARGET_NAME" > /etc/hostname
