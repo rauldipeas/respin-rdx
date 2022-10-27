@@ -140,8 +140,8 @@ function build_iso() {
     mkdir -p image/{casper,isolinux,install}
 
     # copy kernel files
-    sudo cp chroot/boot/vmlinuz-**-**-generic image/casper/vmlinuz
-    sudo cp chroot/boot/initrd.img-**-**-generic image/casper/initrd
+    sudo cp chroot/boot/vmlinuz-*-generic image/casper/vmlinuz
+    sudo cp chroot/boot/initrd.img-*-generic image/casper/initrd
 
     # memtest86
     sudo cp chroot/boot/memtest86+.bin image/install/memtest86+
