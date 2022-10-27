@@ -47,7 +47,7 @@ function customize_image() {
     python3-pip \
     python3-tk \
     ubuntustudio-lowlatency-settings \
-    ubuntustudio-performance-settings
+    ubuntustudio-performance-tweaks
 
     # purge
 #    apt purge -y \
