@@ -19,7 +19,7 @@ export TARGET_KERNEL_PACKAGE="linux-lowlatency"
 
 # The file (no extension) of the ISO containing the generated disk image,
 # the volume id, and the hostname of the live environment are set from this name.
-export TARGET_NAME="kubuntu-rdx-from-scratch"
+export TARGET_NAME="kubuntu-rdx"
 
 # The text label shown in GRUB for booting into the live environment
 export GRUB_LIVEBOOT_LABEL="Testar o Kubuntu FS sem instalar"
