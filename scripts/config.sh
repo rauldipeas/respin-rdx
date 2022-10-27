@@ -44,8 +44,8 @@ function customize_image() {
 
     # useful tools
 #    apt install -y \
-    python3-pip \
-    python3-tk
+#    python3-pip \
+#    python3-tk
 
     # purge
 #    apt purge -y \

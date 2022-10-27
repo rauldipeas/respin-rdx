@@ -10,8 +10,8 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v3
-#      - name: Configuração do ambiente de compilação
-#        run: bash scripts/env.sh
+      - name: Configuração do ambiente de compilação
+        run: bash scripts/env.sh
       - name: Compilação do Kubuntu RDX
         run: |
           cd scripts
