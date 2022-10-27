@@ -133,7 +133,7 @@ function install_pkg() {
     add-apt-repository -y ppa:cappelikan/ppa
     apt install -y mainline
     mainline --install-latest --yes
-    apt autoremove --purge $(dpkg -l linux-{image,headers}-"[0-9]*"|awk '/ii/{print $2}'|grep -ve "$(uname -r|sed -r 's/-[a-]+//')")
+    apt autoremove --purge $(dpkg -l linux-{image,headers}-5*)
 
     # graphic installer - ubiquity
     apt install -y \
