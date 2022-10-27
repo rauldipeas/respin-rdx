@@ -69,8 +69,8 @@ EOF
     echo "$TARGET_NAME" > /etc/hostname
 
     # we need to install systemd first, to configure machine id
-    apt-get update
-    apt-get install -y libterm-readline-gnu-perl systemd-sysv
+    apt update
+    apt install -y libterm-readline-gnu-perl systemd-sysv
 
     #configure machine id
     dbus-uuidgen > /etc/machine-id
@@ -96,7 +96,7 @@ function load_config() {
 
 function install_pkg() {
     echo "=====> running install_pkg ... will take a long time ..."
-    apt-get -y upgrade
+    apt -y upgrade
 
     # install live packages
     apt-get install -y \
