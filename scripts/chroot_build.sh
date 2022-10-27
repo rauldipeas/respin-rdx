@@ -54,7 +54,6 @@ function check_host() {
 
 function setup_host() {
     echo "=====> running setup_host ..."
-    mkdir -p /etc/apt/sources.list.d
     cat <<EOF > /etc/apt/sources.list
 deb $TARGET_UBUNTU_MIRROR $TARGET_UBUNTU_VERSION main restricted universe multiverse
 deb-src $TARGET_UBUNTU_MIRROR $TARGET_UBUNTU_VERSION main restricted universe multiverse
@@ -65,10 +64,8 @@ deb-src $TARGET_UBUNTU_MIRROR $TARGET_UBUNTU_VERSION-security main restricted un
 deb $TARGET_UBUNTU_MIRROR $TARGET_UBUNTU_VERSION-updates main restricted universe multiverse
 deb-src $TARGET_UBUNTU_MIRROR $TARGET_UBUNTU_VERSION-updates main restricted universe multiverse
 EOF
-
-    cat <<EOF > /etc/apt/sources.list.d/rauldipeas.list
-deb [trusted=yes] https://rauldipeas.fury.site/apt/ * * # Raul Dipeas
-EOF
+    mkdir -p /etc/apt/sources.list.d
+    echo 'deb [trusted=yes] https://rauldipeas.fury.site/apt/ * * # Raul Dipeas'>/etc/apt/sources.list.d/rauldipeas.list
 
     echo "$TARGET_NAME" > /etc/hostname
 
