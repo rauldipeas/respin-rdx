@@ -162,7 +162,7 @@ set default="0"
 set timeout=30
 
 menuentry "${GRUB_LIVEBOOT_LABEL}" {
-   linux /casper/vmlinuz boot=casper nopersistent toram quiet splash ---
+   linux /casper/vmlinuz boot=casper nopersistent cpufreq.default_governor=performance mitigations=off preempt=full quiet splash threadirqs ---
    initrd /casper/initrd
 }
 
@@ -180,7 +180,7 @@ menuentry "Testar memória Memtest86+ (BIOS)" {
    linux16 /install/memtest86+
 }
 
-menuentry "Testar memória Memtest86 (UEFI, long load time)" {
+menuentry "Testar memória Memtest86 (UEFI, longo período de carregamento)" {
    insmod part_gpt
    insmod search_fs_uuid
    insmod chain
