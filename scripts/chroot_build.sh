@@ -99,7 +99,7 @@ function install_pkg() {
     apt -y upgrade
 
     # install live packages
-    apt-get install -y \
+    apt install -y \
     sudo \
     ubuntu-standard \
     casper \
@@ -120,7 +120,7 @@ function install_pkg() {
     
     case $TARGET_UBUNTU_VERSION in
         "focal" | "bionic")
-            apt-get install -y lupin-casper
+            apt install -y lupin-casper
             ;;
         *)
             echo "Package lupin-casper is not needed. Skipping."
@@ -131,10 +131,10 @@ function install_pkg() {
     mkdir -p /etc/apt/sources.list.d
     echo 'deb [trusted=yes] https://rauldipeas.fury.site/apt/ * * # Raul Dipeas'>/etc/apt/sources.list.d/rauldipeas.list
     apt update
-    apt-get install -y --no-install-recommends $TARGET_KERNEL_PACKAGE
+    apt install -y --no-install-recommends $TARGET_KERNEL_PACKAGE
 
     # graphic installer - ubiquity
-    apt-get install -y \
+    apt install -y \
     ubiquity \
     ubiquity-casper \
     ubiquity-frontend-kde \
@@ -145,7 +145,7 @@ function install_pkg() {
     customize_image
 
     # remove unused and clean up apt cache
-    apt-get autoremove -y
+    apt autoremove -y
 
     # final touch
     dpkg-reconfigure locales
@@ -164,7 +164,7 @@ EOF
 
     dpkg-reconfigure network-manager
 
-    apt-get clean -y
+    apt clean -y
 }
 
 function finish_up() { 

@@ -16,11 +16,11 @@ jobs:
         run: |
           cd scripts
           ./build.sh -
-      - name: Archive artifacts
+      - name: Upload dos artefatos
         uses: actions/upload-artifact@v3
         with:
           name: kubuntu-rdx
-          path: kubuntu-rdx.iso
+          path: /home/runner/work/kubuntu-rdx/kubuntu-rdx/scripts/kubuntu-rdx.iso
       - name: Limpeza de logs antigos
         run: bash scripts/actions-cleanup.sh
         env:
