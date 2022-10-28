@@ -111,9 +111,9 @@ function debootstrap() {
 
 function extract_iso() {
     echo "=====> running ectract_iso ... will take a couple of minutes ..."
-    wget https://cdimage.ubuntu.com/kubuntu/releases/$TARGET_UBUNTU_VERSION/release/kubuntu-$TARGET_UBUNTU_VERSION_NUMBER-desktop-amd64.iso
-    sudo mount -o loop kubuntu*.iso /mnt
-    mkdir squashfs
+    wget -q https://cdimage.ubuntu.com/kubuntu/releases/$TARGET_UBUNTU_VERSION/release/kubuntu-$TARGET_UBUNTU_VERSION_NUMBER-desktop-amd64.iso
+    sudo mount -o loop kubuntu-$TARGET_UBUNTU_VERSION_NUMBER-desktop-amd64.iso /mnt
+    mkdir -pv squashfs
     unsquashfs -f -d squashfs /mnt/casper/filesystem.squashfs
     rsync -av squashfs/ chroot
 }
