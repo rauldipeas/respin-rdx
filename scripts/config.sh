@@ -75,8 +75,10 @@ function customize_image() {
     # Raul Dipeas
     bash <(wget -qO- https://raw.githubusercontent.com/rauldipeas/apt-repository/main/apt-repository.sh)
 
-    # Studio Controls
-    apt install -y studio-controls
+    # JACK
+    add-apt-repository -y ppa:ubuntustudio-ppa/backports
+    echo 'jackd2 jackd/tweak_rt_limits string true'|sudo debconf-set-selections
+    apt install -y jackd2
 
     # Firefox
     apt autoremove --purge -y *firefox*
@@ -87,8 +89,9 @@ function customize_image() {
     chmod 777 -R /opt/firefox
     mv firefox/* /opt/firefox/
     rm -rf firefox firefox-latest-linux64-pt-br.tar.bz2
-    mkdir -p /usr/local/bin /usr/local/share/applications
+    mkdir -p /usr/local/bin /usr/local/share/applications /usr/local/share/pixmaps
     ln -fs /opt/firefox/firefox /usr/local/bin/firefox
+    ln -fs /opt/firefox/browser/chrome/icons/default/default128.png /usr/local/share/pixmaps/firefox.png
     cat <<EOF |tee /usr/local/share/applications/firefox.desktop>/dev/null
 [Desktop Entry]
 Version=1.0
@@ -127,8 +130,9 @@ EOF
     chmod 777 -R /opt/thunderbird
     mv thunderbird/* /opt/thunderbird/
     rm -rf thunderbird thunderbird-latest-linux64-pt-br.tar.bz2
-    mkdir -p /usr/local/bin /usr/local/share/applications
+    mkdir -p /usr/local/bin /usr/local/share/applications /usr/local/share/pixmaps
     ln -fs /opt/thunderbird/thunderbird /usr/local/bin/thunderbird
+    ln -fs /opt/thunderbird/chrome/icons/default/default128.png /usr/local/share/pixmaps/thunderbird.png
     cat <<EOF |tee /usr/local/share/applications/thunderbird.desktop>/dev/null
 [Desktop Entry]
 Encoding=UTF-8
@@ -156,7 +160,7 @@ Exec=thunderbird -addressbook
 EOF
 
     # LibreOffice
-    apt autoremove --purge -y *libreoffice*
+#    apt autoremove --purge -y *libreoffice*
 }
 
 # Used to version the configuration.  If breaking changes occur, manual
