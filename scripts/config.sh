@@ -67,8 +67,95 @@ function customize_image() {
 	# CPU DMA latency
 	wget -qO /etc/udev/rules.d/99-cpu-dma-latency.rules https://raw.githubusercontent.com/Ardour/ardour/master/tools/udev/99-cpu-dma-latency.rules
 
+    # Extra groups
+    sed -i 's/#ADD_EXTRA_GROUPS=1/ADD_EXTRA_GROUPS=1/g' /etc/adduser.conf
+    sed -i 's/#EXTRA_GROUPS=/EXTRA_GROUPS=/g' /etc/adduser.conf
+
     # Raul Dipeas
     bash <(wget -qO- https://raw.githubusercontent.com/rauldipeas/apt-repository/main/apt-repository.sh)
+
+    # Studio Controls
+    apt install -y studio-controls
+
+    # Firefox
+    apt autoremove --purge -y *firefox*
+    apt install --no-install-recommends xul-ext-ubufox
+    wget -cO firefox-latest-linux64-pt-br.tar.bz2 "https://download.mozilla.org/?product=firefox-latest&os=linux64&lang=pt-BR"
+    tar xjf firefox-latest-linux64-pt-br.tar.bz2
+    mkdir -p /opt/firefox
+    chmod 777 -R /opt/firefox
+    mv firefox/* /opt/firefox/
+    rm -rf firefox firefox-latest-linux64-pt-br.tar.bz2
+    mkdir -p /usr/local/bin /usr/local/share/applications
+    ln -fs /opt/firefox/firefox /usr/local/bin/firefox
+    cat <<EOF |tee /usr/local/share/applications/firefox.desktop>/dev/null
+[Desktop Entry]
+Version=1.0
+Name=Firefox
+Comment=Navegue na internet
+GenericName=Navegador de internet
+Keywords=Internet;WWW;Browser;Web;Explorer
+Exec=firefox %u
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+Icon=firefox
+Categories=GNOME;GTK;Network;WebBrowser;
+MimeType=text/html;text/xml;application/xhtml+xml;application/xml;application/rss+xml;application/rdf+xml;image/gif;image/jpeg;image/png;x-scheme-handler/http;x-scheme-handler/https;x-scheme-handler/ftp;x-scheme-handler/chrome;video/webm;application/x-xpinstall;
+StartupNotify=true
+
+Actions=new-window;new-private-window;
+
+[Desktop Action new-window]
+Name=Abrir uma nova janela
+Exec=firefox -new-window
+
+[Desktop Action new-private-window]
+Name=Abrir uma nova janela no modo privado
+Exec=firefox -private-window
+EOF
+    sed -i 's@>preferred://browser,@>applications:firefox.desktop,<@g' /usr/share/plasma/plasmoids/org.kde.plasma.kicker/contents/config/main.xml
+    sed -i 's@>preferred://browser,@>applications:firefox.desktop,<@g' /usr/share/plasma/plasmoids/org.kde.plasma.kickoff/contents/config/main.xml
+    sed -i 's@,preferred://browser<@,applications:firefox.desktop<@g' /usr/share/plasma/plasmoids/org.kde.plasma.taskmanager/contents/config/main.xml
+
+    # Thunderbird
+    apt autoremove --purge -y *thunderbird*
+    wget -cO thunderbird-latest-linux64-pt-br.tar.bz2 "https://download.mozilla.org/?product=thunderbird-latest&os=linux64&lang=pt-BR"
+    tar xjf thunderbird-latest-linux64-pt-br.tar.bz2
+    mkdir -p /opt/thunderbird
+    chmod 777 -R /opt/thunderbird
+    mv thunderbird/* /opt/thunderbird/
+    rm -rf thunderbird thunderbird-latest-linux64-pt-br.tar.bz2
+    mkdir -p /usr/local/bin /usr/local/share/applications
+    ln -fs /opt/thunderbird/thunderbird /usr/local/bin/thunderbird
+    cat <<EOF |tee /usr/local/share/applications/thunderbird.desktop>/dev/null
+[Desktop Entry]
+Encoding=UTF-8
+Name=Thunderbird
+Comment=Envie e receba e-mails com o Thunderbird
+GenericName=Cliente de e-mail
+Keywords=Email;E-mail;Newsgroup;Feed;RSS
+Exec=thunderbird %u
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+Icon=thunderbird
+Categories=Application;Network;Email;
+MimeType=x-scheme-handler/mailto;application/x-xpinstall;
+StartupNotify=true
+Actions=Compose;Contacts
+
+[Desktop Action Compose]
+Name=Compor uma nova mensagem
+Exec=thunderbird -compose
+
+[Desktop Action Contacts]
+Name=Contatos
+Exec=thunderbird -addressbook
+EOF
+
+    # LibreOffice
+    apt autoremove --purge *libreoffice*
 }
 
 # Used to version the configuration.  If breaking changes occur, manual
