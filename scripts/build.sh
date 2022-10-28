@@ -7,7 +7,8 @@ set -u                  # treat unset variable as error
 
 SCRIPT_DIR="$(dirname "$(readlink -f "$0")")"
 
-CMD=(setup_host debootstrap run_chroot build_iso)
+CMD=(setup_host extract_iso run_chroot build_iso)
+#CMD=(setup_host debootstrap run_chroot build_iso)
 
 DATE=`TZ="UTC" date +"%y%m%d-%H%M%S"`
 
@@ -108,6 +109,14 @@ function debootstrap() {
     sudo debootstrap  --arch=amd64 --variant=minbase $TARGET_UBUNTU_VERSION chroot $TARGET_UBUNTU_MIRROR
 }
 
+function extract_iso() {
+    echo "=====> running ectract_iso ... will take a couple of minutes ..."
+    wget https://cdimage.ubuntu.com/kubuntu/releases/$TARGET_UBUNTU_VERSION/release/kubuntu-TARGET_UBUNTU_VERSION_NUMBER-desktop-amd64.iso
+    mount -o loop kubuntu*.iso /mnt
+    mount -t squashfs -o loop /mnt/casper/filesystem.squashfs squashfs
+    rsync -av squashfs/ chroot
+}
+
 function run_chroot() {
     echo "=====> running run_chroot ..."
 
@@ -138,7 +147,7 @@ function build_iso() {
 
     rm -rf image
     mkdir -p image/{casper,isolinux,install}
-
+    
     # copy kernel files
     sudo cp chroot/boot/vmlinuz-*-lowlatency image/casper/vmlinuz
     sudo cp chroot/boot/initrd.img-*-lowlatency image/casper/initrd
@@ -188,6 +197,9 @@ menuentry "Testar memória Memtest86 (UEFI, longo período de carregamento)" {
    chainloader (loop,gpt1)/efi/boot/BOOTX64.efi
 }
 EOF
+
+    # copy default manifest files
+    cp /mnt/casper/*manifest* image/casper
 
     # generate manifest
     sudo chroot chroot dpkg-query -W --showformat='${Package} ${Version}\n' | sudo tee image/casper/filesystem.manifest
