@@ -114,7 +114,7 @@ function extract_iso() {
     wget https://cdimage.ubuntu.com/kubuntu/releases/$TARGET_UBUNTU_VERSION/release/kubuntu-$TARGET_UBUNTU_VERSION_NUMBER-desktop-amd64.iso
     sudo mount -o loop kubuntu*.iso /mnt
     mkdir squashfs
-    mount -t squashfs -o loop /mnt/casper/filesystem.squashfs squashfs
+    mount -t squashfs /mnt/casper/filesystem.squashfs squashfs
     rsync -av squashfs/ chroot
 }
 
