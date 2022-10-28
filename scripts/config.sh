@@ -155,7 +155,7 @@ Exec=thunderbird -addressbook
 EOF
 
     # LibreOffice
-    apt autoremove --purge *libreoffice*
+    apt autoremove --purge -y *libreoffice*
 }
 
 # Used to version the configuration.  If breaking changes occur, manual
