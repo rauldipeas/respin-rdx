@@ -61,7 +61,7 @@ function customize_image() {
 	# GRUB
 	echo 'GRUB_CMDLINE_LINUX_DEFAULT="cpufreq.default_governor=performance mitigations=off preempt=full quiet splash threadirqs"'|tee /etc/default/grub.d/cmdline-linux-default.cfg >/dev/null
 
-    # Swap
+    # Swapiness
     echo 'vm.swappiness = 10'|tee /etc/sysctl.d/swappiness.conf >/dev/null
 
 	# CPU DMA latency
