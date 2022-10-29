@@ -171,6 +171,8 @@ EOF
     apt install -y heroic
 
     # Steam
+    dpkg --add-architecture i386
+    apt update
     apt install -y steam-installer
 
     # deb-get
