@@ -49,7 +49,7 @@ function customize_image() {
 
     # MESA
     add-apt-repository -y ppa:kisak/kisak-mesa
-    apt dist-upgrade
+    apt dist-upgrade -y
 
 	# rtcqs
     apt install -y python3-pip python3-tk
