@@ -47,6 +47,9 @@ function customize_image() {
     add-apt-repository -y ppa:cappelikan/ppa
     apt install -y mainline
 
+    # Linux Generic
+    apt autoremove --purge -y linux*generic*
+
     # MESA
     add-apt-repository -y ppa:kisak/kisak-mesa
     apt dist-upgrade -y
