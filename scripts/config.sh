@@ -86,8 +86,7 @@ function customize_image() {
 
     # Firefox
     apt autoremove --purge -y *firefox* snapd
-    apt install --no-install-recommends xul-ext-ubufox
-    wget -cO firefox-latest-linux64-pt-br.tar.bz2 "https://download.mozilla.org/?product=firefox-latest&os=linux64&lang=pt-BR"
+    wget -qO firefox-latest-linux64-pt-br.tar.bz2 "https://download.mozilla.org/?product=firefox-latest&os=linux64&lang=pt-BR"
     tar xjf firefox-latest-linux64-pt-br.tar.bz2
     mkdir -p /opt/firefox
     chmod 777 -R /opt/firefox
@@ -135,7 +134,7 @@ EOF
 
     # Thunderbird
     apt autoremove --purge -y *thunderbird*
-    wget -cO thunderbird-latest-linux64-pt-br.tar.bz2 "https://download.mozilla.org/?product=thunderbird-latest&os=linux64&lang=pt-BR"
+    wget -qO thunderbird-latest-linux64-pt-br.tar.bz2 "https://download.mozilla.org/?product=thunderbird-latest&os=linux64&lang=pt-BR"
     tar xjf thunderbird-latest-linux64-pt-br.tar.bz2
     mkdir -p /opt/thunderbird
     chmod 777 -R /opt/thunderbird
