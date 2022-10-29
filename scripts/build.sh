@@ -101,7 +101,7 @@ function setup_host() {
     echo "=====> running setup_host ..."
     sudo apt update
     sudo apt install -y binutils debootstrap squashfs-tools xorriso grub-pc-bin grub-efi-amd64-bin mtools dosfstools unzip
-    sudo mkdir -p chroot
+    #sudo mkdir -p chroot
 }
 
 function debootstrap() {
@@ -110,7 +110,7 @@ function debootstrap() {
 }
 
 function extract_iso() {
-    echo "=====> running ectract_iso ... will take a couple of minutes ..."
+    echo "=====> running extract_iso ... will take a couple of minutes ..."
     wget -q https://cdimage.ubuntu.com/kubuntu/releases/$TARGET_UBUNTU_VERSION/release/kubuntu-$TARGET_UBUNTU_VERSION_NUMBER-desktop-amd64.iso
     sudo mount -o loop kubuntu-$TARGET_UBUNTU_VERSION_NUMBER-desktop-amd64.iso /mnt
     sudo unsquashfs /mnt/casper/filesystem.squashfs
