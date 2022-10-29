@@ -180,7 +180,7 @@ EOF
     wget -qO- https://raw.githubusercontent.com/wimpysworld/deb-get/main/deb-get|sudo -E bash -s install deb-get
 
     # TeamViewer
-    deb-get install teamviewer
+    #deb-get install teamviewer
 
     # LibreOffice
     #apt autoremove --purge -y *libreoffice*
