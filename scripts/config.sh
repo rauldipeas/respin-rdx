@@ -43,15 +43,13 @@ function customize_image() {
     # install graphics and desktop
     apt install -y kubuntu-desktop
 
-    # useful tools
-#    apt install -y \
-
-    # purge
-#    apt purge -y \
-
     # mainline
     add-apt-repository -y ppa:cappelikan/ppa
     apt install -y mainline
+
+    # MESA
+    add-apt-repository -y ppa:kisak/kisak-mesa
+    apt dist-upgrade
 
 	# rtcqs
     apt install -y python3-pip python3-tk
@@ -78,7 +76,7 @@ function customize_image() {
     # JACK
     add-apt-repository -y ppa:ubuntustudio-ppa/backports
     echo 'jackd2 jackd/tweak_rt_limits string true'|sudo debconf-set-selections
-    apt install -y jackd2
+    apt install --no-install-recommends -y jackd2
 
     # Firefox
     apt autoremove --purge -y *firefox*
@@ -118,9 +116,16 @@ Exec=firefox -new-window
 Name=Abrir uma nova janela no modo privado
 Exec=firefox -private-window
 EOF
+
     sed -i 's@>preferred://browser,@>applications:firefox.desktop,<@g' /usr/share/plasma/plasmoids/org.kde.plasma.kicker/contents/config/main.xml
     sed -i 's@>preferred://browser,@>applications:firefox.desktop,<@g' /usr/share/plasma/plasmoids/org.kde.plasma.kickoff/contents/config/main.xml
     sed -i 's@,preferred://browser<@,applications:firefox.desktop<@g' /usr/share/plasma/plasmoids/org.kde.plasma.taskmanager/contents/config/main.xml
+
+    # Firefox PWA
+    wget -qO- https://packagecloud.io/filips/FirefoxPWA/gpgkey|gpg --dearmor -o /etc/apt/trusted.gpg.d/firefoxpwa-keyring.gpg>/dev/null
+    echo 'deb https://packagecloud.io/filips/FirefoxPWA/any any main'|tee /etc/apt/sources.list.d/firefoxpwa.list>/dev/null
+    apt update
+    apt install --no-install-recommends -y firefoxpwa
 
     # Thunderbird
     apt autoremove --purge -y *thunderbird*
@@ -159,8 +164,26 @@ Name=Contatos
 Exec=thunderbird -addressbook
 EOF
 
+    # GameMode
+    apt install -y gamemode
+
+    # Heroic
+    apt install -y heroic
+
+    # Steam
+    apt install -y steam-installer
+
+    # deb-get
+    wget -qO- https://raw.githubusercontent.com/wimpysworld/deb-get/main/deb-get|sudo -E bash -s install deb-get
+
+    # TeamViewer
+    deb-get install teamviewer
+
     # LibreOffice
-#    apt autoremove --purge -y *libreoffice*
+    #apt autoremove --purge -y *libreoffice*
+
+    # Tilix
+    apt autoremove --purge -y *tilix*
 }
 
 # Used to version the configuration.  If breaking changes occur, manual

@@ -168,13 +168,13 @@ insmod all_video
 set default="0"
 set timeout=30
 
-menuentry "${GRUB_LIVEBOOT_LABEL}" {
-   linux /casper/vmlinuz boot=casper nopersistent cpufreq.default_governor=performance mitigations=off preempt=full quiet splash threadirqs ---
+menuentry "${GRUB_INSTALL_LABEL}" {
+   linux /casper/vmlinuz boot=casper cpufreq.default_governor=performance locale=pt_BR mitigations=off only-ubiquity preempt=full quiet splash threadirqs ---
    initrd /casper/initrd
 }
 
-menuentry "${GRUB_INSTALL_LABEL}" {
-   linux /casper/vmlinuz boot=casper only-ubiquity quiet splash ---
+menuentry "${GRUB_LIVEBOOT_LABEL}" {
+   linux /casper/vmlinuz boot=casper cpufreq.default_governor=performance locale=pt_BR mitigations=off nopersistent preempt=full quiet splash threadirqs ---
    initrd /casper/initrd
 }
 
