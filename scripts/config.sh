@@ -172,7 +172,8 @@ EOF
 
     # Steam
     dpkg --add-architecture i386
-    apt update
+    add-apt-repository -ny multiverse
+    add-apt-repository -y universe
     apt install -y steam-installer
 
     # deb-get
