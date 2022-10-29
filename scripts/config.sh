@@ -41,7 +41,7 @@ export TARGET_PACKAGE_REMOVE="
 # present on the installed system.
 function customize_image() {
     # install graphics and desktop
-    apt install -y kubuntu-desktop
+    #apt install -y kubuntu-desktop
 
     # mainline
     add-apt-repository -y ppa:cappelikan/ppa
@@ -50,6 +50,11 @@ function customize_image() {
     # MESA
     add-apt-repository -y ppa:kisak/kisak-mesa
     apt dist-upgrade -y
+
+    # JACK
+    add-apt-repository -y ppa:ubuntustudio-ppa/backports
+    echo 'jackd2 jackd/tweak_rt_limits string true'|sudo debconf-set-selections
+    apt install --no-install-recommends -y jackd2
 
 	# rtcqs
     apt install -y python3-pip python3-tk
@@ -73,13 +78,11 @@ function customize_image() {
     # Raul Dipeas
     bash <(wget -qO- https://raw.githubusercontent.com/rauldipeas/apt-repository/main/apt-repository.sh)
 
-    # JACK
-    add-apt-repository -y ppa:ubuntustudio-ppa/backports
-    echo 'jackd2 jackd/tweak_rt_limits string true'|sudo debconf-set-selections
-    apt install --no-install-recommends -y jackd2
+    # deb-get
+    wget -qO- https://raw.githubusercontent.com/wimpysworld/deb-get/main/deb-get|sudo -E bash -s install deb-get
 
     # Firefox
-    apt autoremove --purge -y *firefox*
+    apt autoremove --purge -y *firefox* snapd
     apt install --no-install-recommends xul-ext-ubufox
     wget -cO firefox-latest-linux64-pt-br.tar.bz2 "https://download.mozilla.org/?product=firefox-latest&os=linux64&lang=pt-BR"
     tar xjf firefox-latest-linux64-pt-br.tar.bz2
@@ -176,17 +179,6 @@ EOF
     add-apt-repository -y universe
     apt install -y steam-installer
 
-    # deb-get
-    wget -qO- https://raw.githubusercontent.com/wimpysworld/deb-get/main/deb-get|sudo -E bash -s install deb-get
-
-    # TeamViewer
-    #deb-get install teamviewer
-
-    # LibreOffice
-    #apt autoremove --purge -y *libreoffice*
-
-    # Tilix
-    apt autoremove --purge -y *tilix*
 }
 
 # Used to version the configuration.  If breaking changes occur, manual

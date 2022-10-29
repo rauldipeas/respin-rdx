@@ -7,7 +7,7 @@ set -u                  # treat unset variable as error
 
 SCRIPT_DIR="$(dirname "$(readlink -f "$0")")"
 
-CMD=(setup_host extract_iso debootstrap run_chroot build_iso)
+CMD=(setup_host extract_iso run_chroot build_iso)
 #CMD=(setup_host debootstrap run_chroot build_iso)
 
 DATE=`TZ="UTC" date +"%y%m%d-%H%M%S"`
@@ -113,6 +113,8 @@ function extract_iso() {
     echo "=====> running ectract_iso ... will take a couple of minutes ..."
     wget -q https://cdimage.ubuntu.com/kubuntu/releases/$TARGET_UBUNTU_VERSION/release/kubuntu-$TARGET_UBUNTU_VERSION_NUMBER-desktop-amd64.iso
     sudo mount -o loop kubuntu-$TARGET_UBUNTU_VERSION_NUMBER-desktop-amd64.iso /mnt
+    sudo unsquashfs /mnt/casper/filesystem.squashfs
+    sudo mv squashfs-root chroot
 }
 
 function run_chroot() {
