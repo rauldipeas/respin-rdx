@@ -70,7 +70,7 @@ EOF
 
     # we need to install systemd first, to configure machine id
     apt update
-    apt install -y libterm-readline-gnu-perl systemd-sysv
+#    apt install -y libterm-readline-gnu-perl systemd-sysv
 
     #configure machine id
     dbus-uuidgen > /etc/machine-id
@@ -99,24 +99,24 @@ function install_pkg() {
     apt -y upgrade
 
     # install live packages
-    apt install -y \
-    sudo \
-    ubuntu-standard \
-    casper \
-    discover \
-    laptop-detect \
-    os-prober \
-    network-manager \
-    resolvconf \
-    net-tools \
-    wireless-tools \
-    wpagui \
-    grub-common \
-    grub-gfxpayload-lists \
-    grub-pc \
-    grub-pc-bin \
-    grub2-common \
-    locales
+#    apt install -y \
+#    sudo \
+#    ubuntu-standard \
+#    casper \
+#    discover \
+#    laptop-detect \
+#    os-prober \
+#    network-manager \
+#    resolvconf \
+#    net-tools \
+#    wireless-tools \
+#    wpagui \
+#    grub-common \
+#    grub-gfxpayload-lists \
+#    grub-pc \
+#    grub-pc-bin \
+#    grub2-common \
+#    locales
     
     case $TARGET_UBUNTU_VERSION in
         "focal" | "bionic")
@@ -131,12 +131,12 @@ function install_pkg() {
     apt install -y --no-install-recommends $TARGET_KERNEL_PACKAGE
 
     # graphic installer - ubiquity
-    apt install -y \
-    ubiquity \
-    ubiquity-casper \
-    ubiquity-frontend-kde \
-    ubiquity-slideshow-kubuntu \
-    ubiquity-ubuntu-artwork
+#    apt install -y \
+#    ubiquity \
+#    ubiquity-casper \
+#    ubiquity-frontend-kde \
+#    ubiquity-slideshow-kubuntu \
+#    ubiquity-ubuntu-artwork
 
     # Call into config function
     customize_image
