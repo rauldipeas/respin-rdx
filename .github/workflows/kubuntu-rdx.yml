@@ -16,7 +16,7 @@ jobs:
       - name: Compilação do Kubuntu RDX
         run: |
           cd scripts
-          ./build.sh -
+          bash -x build.sh -
       - name: Upload dos artefatos
         uses: actions/upload-artifact@v3
         with:
