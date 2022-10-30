@@ -51,8 +51,8 @@ function customize_image() {
     apt autoremove --purge -y linux*generic*
 
     # MESA
-    add-apt-repository -y ppa:kisak/kisak-mesa
-    apt dist-upgrade -y
+    #add-apt-repository -y ppa:kisak/kisak-mesa
+    #apt dist-upgrade -y
 
     # JACK
     add-apt-repository -y ppa:ubuntustudio-ppa/backports
