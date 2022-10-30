@@ -148,8 +148,8 @@ function build_iso() {
     echo "=====> running build_iso ..."
 
     #rm -rf image
-    #mkdir -p image/{casper,isolinux,install}
     cp -r /mnt image
+    mkdir -p image/{casper,isolinux,install}
     
     # copy kernel files
     sudo cp chroot/boot/vmlinuz-*-lowlatency image/casper/vmlinuz
@@ -163,43 +163,43 @@ function build_iso() {
     #rm -f image/install/memtest86-usb.zip
 
     # grub
-    #touch image/ubuntu
-    #cat <<EOF > image/isolinux/grub.cfg
-#
-#search --set=root --file /ubuntu
-#
-#insmod all_video
-#
-#set default="0"
-#set timeout=30
-#
-#menuentry "${GRUB_INSTALL_LABEL}" {
-#   linux /casper/vmlinuz boot=casper cpufreq.default_governor=performance locale=pt_BR mitigations=off only-ubiquity preempt=full quiet splash threadirqs ---
-#   initrd /casper/initrd
-#}
-#
-#menuentry "${GRUB_LIVEBOOT_LABEL}" {
-#   linux /casper/vmlinuz boot=casper cpufreq.default_governor=performance locale=pt_BR mitigations=off nopersistent preempt=full quiet splash threadirqs ---
-#   initrd /casper/initrd
-#}
-#
-#menuentry "Pesquisar por defeitos na imagem de instalação" {
-#   linux /casper/vmlinuz boot=casper integrity-check quiet splash ---
-#   initrd /casper/initrd
-#}
-#
-#menuentry "Testar memória Memtest86+ (BIOS)" {
-#   linux16 /install/memtest86+
-#}
-#
-#menuentry "Testar memória Memtest86 (UEFI, longo período de carregamento)" {
-#   insmod part_gpt
-#   insmod search_fs_uuid
-#   insmod chain
-#   loopback loop /install/memtest86
-#   chainloader (loop,gpt1)/efi/boot/BOOTX64.efi
-#}
-#EOF
+    touch image/ubuntu
+    cat <<EOF > image/isolinux/grub.cfg
+
+search --set=root --file /ubuntu
+
+insmod all_video
+
+set default="0"
+set timeout=30
+
+menuentry "${GRUB_INSTALL_LABEL}" {
+   linux /casper/vmlinuz boot=casper cpufreq.default_governor=performance locale=pt_BR mitigations=off only-ubiquity preempt=full quiet splash threadirqs ---
+   initrd /casper/initrd
+}
+
+menuentry "${GRUB_LIVEBOOT_LABEL}" {
+   linux /casper/vmlinuz boot=casper cpufreq.default_governor=performance locale=pt_BR mitigations=off nopersistent preempt=full quiet splash threadirqs ---
+   initrd /casper/initrd
+}
+
+menuentry "Pesquisar por defeitos na imagem de instalação" {
+   linux /casper/vmlinuz boot=casper integrity-check quiet splash ---
+   initrd /casper/initrd
+}
+
+menuentry "Testar memória Memtest86+ (BIOS)" {
+   linux16 /install/memtest86+
+}
+
+menuentry "Testar memória Memtest86 (UEFI, longo período de carregamento)" {
+   insmod part_gpt
+   insmod search_fs_uuid
+   insmod chain
+   loopback loop /install/memtest86
+   chainloader (loop,gpt1)/efi/boot/BOOTX64.efi
+}
+EOF
 
     # copy default manifest files
 #    cp /mnt/casper/*manifest* image/casper
@@ -224,26 +224,26 @@ function build_iso() {
     printf $(sudo du -sx --block-size=1 chroot | cut -f1)|sudo tee image/casper/filesystem.size
 
     # create diskdefines
-#    cat <<EOF > image/README.diskdefines
-##define DISKNAME  ${GRUB_LIVEBOOT_LABEL}
-##define TYPE  binary
-##define TYPEbinary  1
-##define ARCH  amd64
-##define ARCHamd64  1
-##define DISKNUM  1
-##define DISKNUM1  1
-##define TOTALNUM  0
-##define TOTALNUM0  1
-#EOF
+    cat <<EOF > image/README.diskdefines
+#define DISKNAME  ${GRUB_LIVEBOOT_LABEL}
+#define TYPE  binary
+#define TYPEbinary  1
+#define ARCH  amd64
+#define ARCHamd64  1
+#define DISKNUM  1
+#define DISKNUM1  1
+#define TOTALNUM  0
+#define TOTALNUM0  1
+EOF
 
     # create iso image
-#    pushd $SCRIPT_DIR/image
-#    grub-mkstandalone \
-#        --format=x86_64-efi \
-#        --output=isolinux/bootx64.efi \
-#        --locales="" \
-#        --fonts="" \
-#        "boot/grub/grub.cfg=isolinux/grub.cfg"
+    pushd $SCRIPT_DIR/image
+    grub-mkstandalone \
+        --format=x86_64-efi \
+        --output=isolinux/bootx64.efi \
+        --locales="" \
+        --fonts="" \
+        "boot/grub/grub.cfg=isolinux/grub.cfg"
 
     (
         cd isolinux && \
@@ -253,16 +253,16 @@ function build_iso() {
         LC_CTYPE=C mcopy -i efiboot.img ./bootx64.efi ::efi/boot/
     )
 
-#    grub-mkstandalone \
-#        --format=i386-pc \
-#        --output=isolinux/core.img \
-#        --install-modules="linux16 linux normal iso9660 biosdisk memdisk search tar ls" \
-#        --modules="linux16 linux normal iso9660 biosdisk search" \
-#        --locales="" \
-#        --fonts="" \
-#        "boot/grub/grub.cfg=isolinux/grub.cfg"
+    grub-mkstandalone \
+        --format=i386-pc \
+        --output=isolinux/core.img \
+        --install-modules="linux16 linux normal iso9660 biosdisk memdisk search tar ls" \
+        --modules="linux16 linux normal iso9660 biosdisk search" \
+        --locales="" \
+        --fonts="" \
+        "boot/grub/grub.cfg=isolinux/grub.cfg"
 
-#    cat /usr/lib/grub/i386-pc/cdboot.img isolinux/core.img > isolinux/bios.img
+    cat /usr/lib/grub/i386-pc/cdboot.img isolinux/core.img > isolinux/bios.img
 
     sudo /bin/bash -c "(find . -type f -print0 | xargs -0 md5sum | grep -v -e 'md5sum.txt' -e 'bios.img' -e 'efiboot.img' > md5sum.txt)"
 
