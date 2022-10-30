@@ -51,7 +51,7 @@ function customize_image() {
     apt autoremove --purge -y linux*generic*
 
     # MESA
-    #add-apt-repository -y ppa:kisak/kisak-mesa
+    add-apt-repository -y ppa:kisak/kisak-mesa
     #apt dist-upgrade -y
 
     # JACK
