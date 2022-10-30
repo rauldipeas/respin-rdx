@@ -149,22 +149,22 @@ function build_iso() {
 
     #rm -rf image
     cp -r /mnt image
-    mkdir -p image/{casper,isolinux,install}
+    sudo mkdir -p image/{casper,isolinux,install}
     
     # copy kernel files
     sudo cp chroot/boot/vmlinuz-*-lowlatency image/casper/vmlinuz
     sudo cp chroot/boot/initrd.img-*-lowlatency image/casper/initrd
 
     # memtest86
-    #sudo cp chroot/boot/memtest86+.bin image/install/memtest86+
+    sudo cp chroot/boot/memtest86+.bin image/install/memtest86+
 
-    #wget --progress=dot https://www.memtest86.com/downloads/memtest86-usb.zip -O image/install/memtest86-usb.zip
-    #unzip -p image/install/memtest86-usb.zip memtest86-usb.img > image/install/memtest86
-    #rm -f image/install/memtest86-usb.zip
+    sudo wget --progress=dot https://www.memtest86.com/downloads/memtest86-usb.zip -O image/install/memtest86-usb.zip
+    sudo unzip -p image/install/memtest86-usb.zip memtest86-usb.img > image/install/memtest86
+    sudo rm -f image/install/memtest86-usb.zip
 
     # grub
-    touch image/ubuntu
-    cat <<EOF > image/isolinux/grub.cfg
+    sudo touch image/ubuntu
+    cat <<EOF |sudo tee image/isolinux/grub.cfg
 
 search --set=root --file /ubuntu
 
@@ -224,7 +224,7 @@ EOF
     printf $(sudo du -sx --block-size=1 chroot | cut -f1)|sudo tee image/casper/filesystem.size
 
     # create diskdefines
-    cat <<EOF > image/README.diskdefines
+    cat <<EOF |sudo tee image/README.diskdefines
 #define DISKNAME  ${GRUB_LIVEBOOT_LABEL}
 #define TYPE  binary
 #define TYPEbinary  1
