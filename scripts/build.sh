@@ -221,7 +221,7 @@ function build_iso() {
         -e "tmp/*" \
         -e "tmp/.*" \
         -e "swapfile"
-    printf $(sudo du -sx --block-size=1 chroot | cut -f1) > image/casper/filesystem.size
+    printf $(sudo du -sx --block-size=1 chroot | cut -f1)|sudo tee image/casper/filesystem.size
 
     # create diskdefines
 #    cat <<EOF > image/README.diskdefines
