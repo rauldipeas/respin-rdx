@@ -148,23 +148,23 @@ function build_iso() {
     echo "=====> running build_iso ..."
 
     #rm -rf image
-    cp -r /mnt image
-    sudo mkdir -p image/{casper,isolinux,install}
+    cp -rf /mnt image
+    mkdir -p image/{casper,isolinux,install}
     
     # copy kernel files
-    sudo cp chroot/boot/vmlinuz-*-lowlatency image/casper/vmlinuz
-    sudo cp chroot/boot/initrd.img-*-lowlatency image/casper/initrd
+    cp chroot/boot/vmlinuz-*-lowlatency image/casper/vmlinuz
+    cp chroot/boot/initrd.img-*-lowlatency image/casper/initrd
 
     # memtest86
-#    sudo cp chroot/boot/memtest86+.bin image/install/memtest86+
+    cp chroot/boot/memtest86+.bin image/install/memtest86+
 
-#    sudo wget --progress=dot https://www.memtest86.com/downloads/memtest86-usb.zip -O image/install/memtest86-usb.zip
-#    unzip -p image/install/memtest86-usb.zip memtest86-usb.img image/install/memtest86
-#    sudo rm -f image/install/memtest86-usb.zip
+    wget --progress=dot https://www.memtest86.com/downloads/memtest86-usb.zip -O image/install/memtest86-usb.zip
+    unzip -p image/install/memtest86-usb.zip memtest86-usb.img > image/install/memtest86
+    rm -f image/install/memtest86-usb.zip
 
     # grub
-    sudo touch image/ubuntu
-    cat <<EOF |sudo tee image/isolinux/grub.cfg
+    touch image/ubuntu
+    cat <<EOF > image/isolinux/grub.cfg
 
 search --set=root --file /ubuntu
 
@@ -188,31 +188,31 @@ menuentry "Pesquisar por defeitos na imagem de instalação" {
    initrd /casper/initrd
 }
 
-#menuentry "Testar memória Memtest86+ (BIOS)" {
-#   linux16 /install/memtest86+
-#}
+menuentry "Testar memória Memtest86+ (BIOS)" {
+   linux16 /install/memtest86+
+}
 
-#menuentry "Testar memória Memtest86 (UEFI, longo período de carregamento)" {
-#   insmod part_gpt
-#   insmod search_fs_uuid
-#   insmod chain
-#   loopback loop /install/memtest86
-#   chainloader (loop,gpt1)/efi/boot/BOOTX64.efi
-#}
+menuentry "Testar memória Memtest86 (UEFI, longo período de carregamento)" {
+   insmod part_gpt
+   insmod search_fs_uuid
+   insmod chain
+   loopback loop /install/memtest86
+   chainloader (loop,gpt1)/efi/boot/BOOTX64.efi
+}
 EOF
 
     # copy default manifest files
 #    cp /mnt/casper/*manifest* image/casper
 
     # generate manifest
-    sudo chroot chroot dpkg-query -W --showformat='${Package} ${Version}\n' | sudo tee image/casper/filesystem.manifest
-    sudo cp -v image/casper/filesystem.manifest image/casper/filesystem.manifest-desktop
+    chroot chroot dpkg-query -W --showformat='${Package} ${Version}\n' > image/casper/filesystem.manifest
+    cp -v image/casper/filesystem.manifest image/casper/filesystem.manifest-desktop
     for pkg in $TARGET_PACKAGE_REMOVE; do
-        sudo sed -i "/$pkg/d" image/casper/filesystem.manifest-desktop
+        sed -i "/$pkg/d" image/casper/filesystem.manifest-desktop
     done
 
     # compress rootfs
-    sudo mksquashfs chroot image/casper/filesystem.squashfs \
+    mksquashfs chroot image/casper/filesystem.squashfs \
         -noappend -no-duplicates -no-recovery \
         -wildcards \
         -e "var/cache/apt/archives/*" \
@@ -221,10 +221,10 @@ EOF
         -e "tmp/*" \
         -e "tmp/.*" \
         -e "swapfile"
-    printf $(sudo du -sx --block-size=1 chroot | cut -f1)|sudo tee image/casper/filesystem.size
+    printf $(sudo du -sx --block-size=1 chroot | cut -f1) > image/casper/filesystem.size
 
     # create diskdefines
-    cat <<EOF |sudo tee image/README.diskdefines
+    cat <<EOF > image/README.diskdefines
 #define DISKNAME  ${GRUB_LIVEBOOT_LABEL}
 #define TYPE  binary
 #define TYPEbinary  1
@@ -248,7 +248,7 @@ EOF
     (
         cd isolinux && \
         dd if=/dev/zero of=efiboot.img bs=1M count=10 && \
-        sudo mkfs.vfat efiboot.img && \
+        mkfs.vfat efiboot.img && \
         LC_CTYPE=C mmd -i efiboot.img efi efi/boot && \
         LC_CTYPE=C mcopy -i efiboot.img ./bootx64.efi ::efi/boot/
     )
@@ -264,9 +264,9 @@ EOF
 
     cat /usr/lib/grub/i386-pc/cdboot.img isolinux/core.img > isolinux/bios.img
 
-    sudo /bin/bash -c "(find . -type f -print0 | xargs -0 md5sum | grep -v -e 'md5sum.txt' -e 'bios.img' -e 'efiboot.img' > md5sum.txt)"
+    bash -c "(find . -type f -print0 | xargs -0 md5sum | grep -v -e 'md5sum.txt' -e 'bios.img' -e 'efiboot.img' > md5sum.txt)"
 
-    sudo xorriso \
+    xorriso \
         -as mkisofs \
         -iso-level 3 \
         -full-iso9660-filenames \
