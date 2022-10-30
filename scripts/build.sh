@@ -262,9 +262,9 @@ function build_iso() {
 #        --fonts="" \
 #        "boot/grub/grub.cfg=isolinux/grub.cfg"
 
-#    cat /usr/lib/grub/i386-pc/cdboot.img isolinux/core.img > isolinux/bios.img
+    cat /usr/lib/grub/i386-pc/cdboot.img isolinux/core.img | sudo tee isolinux/bios.img
 
-#    bash -c "(find . -type f -print0 | xargs -0 md5sum | grep -v -e 'md5sum.txt' -e 'bios.img' -e 'efiboot.img' > md5sum.txt)"
+    bash -c "(find . -type f -print0 | xargs -0 md5sum | grep -v -e 'md5sum.txt' -e 'bios.img' -e 'efiboot.img' | sudo tee md5sum.txt)"
 
     xorriso \
         -as mkisofs \
@@ -281,12 +281,12 @@ function build_iso() {
         -eltorito-alt-boot \
         -e EFI/efi.img \
         -no-emul-boot \
-        -append_partition 2 0xef ./efi.img \
+        -append_partition 2 0xef image/efi.img \
         -output "$SCRIPT_DIR/$TARGET_NAME.iso" \
-        -m "./efi.img" \
+        -m "image/efi.img" \
         -m "isolinux/bios.img" \
         -graft-points \
-           "/EFI/efiboot.img=./efi.img" \
+           "/EFI/efiboot.img=image/efi.img" \
            "/boot/grub/bios.img=isolinux/bios.img" \
            "."
 
