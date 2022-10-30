@@ -305,6 +305,7 @@ function build_iso() {
         --interval\:appended_partition_2\:all\:\: \
         -no-emul-boot \
         -partition_offset 16 /usr/share/cd-boot-images-amd64/tree \
+        -V "$$TARGET_NAME" \
         -volid "$TARGET_NAME" \
         -output "$SCRIPT_DIR/$TARGET_NAME.iso" \
         "."
