@@ -205,7 +205,7 @@ function build_iso() {
 #    cp /mnt/casper/*manifest* image/casper
 
     # generate manifest
-    chroot chroot dpkg-query -W --showformat='${Package} ${Version}\n' | sudo tee image/casper/filesystem.manifest
+    sudo chroot chroot dpkg-query -W --showformat='${Package} ${Version}\n' | sudo tee image/casper/filesystem.manifest
     sudo cp -v image/casper/filesystem.manifest image/casper/filesystem.manifest-desktop
     for pkg in $TARGET_PACKAGE_REMOVE; do
         sudo sed -i "/$pkg/d" image/casper/filesystem.manifest-desktop
