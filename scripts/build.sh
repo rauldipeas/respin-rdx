@@ -144,9 +144,9 @@ function run_chroot() {
 function build_iso() {
     echo "=====> running build_iso ..."
 
-    #rm -rf image
-    cp -rf /mnt image
-#    mkdir -p image/{casper,isolinux,install}
+    rm -rf image
+    mkdir -p image/{casper,isolinux,install}
+    cp -r /mnt/* image/
     
     # copy kernel files
     sudo cp chroot/boot/vmlinuz-*-lowlatency image/casper/vmlinuz
@@ -218,7 +218,7 @@ function build_iso() {
         -e "tmp/*" \
         -e "tmp/.*" \
         -e "swapfile"
-    printf $(sudo du -sx --block-size=1 chroot | cut -f1) | sudo tee image/casper/filesystem.size
+    printf $(sudo du -sx --block-size=1 chroot | cut -f1) > image/casper/filesystem.size
 
     # create diskdefines
 #    cat <<EOF > image/README.diskdefines
@@ -259,11 +259,11 @@ function build_iso() {
 #        --fonts="" \
 #        "boot/grub/grub.cfg=isolinux/grub.cfg"
 
-    cat /usr/lib/grub/i386-pc/cdboot.img isolinux/core.img | sudo tee isolinux/bios.img
+    cat /usr/lib/grub/i386-pc/cdboot.img isolinux/core.img > isolinux/bios.img
 
-    bash -c "(find . -type f -print0 | xargs -0 md5sum | grep -v -e 'md5sum.txt' -e 'bios.img' -e 'efiboot.img' | sudo tee md5sum.txt)"
+    sudo /bin/bash -c "(find . -type f -print0 | xargs -0 md5sum | grep -v -e 'md5sum.txt' -e 'bios.img' -e 'efiboot.img' > md5sum.txt)"
 
-    xorriso \
+    sudo xorriso \
         -as mkisofs \
         -iso-level 3 \
         -full-iso9660-filenames \
@@ -276,14 +276,14 @@ function build_iso() {
         --grub2-boot-info \
         --grub2-mbr /usr/lib/grub/i386-pc/boot_hybrid.img \
         -eltorito-alt-boot \
-        -e EFI/efi.img \
+        -e EFI/efiboot.img \
         -no-emul-boot \
-        -append_partition 2 0xef image/efi.img \
+        -append_partition 2 0xef isolinux/efiboot.img \
         -output "$SCRIPT_DIR/$TARGET_NAME.iso" \
-        -m "image/efi.img" \
+        -m "isolinux/efiboot.img" \
         -m "isolinux/bios.img" \
         -graft-points \
-           "/EFI/efiboot.img=image/efi.img" \
+           "/EFI/efiboot.img=isolinux/efiboot.img" \
            "/boot/grub/bios.img=isolinux/bios.img" \
            "."
 
