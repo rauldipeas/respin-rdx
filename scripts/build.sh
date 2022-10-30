@@ -222,43 +222,43 @@ function build_iso() {
     printf $(sudo du -sx --block-size=1 chroot | cut -f1) | sudo tee image/casper/filesystem.size
 
     # create diskdefines
-#    cat <<EOF > image/README.diskdefines
-##define DISKNAME  ${GRUB_LIVEBOOT_LABEL}
-##define TYPE  binary
-##define TYPEbinary  1
-##define ARCH  amd64
-##define ARCHamd64  1
-##define DISKNUM  1
-##define DISKNUM1  1
-##define TOTALNUM  0
-##define TOTALNUM0  1
-#EOF
+    cat <<EOF > image/README.diskdefines
+#define DISKNAME  ${GRUB_LIVEBOOT_LABEL}
+#define TYPE  binary
+#define TYPEbinary  1
+#define ARCH  amd64
+#define ARCHamd64  1
+#define DISKNUM  1
+#define DISKNUM1  1
+#define TOTALNUM  0
+#define TOTALNUM0  1
+EOF
 
     # create iso image
-#    pushd $SCRIPT_DIR/image
-#    grub-mkstandalone \
-#        --format=x86_64-efi \
-#        --output=isolinux/bootx64.efi \
-#        --locales="" \
-#        --fonts="" \
-#        "boot/grub/grub.cfg=isolinux/grub.cfg"
+    pushd $SCRIPT_DIR/image
+    grub-mkstandalone \
+        --format=x86_64-efi \
+        --output=isolinux/bootx64.efi \
+        --locales="" \
+        --fonts="" \
+        "boot/grub/grub.cfg=isolinux/grub.cfg"
 
-#    (
-#        cd isolinux && \
-#        dd if=/dev/zero of=efiboot.img bs=1M count=10 && \
-#        mkfs.vfat efiboot.img && \
-#        LC_CTYPE=C mmd -i efiboot.img efi efi/boot && \
-#        LC_CTYPE=C mcopy -i efiboot.img ./bootx64.efi ::efi/boot/
-#    )
+    (
+        cd isolinux && \
+        dd if=/dev/zero of=efiboot.img bs=1M count=10 && \
+        mkfs.vfat efiboot.img && \
+        LC_CTYPE=C mmd -i efiboot.img efi efi/boot && \
+        LC_CTYPE=C mcopy -i efiboot.img ./bootx64.efi ::efi/boot/
+    )
 
-#    grub-mkstandalone \
-#        --format=i386-pc \
-#        --output=isolinux/core.img \
-#        --install-modules="linux16 linux normal iso9660 biosdisk memdisk search tar ls" \
-#        --modules="linux16 linux normal iso9660 biosdisk search" \
-#        --locales="" \
-#        --fonts="" \
-#        "boot/grub/grub.cfg=isolinux/grub.cfg"
+    grub-mkstandalone \
+        --format=i386-pc \
+        --output=isolinux/core.img \
+        --install-modules="linux16 linux normal iso9660 biosdisk memdisk search tar ls" \
+        --modules="linux16 linux normal iso9660 biosdisk search" \
+        --locales="" \
+        --fonts="" \
+        "boot/grub/grub.cfg=isolinux/grub.cfg"
 
     cat /usr/lib/grub/i386-pc/cdboot.img isolinux/core.img > isolinux/bios.img
     sudo rm md5sum.txt
