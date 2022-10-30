@@ -96,7 +96,7 @@ function load_config() {
 
 function install_pkg() {
     echo "=====> running install_pkg ... will take a long time ..."
-    apt -y upgrade
+    #apt -y upgrade
 
     # install live packages
 #    apt install -y \
