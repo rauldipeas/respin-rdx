@@ -281,7 +281,7 @@ function build_iso() {
         -eltorito-alt-boot \
         -e EFI/efi.img \
         -no-emul-boot \
-        -append_partition 2 0xef isolinux/efiboot.img \
+        -append_partition 2 0xef ./efi.img \
         -output "$SCRIPT_DIR/$TARGET_NAME.iso" \
         -m "./efi.img" \
         -m "isolinux/bios.img" \
