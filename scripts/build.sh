@@ -146,7 +146,8 @@ function build_iso() {
 
     rm -rf image
     mkdir -p image/{casper,isolinux,install}
-    rsync -avp /mnt/ image
+    cp -r /mnt/* image/
+    chown $USER -Rv image
     
     # copy kernel files
     sudo cp chroot/boot/vmlinuz-*-lowlatency image/casper/vmlinuz
