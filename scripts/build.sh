@@ -260,9 +260,10 @@ function build_iso() {
 #        --fonts="" \
 #        "boot/grub/grub.cfg=isolinux/grub.cfg"
 
+    sudo rm isolinux/bios.img
     cat /usr/lib/grub/i386-pc/cdboot.img isolinux/core.img > isolinux/bios.img
-
-    sudo /bin/bash -c "(find . -type f -print0 | xargs -0 md5sum | grep -v -e 'md5sum.txt' -e 'bios.img' -e 'efiboot.img' > md5sum.txt)"
+    sudo rm md5sum.txt
+    sudo bash -c "(find . -type f -print0 | xargs -0 md5sum | grep -v -e 'md5sum.txt' -e 'bios.img' -e 'efiboot.img' > md5sum.txt)"
 
     sudo xorriso \
         -as mkisofs \
