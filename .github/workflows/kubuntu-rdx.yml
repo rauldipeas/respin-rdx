@@ -1,9 +1,10 @@
-name: Kubuntu RDX
+name: Neon RDX
 on:
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    branches:    
+      - 'main'
+  schedule:
+    - cron:  '0 */24 * * *'
   workflow_dispatch:
 jobs:
   build:

@@ -7,7 +7,7 @@
 
 # The version of Ubuntu to generate.  Successfully tested: bionic, cosmic, disco, eoan, focal, groovy, jammy
 # See https://wiki.ubuntu.com/DevelopmentCodeNames for details
-#export TARGET_UBUNTU_VERSION="jammy"
+export TARGET_UBUNTU_VERSION="jammy"
 #export TARGET_UBUNTU_VERSION_NUMBER="22.04.1"
 
 # The Ubuntu Mirror URL. It's better to change for faster download.
