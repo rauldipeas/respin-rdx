@@ -159,7 +159,7 @@ function build_iso() {
     sudo cp chroot/boot/memtest86+.bin image/install/memtest86+
 
     sudo wget --progress=dot https://www.memtest86.com/downloads/memtest86-usb.zip -O image/install/memtest86-usb.zip
-    sudo unzip -p image/install/memtest86-usb.zip memtest86-usb.img > image/install/memtest86
+    unzip -p image/install/memtest86-usb.zip memtest86-usb.img|sudo tee image/install/memtest86
     sudo rm -f image/install/memtest86-usb.zip
 
     # grub
