@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 # Actions cleanup
-PROJECT='rauldipeas/neon-rdx'
+PROJECT='rauldipeas/kubuntu-rdx'
 KEEP=1
 gh api\
 	repos/"$PROJECT"/actions/runs\

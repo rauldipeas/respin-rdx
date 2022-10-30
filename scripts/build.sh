@@ -111,12 +111,9 @@ function debootstrap() {
 
 function extract_iso() {
     echo "=====> running extract_iso ... will take a couple of minutes ..."
-    #wget -q https://cdimage.ubuntu.com/kubuntu/releases/$TARGET_UBUNTU_VERSION/release/kubuntu-$TARGET_UBUNTU_VERSION_NUMBER-desktop-amd64.iso
-    wget -q https://files.kde.org/neon/images/user/current/neon-user-current.iso
-    #sudo mount -o loop kubuntu-$TARGET_UBUNTU_VERSION_NUMBER-desktop-amd64.iso /mnt
-    sudo mount -o loop neon-user-current.iso /mnt
-    sudo unsquashfs /mnt/casper/filesystem.squashfs
-    sudo mv squashfs-root chroot
+    wget -q https://cdimage.ubuntu.com/kubuntu/releases/$TARGET_UBUNTU_VERSION/release/kubuntu-$TARGET_UBUNTU_VERSION_NUMBER-desktop-amd64.iso
+    sudo mount -o loop kubuntu-$TARGET_UBUNTU_VERSION_NUMBER-desktop-amd64.iso /mnt
+    sudo unsquashfs -d chroot /mnt/casper/filesystem.squashfs
 }
 
 function run_chroot() {

@@ -8,7 +8,7 @@
 # The version of Ubuntu to generate.  Successfully tested: bionic, cosmic, disco, eoan, focal, groovy, jammy
 # See https://wiki.ubuntu.com/DevelopmentCodeNames for details
 export TARGET_UBUNTU_VERSION="jammy"
-#export TARGET_UBUNTU_VERSION_NUMBER="22.04.1"
+export TARGET_UBUNTU_VERSION_NUMBER="22.04.1"
 
 # The Ubuntu Mirror URL. It's better to change for faster download.
 # More mirrors see: https://launchpad.net/ubuntu/+archivemirrors
@@ -20,13 +20,13 @@ export TARGET_KERNEL_PACKAGE="linux-lowlatency"
 
 # The file (no extension) of the ISO containing the generated disk image,
 # the volume id, and the hostname of the live environment are set from this name.
-export TARGET_NAME="neon-rdx"
+export TARGET_NAME="kubuntu-rdx"
 
 # The text label shown in GRUB for booting into the live environment
-export GRUB_LIVEBOOT_LABEL="Testar o Neon RDX sem instalar"
+export GRUB_LIVEBOOT_LABEL="Testar o Kubuntu RDX sem instalar"
 
 # The text label shown in GRUB for starting installation
-export GRUB_INSTALL_LABEL="Instalar o Neon RDX"
+export GRUB_INSTALL_LABEL="Instalar o Kubuntu RDX"
 
 # Packages to be removed from the target system after installation completes succesfully
 export TARGET_PACKAGE_REMOVE="
@@ -52,7 +52,7 @@ function customize_image() {
 
     # MESA
     add-apt-repository -y ppa:kisak/kisak-mesa
-    #apt dist-upgrade -y
+    apt dist-upgrade -y
 
     # JACK
     add-apt-repository -y ppa:ubuntustudio-ppa/backports
@@ -170,10 +170,10 @@ Exec=thunderbird -addressbook
 EOF
 
     # GameMode
-    apt install -y gamemode
+    #apt install -y gamemode
 
     # Heroic
-    apt install -y heroic
+    #apt install -y heroic
 
     # Steam
     #dpkg --add-architecture i386
@@ -181,6 +181,50 @@ EOF
     #add-apt-repository -y universe
     #apt install -y steam-installer
 
+    # Latte
+    apt install -y latte-dock
+
+    # HUD
+    apt install -y plasma-hud
+
+    # Bismith
+    apt install -y kwin-bismuth
+
+    # Papirus
+    add-apt-repository -ny ppa:papirus/hardcode-tray
+    sed -i 's/jammy/focal/g' /etc/apt/sources.list.d/*hardcode-tray*.list #tmp-downgrade-fix
+    add-apt-repository -y ppa:papirus/papirus-dev
+    apt install -y hardcode-tray papirus-icon-theme papirus-folders
+    git clone -q https://github.com/PapirusDevelopmentTeam/materia-kde
+    sudo cp -r materia-kde/plasma/desktoptheme/Materia-Color/icons /usr/share/plasma/desktoptheme/breeze-light/
+    sudo cp -rf materia-kde/plasma/desktoptheme/Materia/icons /usr/share/plasma/desktoptheme/breeze-dark/
+    rm -r materia-kde
+    sed -i 's/ColorScheme=BreezeLight/ColorScheme=BreezeDark/g' /usr/share/plasma/look-and-feel/org.kubuntu.desktop/contents/defaults
+    sed -i 's/Theme=breeze/Theme=Papirus Dark/g' /usr/share/plasma/look-and-feel/org.kubuntu.desktop/contents/defaults
+
+    # Stremio
+    deb-get install stremio
+
+    # PulseEffects
+    apt install -y pulseeffects
+
+    # System monitoring center
+    deb-get install system-monitoring-center
+
+    # CPU-X
+    apt install -y cpu-x
+
+    # GNOME disks
+    apt install -y gnome-disk-utility
+
+    # Synaptic
+    apt install -y synaptic
+
+    # Syncthing
+    deb-get install syncthing
+
+    # Timeshift
+    apt install -y timeshift
 }
 
 # Used to version the configuration.  If breaking changes occur, manual
