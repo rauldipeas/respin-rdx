@@ -222,71 +222,93 @@ function build_iso() {
     printf $(sudo du -sx --block-size=1 chroot | cut -f1) | sudo tee image/casper/filesystem.size
 
     # create diskdefines
-    cat <<EOF > image/README.diskdefines
-#define DISKNAME  ${GRUB_LIVEBOOT_LABEL}
-#define TYPE  binary
-#define TYPEbinary  1
-#define ARCH  amd64
-#define ARCHamd64  1
-#define DISKNUM  1
-#define DISKNUM1  1
-#define TOTALNUM  0
-#define TOTALNUM0  1
-EOF
+#    cat <<EOF > image/README.diskdefines
+##define DISKNAME  ${GRUB_LIVEBOOT_LABEL}
+##define TYPE  binary
+##define TYPEbinary  1
+##define ARCH  amd64
+##define ARCHamd64  1
+##define DISKNUM  1
+##define DISKNUM1  1
+##define TOTALNUM  0
+##define TOTALNUM0  1
+#EOF
 
     # create iso image
-    pushd $SCRIPT_DIR/image
-    grub-mkstandalone \
-        --format=x86_64-efi \
-        --output=isolinux/bootx64.efi \
-        --locales="" \
-        --fonts="" \
-        "boot/grub/grub.cfg=isolinux/grub.cfg"
+ #   pushd $SCRIPT_DIR/image
+ #   grub-mkstandalone \
+ #       --format=x86_64-efi \
+ #       --output=isolinux/bootx64.efi \
+ #       --locales="" \
+ #       --fonts="" \
+ #       "boot/grub/grub.cfg=isolinux/grub.cfg"
 
-    (
-        cd isolinux && \
-        dd if=/dev/zero of=efiboot.img bs=1M count=10 && \
-        mkfs.vfat efiboot.img && \
-        LC_CTYPE=C mmd -i efiboot.img efi efi/boot && \
-        LC_CTYPE=C mcopy -i efiboot.img ./bootx64.efi ::efi/boot/
-    )
+ #   (
+ #       cd isolinux && \
+ #       dd if=/dev/zero of=efiboot.img bs=1M count=10 && \
+ #       mkfs.vfat efiboot.img && \
+ #       LC_CTYPE=C mmd -i efiboot.img efi efi/boot && \
+ #       LC_CTYPE=C mcopy -i efiboot.img ./bootx64.efi ::efi/boot/
+ #   )
 
-    grub-mkstandalone \
-        --format=i386-pc \
-        --output=isolinux/core.img \
-        --install-modules="linux16 linux normal iso9660 biosdisk memdisk search tar ls" \
-        --modules="linux16 linux normal iso9660 biosdisk search" \
-        --locales="" \
-        --fonts="" \
-        "boot/grub/grub.cfg=isolinux/grub.cfg"
+ #   grub-mkstandalone \
+ #       --format=i386-pc \
+ #       --output=isolinux/core.img \
+ #       --install-modules="linux16 linux normal iso9660 biosdisk memdisk search tar ls" \
+ #       --modules="linux16 linux normal iso9660 biosdisk search" \
+ #       --locales="" \
+ #       --fonts="" \
+ #       "boot/grub/grub.cfg=isolinux/grub.cfg"
 
-    cat /usr/lib/grub/i386-pc/cdboot.img isolinux/core.img > isolinux/bios.img
+#    cat /usr/lib/grub/i386-pc/cdboot.img isolinux/core.img > isolinux/bios.img
     sudo rm md5sum.txt
     sudo bash -c "(find . -type f -print0 | xargs -0 md5sum | grep -v -e 'md5sum.txt' -e 'bios.img' -e 'efiboot.img' > md5sum.txt)"
 
+#    sudo xorriso \
+#        -as mkisofs \
+#        -iso-level 3 \
+#        -full-iso9660-filenames \
+#        -volid "$TARGET_NAME" \
+#        -eltorito-boot boot/grub/bios.img \
+#        -no-emul-boot \
+#        -boot-load-size 4 \
+#        -boot-info-table \
+#        --eltorito-catalog boot/grub/boot.cat \
+#        --grub2-boot-info \
+#        --grub2-mbr /usr/lib/grub/i386-pc/boot_hybrid.img \
+#        -eltorito-alt-boot \
+#        -e EFI/efiboot.img \
+#        -no-emul-boot \
+#        -append_partition 2 0xef isolinux/efiboot.img \
+#        -output "$SCRIPT_DIR/$TARGET_NAME.iso" \
+#        -m "isolinux/efiboot.img" \
+#        -m "isolinux/bios.img" \
+#        -graft-points \
+#           "/EFI/efiboot.img=isolinux/efiboot.img" \
+#           "/boot/grub/bios.img=isolinux/bios.img" \
+#           "."
     sudo xorriso \
         -as mkisofs \
-        -iso-level 3 \
-        -full-iso9660-filenames \
-        -volid "$TARGET_NAME" \
-        -eltorito-boot boot/grub/bios.img \
-        -no-emul-boot \
-        -boot-load-size 4 \
+        -r \
+        -checksum_algorithm_iso md5,sha1 \
+        -J \
+        -joliet-long \
+        -l \
+        -b boot/grub/i386-pc/eltorito.img \
+        -no-emul-boot -boot-load-size 4 \
         -boot-info-table \
-        --eltorito-catalog boot/grub/boot.cat \
         --grub2-boot-info \
-        --grub2-mbr /usr/lib/grub/i386-pc/boot_hybrid.img \
+        --grub2-mbr /usr/share/cd-boot-images-amd64/images/boot/grub/i386-pc/boot_hybrid.img \
+        -append_partition 2 0xef /usr/share/cd-boot-images-amd64/images/boot/grub/efi.img \
+        -appended_part_as_gpt \
         -eltorito-alt-boot \
-        -e EFI/efiboot.img \
+        -e \
+        --interval\:appended_partition_2\:all\:\: \
         -no-emul-boot \
-        -append_partition 2 0xef isolinux/efiboot.img \
+        -partition_offset 16 /usr/share/cd-boot-images-amd64/tree \
+        -volid "$TARGET_NAME" \
         -output "$SCRIPT_DIR/$TARGET_NAME.iso" \
-        -m "isolinux/efiboot.img" \
-        -m "isolinux/bios.img" \
-        -graft-points \
-           "/EFI/efiboot.img=isolinux/efiboot.img" \
-           "/boot/grub/bios.img=isolinux/bios.img" \
-           "."
+        "."
 
     popd
 }
