@@ -148,7 +148,7 @@ function build_iso() {
     echo "=====> running build_iso ..."
 
     #rm -rf image
-    cp -r /mnt image
+    cp -rf /mnt image
 #    mkdir -p image/{casper,isolinux,install}
     
     # copy kernel files
@@ -271,6 +271,7 @@ function build_iso() {
         -iso-level 3 \
         -full-iso9660-filenames \
         -volid "$TARGET_NAME" \
+        -eltorito-boot boot/grub/bios.img \
         -no-emul-boot \
         -boot-load-size 4 \
         -boot-info-table \
@@ -278,14 +279,15 @@ function build_iso() {
         --grub2-boot-info \
         --grub2-mbr /usr/lib/grub/i386-pc/boot_hybrid.img \
         -eltorito-alt-boot \
-        -e boot/grub/efi.img \
+        -e EFI/efi.img \
         -no-emul-boot \
-        -append_partition 2 0xef efi.img \
+        -append_partition 2 0xef isolinux/efiboot.img \
         -output "$SCRIPT_DIR/$TARGET_NAME.iso" \
-        -m "efi.img" \
+        -m "./efi.img" \
         -m "isolinux/bios.img" \
         -graft-points \
-           "/EFI/efiboot.img=efi.img" \
+           "/EFI/efiboot.img=./efi.img" \
+           "/boot/grub/bios.img=isolinux/bios.img" \
            "."
 
     popd
