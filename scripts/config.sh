@@ -7,8 +7,8 @@
 
 # The version of Ubuntu to generate.  Successfully tested: bionic, cosmic, disco, eoan, focal, groovy, jammy
 # See https://wiki.ubuntu.com/DevelopmentCodeNames for details
-export TARGET_UBUNTU_VERSION="jammy"
-export TARGET_UBUNTU_VERSION_NUMBER="22.04.1"
+#export TARGET_UBUNTU_VERSION="jammy"
+#export TARGET_UBUNTU_VERSION_NUMBER="22.04.1"
 
 # The Ubuntu Mirror URL. It's better to change for faster download.
 # More mirrors see: https://launchpad.net/ubuntu/+archivemirrors
@@ -20,13 +20,13 @@ export TARGET_KERNEL_PACKAGE="linux-lowlatency"
 
 # The file (no extension) of the ISO containing the generated disk image,
 # the volume id, and the hostname of the live environment are set from this name.
-export TARGET_NAME="kubuntu-rdx"
+export TARGET_NAME="neon-rdx"
 
 # The text label shown in GRUB for booting into the live environment
-export GRUB_LIVEBOOT_LABEL="Testar o Kubuntu RDX sem instalar"
+export GRUB_LIVEBOOT_LABEL="Testar o Neon RDX sem instalar"
 
 # The text label shown in GRUB for starting installation
-export GRUB_INSTALL_LABEL="Instalar o Kubuntu RDX"
+export GRUB_INSTALL_LABEL="Instalar o Neon RDX"
 
 # Packages to be removed from the target system after installation completes succesfully
 export TARGET_PACKAGE_REMOVE="
