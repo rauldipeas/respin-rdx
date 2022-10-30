@@ -156,11 +156,11 @@ function build_iso() {
     sudo cp chroot/boot/initrd.img-*-lowlatency image/casper/initrd
 
     # memtest86
-    sudo cp chroot/boot/memtest86+.bin image/install/memtest86+
+#    sudo cp chroot/boot/memtest86+.bin image/install/memtest86+
 
-    sudo wget --progress=dot https://www.memtest86.com/downloads/memtest86-usb.zip -O image/install/memtest86-usb.zip
-    unzip -p image/install/memtest86-usb.zip memtest86-usb.img|sudo tee image/install/memtest86
-    sudo rm -f image/install/memtest86-usb.zip
+#    sudo wget --progress=dot https://www.memtest86.com/downloads/memtest86-usb.zip -O image/install/memtest86-usb.zip
+#    unzip -p image/install/memtest86-usb.zip memtest86-usb.img image/install/memtest86
+#    sudo rm -f image/install/memtest86-usb.zip
 
     # grub
     sudo touch image/ubuntu
@@ -188,17 +188,17 @@ menuentry "Pesquisar por defeitos na imagem de instalação" {
    initrd /casper/initrd
 }
 
-menuentry "Testar memória Memtest86+ (BIOS)" {
-   linux16 /install/memtest86+
-}
+#menuentry "Testar memória Memtest86+ (BIOS)" {
+#   linux16 /install/memtest86+
+#}
 
-menuentry "Testar memória Memtest86 (UEFI, longo período de carregamento)" {
-   insmod part_gpt
-   insmod search_fs_uuid
-   insmod chain
-   loopback loop /install/memtest86
-   chainloader (loop,gpt1)/efi/boot/BOOTX64.efi
-}
+#menuentry "Testar memória Memtest86 (UEFI, longo período de carregamento)" {
+#   insmod part_gpt
+#   insmod search_fs_uuid
+#   insmod chain
+#   loopback loop /install/memtest86
+#   chainloader (loop,gpt1)/efi/boot/BOOTX64.efi
+#}
 EOF
 
     # copy default manifest files
