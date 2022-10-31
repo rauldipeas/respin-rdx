@@ -174,7 +174,6 @@ EOF
     sed -i 's/jammy/focal/g' /etc/apt/sources.list.d/*hardcode-tray*.list #tmp-downgrade-fix
     add-apt-repository -y ppa:papirus/papirus-dev
     apt install -y hardcode-tray papirus-icon-theme papirus-folders
-    papirus-folders -C breeze
     git clone -q https://github.com/PapirusDevelopmentTeam/materia-kde
     sudo cp -r materia-kde/plasma/desktoptheme/Materia-Color/icons /usr/share/plasma/desktoptheme/breeze-light/
     sudo cp -r materia-kde/plasma/desktoptheme/Materia/icons /usr/share/plasma/desktoptheme/breeze-dark/
