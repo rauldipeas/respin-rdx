@@ -7,8 +7,8 @@ set -u                  # treat unset variable as error
 
 SCRIPT_DIR="$(dirname "$(readlink -f "$0")")"
 
-CMD=(setup_host extract_iso run_chroot build_iso)
 #CMD=(setup_host debootstrap run_chroot build_iso)
+CMD=(setup_host extract_iso run_chroot build_iso)
 
 DATE=`TZ="UTC" date +"%y%m%d-%H%M%S"`
 
@@ -100,14 +100,15 @@ function check_config() {
 function setup_host() {
     echo "=====> running setup_host ..."
     sudo apt update
-    sudo apt install -y binutils debootstrap squashfs-tools xorriso grub-pc-bin grub-efi-amd64-bin mtools dosfstools unzip
+    #sudo apt install -y binutils debootstrap squashfs-tools xorriso grub-pc-bin grub-efi-amd64-bin mtools dosfstools unzip
+    sudo apt install -y binutils squashfs-tools xorriso grub-pc-bin grub-efi-amd64-bin mtools dosfstools unzip
     #sudo mkdir -p chroot
 }
 
-function debootstrap() {
-    echo "=====> running debootstrap ... will take a couple of minutes ..."
-    sudo debootstrap --arch=amd64 --variant=minbase $TARGET_UBUNTU_VERSION chroot $TARGET_UBUNTU_MIRROR
-}
+#function debootstrap() {
+#    echo "=====> running debootstrap ... will take a couple of minutes ..."
+#    sudo debootstrap --arch=amd64 --variant=minbase $TARGET_UBUNTU_VERSION chroot $TARGET_UBUNTU_MIRROR
+#}
 
 function extract_iso() {
     echo "=====> running extract_iso ... will take a couple of minutes ..."
@@ -144,7 +145,7 @@ function run_chroot() {
 function build_iso() {
     echo "=====> running build_iso ..."
 
-    rm -rf image
+    rm -r image
     mkdir -p image/{casper,isolinux,install}
     #cp -r /mnt/* image/
     #chown $USER -Rv image
@@ -154,11 +155,11 @@ function build_iso() {
     sudo cp chroot/boot/initrd.img-*-lowlatency image/casper/initrd
 
     # memtest86
-    cp chroot/boot/memtest86+.bin image/install/memtest86+
+    #cp chroot/boot/memtest86+.bin image/install/memtest86+
 
-    wget --progress=dot https://www.memtest86.com/downloads/memtest86-usb.zip -O image/install/memtest86-usb.zip
-    unzip -p image/install/memtest86-usb.zip memtest86-usb.img > image/install/memtest86
-    rm -f image/install/memtest86-usb.zip
+    #wget --progress=dot https://www.memtest86.com/downloads/memtest86-usb.zip -O image/install/memtest86-usb.zip
+    #unzip -p image/install/memtest86-usb.zip memtest86-usb.img > image/install/memtest86
+    #rm -f image/install/memtest86-usb.zip
 
     # grub
     touch image/ubuntu
@@ -168,9 +169,6 @@ search --set=root --file /ubuntu
 
 set timeout=30
 
-set menu_color_normal=white/black
-set menu_color_highlight=black/light-gray
-
 menuentry "${GRUB_LIVEBOOT_LABEL}" {
    linux /casper/vmlinuz boot=casper cpufreq.default_governor=performance locale=pt_BR maybe-ubiquity mitigations=off preempt=full quiet splash threadirqs ---
    initrd /casper/initrd
@@ -178,7 +176,7 @@ menuentry "${GRUB_LIVEBOOT_LABEL}" {
 EOF
 
     # copy default manifest files
-    cp /mnt/casper/*manifest* image/casper
+    #cp /mnt/casper/*manifest* image/casper
 
     # generate manifest
     sudo chroot chroot dpkg-query -W --showformat='${Package} ${Version}\n' | sudo tee image/casper/filesystem.manifest

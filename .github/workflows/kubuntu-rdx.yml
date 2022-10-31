@@ -1,7 +1,7 @@
 name: Kubuntu RDX
 on:
   push:
-    branches:    
+    branches:
       - 'main'
   schedule:
     - cron:  '0 */24 * * *'
@@ -25,4 +25,4 @@ jobs:
       - name: Limpeza de logs antigos
         run: bash scripts/actions-cleanup.sh
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}      
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}

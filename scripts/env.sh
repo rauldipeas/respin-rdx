@@ -11,7 +11,7 @@ sudo apt autoremove --purge -y\
     snapd
 sudo apt clean
 sudo swapoff -a
-sudo rm -rf\
+sudo rm -r\
     "$AGENT_TOOLSDIRECTORY"\
     /opt/az\
     /swapfile\
