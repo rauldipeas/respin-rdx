@@ -40,6 +40,7 @@ function customize_image() {
     # mainline
     add-apt-repository -y ppa:cappelikan/ppa
     apt install -y mainline
+    sed -i 's/Icon=mainline/Icon=mintsources-ppa/g' /usr/share/applications/mainline.desktop
 
     # Linux Generic
     apt autoremove --purge -y linux*generic*
@@ -50,23 +51,23 @@ function customize_image() {
 
     # JACK
     add-apt-repository -y ppa:ubuntustudio-ppa/backports
-    echo 'jackd2 jackd/tweak_rt_limits string true'|sudo debconf-set-selections
+    echo 'jackd2 jackd/tweak_rt_limits string true'|sudo debconf-set-selections>/dev/null
     apt install --no-install-recommends -y jackd2
-
-	# rtcqs
+    
+    # rtcqs
     apt install -y python3-pip python3-tk
-	pip install -q rtcqs
-	wget -qO /usr/share/applications/rtcqs.desktop https://github.com/autostatic/rtcqs/raw/main/rtcqs.desktop
-	wget -qO /usr/share/icons/rtcqs.svg https://github.com/autostatic/rtcqs/raw/main/rtcqs_logo.svg
-
-	# GRUB
-	echo 'GRUB_CMDLINE_LINUX_DEFAULT="cpufreq.default_governor=performance mitigations=off preempt=full quiet splash threadirqs"'|tee /etc/default/grub.d/cmdline-linux-default.cfg >/dev/null
+    pip install -q rtcqs
+    wget -qO /usr/share/applications/rtcqs.desktop https://github.com/autostatic/rtcqs/raw/main/rtcqs.desktop
+    wget -qO /usr/share/icons/rtcqs.svg https://github.com/autostatic/rtcqs/raw/main/rtcqs_logo.svg
+    
+    # GRUB
+    echo 'GRUB_CMDLINE_LINUX_DEFAULT="cpufreq.default_governor=performance mitigations=off preempt=full quiet splash threadirqs"'|tee /etc/default/grub.d/cmdline-linux-default.cfg>/dev/null
 
     # Swapiness
-    echo 'vm.swappiness = 10'|tee /etc/sysctl.d/swappiness.conf >/dev/null
-
-	# CPU DMA latency
-	wget -qO /etc/udev/rules.d/99-cpu-dma-latency.rules https://raw.githubusercontent.com/Ardour/ardour/master/tools/udev/99-cpu-dma-latency.rules
+    echo 'vm.swappiness = 10'|tee /etc/sysctl.d/swappiness.conf>/dev/null
+    
+    # CPU DMA latency
+    wget -qO /etc/udev/rules.d/99-cpu-dma-latency.rules https://raw.githubusercontent.com/Ardour/ardour/master/tools/udev/99-cpu-dma-latency.rules
 
     # Extra groups
     sed -i 's/#ADD_EXTRA_GROUPS=1/ADD_EXTRA_GROUPS=1/g' /etc/adduser.conf
@@ -85,10 +86,16 @@ function customize_image() {
     mkdir -p /opt/firefox
     chmod 777 -R /opt/firefox
     mv firefox/* /opt/firefox/
-    rm -rf firefox firefox-latest-linux64-pt-br.tar.bz2
+    rm -r firefox firefox-latest-linux64-pt-br.tar.bz2
     mkdir -p /usr/local/bin /usr/local/share/applications /usr/local/share/pixmaps
     ln -fs /opt/firefox/firefox /usr/local/bin/firefox
     ln -fs /opt/firefox/browser/chrome/icons/default/default128.png /usr/local/share/pixmaps/firefox.png
+    sed -i 's@>preferred://browser,@>firefox.desktop,@g' /usr/share/plasma/plasmoids/org.kde.plasma.kicker/contents/config/main.xml
+    sed -i 's@>preferred://browser,@>firefox.desktop,@g' /usr/share/plasma/plasmoids/org.kde.plasma.kickoff/contents/config/main.xml
+    sed -i 's@,preferred://browser<@,applications:firefox.desktop<@g' /usr/share/plasma/plasmoids/org.kde.plasma.taskmanager/contents/config/main.xml    
+    cat <<EOF |tee /opt/firefox/defaults/pref/csd.js>/dev/null
+pref("browser.tabs.inTitlebar", 1);
+EOF
     cat <<EOF |tee /usr/local/share/applications/firefox.desktop>/dev/null
 [Desktop Entry]
 Version=1.0
@@ -116,10 +123,6 @@ Name=Abrir uma nova janela no modo privado
 Exec=firefox -private-window
 EOF
 
-    sed -i 's@>preferred://browser,@>firefox.desktop,<@g' /usr/share/plasma/plasmoids/org.kde.plasma.kicker/contents/config/main.xml
-    sed -i 's@>preferred://browser,@>firefox.desktop,<@g' /usr/share/plasma/plasmoids/org.kde.plasma.kickoff/contents/config/main.xml
-    sed -i 's@,preferred://browser<@,applications:firefox.desktop<@g' /usr/share/plasma/plasmoids/org.kde.plasma.taskmanager/contents/config/main.xml
-
     # Thunderbird
     apt autoremove --purge -y *thunderbird*
     wget -qO thunderbird-latest-linux64-pt-br.tar.bz2 "https://download.mozilla.org/?product=thunderbird-latest&os=linux64&lang=pt-BR"
@@ -127,7 +130,7 @@ EOF
     mkdir -p /opt/thunderbird
     chmod 777 -R /opt/thunderbird
     mv thunderbird/* /opt/thunderbird/
-    rm -rf thunderbird thunderbird-latest-linux64-pt-br.tar.bz2
+    rm -r thunderbird thunderbird-latest-linux64-pt-br.tar.bz2
     mkdir -p /usr/local/bin /usr/local/share/applications /usr/local/share/pixmaps
     ln -fs /opt/thunderbird/thunderbird /usr/local/bin/thunderbird
     ln -fs /opt/thunderbird/chrome/icons/default/default128.png /usr/local/share/pixmaps/thunderbird.png
@@ -171,11 +174,13 @@ EOF
     sed -i 's/jammy/focal/g' /etc/apt/sources.list.d/*hardcode-tray*.list #tmp-downgrade-fix
     add-apt-repository -y ppa:papirus/papirus-dev
     apt install -y hardcode-tray papirus-icon-theme papirus-folders
+    papirus-folders -C breeze
     git clone -q https://github.com/PapirusDevelopmentTeam/materia-kde
     sudo cp -r materia-kde/plasma/desktoptheme/Materia-Color/icons /usr/share/plasma/desktoptheme/breeze-light/
-    sudo cp -rf materia-kde/plasma/desktoptheme/Materia/icons /usr/share/plasma/desktoptheme/breeze-dark/
+    sudo cp -r materia-kde/plasma/desktoptheme/Materia/icons /usr/share/plasma/desktoptheme/breeze-dark/
     rm -r materia-kde
     sed -i 's/start-here-kde/distributor-logo-kubuntu/g' /usr/share/plasma/plasmoids/org.kde.plasma.kickoff/contents/config/main.xml
+    sed -i 's/start-here-kde/distributor-logo-kubuntu/g' /usr/share/plasma/plasmoids/org.kde.plasma.kicker/contents/config/main.xml    
     cat <<EOF |tee /usr/share/plasma/look-and-feel/org.kubuntu.desktop/contents/defaults
 [kdeglobals][KDE]
 widgetStyle=Breeze
@@ -205,9 +210,6 @@ LayoutName=org.kde.breeze.desktop
 library=org.kde.breeze
 EOF
 
-    # PulseEffects
-    apt install -y pulseeffects
-
     # System monitoring center
     deb-get install system-monitoring-center
 
@@ -220,11 +222,23 @@ EOF
     # Synaptic
     apt install -y synaptic
 
-    # Syncthing
-    deb-get install syncthing
-
     # Timeshift
     apt install -y timeshift
+    
+    # purge
+    apt autoremove --purge -y\
+    	*elisa*\
+	*kmahjongg*\
+	*kmines*\
+	*konversation*\
+	*krdc*\
+	*ksudoku*\
+	*ksystemlog*\
+    	*libreoffice*\
+    	*partitionmanager*\
+	*plasma-systemmonitor*\
+	*skanlite*\
+	*usb-creator-kde*
 }
 
 # Used to version the configuration.  If breaking changes occur, manual
