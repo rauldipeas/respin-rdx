@@ -76,8 +76,8 @@ function check_host() {
 
 # Load configuration values from file
 function load_config() {
-    if [[ -f "$SCRIPT_DIR/config.sh" ]]; then
-        . "$SCRIPT_DIR/config.sh"
+    if [[ -f "$SCRIPT_DIR/config-neon.sh" ]]; then
+        . "$SCRIPT_DIR/config-neon.sh"
     elif [[ -f "$SCRIPT_DIR/default_config.sh" ]]; then
         . "$SCRIPT_DIR/default_config.sh"
     else
@@ -112,8 +112,8 @@ function setup_host() {
 
 function extract_iso() {
     echo "=====> running extract_iso ... will take a couple of minutes ..."
-    wget -q https://cdimage.ubuntu.com/kubuntu/releases/$TARGET_UBUNTU_VERSION/release/kubuntu-$TARGET_UBUNTU_VERSION_NUMBER-desktop-amd64.iso
-    sudo mount -o loop kubuntu-$TARGET_UBUNTU_VERSION_NUMBER-desktop-amd64.iso /mnt
+    wget -q https://files.kde.org/neon/images/user/current/neon-user-current.iso
+    sudo mount -o loop neon-user-current.iso /mnt
     sudo unsquashfs -d chroot /mnt/casper/filesystem.squashfs
 }
 
@@ -125,8 +125,8 @@ function run_chroot() {
     # Setup build scripts in chroot environment
     sudo ln -f $SCRIPT_DIR/chroot_build.sh chroot/root/chroot_build.sh
     sudo ln -f $SCRIPT_DIR/default_config.sh chroot/root/default_config.sh
-    if [[ -f "$SCRIPT_DIR/config.sh" ]]; then
-        sudo ln -f $SCRIPT_DIR/config.sh chroot/root/config.sh
+    if [[ -f "$SCRIPT_DIR/config-neon.sh" ]]; then
+        sudo ln -f $SCRIPT_DIR/config-neon.sh chroot/root/config.sh
     fi
 
     # Launch into chroot environment to build install image.
