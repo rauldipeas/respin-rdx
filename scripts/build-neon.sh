@@ -46,19 +46,19 @@ function find_index() {
 }
 
 function chroot_enter_setup() {
-    sudo mount --bind /dev chroot/dev
-    sudo mount --bind /run chroot/run
-    sudo chroot chroot mount none -t proc /proc
-    sudo chroot chroot mount none -t sysfs /sys
-    sudo chroot chroot mount none -t devpts /dev/pts
+    sudo mount --bind /dev neon/dev
+    sudo mount --bind /run neon/run
+    sudo chroot neon mount none -t proc /proc
+    sudo chroot neon mount none -t sysfs /sys
+    sudo chroot neon mount none -t devpts /dev/pts
 }
 
 function chroot_exit_teardown() {
-    sudo chroot chroot umount /proc
-    sudo chroot chroot umount /sys
-    sudo chroot chroot umount /dev/pts
-    sudo umount chroot/dev
-    sudo umount chroot/run
+    sudo chroot neon umount /proc
+    sudo chroot neon umount /sys
+    sudo chroot neon umount /dev/pts
+    sudo umount neon/dev
+    sudo umount neon/run
 }
 
 function check_host() {
@@ -106,15 +106,15 @@ function setup_host() {
 
 #function debootstrap() {
 #    echo "=====> running debootstrap ... will take a couple of minutes ..."
-#    sudo mkdir -p chroot
-#    sudo debootstrap --arch=amd64 --variant=minbase $TARGET_UBUNTU_VERSION chroot $TARGET_UBUNTU_MIRROR
+#    sudo mkdir -p neon
+#    sudo debootstrap --arch=amd64 --variant=minbase $TARGET_UBUNTU_VERSION neon $TARGET_UBUNTU_MIRROR
 #}
 
 function extract_iso() {
     echo "=====> running extract_iso ... will take a couple of minutes ..."
     wget -q https://files.kde.org/neon/images/user/current/neon-user-current.iso
     sudo mount -o loop neon-user-current.iso /mnt
-    sudo unsquashfs -d chroot /mnt/casper/filesystem.squashfs
+    sudo unsquashfs -d neon /mnt/casper/filesystem.squashfs
 }
 
 function run_chroot() {
@@ -123,20 +123,20 @@ function run_chroot() {
     chroot_enter_setup
 
     # Setup build scripts in chroot environment
-    sudo ln -f $SCRIPT_DIR/chroot_build.sh chroot/root/chroot_build.sh
-    sudo ln -f $SCRIPT_DIR/default_config.sh chroot/root/default_config.sh
+    sudo ln -f $SCRIPT_DIR/chroot_build.sh neon/root/chroot_build.sh
+    sudo ln -f $SCRIPT_DIR/default_config.sh neon/root/default_config.sh
     if [[ -f "$SCRIPT_DIR/config-neon.sh" ]]; then
-        sudo ln -f $SCRIPT_DIR/config-neon.sh chroot/root/config.sh
+        sudo ln -f $SCRIPT_DIR/config-neon.sh neon/root/config.sh
     fi
 
     # Launch into chroot environment to build install image.
-    sudo chroot chroot /usr/bin/env DEBIAN_FRONTEND=${DEBIAN_FRONTEND:-readline} /root/chroot_build.sh -
+    sudo chroot neon /usr/bin/env DEBIAN_FRONTEND=${DEBIAN_FRONTEND:-readline} /root/chroot_build.sh -
 
     # Cleanup after image changes
-    sudo rm -f chroot/root/chroot_build.sh
-    sudo rm -f chroot/root/default_config.sh
-    if [[ -f "chroot/root/config.sh" ]]; then
-        sudo rm -f chroot/root/config.sh
+    sudo rm -f neon/root/chroot_build.sh
+    sudo rm -f neon/root/default_config.sh
+    if [[ -f "neon/root/config.sh" ]]; then
+        sudo rm -f neon/root/config.sh
     fi
 
     chroot_exit_teardown
@@ -148,8 +148,8 @@ function build_iso() {
     mkdir -p image/{casper,isolinux,install}
     
     # copy kernel files
-    sudo cp chroot/boot/vmlinuz-*-lowlatency image/casper/vmlinuz
-    sudo cp chroot/boot/initrd.img-*-lowlatency image/casper/initrd
+    sudo cp neon/boot/vmlinuz-*-lowlatency image/casper/vmlinuz
+    sudo cp neon/boot/initrd.img-*-lowlatency image/casper/initrd
 
     # grub
     touch image/ubuntu
@@ -166,14 +166,14 @@ menuentry "${GRUB_LIVEBOOT_LABEL}" {
 EOF
 
     # generate manifest
-    sudo chroot chroot dpkg-query -W --showformat='${Package} ${Version}\n'|sudo tee image/casper/filesystem.manifest
+    sudo chroot neon dpkg-query -W --showformat='${Package} ${Version}\n'|sudo tee image/casper/filesystem.manifest
     sudo cp -v image/casper/filesystem.manifest image/casper/filesystem.manifest-desktop
     for pkg in $TARGET_PACKAGE_REMOVE; do
         sudo sed -i "/$pkg/d" image/casper/filesystem.manifest-desktop
     done
 
     # compress rootfs
-    sudo mksquashfs chroot image/casper/filesystem.squashfs\
+    sudo mksquashfs neon image/casper/filesystem.squashfs\
         -noappend -no-duplicates -no-recovery\
         -wildcards\
         -e "var/cache/apt/archives/*"\
@@ -183,7 +183,7 @@ EOF
         -e "tmp/.*"\
         -e "swapfile"\
         -comp xz
-    printf $(sudo du -sx --block-size=1 chroot|cut -f1)|sudo tee image/casper/filesystem.size
+    printf $(sudo du -sx --block-size=1 neon|cut -f1)|sudo tee image/casper/filesystem.size
 
     # create diskdefines
     cat <<EOF >image/README.diskdefines
