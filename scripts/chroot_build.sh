@@ -55,7 +55,7 @@ function check_host() {
 function setup_host() {
     echo "=====> running setup_host ..."
 
-   cat <<EOF > /etc/apt/sources.list
+   cat <<EOF >/etc/apt/sources.list
 deb $TARGET_UBUNTU_MIRROR $TARGET_UBUNTU_VERSION main restricted universe multiverse
 deb-src $TARGET_UBUNTU_MIRROR $TARGET_UBUNTU_VERSION main restricted universe multiverse
 
@@ -99,27 +99,27 @@ function install_pkg() {
     apt -y upgrade
 
     # install live packages
-    #apt install -y \
-    #sudo \
-    #ubuntu-standard \
-    #casper \
-    #discover \
-    #laptop-detect \
-    #os-prober \
-    #network-manager \
-    #resolvconf \
-    #net-tools \
-    #wireless-tools \
-    #wpagui \
-    #grub-common \
-    #grub-gfxpayload-lists \
-    #grub-pc \
-    #grub-pc-bin \
-    #grub2-common \
+    #apt install -y\
+    #sudo\
+    #ubuntu-standard\
+    #casper\
+    #discover\
+    #laptop-detect\
+    #os-prober\
+    #network-manager\
+    #resolvconf\
+    #net-tools\
+    #wireless-tools\
+    #wpagui\
+    #grub-common\
+    #grub-gfxpayload-lists\
+    #grub-pc\
+    #grub-pc-bin\
+    #grub2-common\
     #locales
     
     case $TARGET_UBUNTU_VERSION in
-        "focal" | "bionic")
+        "focal"|"bionic")
             apt install -y lupin-casper
             ;;
         *)
@@ -131,11 +131,11 @@ function install_pkg() {
     apt install -y --no-install-recommends $TARGET_KERNEL_PACKAGE
 
     # graphic installer - ubiquity
-    #apt install -y \
-    #ubiquity \
-    #ubiquity-casper \
-    #ubiquity-frontend-kde \
-    #ubiquity-slideshow-kubuntu \
+    #apt install -y\
+    #ubiquity\
+    #ubiquity-casper\
+    #ubiquity-frontend-kde\
+    #ubiquity-slideshow-kubuntu\
     #ubiquity-ubuntu-artwork
 
     # Call into config function
@@ -149,7 +149,7 @@ function install_pkg() {
     #dpkg-reconfigure resolvconf
 
     # network manager
-    #cat <<EOF > /etc/NetworkManager/NetworkManager.conf
+    #cat <<EOF >/etc/NetworkManager/NetworkManager.conf
 #[main]
 #rc-manager=resolvconf
 #plugins=ifupdown,keyfile

@@ -29,7 +29,7 @@ export GRUB_INSTALL_LABEL="Install Ubuntu FS"
 
 # Packages to be removed from the target system after installation completes succesfully
 export TARGET_PACKAGE_REMOVE="
-    ubiquity \
+    ubiquity\
     casper \
     discover \
     laptop-detect \
