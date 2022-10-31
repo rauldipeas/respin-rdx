@@ -16,7 +16,7 @@ jobs:
       - name: Compilação do Neon RDX
         run: |
           cd scripts
-          bash -x build.sh -
+          bash -x build-neon.sh -
       - name: Upload dos artefatos
         uses: actions/upload-artifact@v3
         with:
