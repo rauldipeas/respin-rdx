@@ -228,17 +228,17 @@ EOF
     # purge
     apt autoremove --purge -y\
     	*elisa*\
-	*kmahjongg*\
-	*kmines*\
-	*konversation*\
-	*krdc*\
-	*ksudoku*\
-	*ksystemlog*\
-    	*libreoffice*\
-    	*partitionmanager*\
-	*plasma-systemmonitor*\
-	*skanlite*\
-	*usb-creator-kde*
+	    *kmahjongg*\
+	    *kmines*\
+	    *konversation*\
+	    *krdc*\
+	    *ksudoku*\
+	    *ksystemlog*\
+        *libreoffice*\
+        *partitionmanager*\
+	    *plasma-systemmonitor*\
+	    *skanlite*\
+	    *usb-creator-kde*
 }
 
 # Used to version the configuration.  If breaking changes occur, manual
