@@ -15,13 +15,13 @@ jobs:
         run: bash scripts/env.sh
       - name: Compilação do Neon RDX
         run: |
-          cd scripts/neon
+          cd scripts
           bash -x build.sh -
       - name: Upload dos artefatos
         uses: actions/upload-artifact@v3
         with:
           name: neon-rdx
-          path: /home/runner/work/kubuntu-rdx/kubuntu-rdx/scripts/neon/neon-rdx.iso
+          path: /home/runner/work/kubuntu-rdx/kubuntu-rdx/scripts/neon-rdx.iso
       - name: Limpeza de logs antigos
         run: bash scripts/actions-cleanup.sh
         env:

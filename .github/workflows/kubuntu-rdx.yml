@@ -15,13 +15,13 @@ jobs:
         run: bash scripts/env.sh
       - name: Compilação do Kubuntu RDX
         run: |
-          cd scripts/kubuntu
-          bash -x build.sh -
+          cd scripts
+          bash -x build-kubuntu.sh -
       - name: Upload dos artefatos
         uses: actions/upload-artifact@v3
         with:
           name: kubuntu-rdx
-          path: /home/runner/work/kubuntu-rdx/kubuntu-rdx/scripts/kubuntu/kubuntu-rdx.iso
+          path: /home/runner/work/kubuntu-rdx/kubuntu-rdx/scripts/kubuntu-rdx.iso
       - name: Limpeza de logs antigos
         run: bash scripts/actions-cleanup.sh
         env:
