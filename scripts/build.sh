@@ -102,11 +102,11 @@ function setup_host() {
     sudo apt update
     #sudo apt install -y binutils debootstrap squashfs-tools xorriso grub-pc-bin grub-efi-amd64-bin mtools dosfstools unzip
     sudo apt install -y binutils squashfs-tools xorriso grub-pc-bin grub-efi-amd64-bin mtools dosfstools unzip
-    #sudo mkdir -p chroot
 }
 
 #function debootstrap() {
 #    echo "=====> running debootstrap ... will take a couple of minutes ..."
+#    sudo mkdir -p chroot
 #    sudo debootstrap --arch=amd64 --variant=minbase $TARGET_UBUNTU_VERSION chroot $TARGET_UBUNTU_MIRROR
 #}
 
@@ -145,21 +145,11 @@ function run_chroot() {
 function build_iso() {
     echo "=====> running build_iso ..."
 
-    rm -r image
     mkdir -p image/{casper,isolinux,install}
-    #cp -r /mnt/* image/
-    #chown $USER -Rv image
     
     # copy kernel files
     sudo cp chroot/boot/vmlinuz-*-lowlatency image/casper/vmlinuz
     sudo cp chroot/boot/initrd.img-*-lowlatency image/casper/initrd
-
-    # memtest86
-    #cp chroot/boot/memtest86+.bin image/install/memtest86+
-
-    #wget --progress=dot https://www.memtest86.com/downloads/memtest86-usb.zip -O image/install/memtest86-usb.zip
-    #unzip -p image/install/memtest86-usb.zip memtest86-usb.img > image/install/memtest86
-    #rm -f image/install/memtest86-usb.zip
 
     # grub
     touch image/ubuntu
@@ -174,9 +164,6 @@ menuentry "${GRUB_LIVEBOOT_LABEL}" {
    initrd /casper/initrd
 }
 EOF
-
-    # copy default manifest files
-    #cp /mnt/casper/*manifest* image/casper
 
     # generate manifest
     sudo chroot chroot dpkg-query -W --showformat='${Package} ${Version}\n' | sudo tee image/casper/filesystem.manifest

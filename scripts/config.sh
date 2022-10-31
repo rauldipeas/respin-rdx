@@ -223,6 +223,9 @@ EOF
 
     # Timeshift
     apt install -y timeshift
+
+    # CFS Zen tweaks
+    apt install -y cfs-zen-tweaks
     
     # purge
     apt autoremove --purge -y\
