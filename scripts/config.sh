@@ -227,6 +227,12 @@ EOF
     # CFS Zen tweaks
     apt install -y cfs-zen-tweaks
     
+    # UnRAR
+    apt install -y unrar
+
+    # APT rollback
+    apt install -y apt-rollback
+
     # purge
     apt autoremove --purge -y\
     	*elisa*\
