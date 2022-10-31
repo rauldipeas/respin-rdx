@@ -244,6 +244,7 @@ EOF
 	    *ksystemlog*\
         *libreoffice*\
         *partitionmanager*\
+        *pavucontrol*\
 	    *plasma-systemmonitor*\
 	    *skanlite*\
 	    *usb-creator-kde*

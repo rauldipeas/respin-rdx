@@ -182,6 +182,7 @@ EOF
         -e "tmp/*" \
         -e "tmp/.*" \
         -e "swapfile"
+        -comp xz
     printf $(sudo du -sx --block-size=1 chroot | cut -f1) | sudo tee image/casper/filesystem.size
 
     # create diskdefines
