@@ -14,6 +14,4 @@ sudo swapoff -a
 sudo rm -r\
     "$AGENT_TOOLSDIRECTORY"\
     /opt/az\
-    /swapfile\
-    /usr/share/dotnet\
-    /usr/local/share/boost
+    /usr/share/dotnet
