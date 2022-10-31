@@ -209,9 +209,6 @@ LayoutName=org.kde.breeze.desktop
 library=org.kde.breeze
 EOF
 
-    # System monitoring center
-    deb-get install system-monitoring-center
-
     # CPU-X
     apt install -y cpu-x
 
@@ -241,11 +238,9 @@ EOF
 	    *konversation*\
 	    *krdc*\
 	    *ksudoku*\
-	    *ksystemlog*\
         *libreoffice*\
         *partitionmanager*\
         *pavucontrol*\
-	    *plasma-systemmonitor*\
 	    *skanlite*\
 	    *usb-creator-kde*
 }
