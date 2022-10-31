@@ -23,10 +23,7 @@ export TARGET_KERNEL_PACKAGE="linux-lowlatency"
 export TARGET_NAME="kubuntu-rdx"
 
 # The text label shown in GRUB for booting into the live environment
-export GRUB_LIVEBOOT_LABEL="Testar o Kubuntu RDX sem instalar"
-
-# The text label shown in GRUB for starting installation
-export GRUB_INSTALL_LABEL="Instalar o Kubuntu RDX"
+export GRUB_LIVEBOOT_LABEL="Iniciar o Kubuntu RDX"
 
 # Packages to be removed from the target system after installation completes succesfully
 export TARGET_PACKAGE_REMOVE="
@@ -40,9 +37,6 @@ export TARGET_PACKAGE_REMOVE="
 # Package customisation function.  Update this function to customize packages
 # present on the installed system.
 function customize_image() {
-    # install graphics and desktop
-    #apt install -y kubuntu-desktop
-
     # mainline
     add-apt-repository -y ppa:cappelikan/ppa
     apt install -y mainline
@@ -122,15 +116,9 @@ Name=Abrir uma nova janela no modo privado
 Exec=firefox -private-window
 EOF
 
-    sed -i 's@>preferred://browser,@>applications:firefox.desktop,<@g' /usr/share/plasma/plasmoids/org.kde.plasma.kicker/contents/config/main.xml
-    sed -i 's@>preferred://browser,@>applications:firefox.desktop,<@g' /usr/share/plasma/plasmoids/org.kde.plasma.kickoff/contents/config/main.xml
+    sed -i 's@>preferred://browser,@>firefox.desktop,<@g' /usr/share/plasma/plasmoids/org.kde.plasma.kicker/contents/config/main.xml
+    sed -i 's@>preferred://browser,@>firefox.desktop,<@g' /usr/share/plasma/plasmoids/org.kde.plasma.kickoff/contents/config/main.xml
     sed -i 's@,preferred://browser<@,applications:firefox.desktop<@g' /usr/share/plasma/plasmoids/org.kde.plasma.taskmanager/contents/config/main.xml
-
-    # Firefox PWA
-    wget -qO- https://packagecloud.io/filips/FirefoxPWA/gpgkey|gpg --dearmor -o /etc/apt/trusted.gpg.d/firefoxpwa-keyring.gpg>/dev/null
-    echo 'deb https://packagecloud.io/filips/FirefoxPWA/any any main'|tee /etc/apt/sources.list.d/firefoxpwa.list>/dev/null
-    apt update
-    apt install --no-install-recommends -y firefoxpwa
 
     # Thunderbird
     apt autoremove --purge -y *thunderbird*
@@ -169,18 +157,6 @@ Name=Contatos
 Exec=thunderbird -addressbook
 EOF
 
-    # GameMode
-    #apt install -y gamemode
-
-    # Heroic
-    #apt install -y heroic
-
-    # Steam
-    #dpkg --add-architecture i386
-    #add-apt-repository -ny multiverse
-    #add-apt-repository -y universe
-    #apt install -y steam-installer
-
     # Latte
     apt install -y latte-dock
 
@@ -199,11 +175,35 @@ EOF
     sudo cp -r materia-kde/plasma/desktoptheme/Materia-Color/icons /usr/share/plasma/desktoptheme/breeze-light/
     sudo cp -rf materia-kde/plasma/desktoptheme/Materia/icons /usr/share/plasma/desktoptheme/breeze-dark/
     rm -r materia-kde
-    sed -i 's/ColorScheme=BreezeLight/ColorScheme=BreezeDark/g' /usr/share/plasma/look-and-feel/org.kubuntu.desktop/contents/defaults
-    sed -i 's/Theme=breeze/Theme=Papirus Dark/g' /usr/share/plasma/look-and-feel/org.kubuntu.desktop/contents/defaults
+    sed -i 's/start-here-kde/distributor-logo-kubuntu/g' /usr/share/plasma/plasmoids/org.kde.plasma.kickoff/contents/config/main.xml
+    cat <<EOF |tee /usr/share/plasma/look-and-feel/org.kubuntu.desktop/contents/defaults
+[kdeglobals][KDE]
+widgetStyle=Breeze
 
-    # Stremio
-    deb-get install stremio
+[kdeglobals][General]
+ColorScheme=BreezeDark
+
+[kdeglobals][Icons]
+Theme=Papirus-Dark
+
+[plasmarc][Theme]
+name=breeze-dark
+
+[Wallpaper]
+Image=Altai
+
+[kcminputrc][Mouse]
+cursorTheme=Breeze_Snow
+
+[kwinrc][WindowSwitcher]
+LayoutName=org.kde.breeze.desktop
+
+[kwinrc][DesktopSwitcher]
+LayoutName=org.kde.breeze.desktop
+
+[kwinrc][org.kde.kdecoration2]
+library=org.kde.breeze
+EOF
 
     # PulseEffects
     apt install -y pulseeffects

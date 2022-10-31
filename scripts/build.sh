@@ -166,36 +166,14 @@ function build_iso() {
 
 search --set=root --file /ubuntu
 
-insmod all_video
-
-set default="0"
 set timeout=30
 
-menuentry "${GRUB_INSTALL_LABEL}" {
-   linux /casper/vmlinuz boot=casper cpufreq.default_governor=performance locale=pt_BR mitigations=off only-ubiquity preempt=full quiet splash threadirqs ---
-   initrd /casper/initrd
-}
+set menu_color_normal=white/black
+set menu_color_highlight=black/light-gray
 
 menuentry "${GRUB_LIVEBOOT_LABEL}" {
-   linux /casper/vmlinuz boot=casper cpufreq.default_governor=performance locale=pt_BR mitigations=off nopersistent preempt=full quiet splash threadirqs ---
+   linux /casper/vmlinuz boot=casper cpufreq.default_governor=performance locale=pt_BR maybe-ubiquity mitigations=off preempt=full quiet splash threadirqs ---
    initrd /casper/initrd
-}
-
-menuentry "Pesquisar por defeitos na imagem de instalação" {
-   linux /casper/vmlinuz boot=casper integrity-check quiet splash ---
-   initrd /casper/initrd
-}
-
-menuentry "Testar memória Memtest86+ (BIOS)" {
-   linux16 /install/memtest86+
-}
-
-menuentry "Testar memória Memtest86 (UEFI, longo período de carregamento)" {
-   insmod part_gpt
-   insmod search_fs_uuid
-   insmod chain
-   loopback loop /install/memtest86
-   chainloader (loop,gpt1)/efi/boot/BOOTX64.efi
 }
 EOF
 
