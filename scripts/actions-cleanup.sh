@@ -2,7 +2,7 @@
 set -e
 # Actions cleanup
 PROJECT='rauldipeas/kubuntu-rdx'
-KEEP=1
+KEEP=2
 gh api\
 	repos/"$PROJECT"/actions/runs\
 	--paginate -q '.workflow_runs[]|select(.head_branch != "any")|"\(.id)"'|tail -n+$((KEEP+1))\
