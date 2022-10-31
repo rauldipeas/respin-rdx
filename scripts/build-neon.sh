@@ -130,7 +130,7 @@ function run_chroot() {
     fi
 
     # Launch into chroot environment to build install image.
-    sudo chroot neon /usr/bin/env DEBIAN_FRONTEND=${DEBIAN_FRONTEND:-readline} /root/chroot_build.sh -
+    sudo chroot neon /usr/bin/env DEBIAN_FRONTEND=${DEBIAN_FRONTEND:-readline} bash /root/chroot_build.sh -
 
     # Cleanup after image changes
     sudo rm -f neon/root/chroot_build.sh
