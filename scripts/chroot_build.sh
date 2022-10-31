@@ -173,8 +173,6 @@ function finish_up() {
     # remove diversion (why??)
     rm /sbin/initctl
     dpkg-divert --rename --remove /sbin/initctl
-
-    rm -r /tmp/* ~/.bash_history
 }
 
 # =============   main  ================
