@@ -129,6 +129,7 @@ function install_pkg() {
     
     # install kernel
     apt install -y --no-install-recommends $TARGET_KERNEL_PACKAGE
+    update-initramfs -u -k "$(find /boot/|grep vmlinuz|grep -v old|tail -n1|sed 's@/boot/vmlinuz-@@g')"
 
     # graphic installer - ubiquity
     #apt install -y\

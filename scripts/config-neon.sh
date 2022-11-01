@@ -15,7 +15,7 @@ export TARGET_UBUNTU_MIRROR="http://br.archive.ubuntu.com/ubuntu/"
 
 # The packaged version of the Linux kernel to install on target image.
 # See https://wiki.ubuntu.com/Kernel/LTSEnablementStack for details
-export TARGET_KERNEL_PACKAGE="linux-lowlatency"
+export TARGET_KERNEL_PACKAGE="linux-rdx"
 
 # The file (no extension) of the ISO containing the generated disk image,
 # the volume id, and the hostname of the live environment are set from this name.
@@ -71,6 +71,10 @@ function customize_image() {
     # Extra groups
     sed -i 's/#ADD_EXTRA_GROUPS=1/ADD_EXTRA_GROUPS=1/g' /etc/adduser.conf
     sed -i 's/#EXTRA_GROUPS=/EXTRA_GROUPS=/g' /etc/adduser.conf
+
+    # XDG portal
+    mkdir -p /etc/skel/.config/systemd/user
+    ln -sf /dev/null /etc/skel/.config/systemd/user/xdg-desktop-portal.service
 
     # Raul Dipeas
     bash <(wget -qO- https://raw.githubusercontent.com/rauldipeas/apt-repository/main/apt-repository.sh)
