@@ -185,13 +185,13 @@ EOF
 widgetStyle=Breeze
 
 [kdeglobals][General]
-ColorScheme=BreezeDark
+ColorScheme=BreezeLight
 
 [kdeglobals][Icons]
-Theme=Papirus-Dark
+Theme=Papirus
 
 [plasmarc][Theme]
-name=breeze-dark
+name=default
 
 [Wallpaper]
 Image=Altai
