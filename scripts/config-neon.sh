@@ -46,7 +46,7 @@ function customize_image() {
 
     # MESA
     add-apt-repository -y ppa:kisak/kisak-mesa
-    pkcon update -y
+    apt dist-upgrade -y
 
     # JACK
     add-apt-repository -y ppa:ubuntustudio-ppa/backports
