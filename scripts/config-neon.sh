@@ -38,7 +38,7 @@ export TARGET_PACKAGE_REMOVE="
 function customize_image() {
     # mainline
     add-apt-repository -y ppa:cappelikan/ppa
-    apt install -y mainline
+    pkcon -y mainline
     sed -i 's/Icon=mainline/Icon=mintsources-ppa/g' /usr/share/applications/mainline.desktop
 
     # Linux Generic
@@ -46,7 +46,7 @@ function customize_image() {
 
     # MESA
     add-apt-repository -y ppa:kisak/kisak-mesa
-    apt dist-upgrade -y
+    pkcon update -y
 
     # JACK
     add-apt-repository -y ppa:ubuntustudio-ppa/backports
@@ -54,7 +54,7 @@ function customize_image() {
     apt install --no-install-recommends -y jackd2
     
     # rtcqs
-    apt install -y python3-pip python3-tk
+    pkcon install -y python3-pip python3-tk
     pip install -q rtcqs
     wget -qO /usr/share/applications/rtcqs.desktop https://github.com/autostatic/rtcqs/raw/main/rtcqs.desktop
     wget -qO /usr/share/icons/rtcqs.svg https://github.com/autostatic/rtcqs/raw/main/rtcqs_logo.svg
@@ -161,16 +161,16 @@ Exec=thunderbird -addressbook
 EOF
 
     # HUD
-    apt install -y plasma-hud
+    pkcon install -y plasma-hud
 
     # Bismith
-    apt install -y kwin-bismuth
+    pkcon install -y kwin-bismuth
 
     # Papirus
     add-apt-repository -ny ppa:papirus/hardcode-tray
     sed -i 's/jammy/focal/g' /etc/apt/sources.list.d/*hardcode-tray*.list #tmp-downgrade-fix
     add-apt-repository -y ppa:papirus/papirus-dev
-    apt install -y hardcode-tray papirus-icon-theme papirus-folders
+    pkcon install -y hardcode-tray papirus-icon-theme papirus-folders
     git clone -q https://github.com/PapirusDevelopmentTeam/materia-kde
     sudo cp -r materia-kde/plasma/desktoptheme/Materia-Color/icons /usr/share/plasma/desktoptheme/breeze-light/
     sudo cp -r materia-kde/plasma/desktoptheme/Materia/icons /usr/share/plasma/desktoptheme/breeze-dark/
@@ -210,22 +210,22 @@ Theme=org.kde.Breeze
 EOF
 
     # GNOME disks
-    apt install -y gnome-disk-utility
+    pkcon install -y gnome-disk-utility
 
     # Synaptic
-    apt install -y synaptic
+    pkcon install -y synaptic
 
     # Timeshift
-    apt install -y timeshift
+    pkcon install -y timeshift
 
     # CFS Zen tweaks
-    apt install -y cfs-zen-tweaks
+    pkcon install -y cfs-zen-tweaks
     
     # UnRAR
-    apt install -y unrar
+    pkcon install -y unrar
 
     # APT rollback
-    apt install -y apt-rollback
+    pkcon install -y apt-rollback
 
     # purge
     apt autoremove --purge -y *partitionmanager*
