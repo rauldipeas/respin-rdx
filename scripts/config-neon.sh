@@ -5,6 +5,10 @@
 # Usage: Copy this file to config.sh and make changes there.  Keep this file (default_config.sh) as-is
 #   so that subsequent changes can be easily merged from upstream.  Keep all customiations in config.sh
 
+# The version of Ubuntu to generate.  Successfully tested: bionic, cosmic, disco, eoan, focal, groovy, jammy
+# See https://wiki.ubuntu.com/DevelopmentCodeNames for details
+export TARGET_UBUNTU_VERSION="jammy"
+
 # The Ubuntu Mirror URL. It's better to change for faster download.
 # More mirrors see: https://launchpad.net/ubuntu/+archivemirrors
 export TARGET_UBUNTU_MIRROR="http://br.archive.ubuntu.com/ubuntu/"
