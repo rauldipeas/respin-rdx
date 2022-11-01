@@ -69,7 +69,7 @@ EOF
     echo "$TARGET_NAME" > /etc/hostname
 
     # we need to install systemd first, to configure machine id
-    pkcon refresh
+    apt update
     #pkcon install -y libterm-readline-gnu-perl systemd-sysv
 
     #configure machine id
