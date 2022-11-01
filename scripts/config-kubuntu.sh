@@ -209,9 +209,6 @@ LayoutName=org.kde.breeze.desktop
 library=org.kde.breeze
 EOF
 
-    # CPU-X
-    apt install -y cpu-x
-
     # GNOME disks
     apt install -y gnome-disk-utility
 

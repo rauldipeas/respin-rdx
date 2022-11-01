@@ -5,11 +5,6 @@
 # Usage: Copy this file to config.sh and make changes there.  Keep this file (default_config.sh) as-is
 #   so that subsequent changes can be easily merged from upstream.  Keep all customiations in config.sh
 
-# The version of Ubuntu to generate.  Successfully tested: bionic, cosmic, disco, eoan, focal, groovy, jammy
-# See https://wiki.ubuntu.com/DevelopmentCodeNames for details
-export TARGET_UBUNTU_VERSION="jammy"
-export TARGET_UBUNTU_VERSION_NUMBER="22.04.1"
-
 # The Ubuntu Mirror URL. It's better to change for faster download.
 # More mirrors see: https://launchpad.net/ubuntu/+archivemirrors
 export TARGET_UBUNTU_MIRROR="http://br.archive.ubuntu.com/ubuntu/"
@@ -27,7 +22,7 @@ export GRUB_LIVEBOOT_LABEL="Iniciar o Neon RDX"
 
 # Packages to be removed from the target system after installation completes succesfully
 export TARGET_PACKAGE_REMOVE="
-    ubiquity \
+    calamares \
     casper \
     discover \
     laptop-detect \
@@ -160,9 +155,6 @@ Name=Contatos
 Exec=thunderbird -addressbook
 EOF
 
-    # Latte
-    apt install -y latte-dock
-
     # HUD
     apt install -y plasma-hud
 
@@ -191,7 +183,7 @@ ColorScheme=BreezeLight
 Theme=Papirus
 
 [plasmarc][Theme]
-name=default
+name=breeze-light
 
 [Wallpaper]
 Image=Altai
@@ -212,9 +204,6 @@ library=org.kde.breeze
 Theme=org.kde.Breeze
 EOF
 
-    # CPU-X
-    apt install -y cpu-x
-
     # GNOME disks
     apt install -y gnome-disk-utility
 
@@ -234,18 +223,7 @@ EOF
     apt install -y apt-rollback
 
     # purge
-    apt autoremove --purge -y\
-    	*elisa*\
-	    *kmahjongg*\
-	    *kmines*\
-	    *konversation*\
-	    *krdc*\
-	    *ksudoku*\
-        *libreoffice*\
-        *partitionmanager*\
-        *pavucontrol*\
-	    *skanlite*\
-	    *usb-creator-kde*
+    apt autoremove --purge -y *partitionmanager*
 }
 
 # Used to version the configuration.  If breaking changes occur, manual
