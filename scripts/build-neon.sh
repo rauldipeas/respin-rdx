@@ -99,7 +99,7 @@ function check_config() {
 
 function setup_host() {
     echo "=====> running setup_host ..."
-    apt upgrade -y
+    sudo apt upgrade -y
     #pkcon -y binutils debootstrap squashfs-tools xorriso grub-pc-bin grub-efi-amd64-bin mtools dosfstools unzip
     pkcon install -y binutils squashfs-tools xorriso grub-pc-bin grub-efi-amd64-bin mtools dosfstools unzip
 }
