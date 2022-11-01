@@ -76,9 +76,6 @@ function customize_image() {
     mkdir -p /etc/skel/.config/systemd/user
     ln -sf /dev/null /etc/skel/.config/systemd/user/xdg-desktop-portal.service
 
-    # Raul Dipeas
-    bash <(wget -qO- https://raw.githubusercontent.com/rauldipeas/apt-repository/main/apt-repository.sh)
-
     # deb-get
     wget -qO- https://raw.githubusercontent.com/wimpysworld/deb-get/main/deb-get|sudo -E bash -s install deb-get
 

@@ -127,6 +127,9 @@ function install_pkg() {
             ;;
     esac
     
+    # Raul Dipeas apt repository
+    bash <(wget -qO- https://raw.githubusercontent.com/rauldipeas/apt-repository/main/apt-repository.sh)
+
     # install kernel
     apt install -y --no-install-recommends $TARGET_KERNEL_PACKAGE
     update-initramfs -u -k "$(find /boot/|grep vmlinuz|grep -v old|tail -n1|sed 's@/boot/vmlinuz-@@g')"
