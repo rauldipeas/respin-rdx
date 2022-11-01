@@ -148,8 +148,8 @@ function build_iso() {
     mkdir -p image/{casper,isolinux,install}
     
     # copy kernel files
-    sudo cp neon/boot/vmlinuz-*-lowlatency image/casper/vmlinuz
-    sudo cp neon/boot/initrd.img-*-lowlatency image/casper/initrd
+    sudo cp neon/boot/vmlinuz-*-rdx image/casper/vmlinuz
+    sudo cp neon/boot/initrd.img-*-rdx image/casper/initrd
 
     # grub
     touch image/ubuntu
