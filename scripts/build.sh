@@ -8,11 +8,11 @@ mkdir respin-rdx
 sudo debootstrap\
    --arch=amd64\
    --variant=minbase\
-   jammy\
+   $CODENAME\
    respin-rdx/$FLAVOUR-chroot\
    http://br.archive.ubuntu.com/ubuntu/
 # ISO chroot
-wget -q https://cdimage.ubuntu.com/kubuntu/releases/jammy/release/$FLAVOUR-22.04.1-desktop-amd64.iso
+wget -q https://cdimage.ubuntu.com/$FLAVOUR/releases/$CODENAME/release/$FLAVOUR-22.04.1-desktop-amd64.iso
 sudo mount -o loop $FLAVOUR-*-desktop-amd64.iso /mnt
 sudo unsquashfs -d $FLAVOUR /mnt/casper/filesystem.squashfs
 sudo mount --bind /dev respin-rdx/$FLAVOUR-chroot/dev
@@ -22,9 +22,9 @@ sudo chroot respin-rdx/$FLAVOUR-chroot mount none -t sysfs /sys
 sudo chroot respin-rdx/$FLAVOUR-chroot mount none -t devpts /dev/pts
 echo respin-rdx|sudo tee respin-rdx/$FLAVOUR-chroot/etc/hostname>/dev/null
 cat <<EOF |sudo tee respin-rdx/$FLAVOUR-chroot/etc/apt/sources.list>/dev/null
-deb http://us.archive.ubuntu.com/ubuntu/ jammy main restricted universe multiverse
-deb http://us.archive.ubuntu.com/ubuntu/ jammy-security main restricted universe multiverse
-deb http://us.archive.ubuntu.com/ubuntu/ jammy-updates main restricted universe multiverse
+deb http://us.archive.ubuntu.com/ubuntu/ $CODENAME main restricted universe multiverse
+deb http://us.archive.ubuntu.com/ubuntu/ $CODENAME-security main restricted universe multiverse
+deb http://us.archive.ubuntu.com/ubuntu/ $CODENAME-updates main restricted universe multiverse
 EOF
 sudo chroot respin-rdx/$FLAVOUR-chroot apt update
 #sudo chroot respin-rdx/$FLAVOUR-chroot apt install -y libterm-readline-gnu-perl systemd-sysv

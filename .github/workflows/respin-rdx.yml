@@ -16,6 +16,7 @@ jobs:
       - name: Compilação do Ubuntu Respin RDX
         run: bash -x scripts/build.sh
         env:
+          CODENAME: jammy
           FLAVOUR: ubuntu 
           FLAVOUR_NAME: Ubuntu        
       - name: Upload dos artefatos (Ubuntu)
@@ -26,6 +27,7 @@ jobs:
       - name: Compilação do Kubuntu Respin RDX
         run: bash -x scripts/build.sh
         env:
+          CODENAME: jammy
           FLAVOUR: kubuntu 
           FLAVOUR_NAME: Kubuntu
       - name: Upload dos artefatos (Kubuntu)
@@ -36,6 +38,7 @@ jobs:
       - name: Compilação do Xubuntu Respin RDX
         run: bash -x scripts/build.sh
         env:
+          CODENAME: jammy
           FLAVOUR: xubuntu 
           FLAVOUR_NAME: Xubuntu
       - name: Upload dos artefatos (Xubuntu)
