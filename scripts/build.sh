@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e
-pkcon install -y binutils debootstrap xorriso mtools
+sudo apt install -y binutils debootstrap xorriso mtools
 #binutils binutils-common binutils-x86-64-linux-gnu debootstrap libbinutils libburn4 libctf-nobfd0 libctf0 libisoburn1 libisofs6 libjte2 mtools xorriso
 sudo rm -frv respin-rdx*
 mkdir respin-rdx
