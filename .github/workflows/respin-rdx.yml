@@ -11,19 +11,19 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v3
-#      - name: Configuração do ambiente de compilação
-#        run: bash scripts/env.sh
-#      - name: Compilação do Ubuntu Respin RDX
-#        run: bash -x scripts/build.sh
-#        env:
-#          CODENAME: jammy
-#          FLAVOUR: ubuntu 
-#          FLAVOUR_NAME: Ubuntu        
-#      - name: Upload dos artefatos (Ubuntu)
-#        uses: actions/upload-artifact@v3
-#        with:
-#          name: ubuntu-respin-rdx
-#          path: /home/runner/work/respin-rdx/ubuntu-respin-rdx.iso
+      - name: Configuração do ambiente de compilação
+        run: bash scripts/env.sh
+      - name: Compilação do Ubuntu Respin RDX
+        run: bash -x scripts/build.sh
+        env:
+          CODENAME: jammy
+          FLAVOUR: ubuntu 
+          FLAVOUR_NAME: Ubuntu        
+      - name: Upload dos artefatos (Ubuntu)
+        uses: actions/upload-artifact@v3
+        with:
+          name: ubuntu-respin-rdx
+          path: /home/runner/work/respin-rdx/ubuntu-respin-rdx.iso
       - name: Compilação do Kubuntu Respin RDX
         run: bash -x scripts/build.sh
         env:
