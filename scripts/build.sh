@@ -2,7 +2,7 @@
 set -e
 sudo apt install -y binutils debootstrap mtools squashfs-tools xorriso
 #binutils binutils-common binutils-x86-64-linux-gnu debootstrap libbinutils libburn4 libctf-nobfd0 libctf0 libisoburn1 libisofs6 libjte2 mtools xorriso
-sudo rm -frv respin-rdx*
+sudo rm -frv respin-rdx
 mkdir respin-rdx
 # Debootstrap
 sudo debootstrap\
@@ -123,7 +123,7 @@ sudo xorriso\
    -iso-level 3\
    -full-iso9660-filenames\
    -volid "$FLAVOUR_NAME Respin RDX"\
-   -output "../../$FLAVOUR-respin-rdx.iso"\
+   -output "/home/runner/work/respin-rdx/$FLAVOUR-respin-rdx.iso"\
    -eltorito-boot boot/grub/bios.img\
    -no-emul-boot\
    -boot-load-size 4\
