@@ -39,7 +39,8 @@ sudo ln -s respin-rdx/$FLAVOUR-chroot/bin/true respin-rdx/$FLAVOUR-chroot/sbin/i
 sudo chroot respin-rdx/$FLAVOUR-chroot apt dist-upgrade -y
 sudo chroot respin-rdx/$FLAVOUR-chroot apt install -y bash-completion casper sudo
 sudo chroot respin-rdx/$FLAVOUR-chroot apt install -y $FLAVOUR-desktop
-cat scripts/enhancements.sh|xargs sudo chroot respin-rdx/$FLAVOUR-chroot bash
+sudo cp scripts/enhancements.sh respin-rdx/$FLAVOUR-chroot
+sudo chroot respin-rdx/$FLAVOUR-chroot bash -x enhancements.sh
 sudo chroot respin-rdx/$FLAVOUR-chroot dpkg-reconfigure resolvconf
 cat <<EOF |sudo tee respin-rdx/$FLAVOUR-chroot/etc/NetworkManager/NetworkManager.conf>/dev/null
 [main]
