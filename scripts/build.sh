@@ -12,7 +12,11 @@ sudo debootstrap\
    respin-rdx/$FLAVOUR-chroot\
    http://br.archive.ubuntu.com/ubuntu/
 # ISO chroot
+if [ $FLAVOUR = ubuntu ]; then
+wget -q https://releases.ubuntu.com/22.04.1/ubuntu-22.04.1-desktop-amd64.iso
+else
 wget -q https://cdimage.ubuntu.com/$FLAVOUR/releases/$CODENAME/release/$FLAVOUR-22.04.1-desktop-amd64.iso
+fi
 sudo mount -o loop $FLAVOUR-*-desktop-amd64.iso /mnt
 sudo unsquashfs -d $FLAVOUR /mnt/casper/filesystem.squashfs
 sudo mount --bind /dev respin-rdx/$FLAVOUR-chroot/dev
@@ -27,7 +31,7 @@ deb http://us.archive.ubuntu.com/ubuntu/ $CODENAME-security main restricted univ
 deb http://us.archive.ubuntu.com/ubuntu/ $CODENAME-updates main restricted universe multiverse
 EOF
 sudo chroot respin-rdx/$FLAVOUR-chroot apt update
-#sudo chroot respin-rdx/$FLAVOUR-chroot apt install -y libterm-readline-gnu-perl systemd-sysv
+sudo chroot respin-rdx/$FLAVOUR-chroot apt install -y systemd-sysv #libterm-readline-gnu-perl
 sudo chroot respin-rdx/$FLAVOUR-chroot sh -c 'dbus-uuidgen|tee /etc/machine-id>/dev/null'
 sudo ln -fs respin-rdx/$FLAVOUR-chroot/etc/machine-id respin-rdx/$FLAVOUR-chroot/var/lib/dbus/machine-id
 sudo chroot respin-rdx/$FLAVOUR-chroot sh -c 'dpkg-divert --local --rename --add /sbin/initctl'
