@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e
-sudo apt install -y binutils debootstrap xorriso mtools
+sudo apt install -y binutils debootstrap mtools squashfs-tools xorriso
 #binutils binutils-common binutils-x86-64-linux-gnu debootstrap libbinutils libburn4 libctf-nobfd0 libctf0 libisoburn1 libisofs6 libjte2 mtools xorriso
 sudo rm -frv respin-rdx*
 mkdir respin-rdx
@@ -18,7 +18,7 @@ else
 wget -q https://cdimage.ubuntu.com/$FLAVOUR/releases/$CODENAME/release/$FLAVOUR-22.04.1-desktop-amd64.iso
 fi
 sudo mount -o loop $FLAVOUR-*-desktop-amd64.iso /mnt
-sudo unsquashfs -d $FLAVOUR /mnt/casper/filesystem.squashfs
+sudo unsquashfs -q -d $FLAVOUR /mnt/casper/filesystem.squashfs
 sudo mount --bind /dev respin-rdx/$FLAVOUR-chroot/dev
 sudo mount --bind /run respin-rdx/$FLAVOUR-chroot/run
 sudo chroot respin-rdx/$FLAVOUR-chroot mount none -t proc /proc
