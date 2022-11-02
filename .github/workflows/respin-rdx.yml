@@ -14,21 +14,21 @@ jobs:
       - name: Configuração do ambiente de compilação
         run: bash scripts/env.sh
       - name: Compilação do Ubuntu Respin RDX
-        run: $FLAVOUR=ubuntu $FLAVOUR_NAME=Ubuntu bash -x build.sh
+        run: export $FLAVOUR=ubuntu $FLAVOUR_NAME=Ubuntu;bash -x build.sh
       - name: Upload dos artefatos (Ubuntu)
         uses: actions/upload-artifact@v3
         with:
           name: ubuntu-respin-rdx
           path: /home/runner/work/respin-rdx/ubuntu-respin-rdx.iso
       - name: Compilação do Kubuntu Respin RDX
-        run: $FLAVOUR=kubuntu $FLAVOUR_NAME=Kubuntu bash -x build.sh
+        run: export $FLAVOUR=kubuntu $FLAVOUR_NAME=Kubuntu;bash -x build.sh
       - name: Upload dos artefatos (Kubuntu)
         uses: actions/upload-artifact@v3
         with:
           name: kubuntu-respin-rdx
           path: /home/runner/work/respin-rdx/kubuntu-respin-rdx.iso
       - name: Compilação do Xubuntu Respin RDX
-        run: $FLAVOUR=xubuntu $FLAVOUR_NAME=Xubuntu bash -x build.sh
+        run: export $FLAVOUR=xubuntu $FLAVOUR_NAME=Xubuntu;bash -x build.sh
       - name: Upload dos artefatos (Xubuntu)
         uses: actions/upload-artifact@v3
         with:

@@ -6,6 +6,6 @@ Os scripts disponíveis neste repositório, são derivados dos scripts desenvolv
 ## Download:
 **https://nightly.link/rauldipeas/respin-rdx/workflows/respin-rdx/main/respin-rdx.zip**
 
-![](ubuntu.png)
-![](kubuntu.png)
-![](xubuntu.png)
+![ubuntu](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/48x48/apps/distributor-logo-ubuntu.svg "Ubuntu")
+![kubuntu](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/48x48/apps/distributor-logo-kubuntu.svg "Kubuntu")
+![xubuntu](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/48x48/apps/desktop-environment-xfce.svg "Xubuntu")
