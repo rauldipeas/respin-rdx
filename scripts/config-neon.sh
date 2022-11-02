@@ -38,7 +38,7 @@ export TARGET_PACKAGE_REMOVE="
 function customize_image() {
     # mainline
     add-apt-repository -y ppa:cappelikan/ppa
-    pkcon -y mainline
+    apt install -y mainline
     sed -i 's/Icon=mainline/Icon=mintsources-ppa/g' /usr/share/applications/mainline.desktop
 
     # Linux Generic
@@ -54,7 +54,7 @@ function customize_image() {
     apt install --no-install-recommends -y jackd2
     
     # rtcqs
-    pkcon install -y python3-pip python3-tk
+    apt install -y python3-pip python3-tk
     pip install -q rtcqs
     wget -qO /usr/share/applications/rtcqs.desktop https://github.com/autostatic/rtcqs/raw/main/rtcqs.desktop
     wget -qO /usr/share/icons/rtcqs.svg https://github.com/autostatic/rtcqs/raw/main/rtcqs_logo.svg
@@ -161,16 +161,16 @@ Exec=thunderbird -addressbook
 EOF
 
     # HUD
-    pkcon install -y plasma-hud
+    apt install -y plasma-hud
 
     # Bismith
-    pkcon install -y kwin-bismuth
+    apt install -y kwin-bismuth
 
     # Papirus
     add-apt-repository -ny ppa:papirus/hardcode-tray
     sed -i 's/jammy/focal/g' /etc/apt/sources.list.d/*hardcode-tray*.list #tmp-downgrade-fix
     add-apt-repository -y ppa:papirus/papirus-dev
-    pkcon install -y hardcode-tray papirus-icon-theme papirus-folders
+    apt install -y hardcode-tray papirus-icon-theme papirus-folders
     git clone -q https://github.com/PapirusDevelopmentTeam/materia-kde
     sudo cp -r materia-kde/plasma/desktoptheme/Materia-Color/icons /usr/share/plasma/desktoptheme/breeze-light/
     sudo cp -r materia-kde/plasma/desktoptheme/Materia/icons /usr/share/plasma/desktoptheme/breeze-dark/
@@ -210,22 +210,22 @@ Theme=org.kde.Breeze
 EOF
 
     # GNOME disks
-    pkcon install -y gnome-disk-utility
+    apt install -y gnome-disk-utility
 
     # Synaptic
-    pkcon install -y synaptic
+    apt install -y synaptic
 
     # Timeshift
-    pkcon install -y timeshift
+    apt install -y timeshift
 
     # CFS Zen tweaks
-    pkcon install -y cfs-zen-tweaks
+    apt install -y cfs-zen-tweaks
     
     # UnRAR
-    pkcon install -y unrar
+    apt install -y unrar
 
     # APT rollback
-    pkcon install -y apt-rollback
+    apt install -y apt-rollback
 
     # purge
     apt autoremove --purge -y *partitionmanager*

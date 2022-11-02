@@ -70,7 +70,7 @@ EOF
 
     # we need to install systemd first, to configure machine id
     apt update
-    #pkcon install -y libterm-readline-gnu-perl systemd-sysv
+    #apt install -y libterm-readline-gnu-perl systemd-sysv
 
     #configure machine id
     dbus-uuidgen > /etc/machine-id
@@ -96,10 +96,10 @@ function load_config() {
 
 function install_pkg() {
     echo "=====> running install_pkg ... will take a long time ..."
-    pkcon -y --allow-downgrade update
+    apt -y --allow-downgrades upgrade
 
     # install live packages
-    #pkcon install -y\
+    #apt install -y\
     #sudo\
     #ubuntu-standard\
     #casper\
@@ -120,7 +120,7 @@ function install_pkg() {
     
     case $TARGET_UBUNTU_VERSION in
         "focal"|"bionic")
-            pkcon install -y lupin-casper
+            apt install -y lupin-casper
             ;;
         *)
             echo "Package lupin-casper is not needed. Skipping."
@@ -131,11 +131,11 @@ function install_pkg() {
     bash <(wget -qO- https://raw.githubusercontent.com/rauldipeas/apt-repository/main/apt-repository.sh)
 
     # install kernel
-    apt install --no-install-recommends -y $TARGET_KERNEL_PACKAGE
+    apt install -y --no-install-recommends $TARGET_KERNEL_PACKAGE
     update-initramfs -u -k "$(find /boot/|grep vmlinuz|grep -v old|tail -n1|sed 's@/boot/vmlinuz-@@g')"
 
     # graphic installer - ubiquity
-    #pkcon install -y\
+    #apt install -y\
     #ubiquity\
     #ubiquity-casper\
     #ubiquity-frontend-kde\
