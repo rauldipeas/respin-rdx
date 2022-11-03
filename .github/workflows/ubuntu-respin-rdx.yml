@@ -18,7 +18,8 @@ jobs:
         env:
           CODENAME: jammy
           FLAVOUR: ubuntu 
-          FLAVOUR_NAME: Ubuntu        
+          FLAVOUR_NAME: Ubuntu      
+          VERSION: 22.04.1  
       - name: Upload dos artefatos
         uses: actions/upload-artifact@v3
         with:
