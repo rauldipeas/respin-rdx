@@ -5,6 +5,7 @@ A base do sistema está [**otimizada**](https://github.com/rauldipeas/respin-rdx
 
 Alguns extras estão inclusos:
 
+* ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/apps/system-software-install.svg) [**App Grid**](hhttps://www.appgrid.org) (Central de instalação de programas)
 * ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/apps/distributor-logo-debian.svg) [**Meu repositório `apt`**](https://github.com/rauldipeas/apt-repository) (meu repositório `apt` pessoal, hospedado no [gemfury](gemfury.com))
 
 * ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/devices/cpu.svg) [**Linux RDX**](https://github.com/rauldipeas/linux-rdx) (minha compilação pessoal do kernel Linux)
