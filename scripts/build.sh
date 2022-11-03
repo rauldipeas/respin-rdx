@@ -2,9 +2,8 @@
 set -e
 sudo apt install -y binutils debootstrap mtools squashfs-tools xorriso
 mkdir respin-rdx
-# ISO chroot
 if [ $FLAVOUR = ubuntu ]; then
-   wget -q https://releases.ubuntu.com/22.04.1/ubuntu-22.04.1-desktop-amd64.iso
+   wget -q https://releases.ubuntu.com/$VERSION/ubuntu-$VERSION-desktop-amd64.iso
    else
    wget -q https://cdimage.ubuntu.com/$FLAVOUR/releases/$CODENAME/release/$FLAVOUR-$VERSION-desktop-amd64.iso
 fi
@@ -15,29 +14,18 @@ sudo mount --bind /run respin-rdx/$FLAVOUR-chroot/run
 sudo chroot respin-rdx/$FLAVOUR-chroot mount none -t proc /proc
 sudo chroot respin-rdx/$FLAVOUR-chroot mount none -t sysfs /sys
 sudo chroot respin-rdx/$FLAVOUR-chroot mount none -t devpts /dev/pts
-echo respin-rdx|sudo tee respin-rdx/$FLAVOUR-chroot/etc/hostname>/dev/null
-sudo chroot respin-rdx/$FLAVOUR-chroot sh -c 'dbus-uuidgen|tee /etc/machine-id>/dev/null'
-sudo ln -fs respin-rdx/$FLAVOUR-chroot/etc/machine-id respin-rdx/$FLAVOUR-chroot/var/lib/dbus/machine-id
-sudo chroot respin-rdx/$FLAVOUR-chroot sh -c 'dpkg-divert --local --rename --add /sbin/initctl'
-sudo ln -s respin-rdx/$FLAVOUR-chroot/bin/true respin-rdx/$FLAVOUR-chroot/sbin/initctl
+#echo respin-rdx|sudo tee respin-rdx/$FLAVOUR-chroot/etc/hostname>/dev/null
+#sudo chroot respin-rdx/$FLAVOUR-chroot sh -c 'dbus-uuidgen|tee /etc/machine-id>/dev/null'
+#sudo ln -fs respin-rdx/$FLAVOUR-chroot/etc/machine-id respin-rdx/$FLAVOUR-chroot/var/lib/dbus/machine-id
+#sudo chroot respin-rdx/$FLAVOUR-chroot sh -c 'dpkg-divert --local --rename --add /sbin/initctl'
+#sudo ln -s respin-rdx/$FLAVOUR-chroot/bin/true respin-rdx/$FLAVOUR-chroot/sbin/initctl
 sudo cp scripts/enhancements.sh respin-rdx/$FLAVOUR-chroot
 sudo chroot respin-rdx/$FLAVOUR-chroot bash -x enhancements.sh
 sudo rm respin-rdx/$FLAVOUR-chroot/enhancements.sh
-#sudo chroot respin-rdx/$FLAVOUR-chroot dpkg-reconfigure resolvconf
-#cat <<EOF |sudo tee respin-rdx/$FLAVOUR-chroot/etc/NetworkManager/NetworkManager.conf>/dev/null
-#[main]
-#rc-manager=resolvconf
-#plugins=ifupdown,keyfile
-#dns=dnsmasq
-#
-#[ifupdown]
-#managed=false
-#EOF
-#sudo chroot respin-rdx/$FLAVOUR-chroot dpkg-reconfigure network-manager
-sudo chroot respin-rdx/$FLAVOUR-chroot sh -c 'truncate -s 0 /etc/machine-id'
-sudo chroot respin-rdx/$FLAVOUR-chroot sh -c 'dpkg-divert --rename --remove /sbin/initctl'
-sudo chroot respin-rdx/$FLAVOUR-chroot apt clean
-sudo chroot respin-rdx/$FLAVOUR-chroot sh -c 'rm -rf /tmp/* ~/.bash_history'
+#sudo chroot respin-rdx/$FLAVOUR-chroot sh -c 'truncate -s 0 /etc/machine-id'
+#sudo chroot respin-rdx/$FLAVOUR-chroot sh -c 'dpkg-divert --rename --remove /sbin/initctl'
+#sudo chroot respin-rdx/$FLAVOUR-chroot apt clean
+sudo chroot respin-rdx/$FLAVOUR-chroot sh -c 'rm -rf /tmp/* /root/.bash_history'
 sudo chroot respin-rdx/$FLAVOUR-chroot umount /proc
 sudo chroot respin-rdx/$FLAVOUR-chroot umount /sys
 sudo chroot respin-rdx/$FLAVOUR-chroot umount /dev/pts
@@ -50,10 +38,18 @@ touch respin-rdx/image/respin-rdx
 cat <<EOF |tee respin-rdx/image/isolinux/grub.cfg>/dev/null
 search --set=root --file /respin-rdx
 insmod all_video
-set default="0"
+insmod efi_gop
+insmod efi_uga
+insmod gfxmenu
+insmod gfxterm
+insmod jpeg
+insmod png
+set default=0
+set gfxmode=auto
 set timeout=10
+terminal_output gfxterm
 menuentry "$FLAVOUR_NAME Respin RDX" {
-   linux /casper/vmlinuz boot=casper ---
+   linux /casper/vmlinuz boot=casper cpufreq.default_governor=performance logo.nologo loglevel=0 maybe-ubiquity mitigations=off preempt=full quiet splash threadirqs vt.global_cursor_default=0 ---
    initrd /casper/initrd
 }
 EOF
@@ -64,6 +60,7 @@ sed -i '/casper/d' respin-rdx/image/casper/filesystem.manifest-desktop
 sed -i '/discover/d' respin-rdx/image/casper/filesystem.manifest-desktop
 sed -i '/laptop-detect/d' respin-rdx/image/casper/filesystem.manifest-desktop
 sed -i '/os-prober/d' respin-rdx/image/casper/filesystem.manifest-desktop
+sed -i '/ubiquity/d' respin-rdx/image/casper/filesystem.manifest-desktop
 sudo mksquashfs respin-rdx/$FLAVOUR-chroot respin-rdx/image/casper/filesystem.squashfs -comp xz -quiet
 printf $(sudo du -sx --block-size=1 respin-rdx/$FLAVOUR-chroot|cut -f1)|tee respin-rdx/image/casper/filesystem.size>/dev/null
 cat <<EOF |tee respin-rdx/image/README.diskdefines>/dev/null

@@ -1,9 +1,15 @@
+# Linux Generic
+apt autoremove --purge -y linux*generic*
+
 # Raul Dipeas apt repository
 bash <(wget -qO- https://raw.githubusercontent.com/rauldipeas/apt-repository/main/apt-repository.sh)
 
 # install kernel
 apt install -y linux-rdx
 update-initramfs -u -k "$(find /boot/|grep vmlinuz|grep -v old|tail -n1|sed 's@/boot/vmlinuz-@@g')"
+
+# CFS Zen tweaks
+apt install -y cfs-zen-tweaks
 
 # Repos
 add-apt-repository -ny multiverse
@@ -13,9 +19,6 @@ add-apt-repository -ny universe
 add-apt-repository -y ppa:cappelikan/ppa
 apt install -y mainline
 sed -i 's/Icon=mainline/Icon=mintsources-ppa/g' /usr/share/applications/mainline.desktop
-
-# Linux Generic
-apt autoremove --purge -y linux*generic*
 
 # MESA
 add-apt-repository -y ppa:kisak/kisak-mesa
@@ -33,7 +36,7 @@ wget -qO /usr/share/applications/rtcqs.desktop https://github.com/autostatic/rtc
 wget -qO /usr/share/icons/rtcqs.svg https://github.com/autostatic/rtcqs/raw/main/rtcqs_logo.svg
 
 # GRUB
-echo 'GRUB_CMDLINE_LINUX_DEFAULT="cpufreq.default_governor=performance mitigations=off preempt=full quiet splash threadirqs"'|tee /etc/default/grub.d/cmdline-linux-default.cfg>/dev/null
+echo 'GRUB_CMDLINE_LINUX_DEFAULT="cpufreq.default_governor=performance logo.nologo loglevel=0 mitigations=off preempt=full quiet splash threadirqs vt.global_cursor_default=0"'|tee /etc/default/grub.d/cmdline-linux-default.cfg>/dev/null
 
 # Swappiness
 echo 'vm.swappiness = 10'|tee /etc/sysctl.d/swappiness.conf>/dev/null
@@ -49,8 +52,8 @@ sed -i 's/#EXTRA_GROUPS=/EXTRA_GROUPS=/g' /etc/adduser.conf
 mkdir -p /etc/skel/.config/systemd/user
 ln -sf /dev/null /etc/skel/.config/systemd/user/xdg-desktop-portal.service
 
-# deb-get
-wget -qO- https://raw.githubusercontent.com/wimpysworld/deb-get/main/deb-get|sudo -E bash -s install deb-get
+# GVFS
+sudo apt autoremove --purge -y gvfs-fuse
 
 # Firefox
 apt autoremove --purge -y *firefox* snapd
@@ -140,12 +143,12 @@ add-apt-repository -y ppa:papirus/papirus-dev
 apt install -y hardcode-tray papirus-icon-theme papirus-folders
 
 ## GNOME
-if [ $FLAVOUR = ubuntu ]; then
+if [ -f /usr/share/xsessions/ubuntu.desktop ]; then
     echo "GNOME"
     # ???TODO???
 fi
 ## KDE
-if [ $FLAVOUR = kubuntu ]; then
+if [ -f /usr/share/xsessions/kubuntu.desktop ]; then
     echo "KDE"
     git clone -q https://github.com/PapirusDevelopmentTeam/materia-kde
     cp -r materia-kde/plasma/desktoptheme/Materia-Color/icons /usr/share/plasma/desktoptheme/breeze-light/
@@ -183,13 +186,13 @@ library=org.kde.breeze
 EOF
 fi
 ## XFCE
-if [ $FLAVOUR = xubuntu ]; then
+if [ -f /usr/share/xsessions/xubuntu.desktop ]; then
     echo "XFCE"
-    # ???TODO???
+    sed -i 's/xubuntu-wallpaper.png/Kanchanjunga_Peaks_by_Pushkar_Deshpande.jpg/g' /etc/xdg/xdg-xubuntu/xfce4/xfconf/xfce-perchannel-xml/xfce4-desktop.xml
+    sed -i 's/Greybird/Greybird-dark/g' /etc/xdg/xdg-xubuntu/xfce4/xfconf/xfce-perchannel-xml/xfwm4.xml
+    sed -i 's/Greybird/Greybird-dark/g' /etc/xdg/xdg-xubuntu/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml
+    sed -i 's/elementary-xfce-dark/Papirus-Dark/g' /etc/xdg/xdg-xubuntu/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml
 fi
-
-# GNOME disks
-apt install -y gnome-disk-utility
 
 # Synaptic
 apt install -y synaptic
@@ -197,11 +200,11 @@ apt install -y synaptic
 # Timeshift
 apt install -y timeshift
 
-# CFS Zen tweaks
-apt install -y cfs-zen-tweaks
-
 # UnRAR
 apt install -y unrar
 
 # APT rollback
 apt install -y apt-rollback
+
+# deb-get
+wget -qO- https://raw.githubusercontent.com/wimpysworld/deb-get/main/deb-get|sudo -E bash -s install deb-get
