@@ -1,7 +1,7 @@
 # Respin RDX
 Esta é a minha compilação pessoal dos [_sabores_](https://ubuntu.com/desktop/flavours) do [**Ubuntu**](https://ubuntu.com).
 
-A base do sistema está [**otimizada**](https://github.com/rauldipeas/respin-rdx/blob/main/scripts/enhancements) para criação de conteúdo multimídia *(áudio, vídeo e imagem)*, com base nos parâmetros de checagem do [**rtcqs**](https://codeberg.org/rtcqs/rtcqs).
+A base do sistema está [**otimizada**](https://github.com/rauldipeas/respin-rdx/blob/main/scripts/enhancements/rtcqs.sh) para criação de conteúdo multimídia *(áudio, vídeo e imagem)*, com base nos parâmetros de checagem do [**rtcqs**](https://codeberg.org/rtcqs/rtcqs).
 
 Alguns extras estão inclusos:
 

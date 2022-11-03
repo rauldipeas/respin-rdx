@@ -2,8 +2,8 @@
 set -e
 
 # Build
-bash -x setup-host.sh
-bash -x iso-download.sh
-bash -x chroot.sh
-bash -x live-assets.sh
-bash -x xorriso.sh
+bash -x scripts/setup-host.sh
+bash -x scripts/iso-download.sh
+bash -x scripts/chroot.sh
+bash -x scripts/live-assets.sh
+bash -x scripts/xorriso.sh
