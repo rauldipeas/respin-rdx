@@ -58,6 +58,7 @@ menuentry "$FLAVOUR_NAME Respin RDX" {
 }
 EOF
 cp /mnt/casper/*manifest* respin-rdx/image/casper/
+sudo chown -R $USER respin-rdx/image/casper/*manifest*
 sudo chroot respin-rdx/$FLAVOUR-chroot dpkg-query -W --showformat='${Package} ${Version}\n'|tee respin-rdx/image/casper/filesystem.manifest>/dev/null
 cp respin-rdx/image/casper/filesystem.manifest respin-rdx/image/casper/filesystem.manifest-desktop
 sed -i '/casper/d' respin-rdx/image/casper/filesystem.manifest-desktop
