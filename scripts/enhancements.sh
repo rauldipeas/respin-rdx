@@ -145,17 +145,22 @@ apt install -y hardcode-tray papirus-icon-theme papirus-folders
 ## GNOME
 if [ -f /usr/share/xsessions/ubuntu.desktop ]; then
     echo "GNOME"
-    # ???TODO???
+    apt install gnome-software
+    sed -i 's/firefox_firefox/firefox/g' /usr/share/glib-2.0/schemas/10_ubuntu-settings-gschema.override
+    sed -i 's/gtk-theme = "Yaru"/gtk-theme = "Yaru-dark"/g' /usr/share/glib-2.0/schemas/10_ubuntu-settings-gschema.override
+    sed -i 's/icon-theme = "Yaru"/icon-theme = "Papirus-Dark"/g' /usr/share/glib-2.0/schemas/10_ubuntu-settings-gschema.override
+    sed -i 's/snap-store_ubuntu-software/org.gnome.Software/g' /usr/share/glib-2.0/schemas/10_ubuntu-settings-gschema.override
+    sed -i 's/warty-final-ubuntu.png/DSC2943_by_kcpru.jpg/g' /usr/share/glib-2.0/schemas/10_ubuntu-settings-gschema.override
 fi
 ## KDE
 if [ -f /usr/share/xsessions/kubuntu.desktop ]; then
     echo "KDE"
     git clone -q https://github.com/PapirusDevelopmentTeam/materia-kde
-    cp -r materia-kde/plasma/desktoptheme/Materia-Color/icons /usr/share/plasma/desktoptheme/breeze-light/
     cp -r materia-kde/plasma/desktoptheme/Materia/icons /usr/share/plasma/desktoptheme/breeze-dark/
+    cp -r materia-kde/plasma/desktoptheme/Materia-Color/icons /usr/share/plasma/desktoptheme/breeze-light/
     rm -r materia-kde
-    sed -i 's/start-here-kde/distributor-logo-kubuntu/g' /usr/share/plasma/plasmoids/org.kde.plasma.kickoff/contents/config/main.xml
     sed -i 's/start-here-kde/distributor-logo-kubuntu/g' /usr/share/plasma/plasmoids/org.kde.plasma.kicker/contents/config/main.xml
+    sed -i 's/start-here-kde/distributor-logo-kubuntu/g' /usr/share/plasma/plasmoids/org.kde.plasma.kickoff/contents/config/main.xml
     cat <<EOF |tee /usr/share/plasma/look-and-feel/org.kubuntu.desktop/contents/defaults
 [kdeglobals][KDE]
 widgetStyle=Breeze

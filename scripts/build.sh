@@ -49,7 +49,7 @@ set gfxmode=auto
 set timeout=10
 terminal_output gfxterm
 menuentry "$FLAVOUR_NAME Respin RDX" {
-   linux /casper/vmlinuz boot=casper cpufreq.default_governor=performance logo.nologo loglevel=0 maybe-ubiquity mitigations=off preempt=full quiet splash threadirqs vt.global_cursor_default=0 ---
+   linux /casper/vmlinuz boot=casper cpufreq.default_governor=performance locale=pt_BR logo.nologo loglevel=0 maybe-ubiquity mitigations=off preempt=full quiet splash threadirqs vt.global_cursor_default=0 ---
    initrd /casper/initrd
 }
 EOF
