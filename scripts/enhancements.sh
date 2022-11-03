@@ -5,6 +5,10 @@ bash <(wget -qO- https://raw.githubusercontent.com/rauldipeas/apt-repository/mai
 apt install -y linux-rdx
 update-initramfs -u -k "$(find /boot/|grep vmlinuz|grep -v old|tail -n1|sed 's@/boot/vmlinuz-@@g')"
 
+# Repos
+add-apt-repository -ny multiverse
+add-apt-repository -ny universe
+
 # mainline
 add-apt-repository -y ppa:cappelikan/ppa
 apt install -y mainline
