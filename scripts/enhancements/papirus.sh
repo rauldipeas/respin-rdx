@@ -13,7 +13,7 @@ rm libreoffice-style-papirus*.deb
 ## GNOME
 if [ -f /usr/share/xsessions/ubuntu.desktop ]; then
     echo "GNOME"
-    apt install gnome-software
+    apt install -y gnome-software
     sudo papirus-folders -C yaru
     sed -i 's/firefox_firefox/firefox/g' /usr/share/glib-2.0/schemas/10_ubuntu-settings.gschema.override
     sed -i 's/gtk-theme = "Yaru"/gtk-theme = "Yaru-dark"/g' /usr/share/glib-2.0/schemas/10_ubuntu-settings.gschema.override
