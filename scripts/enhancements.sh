@@ -150,14 +150,14 @@ if [ -f /usr/share/xsessions/ubuntu.desktop ]; then
     echo "GNOME"
     apt install gnome-software
     sudo papirus-folders -C yaru
-    sed -i 's/firefox_firefox/firefox/g' /usr/share/glib-2.0/schemas/10_ubuntu-settings-gschema.override
-    sed -i 's/gtk-theme = "Yaru"/gtk-theme = "Yaru-dark"/g' /usr/share/glib-2.0/schemas/10_ubuntu-settings-gschema.override
-    sed -i 's/icon-theme = "Yaru"/icon-theme = "Papirus-Dark"/g' /usr/share/glib-2.0/schemas/10_ubuntu-settings-gschema.override
-    sed -i 's/snap-store_ubuntu-software/org.gnome.Software/g' /usr/share/glib-2.0/schemas/10_ubuntu-settings-gschema.override
-    sed -i 's/warty-final-ubuntu.png/DSC2943_by_kcpru.jpg/g' /usr/share/glib-2.0/schemas/10_ubuntu-settings-gschema.override
+    sed -i 's/firefox_firefox/firefox/g' /usr/share/glib-2.0/schemas/10_ubuntu-settings.gschema.override
+    sed -i 's/gtk-theme = "Yaru"/gtk-theme = "Yaru-dark"/g' /usr/share/glib-2.0/schemas/10_ubuntu-settings.gschema.override
+    sed -i 's/icon-theme = "Yaru"/icon-theme = "Papirus-Dark"/g' /usr/share/glib-2.0/schemas/10_ubuntu-settings.gschema.override
+    sed -i 's/snap-store_ubuntu-software/org.gnome.Software/g' /usr/share/glib-2.0/schemas/10_ubuntu-settings.gschema.override
+    sed -i 's/warty-final-ubuntu.png/DSC2943_by_kcpru.jpg/g' /usr/share/glib-2.0/schemas/10_ubuntu-settings.gschema.override
 fi
 ## KDE
-if [ -f /usr/share/xsessions/kubuntu.desktop ]; then
+if [ -f /usr/share/xsessions/plasma.desktop ]; then
     echo "KDE"
     sudo papirus-folders -C breeze
     git clone -q https://github.com/PapirusDevelopmentTeam/materia-kde
@@ -202,7 +202,7 @@ if [ -f /usr/share/xsessions/xubuntu.desktop ]; then
     sed -i 's/xubuntu-wallpaper.png/Kanchanjunga_Peaks_by_Pushkar_Deshpande.jpg/g' /etc/xdg/xdg-xubuntu/xfce4/xfconf/xfce-perchannel-xml/xfce4-desktop.xml
     sed -i 's/Greybird/Greybird-dark/g' /etc/xdg/xdg-xubuntu/xfce4/xfconf/xfce-perchannel-xml/xfwm4.xml
     sed -i 's/Greybird/Greybird-dark/g' /etc/xdg/xdg-xubuntu/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml
-    sed -i 's/elementary-xfce-dark/Papirus-Dark/g' /etc/xdg/xdg-xubuntu/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml
+    sed -i 's/elementary-xfce-darker/Papirus-Dark/g' /etc/xdg/xdg-xubuntu/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml
 fi
 
 # Synaptic

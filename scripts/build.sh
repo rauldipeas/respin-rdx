@@ -38,16 +38,8 @@ touch respin-rdx/image/respin-rdx
 cat <<EOF |tee respin-rdx/image/isolinux/grub.cfg>/dev/null
 search --set=root --file /respin-rdx
 insmod all_video
-insmod efi_gop
-insmod efi_uga
-insmod gfxmenu
-insmod gfxterm
-insmod jpeg
-insmod png
 set default=0
-set gfxmode=auto
 set timeout=10
-terminal_output gfxterm
 menuentry "$FLAVOUR_NAME Respin RDX" {
    linux /casper/vmlinuz boot=casper cpufreq.default_governor=performance locale=pt_BR logo.nologo loglevel=0 maybe-ubiquity mitigations=off preempt=full quiet splash threadirqs vt.global_cursor_default=0 ---
    initrd /casper/initrd
