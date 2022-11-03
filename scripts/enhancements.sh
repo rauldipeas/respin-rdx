@@ -141,11 +141,15 @@ add-apt-repository -ny ppa:papirus/hardcode-tray
 sed -i 's/jammy/focal/g' /etc/apt/sources.list.d/*hardcode-tray* #tmp-downgrade-fix
 add-apt-repository -y ppa:papirus/papirus-dev
 apt install -y hardcode-tray papirus-icon-theme papirus-folders
+wget -qc https://launchpad.net/~papirus/+archive/ubuntu/papirus/+files/libreoffice-style-papirus_20180413-46+pkg3~ubuntu20.04.1_all.deb
+apt install ./libreoffice-style-papirus*.deb
+rm libreoffice-style-papirus*.deb
 
 ## GNOME
 if [ -f /usr/share/xsessions/ubuntu.desktop ]; then
     echo "GNOME"
     apt install gnome-software
+    sudo papirus-folders -C yaru
     sed -i 's/firefox_firefox/firefox/g' /usr/share/glib-2.0/schemas/10_ubuntu-settings-gschema.override
     sed -i 's/gtk-theme = "Yaru"/gtk-theme = "Yaru-dark"/g' /usr/share/glib-2.0/schemas/10_ubuntu-settings-gschema.override
     sed -i 's/icon-theme = "Yaru"/icon-theme = "Papirus-Dark"/g' /usr/share/glib-2.0/schemas/10_ubuntu-settings-gschema.override
@@ -155,6 +159,7 @@ fi
 ## KDE
 if [ -f /usr/share/xsessions/kubuntu.desktop ]; then
     echo "KDE"
+    sudo papirus-folders -C breeze
     git clone -q https://github.com/PapirusDevelopmentTeam/materia-kde
     cp -r materia-kde/plasma/desktoptheme/Materia/icons /usr/share/plasma/desktoptheme/breeze-dark/
     cp -r materia-kde/plasma/desktoptheme/Materia-Color/icons /usr/share/plasma/desktoptheme/breeze-light/
@@ -193,6 +198,7 @@ fi
 ## XFCE
 if [ -f /usr/share/xsessions/xubuntu.desktop ]; then
     echo "XFCE"
+    sudo papirus-folders -C palebrown
     sed -i 's/xubuntu-wallpaper.png/Kanchanjunga_Peaks_by_Pushkar_Deshpande.jpg/g' /etc/xdg/xdg-xubuntu/xfce4/xfconf/xfce-perchannel-xml/xfce4-desktop.xml
     sed -i 's/Greybird/Greybird-dark/g' /etc/xdg/xdg-xubuntu/xfce4/xfconf/xfce-perchannel-xml/xfwm4.xml
     sed -i 's/Greybird/Greybird-dark/g' /etc/xdg/xdg-xubuntu/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml
