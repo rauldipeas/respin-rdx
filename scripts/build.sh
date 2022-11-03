@@ -2,7 +2,7 @@
 set -e
 sudo apt install -y binutils debootstrap mtools squashfs-tools xorriso
 #binutils binutils-common binutils-x86-64-linux-gnu debootstrap libbinutils libburn4 libctf-nobfd0 libctf0 libisoburn1 libisofs6 libjte2 mtools xorriso
-sudo rm -frv respin-rdx
+#sudo rm -frv respin-rdx
 mkdir respin-rdx
 # Debootstrap
 sudo debootstrap\
@@ -31,7 +31,7 @@ deb http://us.archive.ubuntu.com/ubuntu/ $CODENAME-security main restricted univ
 deb http://us.archive.ubuntu.com/ubuntu/ $CODENAME-updates main restricted universe multiverse
 EOF
 sudo chroot respin-rdx/$FLAVOUR-chroot apt update
-sudo chroot respin-rdx/$FLAVOUR-chroot apt install -y systemd-sysv #libterm-readline-gnu-perl
+sudo chroot respin-rdx/$FLAVOUR-chroot apt install -y systemd-sysv
 sudo chroot respin-rdx/$FLAVOUR-chroot sh -c 'dbus-uuidgen|tee /etc/machine-id>/dev/null'
 sudo ln -fs respin-rdx/$FLAVOUR-chroot/etc/machine-id respin-rdx/$FLAVOUR-chroot/var/lib/dbus/machine-id
 sudo chroot respin-rdx/$FLAVOUR-chroot sh -c 'dpkg-divert --local --rename --add /sbin/initctl'
@@ -41,17 +41,18 @@ sudo chroot respin-rdx/$FLAVOUR-chroot apt install -y bash-completion casper sud
 sudo chroot respin-rdx/$FLAVOUR-chroot apt install -y $FLAVOUR-desktop
 sudo cp scripts/enhancements.sh respin-rdx/$FLAVOUR-chroot
 sudo chroot respin-rdx/$FLAVOUR-chroot bash -x enhancements.sh
+sudo rm respin-rdx/$FLAVOUR-chroot/enhancements.sh
 #sudo chroot respin-rdx/$FLAVOUR-chroot dpkg-reconfigure resolvconf
-cat <<EOF |sudo tee respin-rdx/$FLAVOUR-chroot/etc/NetworkManager/NetworkManager.conf>/dev/null
-[main]
-rc-manager=resolvconf
-plugins=ifupdown,keyfile
-dns=dnsmasq
-
-[ifupdown]
-managed=false
-EOF
-sudo chroot respin-rdx/$FLAVOUR-chroot dpkg-reconfigure network-manager
+#cat <<EOF |sudo tee respin-rdx/$FLAVOUR-chroot/etc/NetworkManager/NetworkManager.conf>/dev/null
+#[main]
+#rc-manager=resolvconf
+#plugins=ifupdown,keyfile
+#dns=dnsmasq
+#
+#[ifupdown]
+#managed=false
+#EOF
+#sudo chroot respin-rdx/$FLAVOUR-chroot dpkg-reconfigure network-manager
 sudo chroot respin-rdx/$FLAVOUR-chroot sh -c 'truncate -s 0 /etc/machine-id'
 sudo chroot respin-rdx/$FLAVOUR-chroot sh -c 'dpkg-divert --rename --remove /sbin/initctl'
 sudo chroot respin-rdx/$FLAVOUR-chroot apt clean
@@ -81,7 +82,7 @@ sed -i '/casper/d' respin-rdx/image/casper/filesystem.manifest-desktop
 sed -i '/discover/d' respin-rdx/image/casper/filesystem.manifest-desktop
 sed -i '/laptop-detect/d' respin-rdx/image/casper/filesystem.manifest-desktop
 sed -i '/os-prober/d' respin-rdx/image/casper/filesystem.manifest-desktop
-sudo mksquashfs respin-rdx/$FLAVOUR-chroot respin-rdx/image/casper/filesystem.squashfs -comp xz
+sudo mksquashfs respin-rdx/$FLAVOUR-chroot respin-rdx/image/casper/filesystem.squashfs -comp xz -quiet
 printf $(sudo du -sx --block-size=1 respin-rdx/$FLAVOUR-chroot|cut -f1)|tee respin-rdx/image/casper/filesystem.size>/dev/null
 cat <<EOF |tee respin-rdx/image/README.diskdefines>/dev/null
 #define DISKNAME  $FLAVOUR_NAME Respin RDX

@@ -1,0 +1,30 @@
+name: Kubuntu Respin RDX
+on:
+  push:
+    branches:
+      - 'main'
+  schedule:
+    - cron:  '0 */24 * * *'
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+      - name: Configuração do ambiente de compilação
+        run: bash scripts/env.sh
+      - name: Compilação do Kubuntu Respin RDX
+        run: bash -x scripts/build.sh
+        env:
+          CODENAME: jammy
+          FLAVOUR: kubuntu 
+          FLAVOUR_NAME: Kubuntu
+      - name: Upload dos artefatos
+        uses: actions/upload-artifact@v3
+        with:
+          name: kubuntu-respin-rdx
+          path: /home/runner/work/respin-rdx/kubuntu-respin-rdx.iso      
+      - name: Limpeza de logs antigos
+        run: bash scripts/actions-cleanup.sh
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}

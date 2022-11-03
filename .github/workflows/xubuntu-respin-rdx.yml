@@ -1,0 +1,30 @@
+name: Xubuntu Respin RDX
+on:
+  push:
+    branches:
+      - 'main'
+  schedule:
+    - cron:  '0 */24 * * *'
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+      - name: Configuração do ambiente de compilação
+        run: bash scripts/env.sh
+      - name: Compilação do Xubuntu Respin RDX
+        run: bash -x scripts/build.sh
+        env:
+          CODENAME: jammy
+          FLAVOUR: xubuntu 
+          FLAVOUR_NAME: Xubuntu
+      - name: Upload dos artefatos
+        uses: actions/upload-artifact@v3
+        with:
+          name: xubuntu-respin-rdx
+          path: /home/runner/work/respin-rdx/xubuntu-respin-rdx.iso          
+      - name: Limpeza de logs antigos
+        run: bash scripts/actions-cleanup.sh
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
