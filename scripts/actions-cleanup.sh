@@ -1,5 +1,6 @@
 #!/bin/bash
 set -e
+
 # Actions cleanup
 PROJECT='rauldipeas/respin-rdx'
 KEEP=3

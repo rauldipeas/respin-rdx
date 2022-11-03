@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# ISO download
+set -e
+if [ $FLAVOUR = ubuntu ]; then
+   wget -q https://releases.ubuntu.com/$VERSION/ubuntu-$VERSION-desktop-amd64.iso
+   else
+   wget -q https://cdimage.ubuntu.com/$FLAVOUR/releases/$CODENAME/release/$FLAVOUR-$VERSION-desktop-amd64.iso
+fi
