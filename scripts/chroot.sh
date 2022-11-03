@@ -10,7 +10,7 @@ sudo mount --bind /run respin-rdx/$FLAVOUR-chroot/run
 sudo chroot respin-rdx/$FLAVOUR-chroot mount none -t proc /proc
 sudo chroot respin-rdx/$FLAVOUR-chroot mount none -t sysfs /sys
 sudo chroot respin-rdx/$FLAVOUR-chroot mount none -t devpts /dev/pts
-sudo cp scripts/enhancements* respin-rdx/$FLAVOUR-chroot/
+sudo cp -r scripts/enhancements* respin-rdx/$FLAVOUR-chroot/
 sudo chroot respin-rdx/$FLAVOUR-chroot bash -x enhancements.sh
 sudo rm -r respin-rdx/$FLAVOUR-chroot/enhancements*
 sudo chroot respin-rdx/$FLAVOUR-chroot sh -c 'rm -rf /tmp/* /root/.bash_history'
