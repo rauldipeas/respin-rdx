@@ -1,16 +1,14 @@
 #!/bin/bash
 set -e
 sudo apt install -y binutils debootstrap mtools squashfs-tools xorriso
-#binutils binutils-common binutils-x86-64-linux-gnu debootstrap libbinutils libburn4 libctf-nobfd0 libctf0 libisoburn1 libisofs6 libjte2 mtools xorriso
-#sudo rm -frv respin-rdx
 mkdir respin-rdx
 # Debootstrap
-sudo debootstrap\
-   --arch=amd64\
-   --variant=minbase\
-   $CODENAME\
-   respin-rdx/$FLAVOUR-chroot\
-   http://br.archive.ubuntu.com/ubuntu/
+#sudo debootstrap\
+#   --arch=amd64\
+#   --variant=minbase\
+#   $CODENAME\
+#   respin-rdx/$FLAVOUR-chroot\
+#   http://br.archive.ubuntu.com/ubuntu/
 # ISO chroot
 if [ $FLAVOUR = ubuntu ]; then
 wget -q https://releases.ubuntu.com/22.04.1/ubuntu-22.04.1-desktop-amd64.iso
@@ -25,20 +23,20 @@ sudo chroot respin-rdx/$FLAVOUR-chroot mount none -t proc /proc
 sudo chroot respin-rdx/$FLAVOUR-chroot mount none -t sysfs /sys
 sudo chroot respin-rdx/$FLAVOUR-chroot mount none -t devpts /dev/pts
 echo respin-rdx|sudo tee respin-rdx/$FLAVOUR-chroot/etc/hostname>/dev/null
-cat <<EOF |sudo tee respin-rdx/$FLAVOUR-chroot/etc/apt/sources.list>/dev/null
-deb http://us.archive.ubuntu.com/ubuntu/ $CODENAME main restricted universe multiverse
-deb http://us.archive.ubuntu.com/ubuntu/ $CODENAME-security main restricted universe multiverse
-deb http://us.archive.ubuntu.com/ubuntu/ $CODENAME-updates main restricted universe multiverse
-EOF
-sudo chroot respin-rdx/$FLAVOUR-chroot apt update
-sudo chroot respin-rdx/$FLAVOUR-chroot apt install -y systemd-sysv
+#cat <<EOF |sudo tee respin-rdx/$FLAVOUR-chroot/etc/apt/sources.list>/dev/null
+#deb http://us.archive.ubuntu.com/ubuntu/ $CODENAME main restricted universe multiverse
+#deb http://us.archive.ubuntu.com/ubuntu/ $CODENAME-security main restricted universe multiverse
+#deb http://us.archive.ubuntu.com/ubuntu/ $CODENAME-updates main restricted universe multiverse
+#EOF
+#sudo chroot respin-rdx/$FLAVOUR-chroot apt update
+#sudo chroot respin-rdx/$FLAVOUR-chroot apt install -y systemd-sysv
 sudo chroot respin-rdx/$FLAVOUR-chroot sh -c 'dbus-uuidgen|tee /etc/machine-id>/dev/null'
 sudo ln -fs respin-rdx/$FLAVOUR-chroot/etc/machine-id respin-rdx/$FLAVOUR-chroot/var/lib/dbus/machine-id
 sudo chroot respin-rdx/$FLAVOUR-chroot sh -c 'dpkg-divert --local --rename --add /sbin/initctl'
 sudo ln -s respin-rdx/$FLAVOUR-chroot/bin/true respin-rdx/$FLAVOUR-chroot/sbin/initctl
-sudo chroot respin-rdx/$FLAVOUR-chroot apt dist-upgrade -y
-sudo chroot respin-rdx/$FLAVOUR-chroot apt install -y bash-completion casper sudo
-sudo chroot respin-rdx/$FLAVOUR-chroot apt install -y $FLAVOUR-desktop
+#sudo chroot respin-rdx/$FLAVOUR-chroot apt dist-upgrade -y
+#sudo chroot respin-rdx/$FLAVOUR-chroot apt install -y bash-completion casper sudo
+#sudo chroot respin-rdx/$FLAVOUR-chroot apt install -y $FLAVOUR-desktop
 sudo cp scripts/enhancements.sh respin-rdx/$FLAVOUR-chroot
 sudo chroot respin-rdx/$FLAVOUR-chroot bash -x enhancements.sh
 sudo rm respin-rdx/$FLAVOUR-chroot/enhancements.sh
@@ -76,6 +74,7 @@ menuentry "$FLAVOUR_NAME Respin RDX" {
    initrd /casper/initrd
 }
 EOF
+cp /mnt/casper/*manifest* respin-rdx/image/casper/
 sudo chroot respin-rdx/$FLAVOUR-chroot dpkg-query -W --showformat='${Package} ${Version}\n'|tee respin-rdx/image/casper/filesystem.manifest>/dev/null
 cp respin-rdx/image/casper/filesystem.manifest respin-rdx/image/casper/filesystem.manifest-desktop
 sed -i '/casper/d' respin-rdx/image/casper/filesystem.manifest-desktop
