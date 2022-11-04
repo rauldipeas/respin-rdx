@@ -5,7 +5,7 @@ set -e
 apt install -y apt-rollback
 
 # Discovery
-apt autoremove --purge plasma-discover-common
+apt autoremove --purge -y plasma-discover-common
 
 # Synaptic
 apt install -y synaptic
