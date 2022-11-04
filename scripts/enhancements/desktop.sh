@@ -18,16 +18,17 @@ if [ -f /usr/share/xsessions/ubuntu.desktop ]; then
     sed -i 's/firefox_firefox/firefox/g' /usr/share/glib-2.0/schemas/10_ubuntu-settings.gschema.override
     sed -i 's/gtk-theme = "Yaru"/gtk-theme = "Yaru-dark"/g' /usr/share/glib-2.0/schemas/10_ubuntu-settings.gschema.override
     sed -i 's/icon-theme = "Yaru"/icon-theme = "Papirus-Dark"/g' /usr/share/glib-2.0/schemas/10_ubuntu-settings.gschema.override
-    sed -i 's/snap-store_ubuntu-software/appgrid/g' /usr/share/glib-2.0/schemas/10_ubuntu-settings.gschema.override
+    sed -i 's/snap-store_ubuntu-software/synaptic/g' /usr/share/glib-2.0/schemas/10_ubuntu-settings.gschema.override
     sed -i 's/warty-final-ubuntu.png/DSC2943_by_kcpru.jpg/g' /usr/share/glib-2.0/schemas/10_ubuntu-settings.gschema.override
 fi
 ## KDE
 if [ -f /usr/share/xsessions/plasma.desktop ]; then
     echo "KDE"
     sudo papirus-folders -C breeze
-    sed -i 's/org.kde.discover/appgrid/g' /usr/share/plasma/plasmoids/org.kde.plasma.kicker/contents/config/main.xml
-    sed -i 's/org.kde.discover/appgrid/g' /usr/share/plasma/plasmoids/org.kde.plasma.kickoff/contents/config/main.xml
-    sed -i 's/org.kde.discover/appgrid/g' /usr/share/plasma/plasmoids/org.kde.plasma.taskmanager/contents/config/main.xml
+    sed -i 's/Yaru/Breeze/g' /etc/gtk-3.0/settings.ini
+    sed -i 's/org.kde.discover/synaptic/g' /usr/share/plasma/plasmoids/org.kde.plasma.kicker/contents/config/main.xml
+    sed -i 's/org.kde.discover/synaptic/g' /usr/share/plasma/plasmoids/org.kde.plasma.kickoff/contents/config/main.xml
+    sed -i 's/org.kde.discover/synaptic/g' /usr/share/plasma/plasmoids/org.kde.plasma.taskmanager/contents/config/main.xml
     sed -i 's@>preferred://browser,@>firefox.desktop,@g' /usr/share/plasma/plasmoids/org.kde.plasma.kicker/contents/config/main.xml
     sed -i 's@>preferred://browser,@>firefox.desktop,@g' /usr/share/plasma/plasmoids/org.kde.plasma.kickoff/contents/config/main.xml
     sed -i 's@,preferred://browser<@,applications:firefox.desktop<@g' /usr/share/plasma/plasmoids/org.kde.plasma.taskmanager/contents/config/main.xml
@@ -71,7 +72,7 @@ if [ -f /usr/share/xsessions/xubuntu.desktop ]; then
     echo "XFCE"
     sudo papirus-folders -C paleorange
     rm -r /etc/skel/.config/libreoffice
-    sed -i 's/org.gnome.Software/appgrid/g' /etc/skel/.config/xfce4/panel/whiskermenu-1.rc /etc/xdg/xdg-xubuntu/xfce4/whiskermenu/defaults.rc
+    sed -i 's/org.gnome.Software/synaptic/g' /etc/skel/.config/xfce4/panel/whiskermenu-1.rc /etc/xdg/xdg-xubuntu/xfce4/whiskermenu/defaults.rc
     sed -i 's/xubuntu-wallpaper.png/Kanchanjunga_Peaks_by_Pushkar_Deshpande.jpg/g' /etc/xdg/xdg-xubuntu/xfce4/xfconf/xfce-perchannel-xml/xfce4-desktop.xml
     sed -i 's/Greybird/Greybird-dark/g' /etc/xdg/xdg-xubuntu/xfce4/xfconf/xfce-perchannel-xml/xfwm4.xml
     sed -i 's/Greybird/Greybird-dark/g' /etc/xdg/xdg-xubuntu/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml
