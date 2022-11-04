@@ -25,6 +25,8 @@ fi
 if [ -f /usr/share/xsessions/plasma.desktop ]; then
     echo "KDE"
     sudo papirus-folders -C breeze
+    echo 'mkdir -p /root/.config;ln -fs /home/$(/home|head -n1|cut -d \/ -f3)/.config/gtk-3.0 /root/.config/'|tee /etc/rc.local
+    chmod +x /etc/rc.local
     sed -i 's/Yaru/Breeze/g' /etc/gtk-3.0/settings.ini
     sed -i 's/org.kde.discover/synaptic/g' /usr/share/plasma/plasmoids/org.kde.plasma.kicker/contents/config/main.xml
     sed -i 's/org.kde.discover/synaptic/g' /usr/share/plasma/plasmoids/org.kde.plasma.kickoff/contents/config/main.xml
