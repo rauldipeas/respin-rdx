@@ -14,7 +14,6 @@ rm libreoffice-style-papirus*.deb
 if [ -f /usr/share/xsessions/ubuntu.desktop ]; then
     echo "GNOME"
     sudo papirus-folders -C yaru
-    apt install -y gnome-software
     sed -i 's/firefox_firefox/firefox/g' /usr/share/glib-2.0/schemas/10_ubuntu-settings.gschema.override
     sed -i 's/gtk-theme = "Yaru"/gtk-theme = "Yaru-dark"/g' /usr/share/glib-2.0/schemas/10_ubuntu-settings.gschema.override
     sed -i 's/icon-theme = "Yaru"/icon-theme = "Papirus-Dark"/g' /usr/share/glib-2.0/schemas/10_ubuntu-settings.gschema.override
@@ -25,8 +24,7 @@ fi
 if [ -f /usr/share/xsessions/plasma.desktop ]; then
     echo "KDE"
     sudo papirus-folders -C breeze
-    echo 'mkdir -p /root/.config;ln -fs /home/$(/home|head -n1|cut -d \/ -f3)/.config/gtk-3.0 /root/.config/'|tee /etc/rc.local
-    chmod +x /etc/rc.local
+    echo 'gtk-application-prefer-dark-theme=true'|tee /etc/gtk-3.0/settings.ini
     sed -i 's/Yaru/Breeze/g' /etc/gtk-3.0/settings.ini
     sed -i 's/org.kde.discover/synaptic/g' /usr/share/plasma/plasmoids/org.kde.plasma.kicker/contents/config/main.xml
     sed -i 's/org.kde.discover/synaptic/g' /usr/share/plasma/plasmoids/org.kde.plasma.kickoff/contents/config/main.xml
