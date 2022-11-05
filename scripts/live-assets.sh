@@ -5,7 +5,7 @@ mkdir -p respin-rdx/image/{casper,isolinux,install}
 sudo cp  respin-rdx/$FLAVOUR-chroot/boot/vmlinuz-*-rdx  respin-rdx/image/casper/vmlinuz
 sudo cp  respin-rdx/$FLAVOUR-chroot/boot/initrd.img-*-rdx  respin-rdx/image/casper/initrd
 touch respin-rdx/image/respin-rdx
-sed -i "s/PLACEHOLDER/$FLAVOUR_NAME/g" assets/live-*
+sed -i "s/PLACEHOLDER/$FLAVOUR_NAME/g" assets/live/*
 cp assets/live/grub.cfg respin-rdx/image/isolinux/grub.cfg
 cp /mnt/casper/*minimal* respin-rdx/image/casper/
 sudo chroot respin-rdx/$FLAVOUR-chroot dpkg-query -W --showformat='${Package} ${Version}\n'|tee respin-rdx/image/casper/filesystem.manifest>/dev/null
