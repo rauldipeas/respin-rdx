@@ -19,5 +19,5 @@ apt install -y unrar
 # Xubuntu extras
 if [ -f /usr/share/xsessions/xubuntu.desktop ]; then
     add-apt-repository -y ppa:xubuntu-dev/extras
-    apt install -y volumeicon xfce4-appmenu-plugin xfce4-docklike-plugin
+    apt install -y volumeicon-alsa xfce4-appmenu-plugin xfce4-docklike-plugin
 fi
