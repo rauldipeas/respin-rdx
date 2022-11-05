@@ -12,7 +12,7 @@ rm libreoffice-style-papirus*.deb
 
 ## GNOME
 if [ -f /usr/share/xsessions/ubuntu.desktop ]; then
-    echo "GNOME"
+    echo 'GNOME'
     sudo papirus-folders -C yaru
     sed -i 's/firefox_firefox/firefox/g' /usr/share/glib-2.0/schemas/10_ubuntu-settings.gschema.override
     sed -i 's/gtk-theme = "Yaru"/gtk-theme = "Yaru-dark"/g' /usr/share/glib-2.0/schemas/10_ubuntu-settings.gschema.override
@@ -22,9 +22,9 @@ if [ -f /usr/share/xsessions/ubuntu.desktop ]; then
 fi
 ## KDE
 if [ -f /usr/share/xsessions/plasma.desktop ]; then
-    echo "KDE"
+    echo 'KDE'
     sudo papirus-folders -C breeze
-    echo 'gtk-application-prefer-dark-theme=true'|tee /etc/gtk-3.0/settings.ini
+    echo 'gtk-application-prefer-dark-theme=true'|tee -a /etc/gtk-3.0/settings.ini
     sed -i 's/Yaru/Breeze/g' /etc/gtk-3.0/settings.ini
     sed -i 's/org.kde.discover/synaptic/g' /usr/share/plasma/plasmoids/org.kde.plasma.kicker/contents/config/main.xml
     sed -i 's/org.kde.discover/synaptic/g' /usr/share/plasma/plasmoids/org.kde.plasma.kickoff/contents/config/main.xml
@@ -69,9 +69,14 @@ EOF
 fi
 ## XFCE
 if [ -f /usr/share/xsessions/xubuntu.desktop ]; then
-    echo "XFCE"
+    echo 'XFCE'
     sudo papirus-folders -C paleorange
     rm -r /etc/skel/.config/libreoffice
+    mkdir -p /etc/skel/.config/{autostart,volumeicon,xfce4/panel}
+    wget -qO /etc/skel/.config/autostart/volumeicon.desktop https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/XFCE/volumeicon.desktop
+    wget -qO /etc/skel/.config/volumeicon/volumeicon https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/XFCE/volumeicon
+    wget -qO /etc/skel/.config/xfce4/panel/docklike-2.rc https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/XFCE/docklike-2.rc
+    wget -qO /usr/share/xfce4-panel-profiles/layouts/Raul\ Dipeas\ -\ Superbar.tar.bz2 https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/XFCE/rauldipeas-superbar.tar.bz2
     sed -i 's/org.gnome.Software/synaptic/g' /etc/skel/.config/xfce4/panel/whiskermenu-1.rc /etc/xdg/xdg-xubuntu/xfce4/whiskermenu/defaults.rc
     sed -i 's/xubuntu-wallpaper.png/Kanchanjunga_Peaks_by_Pushkar_Deshpande.jpg/g' /etc/xdg/xdg-xubuntu/xfce4/xfconf/xfce-perchannel-xml/xfce4-desktop.xml
     sed -i 's/Greybird/Greybird-dark/g' /etc/xdg/xdg-xubuntu/xfce4/xfconf/xfce-perchannel-xml/xfwm4.xml
