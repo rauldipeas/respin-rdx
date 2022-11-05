@@ -71,11 +71,12 @@ fi
 if [ -f /usr/share/xsessions/xubuntu.desktop ]; then
     echo 'XFCE'
     sudo papirus-folders -C paleorange
-    rm -r /etc/skel/.config/libreoffice /etc/skel/.config/xfce4/panel/whiskermenu-1.rc
+    rm -r /etc/skel/.config/libreoffice
     mkdir -p /etc/skel/.config/{autostart,volumeicon,xfce4/panel}
     wget -qO /etc/skel/.config/autostart/volumeicon.desktop https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/XFCE/volumeicon.desktop
     wget -qO /etc/skel/.config/volumeicon/volumeicon https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/XFCE/volumeicon
     wget -qO /etc/skel/.config/xfce4/panel/docklike-2.rc https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/XFCE/docklike-2.rc
+    wget -qO /etc/skel/.config/xfce4/panel/whiskermenu-1.rc https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/XFCE/whiskermenu-1.rc
     wget -qO /usr/share/xfce4-panel-profiles/layouts/Raul\ Dipeas\ -\ SuperBar.tar.bz2 https://github.com/rauldipeas/respin-rdx/raw/main/assets/XFCE/rauldipeas-superbar.tar.bz2
     sed -i 's/org.gnome.Software/synaptic/g' /etc/skel/.config/xfce4/panel/whiskermenu-1.rc /etc/xdg/xdg-xubuntu/xfce4/whiskermenu/defaults.rc
     sed -i 's/xubuntu-wallpaper.png/Kanchanjunga_Peaks_by_Pushkar_Deshpande.jpg/g' /etc/xdg/xdg-xubuntu/xfce4/xfconf/xfce-perchannel-xml/xfce4-desktop.xml
