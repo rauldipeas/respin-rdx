@@ -71,7 +71,7 @@ fi
 if [ -f /usr/share/xsessions/xubuntu.desktop ]; then
     echo 'XFCE'
     sudo papirus-folders -C paleorange
-    rm -r /etc/skel/.config/libreoffice
+    rm -r /etc/skel/.config/libreoffice /etc/skel/.config/xfce4/panel/whiskermenu-1.rc
     mkdir -p /etc/skel/.config/{autostart,volumeicon,xfce4/panel}
     wget -qO /etc/skel/.config/autostart/volumeicon.desktop https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/XFCE/volumeicon.desktop
     wget -qO /etc/skel/.config/volumeicon/volumeicon https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/XFCE/volumeicon
