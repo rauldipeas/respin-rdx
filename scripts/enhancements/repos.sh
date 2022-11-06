@@ -9,4 +9,5 @@ add-apt-repository -ny universe
 bash -x <(wget -qO- https://raw.githubusercontent.com/rauldipeas/apt-repository/main/apt-repository.sh)
 
 # deb-get
+apt install -fy
 wget -qO- https://raw.githubusercontent.com/wimpysworld/deb-get/main/deb-get|sudo -E bash -s install deb-get
