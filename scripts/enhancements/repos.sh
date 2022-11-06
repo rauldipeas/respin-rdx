@@ -9,5 +9,6 @@ add-apt-repository -ny universe
 bash -x <(wget -qO- https://raw.githubusercontent.com/rauldipeas/apt-repository/main/apt-repository.sh)
 
 # deb-get
-apt install -fy
-wget -qO- https://raw.githubusercontent.com/wimpysworld/deb-get/main/deb-get|sudo -E bash -s install deb-get
+wget -q "$(wget -qO- https://api.github.com/repos/wimpysworld/deb-get/releases|grep browser_download_url|grep download|grep .deb|head -n1|cut -d '"' -f4)"
+sudo apt install -y ./deb-get*.deb
+rm deb-get*.deb
