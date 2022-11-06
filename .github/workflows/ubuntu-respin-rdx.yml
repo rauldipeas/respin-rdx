@@ -12,20 +12,21 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Configuração do ambiente de compilação
-        run: bash scripts/env.sh
+        run: bash -x scripts/env.sh
       - name: Compilação do Ubuntu Respin RDX
         run: bash -x scripts/build.sh
         env:
           CODENAME: jammy
           FLAVOUR: ubuntu 
           FLAVOUR_NAME: Ubuntu      
-          VERSION: 22.04.1  
+          VERSION: 22.04.1
+          CHROOT: respin-rdx/ubuntu-chroot
       - name: Upload dos artefatos
         uses: actions/upload-artifact@v3
         with:
           name: ubuntu-respin-rdx
           path: /home/runner/work/respin-rdx/ubuntu-respin-rdx.iso          
       - name: Limpeza de logs antigos
-        run: bash scripts/actions-cleanup.sh
+        run: bash -x scripts/actions-cleanup.sh
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}

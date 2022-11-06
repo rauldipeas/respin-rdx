@@ -5,8 +5,6 @@ A base do sistema está [**otimizada**](https://github.com/rauldipeas/respin-rdx
 
 Alguns extras estão inclusos:
 
-* ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/apps/distributor-logo-debian.svg) [**Meu repositório `apt`**](https://github.com/rauldipeas/apt-repository) (meu repositório `apt` pessoal, hospedado no [gemfury](gemfury.com))
-
 * ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/devices/cpu.svg) [**Linux RDX**](https://github.com/rauldipeas/linux-rdx) (minha compilação pessoal do kernel Linux)
 * ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/devices/cpu.svg) [**CFS Zen tweaks**](https://github.com/igo95862/cfs-zen-tweaks) (agendador de tarefas com melhorias de responsividade)
 * ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/apps/mintsources-ppa.svg) [**Mainline**](https://github.com/cappelikan/mainline) (ferramenta de atualização para o kernel do Ubuntu)
@@ -23,9 +21,13 @@ Alguns extras estão inclusos:
 * ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/apps/preferences-system-windows.svg) [**Docklike**](https://github.com/nsz32/docklike-plugin) (`superbar` para o painel do XFCE)
 * ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/apps/kmenuedit.svg) [**Vala Application Menu**](https://github.com/rilian-la-te/vala-panel-appmenu) (`appmenu` para o painel do XFCE)
 
+* ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/apps/cpu-x.svg) [**CPU-X**](https://thetumultuousunicornofdarkness.github.io/CPU-X) (informações de hardware)
+
 Os scripts disponíveis neste repositório, são derivados dos scripts desenvolvidos pelo [**Marcos Vallim**](https://github.com/mvallim/live-custom-ubuntu-from-scratch).
 
 ## Download:
 [![ubuntu](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/48x48/apps/distributor-logo-ubuntu.svg "Ubuntu")](https://nightly.link/rauldipeas/respin-rdx/workflows/ubuntu-respin-rdx/main/ubuntu-respin-rdx.zip)
 [![kubuntu](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/48x48/apps/distributor-logo-kubuntu.svg "Kubuntu")](https://nightly.link/rauldipeas/respin-rdx/workflows/kubuntu-respin-rdx/main/kubuntu-respin-rdx.zip)
 [![xubuntu](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/48x48/apps/desktop-environment-xfce.svg "Xubuntu")](https://nightly.link/rauldipeas/respin-rdx/workflows/xubuntu-respin-rdx/main/xubuntu-respin-rdx.zip)
+
+![](logo.png)

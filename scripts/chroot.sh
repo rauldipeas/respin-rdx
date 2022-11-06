@@ -2,20 +2,24 @@
 set -e
 
 # chroot
+## Montagem da ISO e descompactação do sistema de arquivos compactado
 sudo mount -o loop $FLAVOUR-*-desktop-amd64.iso /mnt
 mkdir respin-rdx
-sudo unsquashfs -q -d respin-rdx/$FLAVOUR-chroot /mnt/casper/filesystem.squashfs
-sudo mount --bind /dev respin-rdx/$FLAVOUR-chroot/dev
-sudo mount --bind /run respin-rdx/$FLAVOUR-chroot/run
-sudo chroot respin-rdx/$FLAVOUR-chroot mount none -t proc /proc
-sudo chroot respin-rdx/$FLAVOUR-chroot mount none -t sysfs /sys
-sudo chroot respin-rdx/$FLAVOUR-chroot mount none -t devpts /dev/pts
-sudo cp -r scripts/enhancements* respin-rdx/$FLAVOUR-chroot/
-sudo chroot respin-rdx/$FLAVOUR-chroot bash -x enhancements.sh
-sudo rm -r respin-rdx/$FLAVOUR-chroot/enhancements*
-sudo chroot respin-rdx/$FLAVOUR-chroot sh -c 'rm -rf /tmp/* /root/.bash_history'
-sudo chroot respin-rdx/$FLAVOUR-chroot umount /proc
-sudo chroot respin-rdx/$FLAVOUR-chroot umount /sys
-sudo chroot respin-rdx/$FLAVOUR-chroot umount /dev/pts
-sudo umount respin-rdx/$FLAVOUR-chroot/dev
-sudo umount respin-rdx/$FLAVOUR-chroot/run
+sudo unsquashfs -q -d $CHROOT /mnt/casper/filesystem.squashfs
+## Montagem do enjaulamento
+sudo mount -o bind /dev $CHROOT/dev
+sudo mount -o bind /dev/pts $CHROOT/dev/pts
+sudo mount -o bind /proc $CHROOT/proc
+sudo mount -o bind /run $CHROOT/run
+sudo mount -o bind /sys $CHROOT/sys
+## Execução dos scripts de personalização
+sudo cp -r scripts/enhancements* $CHROOT/
+sudo chroot $CHROOT bash -x enhancements.sh
+sudo rm -r $CHROOT/enhancements*
+## Desmontagem do enjaulamento
+sudo rm -rf $CHROOT/tmp/*
+sudo umount $CHROOT/dev/pts
+sudo umount $CHROOT/dev
+sudo umount $CHROOT/proc
+sudo umount $CHROOT/run
+sudo umount $CHROOT/sys

@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Configuração do ambiente de compilação
-        run: bash scripts/env.sh
+        run: bash -x scripts/env.sh
       - name: Compilação do Xubuntu Respin RDX
         run: bash -x scripts/build.sh
         env:
@@ -20,12 +20,13 @@ jobs:
           FLAVOUR: xubuntu 
           FLAVOUR_NAME: Xubuntu
           VERSION: 22.04.1
+          CHROOT: respin-rdx/xubuntu-chroot
       - name: Upload dos artefatos
         uses: actions/upload-artifact@v3
         with:
           name: xubuntu-respin-rdx
           path: /home/runner/work/respin-rdx/xubuntu-respin-rdx.iso          
       - name: Limpeza de logs antigos
-        run: bash scripts/actions-cleanup.sh
+        run: bash -x scripts/actions-cleanup.sh
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}

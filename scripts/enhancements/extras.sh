@@ -4,6 +4,9 @@ set -e
 # APT rollback
 apt install -y apt-rollback
 
+# CPU-X
+apt install -y cpu-x
+
 # Discovery
 apt autoremove --purge -y plasma-discover-common
 
