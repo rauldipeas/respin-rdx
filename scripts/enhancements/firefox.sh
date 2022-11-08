@@ -41,3 +41,13 @@ Exec=firefox -new-window
 Name=Abrir uma nova janela no modo privado
 Exec=firefox -private-window
 EOF
+if [ -f /usr/share/xsessions/plasma.desktop ]; then
+    cat <<EOF |tee /opt/firefox/defaults/pref/apturl.js
+pref("network.protocol-handler.app.apt","/usr/local/bin/qapt-apturl-installer.sh");
+pref("network.protocol-handler.warn-external.apt",false);
+pref("network.protocol-handler.app.apt+http","/usr/local/bin/qapt-apturl-installer.sh");
+pref("network.protocol-handler.warn-external.apt+http",false);
+pref("network.protocol-handler.external.apt",true);
+pref("network.protocol-handler.external.apt+http",true);
+EOF
+fi
