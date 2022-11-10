@@ -5,9 +5,9 @@ A base do sistema está [**otimizada**](https://github.com/rauldipeas/respin-rdx
 
 Alguns extras estão inclusos:
 
-* ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/devices/cpu.svg) [**Linux RDX**](https://github.com/rauldipeas/linux-rdx) (minha compilação pessoal do kernel Linux)
-* ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/devices/cpu.svg) [**CFS Zen tweaks**](https://github.com/igo95862/cfs-zen-tweaks) (agendador de tarefas com melhorias de responsividade)
+* ~~![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/devices/cpu.svg) [**Linux RDX**](https://github.com/rauldipeas/linux-rdx) (minha compilação pessoal do kernel Linux)~~
 * ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/apps/mintsources-ppa.svg) [**Mainline**](https://github.com/cappelikan/mainline) (ferramenta de atualização para o kernel do Ubuntu)
+* ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/devices/cpu.svg) [**CFS Zen tweaks**](https://github.com/igo95862/cfs-zen-tweaks) (agendador de tarefas com melhorias de responsividade)
 * ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/apps/intel.svg) ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/apps/amd.svg)  [**MESA**](https://launchpad.net/~kisak/+archive/ubuntu/kisak-mesa) (drivers mais recentes para GPUs AMD e Intel)
 * ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/apps/qjackctl.svg) [**JACK**](https://launchpad.net/~ubuntustudio-ppa/+archive/ubuntu/backports) (servidor de áudio de baixa latência)
 * ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/apps/synaptic.svg) [**Synaptic**](https://savannah.nongnu.org/projects/synaptic) (gerenciador de pacotes)
