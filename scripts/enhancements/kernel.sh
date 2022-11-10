@@ -10,7 +10,7 @@ apt autoremove --purge -y linux*generic*
 
 # CFS Zen tweaks
 apt install -y cfs-zen-tweaks
-systemctl enable --now set-cfs-tweaks.service
+systemctl enable set-cfs-tweaks.service
 
 # Mainline
 add-apt-repository -y ppa:cappelikan/ppa
