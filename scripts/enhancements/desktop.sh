@@ -85,7 +85,7 @@ if [ -f /usr/share/xsessions/xubuntu.desktop ]; then
     sed -i 's/elementary-xfce-darker/Papirus-Dark/g' /etc/xdg/xdg-xubuntu/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml
 fi
 ## GNOME Lite
-if [ $FLAVOUR_NAME = Ubuntu\ GNOME\ Lite ]; then
+if [ -f /Ubuntu\ GNOME\ Lite ]; then
     echo 'GNOME Lite'
     sudo papirus-folders -C adwaita
     #sed -i 's/firefox_firefox/firefox/g' /usr/share/glib-2.0/schemas/10_ubuntu-settings.gschema.override
