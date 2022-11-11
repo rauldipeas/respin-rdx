@@ -17,15 +17,15 @@ jobs:
         run: bash -x scripts/build.sh
         env:
           CODENAME: jammy
-          FLAVOUR: ubuntu 
-          FLAVOUR_NAME: Ubuntu      
+          FLAVOUR: ubuntu
+          FLAVOUR_NAME: Ubuntu
           VERSION: 22.04.1
           CHROOT: respin-rdx/ubuntu-chroot
       - name: Upload dos artefatos
         uses: actions/upload-artifact@v3
         with:
           name: ubuntu-respin-rdx
-          path: /home/runner/work/respin-rdx/ubuntu-respin-rdx.iso          
+          path: /home/runner/work/respin-rdx/ubuntu-respin-rdx.iso
       - name: Limpeza de logs antigos
         run: bash -x scripts/actions-cleanup.sh
         env:

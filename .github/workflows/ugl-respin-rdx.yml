@@ -1,4 +1,4 @@
-name: Xubuntu Respin RDX
+name: Ubuntu GNOME Lite Respin RDX
 on:
   push:
     branches:
@@ -13,19 +13,19 @@ jobs:
       - uses: actions/checkout@v3
       - name: Configuração do ambiente de compilação
         run: bash -x scripts/env.sh
-      - name: Compilação do Xubuntu Respin RDX
+      - name: Compilação do Ubuntu GNOME Lite Respin RDX
         run: bash -x scripts/build.sh
         env:
           CODENAME: jammy
-          FLAVOUR: xubuntu
-          FLAVOUR_NAME: Xubuntu
+          FLAVOUR: ubuntu
+          FLAVOUR_NAME: Ubuntu GNOME Lite
           VERSION: 22.04.1
-          CHROOT: respin-rdx/xubuntu-chroot
+          CHROOT: respin-rdx/ugl-chroot
       - name: Upload dos artefatos
         uses: actions/upload-artifact@v3
         with:
-          name: xubuntu-respin-rdx
-          path: /home/runner/work/respin-rdx/xubuntu-respin-rdx.iso
+          name: ugl-respin-rdx
+          path: /home/runner/work/respin-rdx/ugl-respin-rdx.iso
       - name: Limpeza de logs antigos
         run: bash -x scripts/actions-cleanup.sh
         env:
