@@ -21,6 +21,7 @@ jobs:
           FLAVOUR_NAME: Xubuntu
           VERSION: 22.04.1
           CHROOT: respin-rdx/xubuntu-chroot
+          FLAVOUR_ID: X
       - name: Upload dos artefatos
         uses: actions/upload-artifact@v3
         with:

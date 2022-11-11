@@ -12,13 +12,13 @@ sudo mount -o bind /dev/pts $CHROOT/dev/pts
 sudo mount -o bind /proc $CHROOT/proc
 sudo mount -o bind /run $CHROOT/run
 sudo mount -o bind /sys $CHROOT/sys
-sudo touch $CHROOT/$FLAVOUR_NAME
+sudo touch $CHROOT/$FLAVOUR_ID
 ## Execução dos scripts de personalização
 sudo cp -r scripts/enhancements* $CHROOT/
 sudo chroot $CHROOT bash -x enhancements.sh
 sudo rm -r $CHROOT/enhancements*
 ## Desmontagem do enjaulamento
-sudo rm $CHROOT/$FLAVOUR_NAME
+sudo rm $CHROOT/$FLAVOUR_ID
 sudo rm -rf $CHROOT/tmp/*
 sudo umount $CHROOT/dev/pts
 sudo umount $CHROOT/dev

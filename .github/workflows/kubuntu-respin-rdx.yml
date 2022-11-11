@@ -21,6 +21,7 @@ jobs:
           FLAVOUR_NAME: Kubuntu
           VERSION: 22.04.1
           CHROOT: respin-rdx/kubuntu-chroot
+          FLAVOUR_ID: K
       - name: Upload dos artefatos
         uses: actions/upload-artifact@v3
         with:

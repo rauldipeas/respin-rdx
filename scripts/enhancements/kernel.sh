@@ -14,7 +14,7 @@ systemctl enable set-cfs-tweaks.service
 
 # Mainline
 add-apt-repository -y ppa:cappelikan/ppa
-apt install -y amd64-microcode intel-microcode mainline
+apt install -y amd64-microcode intel-microcode mainline thermald
 sed -i 's/Icon=mainline/Icon=mintsources-ppa/g' /usr/share/applications/mainline.desktop
 
 # Latest kernel

@@ -21,6 +21,7 @@ jobs:
           FLAVOUR_NAME: Ubuntu GNOME Lite
           VERSION: 22.04.1
           CHROOT: respin-rdx/ugl-chroot
+          FLAVOUR_ID: UGL
       - name: Upload dos artefatos
         uses: actions/upload-artifact@v3
         with:
