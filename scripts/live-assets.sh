@@ -4,8 +4,8 @@
 ## Criação das pastas na imagem de instalação
 mkdir -p respin-rdx/image/{casper,isolinux,install}
 ## Cópia do núcleo do sistema para a imagem de instalação
-find $CHROOT/boot -name "initrd.img-*-generic" -exec sudo cp {} respin-rdx/image/casper/initrd \;
-find $CHROOT/boot -name "vmlinuz-*-generic" -exec sudo cp {} respin-rdx/image/casper/vmlinuz \;
+find $CHROOT/boot -name "initrd.img*" -exec sudo cp -v {} respin-rdx/image/casper/initrd \;
+find $CHROOT/boot -name "vmlinuz*" -exec sudo cp -v {} respin-rdx/image/casper/vmlinuz \;
 ## Criação dos arquivos de identificação do gerenciador de inicialização (GRUB)
 touch respin-rdx/image/respin-rdx
 sed -i "s/PLACEHOLDER/$FLAVOUR_NAME/g" assets/live/*
