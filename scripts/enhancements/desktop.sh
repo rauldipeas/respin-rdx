@@ -97,6 +97,7 @@ if [ -f /UGL ]; then
     echo 'GNOME Lite'
     sudo papirus-folders -C adwaita
     apt autoremove --purge -y\
+        gedit\
         gnome-startup-applications\
         libreoffice*\
         ubuntu-desktop*\
@@ -105,12 +106,14 @@ if [ -f /UGL ]; then
     apt install -y\
         apturl\
         dmz-cursor-theme\
+        file-roller\
         gnome-backgrounds\
         gnome-calculator\
         gnome-characters\
         gnome-disk-utility\
         gnome-session\
         gnome-system-monitor\
+        gnome-text-editor\
         gthumb\
         nautilus\
         totem
