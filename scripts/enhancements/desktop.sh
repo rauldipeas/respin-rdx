@@ -88,31 +88,39 @@ fi
 if [ -f /UGL ]; then
     echo 'GNOME Lite'
     sudo papirus-folders -C adwaita
-    #sed -i 's/firefox_firefox/firefox/g' /usr/share/glib-2.0/schemas/10_ubuntu-settings.gschema.override
-    #sed -i 's/gtk-theme = "Yaru"/gtk-theme = "Yaru-dark"/g' /usr/share/glib-2.0/schemas/10_ubuntu-settings.gschema.override
-    #sed -i 's/icon-theme = "Yaru"/icon-theme = "Papirus-Dark"/g' /usr/share/glib-2.0/schemas/10_ubuntu-settings.gschema.override
-    #sed -i 's/snap-store_ubuntu-software/synaptic/g' /usr/share/glib-2.0/schemas/10_ubuntu-settings.gschema.override
     #sed -i 's/warty-final-ubuntu.png/DSC2943_by_kcpru.jpg/g' /usr/share/glib-2.0/schemas/10_ubuntu-settings.gschema.override
     apt autoremove --purge -y\
+        libreoffice*\
         ubuntu-desktop*\
-        ubuntu-session*
-        #gdm3*\
-        #gnome-*\
+        ubuntu-session*\
+        yaru*
     apt install -y\
-        gnome-session
-        #--no-install-recommends -y\
-        #gnome-shell\
-        #gnome-icon-theme\
-        #gnome-icon-theme-symbolic\
-        #nautilus\
-        #gnome-terminal\
-        #gnome-control-center\
-        #gnome-online-accounts\
-        #network-manager-gnome\
-        #gdm3\
-        #xinit\
-        #gnome-tweaks\
-        #yaru-theme-icon\
-        #yaru-theme-gtk\
-        #yaru-theme-shell
+        baobab\
+        cheese\
+        dmz-cursor-theme\
+        gnome-calculator\
+        gnome-characters\
+        gnome-connections\
+        gnome-disk-utility\
+        gnome-font-viewer\
+        gnome-logs\
+        gnome-maps\
+        gnome-session\
+        gnome-system-monitor\
+        gnome-wallpapers\
+        gnome-weather\
+        gthumb\
+        nautilus\
+        totem
+    wget -q "$(wget -qO- https://api.github.com/repos/lassekongo83/adw-gtk3/releases|grep browser_download_url|grep tar.xz|head -n1|cut -d '"' -f4)"
+    tar xf adw-gtk3*.tar.xz -C /usr/share/themes/
+    sed -i 's/org.gnome.Epiphany/firefox/g' /usr/share/glib-2.0/schemas/org.gnome.shell.gschema.xml
+    sed -i 's/org.gnome.Calendar/thunderbird/g' /usr/share/glib-2.0/schemas/org.gnome.shell.gschema.xml
+    sed -i 's/org.gnome.Software/synaptic/g' /usr/share/glib-2.0/schemas/org.gnome.shell.gschema.xml
+    sudo sed -i '/color-scheme/{n;s/default/prefer-dark/;}' /usr/share/glib-2.0/schemas/org.gnome.desktop.interface.gschema.xml
+    sudo sed -i '/cursor-theme/{n;s/Adwaita/DMZ-White/;}' /usr/share/glib-2.0/schemas/org.gnome.desktop.interface.gschema.xml
+    sudo sed -i '/gtk-theme/{n;s/Adwaita/adw-gtk3-dark/;}' /usr/share/glib-2.0/schemas/org.gnome.desktop.interface.gschema.xml
+    sudo sed -i '/icon-theme/{n;s/Adwaita/Papirus-Dark/;}' /usr/share/glib-2.0/schemas/org.gnome.desktop.interface.gschema.xml
+    sudo sed -i '/picture-uri/{n;s/adwaita-l/blobs-l/;}' /usr/share/glib-2.0/schemas/org.gnome.desktop.background.gschema.xml
+    sudo sed -i '/tap-to-click/{n;s/false/true/;}' /usr/share/glib-2.0/schemas/org.gnome.desktop.peripherals.gschema.xml
 fi
