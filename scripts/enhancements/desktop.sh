@@ -10,10 +10,6 @@ wget -q https://launchpad.net/~papirus/+archive/ubuntu/papirus/+files/libreoffic
 apt install ./libreoffice-style-papirus*.deb
 rm libreoffice-style-papirus*.deb
 
-# Info
-cp /usr/share/applications/info.desktop /usr/local/share/applications/
-echo 'Hidden=true'|tee -a /usr/local/share/applications/info.desktop>/dev/null
-
 # Ubiquity
 #rm -f /usr/share/applications/ubiquity.desktop /usr/share/applications/kde4/ubiquity-kdeui.desktop
 find /usr/share/applications -name "*ubiquity*.desktop" -delete
@@ -117,6 +113,8 @@ if [ -f /UGL ]; then
         gthumb\
         nautilus\
         totem
+    cp /usr/share/applications/info.desktop /usr/local/share/applications/
+    echo 'Hidden=true'|tee -a /usr/local/share/applications/info.desktop>/dev/null
     wget -q "$(wget -qO- https://api.github.com/repos/lassekongo83/adw-gtk3/releases|grep browser_download_url|grep tar.xz|head -n1|cut -d '"' -f4)"
     tar xf adw-gtk3*.tar.xz -C /usr/share/themes/
     rm adw-gtk3*.tar.xz
