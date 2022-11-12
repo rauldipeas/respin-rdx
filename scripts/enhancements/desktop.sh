@@ -88,7 +88,6 @@ fi
 if [ -f /UGL ]; then
     echo 'GNOME Lite'
     sudo papirus-folders -C adwaita
-    #sed -i 's/warty-final-ubuntu.png/DSC2943_by_kcpru.jpg/g' /usr/share/glib-2.0/schemas/10_ubuntu-settings.gschema.override
     apt autoremove --purge -y\
         libreoffice*\
         ubuntu-desktop*\
@@ -98,17 +97,14 @@ if [ -f /UGL ]; then
         baobab\
         cheese\
         dmz-cursor-theme\
+        gnome-backgrounds\
         gnome-calculator\
         gnome-characters\
-        gnome-connections\
         gnome-disk-utility\
         gnome-font-viewer\
         gnome-logs\
-        gnome-maps\
         gnome-session\
         gnome-system-monitor\
-        gnome-wallpapers\
-        gnome-weather\
         gthumb\
         nautilus\
         totem
