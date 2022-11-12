@@ -93,7 +93,7 @@ if [ -f /UGL ]; then
     #sed -i 's/icon-theme = "Yaru"/icon-theme = "Papirus-Dark"/g' /usr/share/glib-2.0/schemas/10_ubuntu-settings.gschema.override
     #sed -i 's/snap-store_ubuntu-software/synaptic/g' /usr/share/glib-2.0/schemas/10_ubuntu-settings.gschema.override
     #sed -i 's/warty-final-ubuntu.png/DSC2943_by_kcpru.jpg/g' /usr/share/glib-2.0/schemas/10_ubuntu-settings.gschema.override
-    apt autoreremove --purge -y\
+    apt autoremove --purge -y\
         ubuntu-desktop*\
         ubuntu-session*
         #gdm3*\
