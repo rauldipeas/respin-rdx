@@ -22,6 +22,7 @@ jobs:
           VERSION: 22.04.1
           CHROOT: respin-rdx/ugl-chroot
           FLAVOUR_ID: UGL
+          ISO_NAME: ugl
       - name: Upload dos artefatos
         uses: actions/upload-artifact@v3
         with:

@@ -22,6 +22,7 @@ jobs:
           VERSION: 22.04.1
           CHROOT: respin-rdx/ubuntu-chroot
           FLAVOUR_ID: U
+          ISO_NAME: ubuntu
       - name: Upload dos artefatos
         uses: actions/upload-artifact@v3
         with:
