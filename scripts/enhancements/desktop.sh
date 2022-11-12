@@ -110,13 +110,19 @@ if [ -f /UGL ]; then
         totem
     wget -q "$(wget -qO- https://api.github.com/repos/lassekongo83/adw-gtk3/releases|grep browser_download_url|grep tar.xz|head -n1|cut -d '"' -f4)"
     tar xf adw-gtk3*.tar.xz -C /usr/share/themes/
-    sed -i 's/org.gnome.Epiphany/firefox/g' /usr/share/glib-2.0/schemas/org.gnome.shell.gschema.xml
-    sed -i 's/org.gnome.Calendar/thunderbird/g' /usr/share/glib-2.0/schemas/org.gnome.shell.gschema.xml
-    sed -i 's/org.gnome.Software/synaptic/g' /usr/share/glib-2.0/schemas/org.gnome.shell.gschema.xml
-    sudo sed -i "/color-scheme/{n;s/'default'/'prefer-dark'/;}" /usr/share/glib-2.0/schemas/org.gnome.desktop.interface.gschema.xml
-    sudo sed -i '/cursor-theme/{n;s/Adwaita/DMZ-White/;}' /usr/share/glib-2.0/schemas/org.gnome.desktop.interface.gschema.xml
-    sudo sed -i '/gtk-theme/{n;s/Adwaita/adw-gtk3-dark/;}' /usr/share/glib-2.0/schemas/org.gnome.desktop.interface.gschema.xml
-    sudo sed -i '/icon-theme/{n;s/Adwaita/Papirus-Dark/;}' /usr/share/glib-2.0/schemas/org.gnome.desktop.interface.gschema.xml
-    sudo sed -i '/picture-uri/{n;s/adwaita-l/blobs-l/;}' /usr/share/glib-2.0/schemas/org.gnome.desktop.background.gschema.xml
-    sudo sed -i '/tap-to-click/{n;s/false/true/;}' /usr/share/glib-2.0/schemas/org.gnome.desktop.peripherals.gschema.xml
+    sed -i 's@image/gif\;image/jpeg\;image/png\;@@g' /usr/local/share/applications/firefox.desktop
+    #sed -i 's/org.gnome.Epiphany/firefox/g' /usr/share/glib-2.0/schemas/org.gnome.shell.gschema.xml
+    #sed -i 's/org.gnome.Calendar/thunderbird/g' /usr/share/glib-2.0/schemas/org.gnome.shell.gschema.xml
+    #sed -i 's/org.gnome.Software/synaptic/g' /usr/share/glib-2.0/schemas/org.gnome.shell.gschema.xml
+    sed -i 's/firefox-esr/firefox/g' /usr/share/glib-2.0/schemas/10_gnome-shell.gschema.override
+    sed -i 's/org.gnome.Evolution/thunderbird/g' /usr/share/glib-2.0/schemas/10_gnome-shell.gschema.override
+    sed -i 's/org.gnome.Software/synaptic/g' /usr/share/glib-2.0/schemas/10_gnome-shell.gschema.override
+    sed -i 's/adwaita/blobs/g' /usr/share/glib-2.0/schemas/org.gnome.desktop.background.gschema.xml
+    sed -i "/color-scheme/{n;s/'default'/'prefer-dark'/;}" /usr/share/glib-2.0/schemas/org.gnome.desktop.interface.gschema.xml
+    sed -i '/cursor-theme/{n;s/Adwaita/DMZ-White/;}' /usr/share/glib-2.0/schemas/org.gnome.desktop.interface.gschema.xml
+    sed -i '/gtk-theme/{n;s/Adwaita/adw-gtk3-dark/;}' /usr/share/glib-2.0/schemas/org.gnome.desktop.interface.gschema.xml
+    sed -i '/icon-theme/{n;s/Adwaita/Papirus-Dark/;}' /usr/share/glib-2.0/schemas/org.gnome.desktop.interface.gschema.xml
+    #sed -i '/picture-uri/{n;s/adwaita-l/blobs-l/;}' /usr/share/glib-2.0/schemas/org.gnome.desktop.background.gschema.xml
+    #sed -i '/picture-uri-dark/{n;s/adwaita-d/blobs-d/;}' /usr/share/glib-2.0/schemas/org.gnome.desktop.background.gschema.xml
+    sed -i '/tap-to-click/{n;s/false/true/;}' /usr/share/glib-2.0/schemas/org.gnome.desktop.peripherals.gschema.xml
 fi
