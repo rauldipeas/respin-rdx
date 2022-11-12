@@ -113,7 +113,7 @@ if [ -f /UGL ]; then
     sed -i 's/org.gnome.Epiphany/firefox/g' /usr/share/glib-2.0/schemas/org.gnome.shell.gschema.xml
     sed -i 's/org.gnome.Calendar/thunderbird/g' /usr/share/glib-2.0/schemas/org.gnome.shell.gschema.xml
     sed -i 's/org.gnome.Software/synaptic/g' /usr/share/glib-2.0/schemas/org.gnome.shell.gschema.xml
-    sudo sed -i '/color-scheme/{n;s/default/prefer-dark/;}' /usr/share/glib-2.0/schemas/org.gnome.desktop.interface.gschema.xml
+    sudo sed -i "/color-scheme/{n;s/'default'/'prefer-dark'/;}" /usr/share/glib-2.0/schemas/org.gnome.desktop.interface.gschema.xml
     sudo sed -i '/cursor-theme/{n;s/Adwaita/DMZ-White/;}' /usr/share/glib-2.0/schemas/org.gnome.desktop.interface.gschema.xml
     sudo sed -i '/gtk-theme/{n;s/Adwaita/adw-gtk3-dark/;}' /usr/share/glib-2.0/schemas/org.gnome.desktop.interface.gschema.xml
     sudo sed -i '/icon-theme/{n;s/Adwaita/Papirus-Dark/;}' /usr/share/glib-2.0/schemas/org.gnome.desktop.interface.gschema.xml
