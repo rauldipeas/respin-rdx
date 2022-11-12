@@ -15,7 +15,8 @@ cp /usr/share/applications/info.desktop /usr/local/share/applications/
 echo 'Hidden=true'|tee -a /usr/local/share/applications/info.desktop>/dev/null
 
 # Ubiquity
-rm /usr/share/applications/ubiquity*.desktop
+#rm -f /usr/share/applications/ubiquity.desktop /usr/share/applications/kde4/ubiquity-kdeui.desktop
+find /usr/share/applications -name "*ubiquity*.desktop" -delete
 
 ## GNOME
 if [ -f /usr/share/xsessions/ubuntu.desktop ]; then
