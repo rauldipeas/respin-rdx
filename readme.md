@@ -29,5 +29,6 @@ Os scripts disponíveis neste repositório, são derivados dos scripts desenvolv
 [![ubuntu](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/48x48/apps/distributor-logo-ubuntu.svg "Ubuntu")](https://nightly.link/rauldipeas/respin-rdx/workflows/ubuntu-respin-rdx/main/ubuntu-respin-rdx.zip)
 [![kubuntu](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/48x48/apps/distributor-logo-kubuntu.svg "Kubuntu")](https://nightly.link/rauldipeas/respin-rdx/workflows/kubuntu-respin-rdx/main/kubuntu-respin-rdx.zip)
 [![xubuntu](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/48x48/apps/desktop-environment-xfce.svg "Xubuntu")](https://nightly.link/rauldipeas/respin-rdx/workflows/xubuntu-respin-rdx/main/xubuntu-respin-rdx.zip)
+[![gnome-lite](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/48x48/apps/desktop-environment-gnome.svg "GNOME Lite")](https://nightly.link/rauldipeas/respin-rdx/workflows/ugl-respin-rdx/main/ugl-respin-rdx.zip)
 
 ![](logo.png)
