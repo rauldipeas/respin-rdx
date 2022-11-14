@@ -13,9 +13,9 @@ apt autoremove --purge -y plasma-discover-common
 # Muon
 apt autoremove --purge -y muon
 
-# Kubuntu custom-apturl
+# KDE custom-apturl
 if [ -f /usr/share/xsessions/plasma.desktop ]; then
-apt install -y libnotify-bin
+apt install -y libnotify-bin qapt-deb-installer
 mkdir -p /usr/local/{bin,share/applications}
     cat <<EOF |tee /usr/local/bin/qapt-apturl-installer.sh
 #!/bin/bash
