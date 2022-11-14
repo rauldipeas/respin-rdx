@@ -6,9 +6,16 @@ add-apt-repository -ny ppa:papirus/hardcode-tray
 sed -i 's/jammy/focal/g' /etc/apt/sources.list.d/*hardcode-tray* #tmp-downgrade-fix
 add-apt-repository -y ppa:papirus/papirus-dev
 apt install -y hardcode-tray papirus-icon-theme papirus-folders
-wget -q https://launchpad.net/~papirus/+archive/ubuntu/papirus/+files/libreoffice-style-papirus_20180413-46+pkg3~ubuntu20.04.1_all.deb
-apt install ./libreoffice-style-papirus*.deb
-rm libreoffice-style-papirus*.deb
+if [ -f /UGL ]; then
+    echo 'GNOME Lite'
+    elif [ -f /N ]; then
+    echo 'Neon'
+    else
+    echo 'Flavours'
+    wget -q https://launchpad.net/~papirus/+archive/ubuntu/papirus/+files/libreoffice-style-papirus_20180413-46+pkg3~ubuntu20.04.1_all.deb
+    apt install ./libreoffice-style-papirus*.deb
+    rm libreoffice-style-papirus*.deb
+fi
 
 # Ubiquity
 find /usr/share/applications -name "*ubiquity*.desktop" -delete
