@@ -1,0 +1,34 @@
+name: Neon Respin RDX
+on:
+  push:
+    branches:
+      - 'main'
+  schedule:
+    - cron:  '0 */24 * * *'
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+      - name: Configuração do ambiente de compilação
+        run: bash -x scripts/env.sh
+      - name: Compilação do Neon Respin RDX
+        run: bash -x scripts/build.sh
+        env:
+          CODENAME: jammy
+          FLAVOUR: neon
+          FLAVOUR_NAME: Neon
+          VERSION: 22.04.1
+          CHROOT: respin-rdx/neon-chroot
+          FLAVOUR_ID: N
+          ISO_NAME: neon
+      - name: Upload dos artefatos
+        uses: actions/upload-artifact@v3
+        with:
+          name: neon-respin-rdx
+          path: /home/runner/work/respin-rdx/neon-respin-rdx.iso
+      - name: Limpeza de logs antigos
+        run: bash -x scripts/actions-cleanup.sh
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}

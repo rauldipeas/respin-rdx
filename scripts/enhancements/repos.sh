@@ -13,3 +13,8 @@ apt update
 wget -q "$(wget -qO- https://api.github.com/repos/wimpysworld/deb-get/releases|grep browser_download_url|grep download|grep .deb|head -n1|cut -d '"' -f4)"
 sudo apt install -y ./deb-get*.deb
 rm deb-get*.deb
+
+# Pacstall
+wget -q "$(wget -qO- https://api.github.com/repos/pacstall/pacstall/releases|grep browser_download_url|grep download|grep .deb|head -n1|cut -d '"' -f4)"
+sudo apt install -y ./pacstall*.deb
+rm pacstall*.deb
