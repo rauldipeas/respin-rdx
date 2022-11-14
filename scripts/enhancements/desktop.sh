@@ -153,7 +153,7 @@ if [ -f /N ]; then
     rm -r materia-kde
     sed -i 's/start-here-kde/distributor-logo-neon/g' /usr/share/plasma/plasmoids/org.kde.plasma.kickoff/contents/config/main.xml
     sed -i 's/start-here-kde/distributor-logo-neon/g' /usr/share/plasma/plasmoids/org.kde.plasma.kicker/contents/config/main.xml    
-    cat <<EOF |tee /usr/share/plasma/look-and-feel/org.kubuntu.desktop/contents/defaults
+    cat <<EOF |tee /usr/share/plasma/look-and-feel/org.kde.breeze.desktop/contents/defaults
 [kdeglobals][KDE]
 widgetStyle=Breeze
 
@@ -180,5 +180,8 @@ LayoutName=org.kde.breeze.desktop
 
 [kwinrc][org.kde.kdecoration2]
 library=org.kde.breeze
+
+[KSplash]
+Theme=org.kde.Breeze
 EOF
 fi
