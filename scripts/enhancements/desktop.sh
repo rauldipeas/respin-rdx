@@ -21,7 +21,7 @@ fi
 find /usr/share/applications -name "*ubiquity*.desktop" -delete
 
 ## GNOME
-if [ -f /usr/share/xsessions/ubuntu.desktop ]; then
+if [ -f /U ]; then
     echo 'GNOME'
     sudo papirus-folders -C yaru
     sed -i 's/firefox_firefox/firefox/g' /usr/share/glib-2.0/schemas/10_ubuntu-settings.gschema.override
@@ -31,7 +31,7 @@ if [ -f /usr/share/xsessions/ubuntu.desktop ]; then
     sed -i 's/warty-final-ubuntu.png/DSC2943_by_kcpru.jpg/g' /usr/share/glib-2.0/schemas/10_ubuntu-settings.gschema.override
 fi
 ## KDE
-if [ -f /usr/share/xsessions/plasma.desktop ]; then
+if [ -f /K ]; then
     echo 'KDE'
     sudo papirus-folders -C breeze
     echo 'gtk-application-prefer-dark-theme=true'|tee -a /etc/gtk-3.0/settings.ini
@@ -78,7 +78,7 @@ library=org.kde.breeze
 EOF
 fi
 ## XFCE
-if [ -f /usr/share/xsessions/xubuntu.desktop ]; then
+if [ -f /X ]; then
     echo 'XFCE'
     sudo papirus-folders -C paleorange
     rm -r /etc/skel/.config/libreoffice
@@ -95,7 +95,7 @@ if [ -f /usr/share/xsessions/xubuntu.desktop ]; then
     sed -i 's/elementary-xfce-darker/Papirus-Dark/g' /etc/xdg/xdg-xubuntu/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml
 fi
 ## GNOME Lite
-if [ -f /UGL ]; then
+if [ -f /GL ]; then
     echo 'GNOME Lite'
     sudo papirus-folders -C adwaita
     apt autoremove --purge -y\
