@@ -15,7 +15,7 @@ apt autoremove --purge -y muon
 
 # KDE custom-apturl
 if [ -f /usr/share/xsessions/plasma.desktop ]; then
-apt install -y libnotify-bin qapt-deb-installer
+apt install -y --no-install-recommends libnotify-bin qapt-deb-installer
 mkdir -p /usr/local/{bin,share/applications}
     cat <<EOF |tee /usr/local/bin/qapt-apturl-installer.sh
 #!/bin/bash
