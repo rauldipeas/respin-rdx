@@ -16,4 +16,4 @@ logged-in-sig = "$IA_LOGGED_IN_SIG"
 [general]
 screenname = Raul Dipeas
 EOF
-./ia -c ./ia.ini upload "$ISO_NAME"-respin-rdx /home/runner/work/respin-rdx/"$ISO_NAME"-respin-rdx.iso<
+./ia -c ./ia.ini upload "$ISO_NAME"-respin-rdx /home/runner/work/respin-rdx/"$ISO_NAME"-respin-rdx.iso
