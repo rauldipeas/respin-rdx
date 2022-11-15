@@ -7,11 +7,8 @@ apt install -y apt-rollback
 # CPU-X
 apt install -y cpu-x
 
-# Discovery
-apt autoremove --purge -y plasma-discover-common
-
-# Muon
-apt autoremove --purge -y muon
+# Discovery/Muon
+apt autoremove --purge -y muon plasma-discover-common
 
 # KDE custom-apturl
 if [ -f /usr/share/xsessions/plasma.desktop ]; then
