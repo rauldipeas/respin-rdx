@@ -23,6 +23,10 @@ jobs:
           CHROOT: respin-rdx/ugl-chroot
           FLAVOUR_ID: GL
           ISO_NAME: ugl
+          IA_ACCESS: ${{ secrets.IA_ACCESS }}
+          IA_SECRET: ${{ secrets.IA_SECRET }}
+          IA_LOGGED_IN_USER: ${{ secrets.IA_LOGGED_IN_USER }}
+          IA_LOGGED_IN_SIG: ${{ secrets.IA_LOGGED_IN_SIG }}
       - name: Upload dos artefatos
         uses: actions/upload-artifact@v3
         with:

@@ -3,7 +3,7 @@ set -e
 
 # Thunderbird
 apt autoremove --purge -y *thunderbird*
-wget -qO thunderbird-latest-linux64-pt-br.tar.bz2 "https://download.mozilla.org/?product=thunderbird-latest&os=linux64&lang=pt-BR"
+wget -q --show-progress -O thunderbird-latest-linux64-pt-br.tar.bz2 "https://download.mozilla.org/?product=thunderbird-latest&os=linux64&lang=pt-BR"
 tar xjf thunderbird-latest-linux64-pt-br.tar.bz2
 mkdir -p /opt/thunderbird
 chmod 777 -R /opt/thunderbird

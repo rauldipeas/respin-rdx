@@ -7,3 +7,4 @@ bash -x scripts/iso-download.sh
 bash -x scripts/chroot.sh
 bash -x scripts/live-assets.sh
 bash -x scripts/xorriso.sh
+bash -x scripts/ia-upload.sh

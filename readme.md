@@ -1,4 +1,7 @@
 # Respin RDX
+
+![](banner.jpg)
+
 Esta é a minha compilação pessoal dos [_sabores_](https://ubuntu.com/desktop/flavours) do [**Ubuntu**](https://ubuntu.com).
 
 A base do sistema está [**otimizada**](https://github.com/rauldipeas/respin-rdx/blob/main/scripts/enhancements/rtcqs.sh) para criação de conteúdo multimídia *(áudio, vídeo e imagem)*, com base nos parâmetros de checagem do [**rtcqs**](https://codeberg.org/rtcqs/rtcqs).
@@ -32,5 +35,3 @@ Os scripts disponíveis neste repositório, são derivados dos scripts desenvolv
 [![xubuntu](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/48x48/apps/desktop-environment-xfce.svg "Xubuntu")](https://nightly.link/rauldipeas/respin-rdx/workflows/xubuntu-respin-rdx/main/xubuntu-respin-rdx.zip)
 [![neon](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/48x48/apps/distributor-logo-neon.svg "Neon")](https://nightly.link/rauldipeas/respin-rdx/workflows/neon-respin-rdx/main/neon-respin-rdx.zip)
 [![gnome-lite](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/48x48/apps/desktop-environment-gnome.svg "GNOME Lite")](https://nightly.link/rauldipeas/respin-rdx/workflows/ugl-respin-rdx/main/ugl-respin-rdx.zip)
-
-![](logo.png)
