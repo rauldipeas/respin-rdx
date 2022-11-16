@@ -4,7 +4,7 @@ set -e
 # Firefox
 apt autoremove --purge -y *firefox* snapd
 wget -q --show-progress -O firefox-latest-linux64-pt-br.tar.bz2 "https://download.mozilla.org/?product=firefox-latest&os=linux64&lang=pt-BR"
-tar xjf firefox-latest-linux64-pt-br.tar.bz2
+tar fjx firefox-latest-linux64-pt-br.tar.bz2
 mkdir -p /opt/firefox
 chmod 777 -R /opt/firefox
 mv firefox/* /opt/firefox/
