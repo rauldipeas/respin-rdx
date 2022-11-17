@@ -7,7 +7,7 @@ apt dist-upgrade -y
 
 # ALSA firmware
 wget -q --show-progress http://ppa.launchpad.net/kxstudio-debian/libs/ubuntu/pool/main/a/alsa-firmware/$(wget -qO- http://ppa.launchpad.net/kxstudio-debian/libs/ubuntu/pool/main/a/alsa-firmware/|grep amd64.deb|cut -d '"' -f8)
-apt install ./alsa-firmware*.deb
+apt install -y ./alsa-firmware*.deb
 rm alsa-firmware*.deb
 
 # JACK
