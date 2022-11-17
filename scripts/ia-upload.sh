@@ -3,8 +3,8 @@ set -e
 
 # Internet Archive upload
 wget -q --show-progress https://archive.org/download/ia-pex/ia
-chmod +x ./ia
-cat <<EOF |tee ./ia.ini>/dev/null
+chmod +x ia
+cat <<EOF |tee ia.ini>/dev/null
 [s3]
 access = "$IA_ACCESS"
 secret = "$IA_SECRET"

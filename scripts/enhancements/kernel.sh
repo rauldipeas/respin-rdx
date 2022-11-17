@@ -28,4 +28,4 @@ wget -q --show-progress https://kernel.ubuntu.com/~kernel-ppa/mainline/"$KERNEL_
 wget -q --show-progress https://kernel.ubuntu.com/~kernel-ppa/mainline/"$KERNEL_VER""$KERNEL_IMAGE_FILE"
 wget -q --show-progress https://kernel.ubuntu.com/~kernel-ppa/mainline/"$KERNEL_VER""$KERNEL_MODULES_FILE"
 apt install ./linux-headers*.deb ./linux-image*.deb ./linux-modules*.deb
-rm -f ./linux-headers*.deb ./linux-image*.deb ./linux-modules*.deb
+rm linux-headers*.deb  linux-image*.deb linux-modules*.deb
