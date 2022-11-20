@@ -6,6 +6,7 @@ apt autoremove --purge -y\
     gedit\
     gnome-startup-applications\
     libreoffice*\
+    pipewire*\
     ubuntu-desktop*\
     ubuntu-session*\
     update-manager-core\
