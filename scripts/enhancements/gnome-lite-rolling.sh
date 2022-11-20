@@ -21,6 +21,7 @@ apt install -y\
     gir1.2-gmenu-3.0\
     gnome-backgrounds\
     gnome-calculator\
+    gnome-control-center\
     gnome-characters\
     gnome-disk-utility\
     gnome-session\

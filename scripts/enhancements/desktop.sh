@@ -116,6 +116,7 @@ if [ -f /GL ]; then
     sed -i '/picture-uri/{n;s/adwaita-l.jpg/blobs-l.svg/;}' /usr/share/glib-2.0/schemas/org.gnome.desktop.background.gschema.xml
     sed -i '/picture-uri-dark/{n;s/adwaita-d.jpg/blobs-d.svg/;}' /usr/share/glib-2.0/schemas/org.gnome.desktop.background.gschema.xml
     sed -i '/tap-to-click/{n;s/false/true/;}' /usr/share/glib-2.0/schemas/org.gnome.desktop.peripherals.gschema.xml
+    sudo -u gdm gsettings set org.gnome.desktop.peripherals.touchpad tap-to-click true
 fi
 ## Neon
 if [ -f /N ]; then
@@ -187,4 +188,5 @@ if [ -f /GLR ]; then
     sed -i '/picture-uri/{n;s/adwaita-l.jpg/blobs-l.svg/;}' /usr/share/glib-2.0/schemas/org.gnome.desktop.background.gschema.xml
     sed -i '/picture-uri-dark/{n;s/adwaita-d.jpg/blobs-d.svg/;}' /usr/share/glib-2.0/schemas/org.gnome.desktop.background.gschema.xml
     sed -i '/tap-to-click/{n;s/false/true/;}' /usr/share/glib-2.0/schemas/org.gnome.desktop.peripherals.gschema.xml
+    sudo -u gdm gsettings set org.gnome.desktop.peripherals.touchpad tap-to-click true
 fi
