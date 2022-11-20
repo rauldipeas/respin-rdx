@@ -13,7 +13,7 @@ apt autoremove --purge -y\
     yelp*
 sed -i 's/jammy/devel/g' /etc/apt/sources.list
 apt update
-#apt dist-upgrade -y
+apt dist-upgrade -y
 apt install -y\
     apturl\
     dmz-cursor-theme\
