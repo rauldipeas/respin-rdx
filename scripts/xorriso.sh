@@ -34,6 +34,8 @@ sudo bash -c "(find . -type f -print0|xargs -0 md5sum|grep -v -e 'md5sum.txt' -e
 # xorriso
 sudo xorriso\
    -append_partition 2 0xef isolinux/efiboot.img\
+      -m 'isolinux/efiboot.img'\
+      -m 'isolinux/bios.img'\
    -as mkisofs\
    -boot-load-size 4\
    -boot-info-table\
@@ -48,8 +50,6 @@ sudo xorriso\
    --grub2-boot-info\
    --grub2-mbr /usr/lib/grub/i386-pc/boot_hybrid.img\
    -iso-level 3\
-   -m 'isolinux/efiboot.img'\
-   -m 'isolinux/bios.img'\
    -no-emul-boot\
    -output "/home/runner/work/respin-rdx/$ISO_NAME-respin-rdx.iso"\
    -volid "$FLAVOUR_NAME Respin RDX"\
