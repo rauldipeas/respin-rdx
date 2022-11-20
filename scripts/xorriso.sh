@@ -33,24 +33,25 @@ sudo bash -c "(find . -type f -print0|xargs -0 md5sum|grep -v -e 'md5sum.txt' -e
 
 # xorriso
 sudo xorriso\
-   -append_partition 2 0xef isolinux/efiboot.img\
-      -m 'isolinux/efiboot.img'\
-      -m 'isolinux/bios.img'\
    -as mkisofs\
+   -iso-level 3\
+   -full-iso9660-filenames\
+   -volid "$FLAVOUR_NAME Respin RDX"\
+   -output "/home/runner/work/respin-rdx/$ISO_NAME-respin-rdx.iso"\
+   -eltorito-boot boot/grub/bios.img\
+   -no-emul-boot\
    -boot-load-size 4\
    -boot-info-table\
-   -e EFI/efiboot.img\
-   -eltorito-alt-boot\
-   -eltorito-boot boot/grub/bios.img\
    --eltorito-catalog boot/grub/boot.cat\
-   -full-iso9660-filenames\
+   --grub2-boot-info\
+   --grub2-mbr /usr/lib/grub/i386-pc/boot_hybrid.img\
+   -eltorito-alt-boot\
+   -e EFI/efiboot.img\
+   -no-emul-boot\
+   -append_partition 2 0xef isolinux/efiboot.img\
+   -m 'isolinux/efiboot.img'\
+   -m 'isolinux/bios.img'\
    -graft-points\
       '/EFI/efiboot.img=isolinux/efiboot.img'\
       '/boot/grub/bios.img=isolinux/bios.img'\
-   --grub2-boot-info\
-   --grub2-mbr /usr/lib/grub/i386-pc/boot_hybrid.img\
-   -iso-level 3\
-   -no-emul-boot\
-   -output "/home/runner/work/respin-rdx/$ISO_NAME-respin-rdx.iso"\
-   -volid "$FLAVOUR_NAME Respin RDX"\
-   '.'
+      '.'
