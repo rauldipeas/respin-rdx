@@ -27,7 +27,7 @@ jobs:
           FLAVOUR_NAME: Ubuntu
           VERSION: 22.04.1
           CHROOT: respin-rdx/ubuntu-chroot
-          FLAVOUR_ID: U
+          FLAVOUR_ID: Ubuntu
           ISO_NAME: ubuntu
           IA_ACCESS: ${{ secrets.IA_ACCESS }}
           IA_SECRET: ${{ secrets.IA_SECRET }}

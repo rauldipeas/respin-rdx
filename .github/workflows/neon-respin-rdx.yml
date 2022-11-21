@@ -27,7 +27,7 @@ jobs:
           FLAVOUR_NAME: Neon
           VERSION: 22.04.1
           CHROOT: respin-rdx/neon-chroot
-          FLAVOUR_ID: N
+          FLAVOUR_ID: Neon
           ISO_NAME: neon
           IA_ACCESS: ${{ secrets.IA_ACCESS }}
           IA_SECRET: ${{ secrets.IA_SECRET }}

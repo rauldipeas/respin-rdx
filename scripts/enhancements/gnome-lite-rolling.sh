@@ -6,7 +6,6 @@ apt autoremove --purge -y\
     gedit\
     gnome-startup-applications\
     libreoffice*\
-    pipewire*\
     ubuntu-desktop*\
     ubuntu-session*\
     update-manager-core\
@@ -31,4 +30,5 @@ apt install -y\
     gnome-text-editor\
     gthumb\
     nautilus\
-    totem
+    totem\
+    wireplumber

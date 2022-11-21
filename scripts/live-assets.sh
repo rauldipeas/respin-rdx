@@ -8,7 +8,7 @@ find "$CHROOT"/boot -name "initrd.img-*" -exec sudo cp -v {} respin-rdx/image/ca
 find "$CHROOT"/boot -name "vmlinuz-*" -exec sudo cp -v {} respin-rdx/image/casper/vmlinuz \;
 ## Criação dos arquivos de identificação do gerenciador de inicialização (GRUB)
 touch respin-rdx/image/respin-rdx
-sed -i "s/PLACEHOLDER/$FLAVOUR_NAME/g" assets/live/*
+sed -i "s/PLACEHOLDER/$FLAVOUR_ID/g" assets/live/*
 cp assets/live/grub.cfg respin-rdx/image/isolinux/grub.cfg
 cp assets/live/README.diskdefines respin-rdx/image/README.diskdefines
 ## Criação dos arquivos de manifesto da imagem de instalação

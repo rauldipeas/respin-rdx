@@ -27,7 +27,7 @@ jobs:
           FLAVOUR_NAME: Xubuntu
           VERSION: 22.04.1
           CHROOT: respin-rdx/xubuntu-chroot
-          FLAVOUR_ID: X
+          FLAVOUR_ID: Xubuntu
           ISO_NAME: xubuntu
           IA_ACCESS: ${{ secrets.IA_ACCESS }}
           IA_SECRET: ${{ secrets.IA_SECRET }}

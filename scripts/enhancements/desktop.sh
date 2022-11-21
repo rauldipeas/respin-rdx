@@ -6,11 +6,11 @@ add-apt-repository -ny ppa:papirus/hardcode-tray
 sed -i 's/jammy/focal/g' /etc/apt/sources.list.d/*hardcode-tray* #tmp-downgrade-fix
 add-apt-repository -y ppa:papirus/papirus-dev
 apt install -y hardcode-tray papirus-icon-theme papirus-folders
-if [ -f /GL ]; then
+if [ -f /UGL ]; then
     echo 'GNOME Lite'
-    elif [ -f /GLR ];then
+    elif [ -f /UGLR ];then
     echo 'GNOME Lite Rolling'
-    elif [ -f /N ]; then
+    elif [ -f /Neon ]; then
     echo 'Neon'
     else
     echo 'Flavours'
@@ -20,7 +20,7 @@ if [ -f /GL ]; then
 fi
 
 ## Ubuntu
-if [ -f /U ]; then
+if [ -f /Ubuntu ]; then
     echo 'GNOME'
     sudo papirus-folders -C yaru
     sed -i 's/firefox_firefox/firefox/g' /usr/share/glib-2.0/schemas/10_ubuntu-settings.gschema.override
@@ -30,7 +30,7 @@ if [ -f /U ]; then
     sed -i 's/warty-final-ubuntu.png/DSC2943_by_kcpru.jpg/g' /usr/share/glib-2.0/schemas/10_ubuntu-settings.gschema.override
 fi
 ## GNOME Lite
-if [ -f /GL ]; then
+if [ -f /UGL ]; then
     echo 'GNOME Lite'
     bash -x enhancements/gnome-lite.sh
     sudo papirus-folders -C adwaita
@@ -52,7 +52,7 @@ if [ -f /GL ]; then
     sed -i '/tap-to-click/{n;s/false/true/;}' /usr/share/glib-2.0/schemas/org.gnome.settings-daemon.peripherals.gschema.xml
 fi
 ## GNOME Lite Rolling
-if [ -f /GLR ]; then
+if [ -f /UGLR ]; then
     echo 'GNOME Lite Rolling'
     bash -x enhancements/gnome-lite-rolling.sh
     sudo papirus-folders -C adwaita
@@ -74,7 +74,7 @@ if [ -f /GLR ]; then
     sed -i '/tap-to-click/{n;s/false/true/;}' /usr/share/glib-2.0/schemas/org.gnome.settings-daemon.peripherals.gschema.xml
 fi
 ## Kubuntu
-if [ -f /K ]; then
+if [ -f /Kubuntu ]; then
     echo 'KDE'
     sudo papirus-folders -C breeze
     echo 'gtk-application-prefer-dark-theme=true'|tee -a /etc/gtk-3.0/settings.ini
@@ -121,7 +121,7 @@ library=org.kde.breeze
 EOF
 fi
 ## Neon
-if [ -f /N ]; then
+if [ -f /Neon ]; then
     echo 'Neon'
     sudo papirus-folders -C breeze
     echo 'gtk-application-prefer-dark-theme=true'|tee -a /etc/gtk-3.0/settings.ini
@@ -171,7 +171,7 @@ Theme=org.kde.Breeze
 EOF
 fi
 ## Xubuntu
-if [ -f /X ]; then
+if [ -f /Xubuntu ]; then
     echo 'XFCE'
     sudo papirus-folders -C paleorange
     rm -r /etc/skel/.config/libreoffice

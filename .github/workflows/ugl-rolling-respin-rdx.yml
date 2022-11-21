@@ -24,10 +24,10 @@ jobs:
         env:
           CODENAME: jammy
           FLAVOUR: ubuntu
-          FLAVOUR_NAME: Ubuntu GNOME Rolling
+          FLAVOUR_NAME: Ubuntu GNOME Lite Rolling
           VERSION: 22.04.1
           CHROOT: respin-rdx/ugl-rolling-chroot
-          FLAVOUR_ID: GLR
+          FLAVOUR_ID: UGLR
           ISO_NAME: ugl-rolling
           IA_ACCESS: ${{ secrets.IA_ACCESS }}
           IA_SECRET: ${{ secrets.IA_SECRET }}

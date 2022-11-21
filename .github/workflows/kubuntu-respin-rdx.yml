@@ -27,7 +27,7 @@ jobs:
           FLAVOUR_NAME: Kubuntu
           VERSION: 22.04.1
           CHROOT: respin-rdx/kubuntu-chroot
-          FLAVOUR_ID: K
+          FLAVOUR_ID: Kubuntu
           ISO_NAME: kubuntu
           IA_ACCESS: ${{ secrets.IA_ACCESS }}
           IA_SECRET: ${{ secrets.IA_SECRET }}

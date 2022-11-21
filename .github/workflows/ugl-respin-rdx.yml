@@ -27,7 +27,7 @@ jobs:
           FLAVOUR_NAME: Ubuntu GNOME Lite
           VERSION: 22.04.1
           CHROOT: respin-rdx/ugl-chroot
-          FLAVOUR_ID: GL
+          FLAVOUR_ID: UGL
           ISO_NAME: ugl
           IA_ACCESS: ${{ secrets.IA_ACCESS }}
           IA_SECRET: ${{ secrets.IA_SECRET }}
