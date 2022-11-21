@@ -27,3 +27,4 @@ apt install -y\
     gthumb\
     nautilus\
     totem
+apt autoremove --purge -y yelp*
