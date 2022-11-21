@@ -32,4 +32,4 @@ apt install -y\
     nautilus\
     totem\
     wireplumber
-apt autoremove --purge yelp*
+apt autoremove --purge -y yelp*
