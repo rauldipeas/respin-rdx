@@ -16,13 +16,13 @@ apt install -y\
     apturl\
     cinnamon-l10n\
     dmz-cursor-theme\
+    gedit\
     gnome-calculator\
     gnome-characters\
     gnome-disk-utility\
     gnome-system-monitor\
-    gnome-text-editor\
     gnome-mpv\
     gthumb\
     materia-gtk-theme\
     nemo-fileroller
-apt autoremove --purge -y yelp*
+apt autoremove --purge -y mpv* yelp*
