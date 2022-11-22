@@ -187,6 +187,20 @@ if [ -f /Xubuntu ]; then
     sed -i 's/Greybird/Greybird-dark/g' /etc/xdg/xdg-xubuntu/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml
     sed -i 's/elementary-xfce-darker/Papirus-Dark/g' /etc/xdg/xdg-xubuntu/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml
 fi
+## Cinnamon Lite
+if [ -f /UCL ]; then
+    echo 'Cinnamon Lite'
+    bash -x enhancements/cinnamon-lite.sh
+    cp /usr/share/applications/info.desktop /usr/local/share/applications/
+    echo 'Hidden=true'|tee -a /usr/local/share/applications/info.desktop>/dev/null
+    sed -i '/cursor-theme/{n;s/Adwaita/DMZ-White/;}' /usr/share/glib-2.0/schemas/org.cinnamon.desktop.interface.gschema.xml
+    sed -i '/gtk-theme/{n;s/Adwaita/Materia-dark-compact/;}' /usr/share/glib-2.0/schemas/org.cinnamon.desktop.interface.gschema.xml
+    sed -i '/icon-theme/{n;s/Adwaita/Papirus-Dark/;}' /usr/share/glib-2.0/schemas/org.cinnamon.desktop.interface.gschema.xml
+    sed -i '@org/cinnamon/theme@{n;n;n;s@>""<@>"Materia-dark-compact"<@;}' /usr/share/glib-2.0/schemas/org.cinnamon.gschema.xml
+    sed -i '/picture-uri/{n;s@themes/Adwaita/backgrounds/adwaita-timed.xml@backgrounds/DSC2943_by_kcpru.jpg@;}' /usr/share/glib-2.0/schemas/org.cinnamon.desktop.background.gschema.xml
+    sed -i '/tap-to-click/{n;s/false/true/;}' /usr/share/glib-2.0/schemas/org.cinnamon.desktop.peripherals.gschema.xml
+    sed -i '/tap-to-click/{n;s/false/true/;}' /usr/share/glib-2.0/schemas/org.cinnamon.settings-daemon.peripherals.gschema.xml
+fi
 
 # Ubiquity
 find /usr/share/applications -name "*ubiquity*.desktop" -delete
