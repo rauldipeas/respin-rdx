@@ -11,7 +11,7 @@ apt autoremove --purge -y\
     update-manager-core\
     yaru*\
     yelp*
-apt install --no-install-recommends -y cinnamon-desktop-environment
+apt install --no-install-recommends -y cinnamon-desktop-environment w3m
 apt install -y\
     apturl\
     cinnamon-l10n\
