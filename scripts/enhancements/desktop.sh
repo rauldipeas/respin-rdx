@@ -199,7 +199,7 @@ if [ -f /UCL ]; then
     sed -i '/org\/cinnamon\/theme/{n;n;n;s/>""</>"Materia-dark-compact"</;}' /usr/share/glib-2.0/schemas/org.cinnamon.gschema.xml
     sed -i '/picture-uri/{n;s@themes/Adwaita/backgrounds/adwaita-timed.xml@backgrounds/DSC2943_by_kcpru.jpg@;}' /usr/share/glib-2.0/schemas/org.cinnamon.desktop.background.gschema.xml
     sed -i '/tap-to-click/{n;s/false/true/;}' /usr/share/glib-2.0/schemas/org.cinnamon.desktop.peripherals.gschema.xml
-    sed -i '/tap-to-click/{n;s/false/true/;}' /usr/share/glib-2.0/schemas/org.cinnamon.settings-daemon.peripherals.gschema.xml
+    #sed -i '/tap-to-click/{n;s/false/true/;}' /usr/share/glib-2.0/schemas/org.cinnamon.settings-daemon.peripherals.gschema.xml
 fi
 
 # Ubiquity
