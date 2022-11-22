@@ -24,5 +24,6 @@ apt install -y\
     gnome-mpv\
     gthumb\
     materia-gtk-theme\
-    nemo-fileroller
+    nemo-fileroller\
+    xdg-user-dirs-gtk
 apt autoremove --purge -y mpv* yelp*

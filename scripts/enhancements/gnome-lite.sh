@@ -26,5 +26,6 @@ apt install -y\
     gnome-text-editor\
     gthumb\
     nautilus\
-    totem
+    totem\
+    xdg-user-dirs-gtk
 apt autoremove --purge -y yelp*

@@ -31,5 +31,6 @@ apt install -y\
     gthumb\
     nautilus\
     totem\
-    wireplumber
+    wireplumber\
+    xdg-user-dirs-gtk
 apt autoremove --purge -y yelp*
