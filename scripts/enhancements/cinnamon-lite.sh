@@ -11,12 +11,18 @@ apt autoremove --purge -y\
     update-manager-core\
     yaru*\
     yelp*
-apt install --no-install-recommends -y cinnamon-desktop-environment w3m
+apt install --no-install-recommends -y cinnamon-core w3m
 apt install -y\
     apturl\
     cinnamon-l10n\
     dmz-cursor-theme\
+    gnome-calculator\
+    gnome-characters\
     gnome-disk-utility\
+    gnome-system-monitor\
+    gnome-text-editor\
     gnome-mpv\
-    materia-gtk-theme
-#apt autoremove --purge -y yelp*
+    gthumb\
+    materia-gtk-theme\
+    nemo-fileroller
+apt autoremove --purge -y yelp*
