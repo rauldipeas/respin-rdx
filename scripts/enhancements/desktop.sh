@@ -133,8 +133,8 @@ if [ -f /Neon ]; then
     sed -i 's@>preferred://browser,@>firefox.desktop,@g' /usr/share/plasma/plasmoids/org.kde.plasma.kickoff/contents/config/main.xml
     sed -i 's@,preferred://browser<@,applications:firefox.desktop<@g' /usr/share/plasma/plasmoids/org.kde.plasma.taskmanager/contents/config/main.xml
     git clone -q https://github.com/PapirusDevelopmentTeam/materia-kde
-    sudo cp -r materia-kde/plasma/desktoptheme/Materia-Color/icons /usr/share/plasma/desktoptheme/breeze-light/
-    sudo cp -r materia-kde/plasma/desktoptheme/Materia/icons /usr/share/plasma/desktoptheme/breeze-dark/
+    cp -r materia-kde/plasma/desktoptheme/Materia/icons /usr/share/plasma/desktoptheme/breeze-dark/
+    cp -r materia-kde/plasma/desktoptheme/Materia-Color/icons /usr/share/plasma/desktoptheme/breeze-light/
     rm -r materia-kde
     sed -i 's/start-here-kde/distributor-logo-neon/g' /usr/share/plasma/plasmoids/org.kde.plasma.kickoff/contents/config/main.xml
     sed -i 's/start-here-kde/distributor-logo-neon/g' /usr/share/plasma/plasmoids/org.kde.plasma.kicker/contents/config/main.xml    
@@ -191,13 +191,21 @@ fi
 if [ -f /UCL ]; then
     echo 'Cinnamon Lite'
     bash -x enhancements/cinnamon-lite.sh
+    sudo papirus-folders -C orange
     cp /usr/share/applications/info.desktop /usr/local/share/applications/
     echo 'Hidden=true'|tee -a /usr/local/share/applications/info.desktop>/dev/null
+    git clone https://github.com/germanfr/cinnamon-transparent-panels
+    cd cinnamon-transparent-panels
+    ./utils.sh install
+    mv /root/.local/share/cinnamon/extensions /usr/share/cinnamon/
+    cd ..
+    rm -r cinnamon-transparent-panels
     sed -i '/cursor-theme/{n;s/Adwaita/DMZ-White/;}' /usr/share/glib-2.0/schemas/org.cinnamon.desktop.interface.gschema.xml
-    sed -i '/gtk-theme/{n;s/Adwaita/Materia-dark-compact/;}' /usr/share/glib-2.0/schemas/org.cinnamon.desktop.interface.gschema.xml
+    sed -i "/enabled-extensions/{n;s/>[]</>['transparent-panels@germanfr']</;}" /usr/share/glib-2.0/schemas/org.cinnamon.gschema.xml
+    sed -i '/gtk-theme/{n;s/Adwaita/Flat-Remix-GTK-Brown-Darkest/;}' /usr/share/glib-2.0/schemas/org.cinnamon.desktop.interface.gschema.xml
     sed -i '/icon-theme/{n;s/gnome/Papirus-Dark/;}' /usr/share/glib-2.0/schemas/org.cinnamon.desktop.interface.gschema.xml
     sed -i '/natural-scroll/{n;s/false/true/;}' /usr/share/glib-2.0/schemas/org.cinnamon.settings-daemon.peripherals.gschema.xml
-    sed -i '/org\/cinnamon\/theme/{n;n;n;s/>""</>"Materia-dark-compact"</;}' /usr/share/glib-2.0/schemas/org.cinnamon.gschema.xml
+    sed -i '/org\/cinnamon\/theme/{n;n;n;s/>""</>"Flat-Remix-GTK-Brown-Darkest"</;}' /usr/share/glib-2.0/schemas/org.cinnamon.gschema.xml
     sed -i "s/ 'panel1:left:1:show-desktop@cinnamon.org',//g" /usr/share/glib-2.0/schemas/org.cinnamon.gschema.xml
     sed -i "s/panel1:left:2:grouped-window-list/panel1:center:1:grouped-window-list/g" /usr/share/glib-2.0/schemas/org.cinnamon.gschema.xml
     sed -i "s/ 'panel1:right:5:keyboard@cinnamon.org',//g" /usr/share/glib-2.0/schemas/org.cinnamon.gschema.xml
@@ -209,11 +217,11 @@ if [ -f /UCL ]; then
     sed -i '/picture-uri/{n;s@themes/Adwaita/backgrounds/adwaita-timed.xml@backgrounds/DSC2943_by_kcpru.jpg@;}' /usr/share/glib-2.0/schemas/org.cinnamon.desktop.background.gschema.xml
     sed -i 's/tango/oblivion/g' /usr/share/glib-2.0/schemas/org.gnome.gedit.gschema.xml
     sed -i '/tap-to-click/{n;s/false/true/;}' /usr/share/glib-2.0/schemas/org.cinnamon.settings-daemon.peripherals.gschema.xml
-    sed -i '/theme/{n;s/Default/Materia-dark-compact/;}' /usr/share/glib-2.0/schemas/org.cinnamon.desktop.wm.preferences.gschema.xml
+    sed -i '/theme/{n;s/Default/Flat-Remix-Darkest-Metacity/;}' /usr/share/glib-2.0/schemas/org.cinnamon.desktop.wm.preferences.gschema.xml
     rm /usr/share/glib-2.0/schemas/{10_cinnamon-core.gschema.override,10_cinnamon-settings-daemon.gschema.override}
     sed -i "/color-scheme/{n;s/'default'/'prefer-dark'/;}" /usr/share/glib-2.0/schemas/org.gnome.desktop.interface.gschema.xml
     sed -i '/cursor-theme/{n;s/Adwaita/DMZ-White/;}' /usr/share/glib-2.0/schemas/org.gnome.desktop.interface.gschema.xml
-    sed -i '/gtk-theme/{n;s/Adwaita/Materia-dark-compact/;}' /usr/share/glib-2.0/schemas/org.gnome.desktop.interface.gschema.xml
+    sed -i '/gtk-theme/{n;s/Adwaita/Flat-Remix-GTK-Brown-Darkest/;}' /usr/share/glib-2.0/schemas/org.gnome.desktop.interface.gschema.xml
     sed -i '/icon-theme/{n;s/Adwaita/Papirus-Dark/;}' /usr/share/glib-2.0/schemas/org.gnome.desktop.interface.gschema.xml
     sed -i '/picture-uri/{n;s/adwaita-l.jpg/blobs-l.svg/;}' /usr/share/glib-2.0/schemas/org.gnome.desktop.background.gschema.xml
     sed -i '/picture-uri-dark/{n;s/adwaita-d.jpg/blobs-d.svg/;}' /usr/share/glib-2.0/schemas/org.gnome.desktop.background.gschema.xml

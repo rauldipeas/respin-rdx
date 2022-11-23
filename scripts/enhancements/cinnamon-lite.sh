@@ -11,11 +11,13 @@ apt autoremove --purge -y\
     update-manager-core\
     yaru*\
     yelp*
+sudo add-apt-repository -y ppa:daniruiz/flat-remix
 apt install --no-install-recommends -y cinnamon-core w3m
 apt install -y\
     apturl\
     cinnamon-l10n\
     dmz-cursor-theme\
+    flat-remix-gtk\
     gedit\
     gnome-calculator\
     gnome-characters\
@@ -23,7 +25,7 @@ apt install -y\
     gnome-system-monitor\
     gnome-mpv\
     gthumb\
-    materia-gtk-theme\
     nemo-fileroller\
+    python3-polib\
     xdg-user-dirs-gtk
 apt autoremove --purge -y mpv* yelp*
