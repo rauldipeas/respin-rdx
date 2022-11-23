@@ -31,5 +31,6 @@ apt install -y\
     nautilus\
     totem\
     wireplumber\
-    xdg-user-dirs-gtk
+    xdg-user-dirs-gtk\
+    xserver-xorg-input-synaptics
 apt autoremove --purge -y yelp*

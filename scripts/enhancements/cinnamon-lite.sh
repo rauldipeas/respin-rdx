@@ -4,7 +4,6 @@ set -e
 # Cinnamon lite
 apt autoremove --purge -y\
     gdm*\
-    gnome-startup-applications*\
     libreoffice*\
     ubuntu-desktop*\
     ubuntu-session*\
@@ -27,5 +26,9 @@ apt install -y\
     lightdm-gtk-greeter\
     nemo-fileroller\
     python3-polib\
-    xdg-user-dirs-gtk
-apt autoremove --purge -y mpv* yelp*
+    xdg-user-dirs-gtk\
+    xserver-xorg-input-synaptics
+apt autoremove --purge -y\
+    gnome-startup-applications*\
+    mpv*\
+    yelp*

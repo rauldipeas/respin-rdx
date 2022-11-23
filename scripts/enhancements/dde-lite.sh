@@ -13,6 +13,5 @@ apt autoremove --purge -y\
     yaru*\
     yelp*
 sudo add-apt-repository -y ppa:ubuntudde-dev/stable
-apt install --no-install-recommends -y ubuntudde-desktop
-#apt install -y\
+apt install -y dde-session-shell
 #apt autoremove --purge -y yelp*

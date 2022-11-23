@@ -234,6 +234,7 @@ if [ -f /UCL ]; then
     sed -i 's@#background=@background=/usr/share/backgrounds/DSC2943_by_kcpru.jpg@g' /etc/lightdm/lightdm-gtk-greeter.conf
     sed -i 's/#theme-name=/theme-name=Flat-Remix-GTK-Brown-Darkest/g' /etc/lightdm/lightdm-gtk-greeter.conf
     sed -i 's/#icon-theme-name=/icon-theme-name=Papirus-Dark/g' /etc/lightdm/lightdm-gtk-greeter.conf
+    echo 'user-session=cinnamon'|tee -a /etc/lightdm/lightdm.conf
 fi
 if [ -f /UDDEL ]; then
     echo 'DDE Lite'
