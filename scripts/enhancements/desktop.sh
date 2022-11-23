@@ -201,7 +201,7 @@ if [ -f /UCL ]; then
     cd ..
     rm -r cinnamon-transparent-panels
     sed -i '/cursor-theme/{n;s/Adwaita/DMZ-White/;}' /usr/share/glib-2.0/schemas/org.cinnamon.desktop.interface.gschema.xml
-    sed -i "/enabled-extensions/{n;s/>[]</>['transparent-panels@germanfr']</;}" /usr/share/glib-2.0/schemas/org.cinnamon.gschema.xml
+    sed -i "/enabled-extensions/{n;s/>\[\]</>\['transparent-panels@germanfr'\]</;}" /usr/share/glib-2.0/schemas/org.cinnamon.gschema.xml
     sed -i '/gtk-theme/{n;s/Adwaita/Flat-Remix-GTK-Brown-Darkest/;}' /usr/share/glib-2.0/schemas/org.cinnamon.desktop.interface.gschema.xml
     sed -i '/icon-theme/{n;s/gnome/Papirus-Dark/;}' /usr/share/glib-2.0/schemas/org.cinnamon.desktop.interface.gschema.xml
     sed -i '/natural-scroll/{n;s/false/true/;}' /usr/share/glib-2.0/schemas/org.cinnamon.settings-daemon.peripherals.gschema.xml
