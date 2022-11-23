@@ -3,7 +3,7 @@ set -e
 
 # Cinnamon lite
 apt autoremove --purge -y\
-    gedit\
+    gdm*\
     gnome-startup-applications\
     libreoffice*\
     ubuntu-desktop*\
@@ -18,13 +18,14 @@ apt install -y\
     cinnamon-l10n\
     dmz-cursor-theme\
     flat-remix-gtk\
-    gedit\
     gnome-calculator\
     gnome-characters\
     gnome-disk-utility\
     gnome-system-monitor\
     gnome-mpv\
     gthumb\
+    lightdm\
+    lightdm-gtk-greeter\
     nemo-fileroller\
     python3-polib\
     xdg-user-dirs-gtk
