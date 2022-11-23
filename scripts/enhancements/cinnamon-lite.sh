@@ -4,13 +4,12 @@ set -e
 # Cinnamon lite
 apt autoremove --purge -y\
     gdm*\
-    gnome-startup-applications\
+    gnome-startup-applications*\
     libreoffice*\
     ubuntu-desktop*\
     ubuntu-session*\
-    update-manager-core\
-    yaru*\
-    yelp*
+    update-manager-core*\
+    yaru*
 sudo add-apt-repository -y ppa:daniruiz/flat-remix
 apt install --no-install-recommends -y cinnamon-core w3m
 apt install -y\

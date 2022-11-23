@@ -12,6 +12,10 @@ if [ -f /UGL ]; then
     echo 'GNOME Lite Rolling'
     elif [ -f /Neon ]; then
     echo 'Neon'
+    elif [ -f /UCL ];then
+    echo 'Cinnamon Lite'
+    elif [ -f /UDDEl ];then
+    echo 'DDE Lite'
     else
     echo 'Flavours'
     wget -q --show-progress https://launchpad.net/~papirus/+archive/ubuntu/papirus/+files/libreoffice-style-papirus_20180413-46+pkg3~ubuntu20.04.1_all.deb
@@ -227,6 +231,15 @@ if [ -f /UCL ]; then
     sed -i '/picture-uri-dark/{n;s/adwaita-d.jpg/blobs-d.svg/;}' /usr/share/glib-2.0/schemas/org.gnome.desktop.background.gschema.xml
     sed -i '/tap-to-click/{n;s/false/true/;}' /usr/share/glib-2.0/schemas/org.gnome.desktop.peripherals.gschema.xml
     sed -i '/tap-to-click/{n;s/false/true/;}' /usr/share/glib-2.0/schemas/org.gnome.settings-daemon.peripherals.gschema.xml
+    sed -i 's@#background=@background=/usr/share/backgrounds/DSC2943_by_kcpru.jpg@g' /etc/lightdm/lightdm-gtk-greeter.conf
+    sed -i 's/#theme-name=/theme-name=Flat-Remix-GTK-Brown-Darkest/g' /etc/lightdm/lightdm-gtk-greeter.conf
+    sed -i 's/#icon-theme-name=/icon-theme-name=Papirus-Dark/g' /etc/lightdm/lightdm-gtk-greeter.conf
+fi
+if [ -f /UDDEL ]; then
+    echo 'DDE Lite'
+    bash -x enhancements/dde-lite.sh
+    cp /usr/share/applications/info.desktop /usr/local/share/applications/
+    echo 'Hidden=true'|tee -a /usr/local/share/applications/info.desktop>/dev/null
 fi
 
 # Ubiquity

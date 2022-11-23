@@ -3,15 +3,16 @@ set -e
 
 # DDE lite
 apt autoremove --purge -y\
-    gedit\
-    gnome-startup-applications\
+    gdm*\
+    gedit*\
+    gnome-startup-applications*\
     libreoffice*\
     ubuntu-desktop*\
     ubuntu-session*\
-    update-manager-core\
+    update-manager-core*\
     yaru*\
     yelp*
 sudo add-apt-repository -y ppa:ubuntudde-dev/stable
 apt install -y\
-    dde-desktop
+    ubuntudde-dde
 #apt autoremove --purge -y yelp*

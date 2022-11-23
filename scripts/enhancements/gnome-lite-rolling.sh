@@ -3,14 +3,13 @@ set -e
 
 # GNOME lite Rolling
 apt autoremove --purge -y\
-    gedit\
-    gnome-startup-applications\
+    gedit*\
+    gnome-startup-applications*\
     libreoffice*\
     ubuntu-desktop*\
     ubuntu-session*\
-    update-manager-core\
-    yaru*\
-    yelp*
+    update-manager-core*\
+    yaru*
 sed -i 's/jammy/devel/g' /etc/apt/sources.list
 apt update
 apt dist-upgrade -y

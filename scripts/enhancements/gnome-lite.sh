@@ -3,14 +3,13 @@ set -e
 
 # GNOME lite
 apt autoremove --purge -y\
-    gedit\
-    gnome-startup-applications\
+    gedit*\
+    gnome-startup-applications*\
     libreoffice*\
     ubuntu-desktop*\
     ubuntu-session*\
-    update-manager-core\
-    yaru*\
-    yelp*
+    update-manager-core*\
+    yaru*
 apt install -y\
     apturl\
     dmz-cursor-theme\
