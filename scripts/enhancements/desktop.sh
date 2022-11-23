@@ -194,7 +194,7 @@ if [ -f /UCL ]; then
     sudo papirus-folders -C orange
     cp /usr/share/applications/info.desktop /usr/local/share/applications/
     echo 'Hidden=true'|tee -a /usr/local/share/applications/info.desktop>/dev/null
-    git clone https://github.com/germanfr/cinnamon-transparent-panels
+    git clone -q https://github.com/germanfr/cinnamon-transparent-panels
     cd cinnamon-transparent-panels
     ./utils.sh install
     mv /root/.local/share/cinnamon/extensions /usr/share/cinnamon/
