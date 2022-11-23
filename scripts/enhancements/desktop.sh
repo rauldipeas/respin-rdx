@@ -6,16 +6,14 @@ add-apt-repository -ny ppa:papirus/hardcode-tray
 sed -i 's/jammy/focal/g' /etc/apt/sources.list.d/*hardcode-tray* #tmp-downgrade-fix
 add-apt-repository -y ppa:papirus/papirus-dev
 apt install -y hardcode-tray papirus-icon-theme papirus-folders
-if [ -f /UGL ]; then
-    echo 'GNOME Lite'
-    elif [ -f /UGLR ];then
-    echo 'GNOME Lite Rolling'
-    elif [ -f /Neon ]; then
+if [ -f /Neon ]; then
     echo 'Neon'
     elif [ -f /UCL ];then
     echo 'Cinnamon Lite'
-    elif [ -f /UDDEl ];then
-    echo 'DDE Lite'
+    elif [ -f /UGL ]; then
+    echo 'GNOME Lite'
+    elif [ -f /UGLR ];then
+    echo 'GNOME Lite Rolling'
     else
     echo 'Flavours'
     wget -q --show-progress https://launchpad.net/~papirus/+archive/ubuntu/papirus/+files/libreoffice-style-papirus_20180413-46+pkg3~ubuntu20.04.1_all.deb
@@ -227,20 +225,13 @@ if [ -f /UCL ]; then
     sed -i '/cursor-theme/{n;s/Adwaita/DMZ-White/;}' /usr/share/glib-2.0/schemas/org.gnome.desktop.interface.gschema.xml
     sed -i '/gtk-theme/{n;s/Adwaita/Flat-Remix-GTK-Brown-Darkest/;}' /usr/share/glib-2.0/schemas/org.gnome.desktop.interface.gschema.xml
     sed -i '/icon-theme/{n;s/Adwaita/Papirus-Dark/;}' /usr/share/glib-2.0/schemas/org.gnome.desktop.interface.gschema.xml
-    sed -i '/picture-uri/{n;s/adwaita-l.jpg/blobs-l.svg/;}' /usr/share/glib-2.0/schemas/org.gnome.desktop.background.gschema.xml
-    sed -i '/picture-uri-dark/{n;s/adwaita-d.jpg/blobs-d.svg/;}' /usr/share/glib-2.0/schemas/org.gnome.desktop.background.gschema.xml
     sed -i '/tap-to-click/{n;s/false/true/;}' /usr/share/glib-2.0/schemas/org.gnome.desktop.peripherals.gschema.xml
     sed -i '/tap-to-click/{n;s/false/true/;}' /usr/share/glib-2.0/schemas/org.gnome.settings-daemon.peripherals.gschema.xml
     sed -i 's@#background=@background=/usr/share/backgrounds/DSC2943_by_kcpru.jpg@g' /etc/lightdm/lightdm-gtk-greeter.conf
     sed -i 's/#theme-name=/theme-name=Flat-Remix-GTK-Brown-Darkest/g' /etc/lightdm/lightdm-gtk-greeter.conf
     sed -i 's/#icon-theme-name=/icon-theme-name=Papirus-Dark/g' /etc/lightdm/lightdm-gtk-greeter.conf
-    echo 'user-session=cinnamon'|tee -a /etc/lightdm/lightdm.conf
-fi
-if [ -f /UDDEL ]; then
-    echo 'DDE Lite'
-    bash -x enhancements/dde-lite.sh
-    cp /usr/share/applications/info.desktop /usr/local/share/applications/
-    echo 'Hidden=true'|tee -a /usr/local/share/applications/info.desktop>/dev/null
+    echo '[SeatDefaults]'|tee -a /etc/lightdm/lightdm.conf.d/50-user-session.conf
+    echo 'user-session=cinnamon'|tee -a /etc/lightdm/lightdm.conf.d/50-user-session.conf
 fi
 
 # Ubiquity
