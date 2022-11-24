@@ -26,6 +26,5 @@ apt install -y\
     gthumb\
     nautilus\
     totem\
-    xdg-user-dirs-gtk\
-    xserver-xorg-input-synaptics
+    xdg-user-dirs-gtk
 apt autoremove --purge -y yelp*

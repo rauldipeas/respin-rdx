@@ -26,8 +26,7 @@ apt install -y\
     lightdm-gtk-greeter\
     nemo-fileroller\
     python3-polib\
-    xdg-user-dirs-gtk\
-    xserver-xorg-input-synaptics
+    xdg-user-dirs-gtk
 apt autoremove --purge -y\
     gnome-startup-applications*\
     mpv*\
