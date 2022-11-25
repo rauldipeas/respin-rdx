@@ -3,14 +3,19 @@ set -e
 
 # Kubuntu Deck
 apt autoremove --purge -y\
-    konversation*\
+    elisa*\
+    kdeconnect*\
     kmahjongg*\
     kmines*\
+    konversation*\
     kpat*\
     krdc*\
     ksudoku*\
     ktorrent*\
-    libreoffice*
+    libreoffice*\
+    partitionmanager*\
+    skanlite*\
+    usb-creator*
 dpkg --add-architecture i386
 sudo add-apt-repository -y ppa:libretro/stable
 wget -q --show-progress -O emulationstation-de_x64.deb $(wget -qO- https://es-de.org|grep x64.deb|cut -d '"' -f8)
@@ -26,3 +31,4 @@ tar fxz MangoHud*.tar.gz
 cd MangoHud
 ./mangohud-setup.sh install
 deb-get install stremio
+apt autoremove --purge mpv*

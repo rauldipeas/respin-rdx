@@ -233,11 +233,11 @@ if [ -f /UCL ]; then
     echo '[SeatDefaults]'|tee -a /etc/lightdm/lightdm.conf.d/50-user-session.conf
     echo 'user-session=cinnamon'|tee -a /etc/lightdm/lightdm.conf.d/50-user-session.conf
 fi
-## Kubuntu
+## Kubuntu Deck
 if [ -f /KDeck ]; then
     echo 'Kubuntu Deck'
     bash -x enhancements/kdeck.sh
-    sudo papirus-folders -C violet
+    sudo papirus-folders -C breeze
     echo 'gtk-application-prefer-dark-theme=true'|tee -a /etc/gtk-3.0/settings.ini
     sed -i 's/Yaru/Breeze/g' /etc/gtk-3.0/settings.ini
     git clone -q https://github.com/dragoonDorise/es-theme-epicnoir /usr/share/emulationstation/themes/epicnoir
@@ -245,11 +245,13 @@ if [ -f /KDeck ]; then
     cp /usr/share/applications/steam.desktop /usr/local/share/applications/
     sed -i 's@steam://open/bigpicture@-gamepadui@g' /usr/local/share/applications/steam.desktop
     sed -i 's/Name=Big Picture/Name=Gamepad UI/g' /usr/local/share/applications/steam.desktop
+    sed -i 's/Categories=Network;/Categories=/g' /usr/local/share/applications/steam.desktop
     cp /usr/share/applications/steam.desktop /etc/xdg/autostart/
     sed -i 's/%U/-gamepadui/g' /etc/xdg/autostart/steam.desktop    
-    sed -i 's/org.kde.discover/steam/g' /usr/share/plasma/plasmoids/org.kde.plasma.kicker/contents/config/main.xml
-    sed -i 's/org.kde.discover/steam/g' /usr/share/plasma/plasmoids/org.kde.plasma.kickoff/contents/config/main.xml
-    sed -i 's/org.kde.discover/steam/g' /usr/share/plasma/plasmoids/org.kde.plasma.taskmanager/contents/config/main.xml
+    sed -i 's/org.kde.discover/synaptic/g' /usr/share/plasma/plasmoids/org.kde.plasma.kicker/contents/config/main.xml
+    sed -i 's/org.kde.discover/synaptic/g' /usr/share/plasma/plasmoids/org.kde.plasma.kickoff/contents/config/main.xml
+    sed -i 's/org.kde.discover/synaptic/g' /usr/share/plasma/plasmoids/org.kde.plasma.taskmanager/contents/config/main.xml
+    sed -i 's/systemsettings/steam/g' /usr/share/plasma/plasmoids/org.kde.plasma.taskmanager/contents/config/main.xml
     sed -i 's@>preferred://browser,@>firefox.desktop,@g' /usr/share/plasma/plasmoids/org.kde.plasma.kicker/contents/config/main.xml
     sed -i 's@>preferred://browser,@>firefox.desktop,@g' /usr/share/plasma/plasmoids/org.kde.plasma.kickoff/contents/config/main.xml
     sed -i 's@,preferred://browser<@,applications:firefox.desktop<@g' /usr/share/plasma/plasmoids/org.kde.plasma.taskmanager/contents/config/main.xml
@@ -273,7 +275,7 @@ Theme=Papirus-Dark
 name=breeze-dark
 
 [Wallpaper]
-Image=Altai
+Image=Shell
 
 [kcminputrc][Mouse]
 cursorTheme=Breeze_Snow
