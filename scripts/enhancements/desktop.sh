@@ -23,7 +23,7 @@ fi
 
 ## Ubuntu
 if [ -f /Ubuntu ]; then
-    echo 'GNOME'
+    echo 'Ubuntu'
     sudo papirus-folders -C yaru
     sed -i 's/firefox_firefox/firefox/g' /usr/share/glib-2.0/schemas/10_ubuntu-settings.gschema.override
     sed -i 's/gtk-theme = "Yaru"/gtk-theme = "Yaru-dark"/g' /usr/share/glib-2.0/schemas/10_ubuntu-settings.gschema.override
@@ -77,7 +77,7 @@ if [ -f /UGLR ]; then
 fi
 ## Kubuntu
 if [ -f /Kubuntu ]; then
-    echo 'KDE'
+    echo 'Kubuntu'
     sudo papirus-folders -C breeze
     echo 'gtk-application-prefer-dark-theme=true'|tee -a /etc/gtk-3.0/settings.ini
     sed -i 's/Yaru/Breeze/g' /etc/gtk-3.0/settings.ini
@@ -174,7 +174,7 @@ EOF
 fi
 ## Xubuntu
 if [ -f /Xubuntu ]; then
-    echo 'XFCE'
+    echo 'Xubuntu'
     sudo papirus-folders -C paleorange
     rm -r /etc/skel/.config/libreoffice
     mkdir -p /etc/skel/.config/{autostart,volumeicon,xfce4/panel}
@@ -232,6 +232,61 @@ if [ -f /UCL ]; then
     sed -i 's/#icon-theme-name=/icon-theme-name=Papirus-Dark/g' /etc/lightdm/lightdm-gtk-greeter.conf
     echo '[SeatDefaults]'|tee -a /etc/lightdm/lightdm.conf.d/50-user-session.conf
     echo 'user-session=cinnamon'|tee -a /etc/lightdm/lightdm.conf.d/50-user-session.conf
+fi
+## Kubuntu
+if [ -f /KDeck ]; then
+    echo 'Kubuntu Deck'
+    bash -x enhancements/kdeck.sh
+    sudo papirus-folders -C violet
+    echo 'gtk-application-prefer-dark-theme=true'|tee -a /etc/gtk-3.0/settings.ini
+    sed -i 's/Yaru/Breeze/g' /etc/gtk-3.0/settings.ini
+    git clone -q https://github.com/dragoonDorise/es-theme-epicnoir /usr/share/emulationstation/themes/epicnoir
+    mkdir -p /usr/local/share/applications
+    cp /usr/share/applications/steam.desktop /usr/local/share/applications/
+    sed -i 's@steam://open/bigpicture@-gamepadui@g' /usr/local/share/applications/steam.desktop
+    sed -i 's/Name=Big Picture/Name=Gamepad UI/g' /usr/local/share/applications/steam.desktop
+    cp /usr/share/applications/steam.desktop /etc/xdg/autostart/
+    sed -i 's/%U/-gamepadui/g' /etc/xdg/autostart/steam.desktop    
+    sed -i 's/org.kde.discover/steam/g' /usr/share/plasma/plasmoids/org.kde.plasma.kicker/contents/config/main.xml
+    sed -i 's/org.kde.discover/steam/g' /usr/share/plasma/plasmoids/org.kde.plasma.kickoff/contents/config/main.xml
+    sed -i 's/org.kde.discover/steam/g' /usr/share/plasma/plasmoids/org.kde.plasma.taskmanager/contents/config/main.xml
+    sed -i 's@>preferred://browser,@>firefox.desktop,@g' /usr/share/plasma/plasmoids/org.kde.plasma.kicker/contents/config/main.xml
+    sed -i 's@>preferred://browser,@>firefox.desktop,@g' /usr/share/plasma/plasmoids/org.kde.plasma.kickoff/contents/config/main.xml
+    sed -i 's@,preferred://browser<@,applications:firefox.desktop<@g' /usr/share/plasma/plasmoids/org.kde.plasma.taskmanager/contents/config/main.xml
+    git clone -q https://github.com/PapirusDevelopmentTeam/materia-kde
+    cp -r materia-kde/plasma/desktoptheme/Materia/icons /usr/share/plasma/desktoptheme/breeze-dark/
+    cp -r materia-kde/plasma/desktoptheme/Materia-Color/icons /usr/share/plasma/desktoptheme/breeze-light/
+    rm -r materia-kde
+    sed -i 's/start-here-kde/distributor-logo-steamos/g' /usr/share/plasma/plasmoids/org.kde.plasma.kicker/contents/config/main.xml
+    sed -i 's/start-here-kde/distributor-logo-steamos/g' /usr/share/plasma/plasmoids/org.kde.plasma.kickoff/contents/config/main.xml
+    cat <<EOF |tee /usr/share/plasma/look-and-feel/org.kubuntu.desktop/contents/defaults
+[kdeglobals][KDE]
+widgetStyle=Breeze
+
+[kdeglobals][General]
+ColorScheme=BreezeDark
+
+[kdeglobals][Icons]
+Theme=Papirus-Dark
+
+[plasmarc][Theme]
+name=breeze-dark
+
+[Wallpaper]
+Image=Altai
+
+[kcminputrc][Mouse]
+cursorTheme=Breeze_Snow
+
+[kwinrc][WindowSwitcher]
+LayoutName=org.kde.breeze.desktop
+
+[kwinrc][DesktopSwitcher]
+LayoutName=org.kde.breeze.desktop
+
+[kwinrc][org.kde.kdecoration2]
+library=org.kde.breeze
+EOF
 fi
 
 # Ubiquity

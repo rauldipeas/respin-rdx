@@ -1,0 +1,44 @@
+name: Kubuntu Deck Respin RDX
+on:
+  push:
+    branches:
+      - 'main'
+    paths-ignore:
+      - '.editorconfig'
+      - 'readme.md'
+      - '*.jpg'
+      - '*.png'
+      - '*.svg'
+  schedule:
+    - cron:  '0 */24 * * *'
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+      - name: Configuração do ambiente de compilação
+        run: bash -x scripts/env.sh
+      - name: Compilação do Kubuntu Deck Respin RDX
+        run: bash -x scripts/build.sh
+        env:
+          CODENAME: jammy
+          FLAVOUR: kubuntu
+          FLAVOUR_NAME: Kubuntu Deck
+          VERSION: 22.04.1
+          CHROOT: respin-rdx/kdeck-chroot
+          FLAVOUR_ID: KDeck
+          ISO_NAME: kdeck
+          IA_ACCESS: ${{ secrets.IA_ACCESS }}
+          IA_SECRET: ${{ secrets.IA_SECRET }}
+          IA_LOGGED_IN_USER: ${{ secrets.IA_LOGGED_IN_USER }}
+          IA_LOGGED_IN_SIG: ${{ secrets.IA_LOGGED_IN_SIG }}
+      - name: Upload dos artefatos
+        uses: actions/upload-artifact@v3
+        with:
+          name: kdeck-respin-rdx
+          path: /home/runner/work/respin-rdx/kdeck-respin-rdx.iso
+      - name: Limpeza de logs antigos
+        run: bash -x scripts/actions-cleanup.sh
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
