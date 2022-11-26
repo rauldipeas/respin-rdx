@@ -8,6 +8,8 @@ add-apt-repository -y ppa:papirus/papirus-dev
 apt install -y hardcode-tray papirus-icon-theme papirus-folders
 if [ -f /Neon ]; then
     echo 'Neon'
+    elif [ -f /KDeck ];then
+    echo 'Kubuntu Deck'
     elif [ -f /UCL ];then
     echo 'Cinnamon Lite'
     elif [ -f /UGL ]; then
@@ -237,6 +239,7 @@ fi
 if [ -f /KDeck ]; then
     echo 'Kubuntu Deck'
     bash -x enhancements/kdeck.sh
+    sudo hardcode-tray --apply --theme Papirus-Dark
     sudo papirus-folders -C breeze
     echo 'gtk-application-prefer-dark-theme=true'|tee -a /etc/gtk-3.0/settings.ini
     sed -i 's/Yaru/Breeze/g' /etc/gtk-3.0/settings.ini

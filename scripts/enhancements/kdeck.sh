@@ -14,6 +14,7 @@ apt autoremove --purge -y\
     ktorrent*\
     libreoffice*\
     partitionmanager*\
+    pavucontrol*\
     skanlite*\
     usb-creator*
 dpkg --add-architecture i386
