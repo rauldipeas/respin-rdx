@@ -250,8 +250,14 @@ if [ -f /KDeck ]; then
     sed -i 's@steam://open/bigpicture@-gamepadui@g' /usr/local/share/applications/steam.desktop
     sed -i 's/Name=Big Picture/Name=Gamepad UI/g' /usr/local/share/applications/steam.desktop
     sed -i 's/Categories=Network;/Categories=/g' /usr/local/share/applications/steam.desktop
-    cp /usr/share/applications/steam.desktop /etc/xdg/autostart/
-    sed -i 's/%U/-gamepadui/g' /etc/xdg/autostart/steam.desktop    
+#    cp /usr/share/applications/steam.desktop /etc/xdg/autostart/
+#    sed -i 's/%U/-gamepadui/g' /etc/xdg/autostart/steam.desktop
+#    sed -i 's/plasma/steamos/g' /var/lib/sddm/state.conf
+    mkdir -p /etc/sddm.conf.d
+    cat <<EOF |sudo tee /etc/sddm.conf.d/kdeck.conf
+[Autologin]
+Session=/usr/share/xsessions/steamos.desktop
+EOF
     sed -i 's/org.kde.discover/synaptic/g' /usr/share/plasma/plasmoids/org.kde.plasma.kicker/contents/config/main.xml
     sed -i 's/org.kde.discover/synaptic/g' /usr/share/plasma/plasmoids/org.kde.plasma.kickoff/contents/config/main.xml
     sed -i 's/org.kde.discover/synaptic/g' /usr/share/plasma/plasmoids/org.kde.plasma.taskmanager/contents/config/main.xml

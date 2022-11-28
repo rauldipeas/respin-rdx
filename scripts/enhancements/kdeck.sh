@@ -26,7 +26,8 @@ apt install -y\
     heroic\
     libssl1.1\
     retroarch\
-    steam-installer
+    steam-installer\
+    steamos-compositor-plus
 wget -q "$(wget -qO- https://api.github.com/repos/flightlessmango/MangoHud/releases|grep browser_download_url|grep download/v|grep tar.gz|head -n1|cut -d '"' -f4)"
 tar fxz MangoHud*.tar.gz
 cd MangoHud
