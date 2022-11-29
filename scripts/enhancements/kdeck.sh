@@ -21,7 +21,7 @@ dpkg --add-architecture i386
 sudo add-apt-repository -y ppa:libretro/stable
 wget -q --show-progress -O emulationstation-de_x64.deb $(wget -qO- https://es-de.org|grep x64.deb|cut -d '"' -f8)
 apt install -y\
-    boiler\
+    boilr\
     ./emulationstation-de_x64.deb\
     gamemode\
     heroic\
