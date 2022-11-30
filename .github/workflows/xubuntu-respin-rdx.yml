@@ -9,6 +9,7 @@ on:
       - '*.jpg'
       - '*.png'
       - '*.svg'
+      - '_config.yml'
   schedule:
     - cron:  '0 */24 * * *'
   workflow_dispatch:
