@@ -3,4 +3,4 @@ plugins:
 - jekyll-remote-theme
 title: Respin RDX
 description:  Minha compilação pessoal do Ubuntu
-favicon: https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/32x32/apps/ubuntu-tweak.svg
+favicon: logo.svg
