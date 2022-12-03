@@ -1,6 +1,7 @@
 <link rel="icon" href="https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/32x32/apps/ubuntu-tweak.svg" sizes="any" type="image/svg+xml">
+<link rel="stylesheet" type="text/css" media="all" href="https://gist.githubusercontent.com/rauldipeas/0cb62a846cee63ff12fa8a2a55acc039/raw/abeac4182469c7a60825cee658eb20675b336234/hidden-header.css" />
 
-# ![ <style> header { display: none } h1 { margin-top: 25px } </style> ](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/32x32/apps/ubuntu-tweak.svg) Respin RDX
+# ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/32x32/apps/ubuntu-tweak.svg) Respin RDX
 
 Esta é a minha compilação pessoal dos [_sabores_](https://ubuntu.com/desktop/flavours) do [**Ubuntu**](https://ubuntu.com).
 
