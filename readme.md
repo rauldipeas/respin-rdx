@@ -1,4 +1,5 @@
-# ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/32x32/apps/ubuntu-tweak.svg) Respin RDX
+<link rel="icon" href="https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/32x32/apps/ubuntu-tweak.svg" sizes="any" type="image/svg+xml">
+# ![ <style> header { display: none } h1 { margin-top: 25px } </style> ](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/32x32/apps/ubuntu-tweak.svg) Respin RDX
 
 Esta é a minha compilação pessoal dos [_sabores_](https://ubuntu.com/desktop/flavours) do [**Ubuntu**](https://ubuntu.com).
 
@@ -44,16 +45,3 @@ Os scripts disponíveis neste repositório, são derivados dos scripts desenvolv
 [![cinnamon-lite](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/48x48/apps/preferences-desktop-theme.svg "Cinnamon Lite")![](https://img.shields.io/github/workflow/status/rauldipeas/respin-rdx/Ubuntu%20Cinnamon%20Lite%20Respin%20RDX?label=Ubuntu%20Cinnamon%20Lite%20Respin%20RDX&logo=GitHub&style=for-the-badge "Cinnamon Lite")](https://nightly.link/rauldipeas/respin-rdx/workflows/ucl-respin-rdx/main/ucl-respin-rdx.zip)
 
 [![kdeck](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/48x48/apps/distributor-logo-steamos.svg "Kubuntu Deck")![](https://img.shields.io/github/workflow/status/rauldipeas/respin-rdx/Kubuntu%20Deck%20Respin%20RDX?label=Kubuntu%20Deck%20Respin%20RDX&logo=GitHub&style=for-the-badge "Kubuntu Deck")](https://nightly.link/rauldipeas/respin-rdx/workflows/kdeck-respin-rdx/main/kdeck-respin-rdx.zip)
-
-<link rel="icon" href="https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/32x32/apps/ubuntu-tweak.svg" sizes="any" type="image/svg+xml">
-
-
-<details>
-  <summary></summary>
-
-    <style>
-        header { display: none }
-        h1 { margin-top: 30px }
-    </style>
-    
- </details>
