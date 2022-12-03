@@ -1,5 +1,5 @@
 <link rel="icon" href="https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/32x32/apps/ubuntu-tweak.svg" sizes="any" type="image/svg+xml">
-<link rel="stylesheet" type="text/css" media="all" href="https://gist.githubusercontent.com/rauldipeas/0cb62a846cee63ff12fa8a2a55acc039/raw/abeac4182469c7a60825cee658eb20675b336234/hidden-header.css" />
+<link rel="stylesheet" href="https://gist.githubusercontent.com/rauldipeas/0cb62a846cee63ff12fa8a2a55acc039/raw/abeac4182469c7a60825cee658eb20675b336234/hidden-header.css" type="text/css">
 
 # ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/32x32/apps/ubuntu-tweak.svg) Respin RDX
 
