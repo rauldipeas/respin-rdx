@@ -1,10 +1,3 @@
-<link rel="icon" href="https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/32x32/apps/ubuntu-tweak.svg" sizes="any" type="image/svg+xml">
-
-<style>
-    header { display: none }
-    h1 { margin-top: 20px }
-</style>
-
 # ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/32x32/apps/ubuntu-tweak.svg) Respin RDX
 
 Esta é a minha compilação pessoal dos [_sabores_](https://ubuntu.com/desktop/flavours) do [**Ubuntu**](https://ubuntu.com).
@@ -31,7 +24,6 @@ Alguns extras estão inclusos:
 * ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/apps/ark.svg) [**`unrar`**](https://github.com/pmachapman/unrar) (suporte adicional para descompactar arquivos)
 * ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/apps/preferences-system-windows.svg) [**Docklike**](https://github.com/nsz32/docklike-plugin) (`superbar` para o painel do XFCE)
 * ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/apps/kmenuedit.svg) [**Vala Application Menu**](https://github.com/rilian-la-te/vala-panel-appmenu) (`appmenu` para o painel do XFCE)
-
 * ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/apps/cpu-x.svg) [**CPU-X**](https://thetumultuousunicornofdarkness.github.io/CPU-X) (informações de hardware)
 
 Os scripts disponíveis neste repositório, são derivados dos scripts desenvolvidos pelo [**Marcos Vallim**](https://github.com/mvallim/live-custom-ubuntu-from-scratch).
@@ -52,3 +44,16 @@ Os scripts disponíveis neste repositório, são derivados dos scripts desenvolv
 [![cinnamon-lite](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/48x48/apps/preferences-desktop-theme.svg "Cinnamon Lite")![](https://img.shields.io/github/workflow/status/rauldipeas/respin-rdx/Ubuntu%20Cinnamon%20Lite%20Respin%20RDX?label=Ubuntu%20Cinnamon%20Lite%20Respin%20RDX&logo=GitHub&style=for-the-badge "Cinnamon Lite")](https://nightly.link/rauldipeas/respin-rdx/workflows/ucl-respin-rdx/main/ucl-respin-rdx.zip)
 
 [![kdeck](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/48x48/apps/distributor-logo-steamos.svg "Kubuntu Deck")![](https://img.shields.io/github/workflow/status/rauldipeas/respin-rdx/Kubuntu%20Deck%20Respin%20RDX?label=Kubuntu%20Deck%20Respin%20RDX&logo=GitHub&style=for-the-badge "Kubuntu Deck")](https://nightly.link/rauldipeas/respin-rdx/workflows/kdeck-respin-rdx/main/kdeck-respin-rdx.zip)
+
+<link rel="icon" href="https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/32x32/apps/ubuntu-tweak.svg" sizes="any" type="image/svg+xml">
+
+
+<details>
+  <summary></summary>
+
+    <style>
+        header { display: none }
+        h1 { margin-top: 30px }
+    </style>
+    
+ </details>
