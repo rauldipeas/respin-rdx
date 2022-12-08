@@ -11,6 +11,7 @@ apt autoremove --purge -y\
     update-manager-core*\
     yaru*
 sed -i 's/jammy/devel/g' /etc/apt/sources.list
+dpkg --add-architecture i386
 apt update
 apt dist-upgrade -y
 apt install -y\
@@ -32,4 +33,9 @@ apt install -y\
     totem\
     wireplumber\
     xdg-user-dirs-gtk
+wget -q --show-progress https://cdn.akamai.steamstatic.com/client/installer/steam.deb
+apt install -y ./steam.deb
+wget -q --show-progress https://github.com/tkashkin/Adwaita-for-Steam/archive/master.zip
+mkdir -p /etc/skel/.local/share/Steam/skins
+unzip master.zip -d /etc/skel/.local/share/Steam/skins/
 apt autoremove --purge -y yelp*

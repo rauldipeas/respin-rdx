@@ -20,7 +20,7 @@ sudo touch "$CHROOT"/"$FLAVOUR_ID"
 ## Execução dos scripts de personalização
 sudo cp -r scripts/enhancements* "$CHROOT"/
 sudo chroot "$CHROOT" bash -x enhancements.sh
-sudo rm -r "$CHROOT"/enhancements*
+sudo rm -r "$CHROOT"/{enhancements*,*.deb,*.tar.gz,*.zip}
 ## Desmontagem do enjaulamento
 sudo rm "$CHROOT"/"$FLAVOUR_ID"
 sudo rm -rf "$CHROOT"/tmp/*
