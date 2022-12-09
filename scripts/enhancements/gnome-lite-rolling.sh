@@ -38,5 +38,5 @@ apt install -y ./steam.deb
 git clone https://github.com/tkashkin/Adwaita-for-Steam
 mkdir -p /etc/skel/.local/share/Steam/skins
 mv Adwaita-for-Steam/Adwaita /etc/skel/.local/share/Steam/skins/
-rm Adwaita-for-Steam
+rm -r Adwaita-for-Steam
 apt autoremove --purge -y yelp*
