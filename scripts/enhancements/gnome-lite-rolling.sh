@@ -35,7 +35,8 @@ apt install -y\
     xdg-user-dirs-gtk
 wget -q --show-progress https://cdn.akamai.steamstatic.com/client/installer/steam.deb
 apt install -y ./steam.deb
-wget -q --show-progress https://github.com/tkashkin/Adwaita-for-Steam/archive/master.zip
+git clone https://github.com/tkashkin/Adwaita-for-Steam
 mkdir -p /etc/skel/.local/share/Steam/skins
-unzip master.zip -d /etc/skel/.local/share/Steam/skins/
+mv Adwaita-for-Steam/Adwaita /etc/skel/.local/share/Steam/skins/
+rm Adwaita-for-Steam
 apt autoremove --purge -y yelp*
