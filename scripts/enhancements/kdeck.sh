@@ -33,6 +33,5 @@ wget -q "$(wget -qO- https://api.github.com/repos/flightlessmango/MangoHud/relea
 tar fxz MangoHud*.tar.gz
 cd MangoHud
 ./mangohud-setup.sh install
-deb-get install heroic
 deb-get install stremio
 apt autoremove --purge -y mpv*
