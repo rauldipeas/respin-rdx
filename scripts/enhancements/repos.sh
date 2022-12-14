@@ -22,7 +22,7 @@ sudo mkdir -p /usr/local/bin
 cat <<EOF |sudo tee /usr/local/bin/get-respin-rdx
 #!/bin/bash
 set -e
-bash <(wget -qO- https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/get-respin-rdx.sh)
+bash <(wget -qO- https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/get-respin-rdx.sh) "\$1"
 EOF
 cat <<EOF |sudo tee /usr/local/bin/upgrade-respin-rdx
 #!/bin/bash
