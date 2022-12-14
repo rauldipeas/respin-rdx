@@ -10,6 +10,8 @@ on:
       - '*.png'
       - '*.svg'
       - '_config.yml'
+      - 'get-respin-rdx.sh'
+      - 'upgrade-respin-rdx.sh'
   schedule:
     - cron:  '0 */24 * * *'
   workflow_dispatch:

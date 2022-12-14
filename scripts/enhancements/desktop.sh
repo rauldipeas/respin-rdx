@@ -20,7 +20,6 @@ if [ -f /Neon ]; then
     echo 'Flavours'
     wget -q --show-progress https://launchpad.net/~papirus/+archive/ubuntu/papirus/+files/libreoffice-style-papirus_20180413-46+pkg3~ubuntu20.04.1_all.deb
     apt install ./libreoffice-style-papirus*.deb
-    rm libreoffice-style-papirus*.deb
 fi
 
 ## Ubuntu
@@ -42,7 +41,6 @@ if [ -f /UGL ]; then
     echo 'Hidden=true'|tee -a /usr/local/share/applications/info.desktop>/dev/null
     wget -q --show-progress "$(wget -qO- https://api.github.com/repos/lassekongo83/adw-gtk3/releases|grep browser_download_url|grep tar.xz|head -n1|cut -d '"' -f4)"
     tar fx adw-gtk3*.tar.xz -C /usr/share/themes/
-    rm adw-gtk3*.tar.xz
     sed -i 's/firefox-esr/firefox/g' /usr/share/glib-2.0/schemas/10_gnome-shell.gschema.override
     sed -i 's/org.gnome.Evolution/thunderbird/g' /usr/share/glib-2.0/schemas/10_gnome-shell.gschema.override
     sed -i 's/org.gnome.Software/synaptic/g' /usr/share/glib-2.0/schemas/10_gnome-shell.gschema.override
@@ -64,7 +62,6 @@ if [ -f /UGLR ]; then
     echo 'Hidden=true'|tee -a /usr/local/share/applications/info.desktop>/dev/null
     wget -q --show-progress "$(wget -qO- https://api.github.com/repos/lassekongo83/adw-gtk3/releases|grep browser_download_url|grep tar.xz|head -n1|cut -d '"' -f4)"
     tar fx adw-gtk3*.tar.xz -C /usr/share/themes/
-    rm adw-gtk3*.tar.xz
     sed -i 's/firefox-esr/firefox/g' /usr/share/glib-2.0/schemas/10_gnome-shell.gschema.override
     sed -i 's/org.gnome.Evolution/thunderbird/g' /usr/share/glib-2.0/schemas/10_gnome-shell.gschema.override
     sed -i 's/org.gnome.Software/synaptic/g' /usr/share/glib-2.0/schemas/10_gnome-shell.gschema.override
@@ -92,7 +89,6 @@ if [ -f /Kubuntu ]; then
     git clone -q https://github.com/PapirusDevelopmentTeam/materia-kde
     cp -r materia-kde/plasma/desktoptheme/Materia/icons /usr/share/plasma/desktoptheme/breeze-dark/
     cp -r materia-kde/plasma/desktoptheme/Materia-Color/icons /usr/share/plasma/desktoptheme/breeze-light/
-    rm -r materia-kde
     sed -i 's/start-here-kde/distributor-logo-kubuntu/g' /usr/share/plasma/plasmoids/org.kde.plasma.kicker/contents/config/main.xml
     sed -i 's/start-here-kde/distributor-logo-kubuntu/g' /usr/share/plasma/plasmoids/org.kde.plasma.kickoff/contents/config/main.xml
     cat <<EOF |tee /usr/share/plasma/look-and-feel/org.kubuntu.desktop/contents/defaults
@@ -139,7 +135,6 @@ if [ -f /Neon ]; then
     git clone -q https://github.com/PapirusDevelopmentTeam/materia-kde
     cp -r materia-kde/plasma/desktoptheme/Materia/icons /usr/share/plasma/desktoptheme/breeze-dark/
     cp -r materia-kde/plasma/desktoptheme/Materia-Color/icons /usr/share/plasma/desktoptheme/breeze-light/
-    rm -r materia-kde
     sed -i 's/start-here-kde/distributor-logo-neon/g' /usr/share/plasma/plasmoids/org.kde.plasma.kickoff/contents/config/main.xml
     sed -i 's/start-here-kde/distributor-logo-neon/g' /usr/share/plasma/plasmoids/org.kde.plasma.kicker/contents/config/main.xml    
     cat <<EOF |tee /usr/share/plasma/look-and-feel/org.kde.breeze.desktop/contents/defaults
@@ -204,7 +199,6 @@ if [ -f /UCL ]; then
     ./utils.sh install
     mv /root/.local/share/cinnamon/extensions /usr/share/cinnamon/
     cd ..
-    rm -r cinnamon-transparent-panels
     sed -i '/cursor-theme/{n;s/Adwaita/DMZ-White/;}' /usr/share/glib-2.0/schemas/org.cinnamon.desktop.interface.gschema.xml
     sed -i "/enabled-extensions/{n;s/>\[\]</>\['transparent-panels@germanfr'\]</;}" /usr/share/glib-2.0/schemas/org.cinnamon.gschema.xml
     sed -i '/gtk-theme/{n;s/Adwaita/Flat-Remix-GTK-Brown-Darkest/;}' /usr/share/glib-2.0/schemas/org.cinnamon.desktop.interface.gschema.xml
@@ -268,7 +262,6 @@ EOF
     git clone -q https://github.com/PapirusDevelopmentTeam/materia-kde
     cp -r materia-kde/plasma/desktoptheme/Materia/icons /usr/share/plasma/desktoptheme/breeze-dark/
     cp -r materia-kde/plasma/desktoptheme/Materia-Color/icons /usr/share/plasma/desktoptheme/breeze-light/
-    rm -r materia-kde
     sed -i 's/start-here-kde/distributor-logo-steamos/g' /usr/share/plasma/plasmoids/org.kde.plasma.kicker/contents/config/main.xml
     sed -i 's/start-here-kde/distributor-logo-steamos/g' /usr/share/plasma/plasmoids/org.kde.plasma.kickoff/contents/config/main.xml
     cat <<EOF |tee /usr/share/plasma/look-and-feel/org.kubuntu.desktop/contents/defaults

@@ -12,9 +12,20 @@ bash -x <(wget -qO- https://raw.githubusercontent.com/rauldipeas/apt-repository/
 apt update
 wget -q --show-progress "$(wget -qO- https://api.github.com/repos/wimpysworld/deb-get/releases|grep browser_download_url|grep download|grep .deb|head -n1|cut -d '"' -f4)"
 sudo apt install -y ./deb-get*.deb
-rm deb-get*.deb
 
 # Pacstall
 wget -q --show-progress "$(wget -qO- https://api.github.com/repos/pacstall/pacstall/releases|grep browser_download_url|grep download|grep .deb|head -n1|cut -d '"' -f4)"
 sudo apt install -y ./pacstall*.deb
-rm pacstall*.deb
+
+# Respin RDX scripts
+sudo mkdir -p /usr/local/bin
+cat <<EOF |sudo tee /usr/local/bin/get-respin-rdx
+#!/bin/bash
+set -e
+bash <(wget -qO- https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/get-respin-rdx.sh)
+EOF
+cat <<EOF |sudo tee /usr/local/bin/upgrade-respin-rdx
+#!/bin/bash
+set -e
+bash <(wget -qO- https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/upgrade-respin-rdx.sh)
+EOF

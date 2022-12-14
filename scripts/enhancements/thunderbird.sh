@@ -8,7 +8,6 @@ tar fjx thunderbird-latest-linux64-pt-br.tar.bz2
 mkdir -p /opt/thunderbird
 chmod 777 -R /opt/thunderbird
 mv thunderbird/* /opt/thunderbird/
-rm -r thunderbird thunderbird-latest-linux64-pt-br.tar.bz2
 mkdir -p /usr/local/bin /usr/local/share/applications /usr/local/share/pixmaps
 ln -fs /opt/thunderbird/thunderbird /usr/local/bin/thunderbird
 ln -fs /opt/thunderbird/chrome/icons/default/default128.png /usr/local/share/pixmaps/thunderbird.png

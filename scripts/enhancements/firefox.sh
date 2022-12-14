@@ -8,7 +8,6 @@ tar fjx firefox-latest-linux64-pt-br.tar.bz2
 mkdir -p /opt/firefox
 chmod 777 -R /opt/firefox
 mv firefox/* /opt/firefox/
-rm -r firefox firefox-latest-linux64-pt-br.tar.bz2
 mkdir -p /usr/local/bin /usr/local/share/applications /usr/local/share/pixmaps
 ln -fs /opt/firefox/firefox /usr/local/bin/firefox
 ln -fs /opt/firefox/browser/chrome/icons/default/default128.png /usr/local/share/pixmaps/firefox.png

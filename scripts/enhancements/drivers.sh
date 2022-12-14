@@ -8,7 +8,6 @@ apt dist-upgrade -y
 # ALSA firmware
 wget -q --show-progress http://ppa.launchpad.net/kxstudio-debian/libs/ubuntu/pool/main/a/alsa-firmware/$(wget -qO- http://ppa.launchpad.net/kxstudio-debian/libs/ubuntu/pool/main/a/alsa-firmware/|grep amd64.deb|cut -d '"' -f8)
 apt install -y ./alsa-firmware*.deb
-rm alsa-firmware*.deb
 
 # JACK
 add-apt-repository -y ppa:ubuntustudio-ppa/backports
@@ -20,4 +19,3 @@ git clone -q https://github.com/jhernberg/udev-rtirq
 cd udev-rtirq
 make install
 cd ..
-rm -r udev-rtirq

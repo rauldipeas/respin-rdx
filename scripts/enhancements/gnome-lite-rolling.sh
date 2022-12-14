@@ -39,7 +39,6 @@ apt install -y ./steam.deb
 git clone https://github.com/tkashkin/Adwaita-for-Steam
 mkdir -p /etc/skel/.local/share/Steam/skins
 mv Adwaita-for-Steam/Adwaita /etc/skel/.local/share/Steam/skins/
-rm -r Adwaita-for-Steam
 wget -q "$(wget -qO- https://api.github.com/repos/flightlessmango/MangoHud/releases|grep browser_download_url|grep download/v|grep tar.gz|head -n1|cut -d '"' -f4)"
 tar fxz MangoHud*.tar.gz
 cd MangoHud
