@@ -4,6 +4,10 @@ set -e
 # APT rollback
 apt install -y apt-rollback
 
+# Breeze GRUB
+apt install -y grub-theme-breeze
+echo 'GRUB_THEME="/usr/share/grub/themes/breeze/theme.txt"'|tee /etc/default/grub.d/theme.cfg>/dev/null
+
 # CPU-X
 apt install -y cpu-x
 
