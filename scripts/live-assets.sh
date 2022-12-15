@@ -11,6 +11,7 @@ touch respin-rdx/image/respin-rdx
 sed -i "s/PLACEHOLDER/$FLAVOUR_NAME/g" assets/live/*
 cp assets/live/grub.cfg respin-rdx/image/isolinux/grub.cfg
 cp assets/live/README.diskdefines respin-rdx/image/README.diskdefines
+cp -r "$CHROOT"/boot/grub/unicode.pf2 respin-rdx/image/boot/grub/
 cp -r "$CHROOT"/usr/share/grub/themes respin-rdx/image/boot/grub/
 ## Criação dos arquivos de manifesto da imagem de instalação
 cp /mnt/casper/*remove* respin-rdx/image/casper/
