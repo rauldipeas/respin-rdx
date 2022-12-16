@@ -20,7 +20,7 @@ sudo touch "$CHROOT"/"$FLAVOUR_ID"
 ## Execução dos scripts de personalização
 sudo cp -r scripts/enhancements* "$CHROOT"/
 sudo chroot "$CHROOT" bash -x enhancements.sh
-sudo rm -rf "$CHROOT"/{Adwaita-for-Steam*,cinnamon-transparent-panels*,enhancements*,firefox*,materia-kde*,thunderbird*,udev-rtirq*,*.deb,*.tar.gz,*.tar.xz,*.zip}
+sudo rm -rf "$CHROOT"/{Adwaita-for-Steam*,cinnamon-transparent-panels*,enhancements*,firefox*,materia-kde*,MangoHud*,thunderbird*,udev-rtirq*,*.deb,*.tar.gz,*.tar.xz,*.zip}
 ## Desmontagem do enjaulamento
 sudo rm "$CHROOT"/"$FLAVOUR_ID"
 sudo rm -rf "$CHROOT"/tmp/*
