@@ -27,4 +27,4 @@ apt install -y\
     nautilus\
     totem\
     xdg-user-dirs-gtk
-apt autoremove --purge -y yelp*
+apt autoremove --purge -y libgl1-amber-dri yelp*

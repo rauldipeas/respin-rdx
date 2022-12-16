@@ -43,4 +43,4 @@ wget -q "$(wget -qO- https://api.github.com/repos/flightlessmango/MangoHud/relea
 tar fxz MangoHud*.tar.gz
 cd MangoHud
 ./mangohud-setup.sh install
-apt autoremove --purge -y yelp*
+apt autoremove --purge -y libgl1-amber-dri yelp*
