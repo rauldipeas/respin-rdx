@@ -3,6 +3,12 @@ set -e
 
 # MESA
 add-apt-repository -y ppa:kisak/kisak-mesa
+#cat <<EOF |tee /etc/apt/preferences.d/kisak-mesa.conf
+#Package: libgl1-amber-dri
+#Pin: version *
+#Pin-Priority: -1
+#EOF
+apt autoremove --purge -y libgl1-amber-dri
 apt dist-upgrade -y
 
 # ALSA firmware
