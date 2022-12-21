@@ -4,11 +4,11 @@ set -e
 # Environment setup
 sudo apt autoremove --purge -y\
     azure-cli\
-    '^dotnet-.*'\
+    "^dotnet-.*"\
     firefox\
     google-chrome-stable\
     google-cloud-sdk\
-    '^llvm-.*'\
+    "^llvm-.*"\
     powershell\
     snapd
 sudo apt clean
