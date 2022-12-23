@@ -5,6 +5,7 @@ on:
       - 'main'
     paths-ignore:
       - '.editorconfig'
+      - 'leiame.md'
       - 'readme.md'
       - '*.jpg'
       - '*.png'
