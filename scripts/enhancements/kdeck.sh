@@ -29,7 +29,7 @@ apt install -y\
     retroarch\
     ./steam.deb\
     steamos-compositor-plus
-wget -q "$(wget -qO- https://api.github.com/repos/flightlessmango/MangoHud/releases|grep browser_download_url|grep download/v|grep tar.gz|head -n1|cut -d '"' -f4)"
+wget -q "$(wget -qO- --header="X-Auth-Token: $GITHUB_TOKEN" https://api.github.com/repos/flightlessmango/MangoHud/releases|grep browser_download_url|grep download/v|grep tar.gz|head -n1|cut -d '"' -f4)"
 tar fxz MangoHud*.tar.gz
 cd MangoHud
 ./mangohud-setup.sh install
