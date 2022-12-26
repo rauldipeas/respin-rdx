@@ -39,7 +39,7 @@ apt install -y ./steam.deb
 git clone https://github.com/tkashkin/Adwaita-for-Steam
 mkdir -p /etc/skel/.local/share/Steam/skins
 mv Adwaita-for-Steam/Adwaita /etc/skel/.local/share/Steam/skins/
-wget -q "$(wget -qO- --header="X-Auth-Token: $GITHUB_TOKEN" https://api.github.com/repos/flightlessmango/MangoHud/releases|grep browser_download_url|grep download/v|grep tar.gz|head -n1|cut -d '"' -f4)"
+wget -q --show-progress --header="X-Auth-Token: $GITHUB_TOKEN" "$(wget -qO- --header="X-Auth-Token: $GITHUB_TOKEN" https://api.github.com/repos/flightlessmango/MangoHud/releases|grep browser_download_url|grep download/v|grep tar.gz|head -n1|cut -d '"' -f4)"
 tar fxz MangoHud*.tar.gz
 cd MangoHud
 ./mangohud-setup.sh install
