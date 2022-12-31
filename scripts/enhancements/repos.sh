@@ -10,7 +10,7 @@ bash -x <(wget -qO- https://raw.githubusercontent.com/rauldipeas/apt-repository/
 
 # deb-get
 apt update
-wget -qO- --show-progress https://raw.githubusercontent.com/wimpysworld/deb-get/main/deb-get|sudo -E bash -s install deb-get
+curl -sL https://raw.githubusercontent.com/wimpysworld/deb-get/main/deb-get|sudo -E bash -s install deb-get
 #wget -q --show-progress "$(wget -qO- --header="X-Auth-Token: $GITHUB_TOKEN" https://api.github.com/repos/wimpysworld/deb-get/releases|grep browser_download_url|grep .deb|head -n1|cut -d '"' -f4)"
 #sudo apt install -y ./deb-get*.deb
 
