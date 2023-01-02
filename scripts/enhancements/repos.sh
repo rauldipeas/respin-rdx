@@ -10,12 +10,14 @@ bash -x <(wget -qO- https://raw.githubusercontent.com/rauldipeas/apt-repository/
 
 # deb-get
 apt update
-wget -q --show-progress "$(wget -qO- --header="X-Auth-Token: $GITHUB_TOKEN" https://api.github.com/repos/wimpysworld/deb-get/releases|grep browser_download_url|grep .deb|head -n1|cut -d '"' -f4)"
-sudo apt install -y ./deb-get*.deb
+#wget -q --show-progress "$(wget -qO- --header="X-Auth-Token: $GITHUB_TOKEN" https://api.github.com/repos/wimpysworld/deb-get/releases|grep browser_download_url|grep .deb|head -n1|cut -d '"' -f4)"
+#sudo apt install -y ./deb-get*.deb
+sudo apt install -y deb-get
 
 # Pacstall
-wget -q --show-progress "$(wget -qO- --header="X-Auth-Token: $GITHUB_TOKEN" https://api.github.com/repos/pacstall/pacstall/releases|grep browser_download_url|grep .deb|head -n1|cut -d '"' -f4)"
-sudo apt install -y ./pacstall*.deb
+#wget -q --show-progress "$(wget -qO- --header="X-Auth-Token: $GITHUB_TOKEN" https://api.github.com/repos/pacstall/pacstall/releases|grep browser_download_url|grep .deb|head -n1|cut -d '"' -f4)"
+#sudo apt install -y ./pacstall*.deb
+sudo apt install -y pacstall
 
 # Respin RDX scripts
 sudo mkdir -p /usr/local/bin
