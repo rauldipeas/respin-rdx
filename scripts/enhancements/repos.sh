@@ -26,8 +26,10 @@ cat <<EOF |sudo tee /usr/local/bin/get-respin-rdx
 set -e
 bash <(wget -qO- https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/get-respin-rdx.sh) "\$1"
 EOF
+chmod +x /usr/local/bin/get-respin-rdx
 cat <<EOF |sudo tee /usr/local/bin/upgrade-respin-rdx
 #!/bin/bash
 set -e
 bash <(wget -qO- https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/upgrade-respin-rdx.sh)
 EOF
+chmod +x /usr/local/bin/upgrade-respin-rdx
