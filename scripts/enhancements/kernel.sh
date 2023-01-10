@@ -18,8 +18,8 @@ apt install -y amd64-microcode intel-microcode mainline thermald
 sed -i 's/Icon=mainline/Icon=mintsources-ppa/g' /usr/share/applications/mainline.desktop
 
 # Latest kernel
-#KERNEL_VER="$(wget -qO- https://kernel.ubuntu.com/~kernel-ppa/mainline/|grep folder|grep "\-rc"|tail -n4|head -n1|cut -d '"' -f8)"
-KERNEL_VER="v6.1.1/" #tmp-fix
+#KERNEL_VER="v6.1.4/" #tmp-fix
+KERNEL_VER="$(wget -qO- https://kernel.ubuntu.com/~kernel-ppa/mainline/|grep folder|grep -v "\-rc"|tail -n2|head -n1|cut -d '"' -f8)"
 KERNEL_HEADERS_COMMON_FILE=$(wget -qO- https://kernel.ubuntu.com/~kernel-ppa/mainline/"$KERNEL_VER"|grep headers|grep all.deb|cut -d '"' -f2)
 KERNEL_HEADERS_FILE=$(wget -qO- https://kernel.ubuntu.com/~kernel-ppa/mainline/"$KERNEL_VER"|grep headers|grep amd64.deb|cut -d '"' -f2)
 KERNEL_IMAGE_FILE=$(wget -qO- https://kernel.ubuntu.com/~kernel-ppa/mainline/"$KERNEL_VER"|grep image|grep amd64.deb|cut -d '"' -f2)
