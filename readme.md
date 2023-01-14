@@ -10,6 +10,7 @@ A few extras are included:
 )~~
 * ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/apps/mintsources-ppa.svg) [**Mainline**](https://github.com/cappelikan/mainline) (updating tool for ubuntu kernel)
 * ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/devices/cpu.svg) [**CFS Zen tweaks**](https://github.com/igo95862/cfs-zen-tweaks) (task scheduler with responsiveness improvements)
+* ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/devices/media-memory.svg) [**ZRAM**](https://pt.wikipedia.org/wiki/Zram) (alternative memory manager)
 * ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/apps/GPU_Viewer.svg)  [**MESA**](https://launchpad.net/~kisak/+archive/ubuntu/kisak-mesa) (latest drivers for AMD and Intel GPUs)
 * ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/apps/mx-select-sound.svg) [**ALSA firmware**](http://ppa.launchpad.net/kxstudio-debian/libs/ubuntu/pool/main/a/alsa-firmware) (additional drivers for audio interfaces)
 * ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/apps/qjackctl.svg) [**JACK**](https://launchpad.net/~ubuntustudio-ppa/+archive/ubuntu/backports) (low latency audio server)
