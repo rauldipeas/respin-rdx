@@ -13,6 +13,7 @@ if [ -f /usr/bin/pacstall ];then
         echo 'pacstall não encontrado'
 fi
 if [ -f /usr/bin/mainline ];then
+        rm -rf "$HOME"/.cache/mainline
         mainline --install-latest
         else
         echo 'mainline não encontrado'
