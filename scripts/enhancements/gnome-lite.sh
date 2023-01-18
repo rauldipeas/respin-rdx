@@ -31,4 +31,4 @@ apt autoremove --purge -y yelp*
 cat <<EOF |tee /usr/local/bin/firefox-gnome-setup
 curl -s -o- https://raw.githubusercontent.com/rafaelmardojai/firefox-gnome-theme/master/scripts/install-by-curl.sh|bash
 EOF
-chmod +x /usr/local/bin/firefox-tnome-setup
+chmod +x /usr/local/bin/firefox-gnome-setup
