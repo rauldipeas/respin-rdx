@@ -33,3 +33,4 @@ wget -q --show-progress "$(wget -qO- --header="X-Auth-Token: $GITHUB_TOKEN" http
 tar fxz MangoHud*.tar.gz
 cd MangoHud
 ./mangohud-setup.sh install
+pacstall -I -P steamtinkerlaunch-git
