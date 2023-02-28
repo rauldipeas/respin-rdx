@@ -15,7 +15,7 @@ sed -i 's/#ADD_EXTRA_GROUPS=1/ADD_EXTRA_GROUPS=1/g' /etc/adduser.conf
 sed -i 's/#EXTRA_GROUPS=/EXTRA_GROUPS=/g' /etc/adduser.conf
 
 # GRUB
-echo 'GRUB_CMDLINE_LINUX_DEFAULT="cpufreq.default_governor=performance logo.nologo loglevel=0 mitigations=off preempt=full quiet splash threadirqs vt.global_cursor_default=0"'|tee /etc/default/grub.d/cmdline-linux-default.cfg>/dev/null
+echo 'GRUB_CMDLINE_LINUX_DEFAULT="cpufreq.default_governor=performance logo.nologo loglevel=0 mitigations=off preempt=full quiet splash threadirqs vt.global_cursor_default=0 zswap.enabled=1 zswap.compressor=lz4"'|tee /etc/default/grub.d/cmdline-linux-default.cfg>/dev/null
 
 # GVFS
 sudo apt autoremove --purge -y gvfs-fuse

@@ -30,3 +30,8 @@ wget -q --show-progress https://kernel.ubuntu.com/~kernel-ppa/mainline/"$KERNEL_
 wget -q --show-progress https://kernel.ubuntu.com/~kernel-ppa/mainline/"$KERNEL_VER""$KERNEL_IMAGE_FILE"
 wget -q --show-progress https://kernel.ubuntu.com/~kernel-ppa/mainline/"$KERNEL_VER""$KERNEL_MODULES_FILE"
 apt install ./linux-headers*.deb ./linux-image*.deb ./linux-modules*.deb
+
+# ZSwap
+echo lz4|tee -a /etc/initramfs-tools/modules>/dev/null
+echo lz4_compress|tee -a /etc/initramfs-tools/modules>/dev/null
+update-initramfs -u -k all
