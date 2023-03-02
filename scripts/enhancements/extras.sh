@@ -39,6 +39,9 @@ MimeType=x-scheme-handler/apt;
 EOF
 fi
 
+# nohang
+apt install -y nohang
+
 # Synaptic
 apt install -y synaptic
 
