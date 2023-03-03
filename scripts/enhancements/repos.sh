@@ -11,6 +11,9 @@ bash -x <(wget -qO- https://raw.githubusercontent.com/rauldipeas/apt-repository/
 # System update
 sudo apt update
 export DEBIAN_FRONTEND=noninteractive
+if [ -f /usr/share/xsessions/xubuntu.desktop ]; then
+    sudo apt autoremove --purge chromium-browser
+fi
 sudo apt dist-upgrade -y -o Dpkg::Options::="--force-confdef" --force-yes
 
 # deb-get
