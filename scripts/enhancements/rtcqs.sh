@@ -2,8 +2,12 @@
 set -e
 
 # rtcqs
-apt install -y python3-pip python3-tk
-pip install -q rtcqs
+apt install -y pipx python3-tk
+mkdir -p /opt/pipx/bin
+chmod -R 777 /opt/pipx
+export PIPX_HOME='/opt/pipx'
+export PIPX_BIN_DIR='/opt/pipx/bin'
+pipx install rtcqs
 wget -q --show-progress -O /usr/share/applications/rtcqs.desktop https://github.com/autostatic/rtcqs/raw/main/rtcqs.desktop
 wget -q --show-progress -O /usr/share/icons/rtcqs.svg https://github.com/autostatic/rtcqs/raw/main/rtcqs_logo.svg
 

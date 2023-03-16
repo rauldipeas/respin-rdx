@@ -19,6 +19,8 @@ Alguns extras estão inclusos:
 * ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/apps/distributor-logo-debian.svg) [**`deb-get`**](https://github.com/wimpysworld/deb-get) (instalador de pacotes `.deb` de terceiros através de download direto)
 * ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/mimetypes/text-x-pkgbuild.svg) [**Pacstall**](https://pacstall.dev) (repositório de programas para a base Debian, similar ao AUR do Arch Linux)
 * ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/apps/cronopete_preferences.svg) [**`apt-rollback`**](https://launchpad.net/apt-rollback) (ferramenta para reverter pacotes instalados em um período de tempo específico)
+* ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/apps/python.svg) [**`pipx`**](https://github.com/pypa/pipx) (instalador de pacotes python com ambientes isolados)
+
 * ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/apps/timeshift.svg) [**Timeshift**](https://github.com/linuxmint/timeshift) (ferramenta de backups)
 * ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/apps/firefox.svg) [**Firefox**](https://support.mozilla.org/pt-BR/kb/instale-o-firefox-no-linux) (navegador de internet, binário diretamente do site da Mozilla)
 * ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/apps/thunderbird.svg) [**Thunderbird**](https://support.mozilla.org/pt-BR/kb/instalando-o-thunderbird-no-linux) (cliente de e-mail, binário diretamente do site da Mozilla)
