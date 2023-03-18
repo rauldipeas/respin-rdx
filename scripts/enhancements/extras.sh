@@ -14,10 +14,15 @@ apt install -y cpu-x
 # Discovery/Muon
 apt autoremove --purge -y muon plasma-discover-common
 
+# gdebi
+if [ -f /usr/share/xsessions/ubuntu.desktop ]; then
+    apt install -y gdebi
+fi
+
 # KDE custom-apturl
 if [ -f /usr/share/xsessions/plasma.desktop ]; then
-apt install -y --no-install-recommends libnotify-bin qapt-deb-installer
-mkdir -p /usr/local/{bin,share/applications}
+    apt install -y --no-install-recommends libnotify-bin qapt-deb-installer
+    mkdir -p /usr/local/{bin,share/applications}
     cat <<EOF |tee /usr/local/bin/qapt-apturl-installer.sh>/dev/null
 #!/bin/bash
 set -e
@@ -43,6 +48,7 @@ fi
 apt install -y nohang
 
 # pipx
+rm -rf /opt/pipx/logs
 cat <<EOF |tee /etc/X11/Xsession.d/99pipx
 export PIPX_HOME='/opt/pipx'
 export PIPX_BIN_DIR='/opt/pipx/bin'

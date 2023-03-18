@@ -16,6 +16,7 @@ apt install -y\
     cinnamon-l10n\
     dmz-cursor-theme\
     flat-remix-gtk\
+    gdebi\
     gnome-calculator\
     gnome-characters\
     gnome-disk-utility\
