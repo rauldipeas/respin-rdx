@@ -24,6 +24,8 @@ Alguns extras estão inclusos:
 * ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/apps/timeshift.svg) [**Timeshift**](https://github.com/linuxmint/timeshift) (ferramenta de backups)
 * ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/apps/firefox.svg) [**Firefox**](https://support.mozilla.org/pt-BR/kb/instale-o-firefox-no-linux) (navegador de internet, binário diretamente do site da Mozilla)
 * ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/apps/thunderbird.svg) [**Thunderbird**](https://support.mozilla.org/pt-BR/kb/instalando-o-thunderbird-no-linux) (cliente de e-mail, binário diretamente do site da Mozilla)
+* ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/apps/libreoffice-main.svg) [**LibreOffice**](https://launchpad.net/~libreoffice/+archive/ubuntu/ppa) (suíte de escritório atualizada)
+
 * ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/apps/papirus-folders-gui.svg) [**Papirus**](https://github.com/PapirusDevelopmentTeam) (tema de ícones)
 * ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/apps/ark.svg) [**`unrar`**](https://github.com/pmachapman/unrar) (suporte adicional para descompactar arquivos)
 * ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/apps/preferences-system-windows.svg) [**Docklike**](https://github.com/nsz32/docklike-plugin) (`superbar` para o painel do XFCE)

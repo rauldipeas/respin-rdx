@@ -44,6 +44,23 @@ MimeType=x-scheme-handler/apt;
 EOF
 fi
 
+# LibreOffice
+if [ -f /Neon ]; then
+    echo 'Neon'
+    elif [ -f /KDeck ];then
+    echo 'Kubuntu Deck'
+    elif [ -f /UCL ];then
+    echo 'Cinnamon Lite'
+    elif [ -f /UGL ]; then
+    echo 'GNOME Lite'
+    elif [ -f /UGLR ];then
+    echo 'GNOME Lite Rolling'
+    else
+    echo 'Flavours'
+    add-apt-repository -y ppa:libreoffice/ppa
+    apt dist-upgrade -y -o Dpkg::Options::="--force-confdef" --force-yes
+fi
+
 # nohang
 apt install -y nohang
 
