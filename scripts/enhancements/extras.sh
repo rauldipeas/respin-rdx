@@ -66,7 +66,7 @@ apt install -y nohang
 
 # pipx
 rm -rf /opt/pipx/logs
-find -type d /opt/pipx -exec chmod 777 {} \;
+find /opt/pipx -type d -exec chmod 777 {} \;
 cat <<EOF |tee /etc/X11/Xsession.d/99pipx
 export PIPX_HOME='/opt/pipx'
 export PIPX_BIN_DIR='/opt/pipx/bin'
