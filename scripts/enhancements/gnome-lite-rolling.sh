@@ -14,7 +14,7 @@ sed -i 's/jammy/devel/g' /etc/apt/sources.list
 dpkg --add-architecture i386
 apt update
 export DEBIAN_FRONTEND=noninteractive
-apt dist-upgrade -y -o Dpkg::Options::="--force-confold" --allow
+apt dist-upgrade -y -o Dpkg::Options::="--force-confold" --force-yes
 apt install -y\
     apturl\
     dmz-cursor-theme\
