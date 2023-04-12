@@ -14,7 +14,7 @@ export DEBIAN_FRONTEND=noninteractive
 if [ -f /usr/share/xsessions/xubuntu.desktop ]; then
     sudo apt autoremove --purge -y chromium-browser
 fi
-sudo apt dist-upgrade -y -o Dpkg::Options::="--force-confdef" --force-yes
+sudo apt dist-upgrade -y -o Dpkg::Options::="--force-confdef" --allow
 
 # deb-get
 sudo apt install -y deb-get

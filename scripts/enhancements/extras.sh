@@ -58,7 +58,7 @@ if [ -f /Neon ]; then
     else
     echo 'Flavours'
     add-apt-repository -y ppa:libreoffice/ppa
-    apt dist-upgrade -y -o Dpkg::Options::="--force-confdef" --force-yes
+    apt dist-upgrade -y -o Dpkg::Options::="--force-confdef" --allow
 fi
 
 # nohang
