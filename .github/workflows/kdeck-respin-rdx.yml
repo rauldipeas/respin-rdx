@@ -33,7 +33,7 @@ jobs:
           CHROOT: respin-rdx/kdeck-chroot
           FLAVOUR_ID: KDeck
           ISO_NAME: kdeck
-      - name: Upload dos artefatos
+      - name: Envio dos artefatos
         uses: actions/upload-artifact@v3
         with:
           name: kdeck-respin-rdx

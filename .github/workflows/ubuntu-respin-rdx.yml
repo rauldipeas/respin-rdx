@@ -33,7 +33,7 @@ jobs:
           CHROOT: respin-rdx/ubuntu-chroot
           FLAVOUR_ID: Ubuntu
           ISO_NAME: ubuntu
-      - name: Upload dos artefatos
+      - name: Envio dos artefatos
         uses: actions/upload-artifact@v3
         with:
           name: ubuntu-respin-rdx

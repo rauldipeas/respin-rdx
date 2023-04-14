@@ -33,7 +33,7 @@ jobs:
           CHROOT: respin-rdx/kubuntu-chroot
           FLAVOUR_ID: Kubuntu
           ISO_NAME: kubuntu
-      - name: Upload dos artefatos
+      - name: Envio dos artefatos
         uses: actions/upload-artifact@v3
         with:
           name: kubuntu-respin-rdx

@@ -33,7 +33,7 @@ jobs:
           CHROOT: respin-rdx/ucl-chroot
           FLAVOUR_ID: UCL
           ISO_NAME: ucl
-      - name: Upload dos artefatos
+      - name: Envio dos artefatos
         uses: actions/upload-artifact@v3
         with:
           name: ucl-respin-rdx
