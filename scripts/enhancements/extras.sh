@@ -12,11 +12,20 @@ echo 'GRUB_THEME="/usr/share/grub/themes/breeze/theme.txt"'|tee /etc/default/gru
 apt install -y cpu-x
 
 # Discovery/Muon
-apt autoremove --purge -y muon plasma-discover-common
+#apt autoremove --purge -y muon plasma-discover-common
 
 # gdebi
 if [ -f /usr/share/xsessions/ubuntu.desktop ]; then
     apt install -y gdebi
+fi
+
+# GNOME software
+if [ -f /usr/share/xsessions/ubuntu.desktop ]; then
+    apt install -y --no-install-recommends gnome-software
+fi
+if [ -f /usr/share/xsessions/gnome.desktop ]; then
+    apt install -y --no-install-recommends gnome-software-plugin-flatpak
+    flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 fi
 
 # KDE custom-apturl
