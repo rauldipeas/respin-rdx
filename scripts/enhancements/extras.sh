@@ -20,12 +20,20 @@ if [ -f /usr/share/xsessions/ubuntu.desktop ]; then
 fi
 
 # GNOME software
-if [ -f /usr/share/xsessions/ubuntu.desktop ]; then
-    apt install -y --no-install-recommends gnome-software
-fi
-if [ -f /usr/share/xsessions/gnome.desktop ]; then
+if [ -f /Neon ]; then
+    echo 'Neon'
+    apt install -y --no-install-recommends plasma-discover-backend-flatpak
+    flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+    elif [ -f /UGLR ]; then
     apt install -y --no-install-recommends gnome-software-plugin-flatpak
     flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+    elif [ -f /Kubuntu ]; then
+    echo 'Kubuntu'
+    elif [ -f /KDeck ]; then
+    echo 'Kubuntu Deck'
+    else
+    echo 'Flavours'
+    apt install -y --no-install-recommends gnome-software
 fi
 
 # KDE custom-apturl
