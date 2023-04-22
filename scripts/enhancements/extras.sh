@@ -15,9 +15,9 @@ apt install -y cpu-x
 #apt autoremove --purge -y muon plasma-discover-common
 
 # gdebi
-if [ -f /usr/share/xsessions/ubuntu.desktop ]; then
-    apt install -y gdebi
-fi
+#if [ -f /usr/share/xsessions/ubuntu.desktop ]; then
+#    apt install -y gdebi
+#fi
 
 # GNOME software
 if [ -f /Neon ]; then
@@ -37,29 +37,29 @@ if [ -f /Neon ]; then
 fi
 
 # KDE custom-apturl
-if [ -f /usr/share/xsessions/plasma.desktop ]; then
-    apt install -y --no-install-recommends libnotify-bin qapt-deb-installer
-    mkdir -p /usr/local/{bin,share/applications}
-    cat <<EOF |tee /usr/local/bin/qapt-apturl-installer.sh>/dev/null
+#if [ -f /usr/share/xsessions/plasma.desktop ]; then
+#    apt install -y --no-install-recommends libnotify-bin qapt-deb-installer
+#    mkdir -p /usr/local/{bin,share/applications}
+#    cat <<EOF |tee /usr/local/bin/qapt-apturl-installer.sh>/dev/null
 #!/bin/bash
-set -e
-cd /tmp
-rm -f "\$(find /tmp -name \$(echo \$@*|sed 's/apt://g'|grep -v .deb))"
-notify-send -a "Instalação de programas" -i kget "Baixando o pacote, aguarde alguns instantes..."&
-apt download "\$(echo \$@|sed 's/apt://g')"
-qapt-deb-installer "\$(find /tmp -name \$(echo \$@*|sed 's/apt://g'))"
-EOF
-    chmod +x /usr/local/bin/qapt-apturl-installer.sh
-    cat <<EOF |tee /usr/local/share/applications/qapt-apturl-installer.desktop>/dev/null
-[Desktop Entry]
-Name=AptURL
-Exec=qapt-apturl-installer.sh %u
-Type=Application
-NoDisplay=true
-Categories=System;
-MimeType=x-scheme-handler/apt;
-EOF
-fi
+#set -e
+#cd /tmp
+#rm -f "\$(find /tmp -name \$(echo \$@*|sed 's/apt://g'|grep -v .deb))"
+#notify-send -a "Instalação de programas" -i kget "Baixando o pacote, aguarde alguns instantes..."&
+#apt download "\$(echo \$@|sed 's/apt://g')"
+#qapt-deb-installer "\$(find /tmp -name \$(echo \$@*|sed 's/apt://g'))"
+#EOF
+#    chmod +x /usr/local/bin/qapt-apturl-installer.sh
+#    cat <<EOF |tee /usr/local/share/applications/qapt-apturl-installer.desktop>/dev/null
+#[Desktop Entry]
+#Name=AptURL
+#Exec=qapt-apturl-installer.sh %u
+#Type=Application
+#NoDisplay=true
+#Categories=System;
+#MimeType=x-scheme-handler/apt;
+#EOF
+#fi
 
 # LibreOffice
 if [ -f /Neon ]; then
