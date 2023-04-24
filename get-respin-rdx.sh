@@ -20,7 +20,8 @@ copy_iso_to_ventoy () {
 				gcp -f /tmp/"$1"-respin-rdx.iso /media/"$USER"/Ventoy/
 			fi
 			else
-			mv /tmp/"$1"-respin-rdx.iso "$HOME"/Downloads/
+			mv /tmp/"$1"-respin-rdx.iso .
+			rm /tmp/"$1"-respin-rdz.zip
 		fi
 		else
 		pkcon install unzip
@@ -33,7 +34,8 @@ copy_iso_to_ventoy () {
 				gcp -f /tmp/"$1"-respin-rdx.iso /media/"$USER"/Ventoy/
 			fi
 			else
-			mv /tmp/"$1"-respin-rdx.iso "$HOME"/Downloads/
+			mv /tmp/"$1"-respin-rdx.iso .
+			rm /tmp/"$1"-respin-rdz.zip
 		fi
 	fi
 }
