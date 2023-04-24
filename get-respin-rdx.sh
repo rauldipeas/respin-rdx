@@ -21,7 +21,7 @@ copy_iso_to_ventoy () {
 			fi
 			else
 			mv /tmp/"$1"-respin-rdx.iso .
-			rm /tmp/"$1"-respin-rdz.zip
+			rm /tmp/"$1"-respin-rdx.zip
 		fi
 		else
 		pkcon install unzip
@@ -35,7 +35,7 @@ copy_iso_to_ventoy () {
 			fi
 			else
 			mv /tmp/"$1"-respin-rdx.iso .
-			rm /tmp/"$1"-respin-rdz.zip
+			rm /tmp/"$1"-respin-rdx.zip
 		fi
 	fi
 }
