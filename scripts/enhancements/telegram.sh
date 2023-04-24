@@ -10,7 +10,7 @@ mv Telegram/* /opt/Telegram
 rm -rf Telegram telegram.tar.xz
 mkdir -p /usr/local/bin /usr/local/share/applications
 ln -fs /opt/Telegram/Telegram /usr/local/bin/telegram
-cat <<EOF |tee /usr/local/share/applications/telegram.desktop>/dev/null
+cat <<EOF |tee /usr/local/share/applications/org.telegram.desktop._3e485da34fc040f9218e3891ecde1e6c.desktop>/dev/null
 [Desktop Entry]
 Name=Telegram Desktop
 Comment=Official desktop version of Telegram messaging app

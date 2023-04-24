@@ -20,7 +20,6 @@ apt install -y\
     dmz-cursor-theme\
     file-roller\
     gamemode\
-    gdebi\
     gir1.2-gmenu-3.0\
     gnome-backgrounds\
     gnome-calculator\
