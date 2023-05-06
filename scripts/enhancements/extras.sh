@@ -79,9 +79,8 @@ if [ -f /Neon ]; then
 fi
 
 # nala
-apt update
-apt search nala
-apt install -y nala
+wget -q --show-progress http://mirrors.kernel.org/ubuntu/pool/universe/n/nala/"$(wget -qO- http://mirrors.kernel.org/ubuntu/pool/universe/n/nala|grep .deb|head -n1|cut -d '"' -f2)"
+apt install -y ./nala*.deb
 
 # nohang
 apt install -y nohang
