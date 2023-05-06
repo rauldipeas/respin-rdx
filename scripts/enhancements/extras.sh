@@ -79,6 +79,8 @@ if [ -f /Neon ]; then
 fi
 
 # nala
+apt update
+apt search nala
 apt install -y nala
 
 # nohang
