@@ -32,6 +32,7 @@ apt install -y\
     gnome-text-editor\
     gthumb\
     nautilus\
+    python3-poetry\
     totem\
     wireplumber\
     xdg-user-dirs-gtk
