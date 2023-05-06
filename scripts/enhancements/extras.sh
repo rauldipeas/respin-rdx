@@ -78,6 +78,9 @@ if [ -f /Neon ]; then
     apt dist-upgrade -y -o Dpkg::Options::="--force-confdef" --force-yes
 fi
 
+# nala
+apt install -y nala
+
 # nohang
 apt install -y nohang
 
