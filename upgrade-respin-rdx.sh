@@ -7,7 +7,6 @@ set -e
 #        echo 'deb-get não encontrado'
 #fi
 if [ -f /usr/bin/nala ];then
-        sudo nala update
         sudo nala upgrade
         else
         echo 'nala não encontrado'
