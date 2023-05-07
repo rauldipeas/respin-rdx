@@ -1,6 +1,10 @@
 #!/bin/bash
 set -e
 
+# AppGrid
+wget -q --show-progress "$(wget -qO- https://www.appgrid.org|grep deb|cut -d "'" -f4)"
+apt install ./appgrid*.deb
+
 # APT rollback
 apt install -y apt-rollback
 
