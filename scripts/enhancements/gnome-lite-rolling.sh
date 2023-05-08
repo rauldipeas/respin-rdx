@@ -31,6 +31,7 @@ apt install -y\
     gnome-system-monitor\
     gnome-text-editor\
     gthumb\
+    materia-gtk-theme\
     nautilus\
     totem\
     wireplumber\
