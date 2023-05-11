@@ -29,7 +29,8 @@ if [ -f /Ubuntu ]; then
     sed -i 's/firefox_firefox/firefox/g' /usr/share/glib-2.0/schemas/10_ubuntu-settings.gschema.override
     sed -i 's/gtk-theme = "Yaru"/gtk-theme = "Yaru-dark"/g' /usr/share/glib-2.0/schemas/10_ubuntu-settings.gschema.override
     sed -i 's/icon-theme = "Yaru"/icon-theme = "Papirus-Dark"/g' /usr/share/glib-2.0/schemas/10_ubuntu-settings.gschema.override
-    sed -i 's/snap-store_ubuntu-software/org.gnome.Software/g' /usr/share/glib-2.0/schemas/10_ubuntu-settings.gschema.override
+    #sed -i 's/snap-store_ubuntu-software/org.gnome.Software/g' /usr/share/glib-2.0/schemas/10_ubuntu-settings.gschema.override
+    sed -i 's/snap-store_ubuntu-software/appgrid/g' /usr/share/glib-2.0/schemas/10_ubuntu-settings.gschema.override
     sed -i 's/warty-final-ubuntu.png/DSC2943_by_kcpru.jpg/g' /usr/share/glib-2.0/schemas/10_ubuntu-settings.gschema.override
 fi
 ## GNOME Lite
