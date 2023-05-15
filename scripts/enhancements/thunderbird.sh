@@ -36,3 +36,12 @@ Exec=thunderbird -compose
 Name=Contatos
 Exec=thunderbird -addressbook
 EOF
+
+# Birdtray
+wget -q --show-progress https://ppa.launchpadcontent.net/linuxuprising/ppa/ubuntu/pool/main/b/birdtray/$(wget -qO- https://ppa.launchpadcontent.net/linuxuprising/ppa/ubuntu/pool/main/b/birdtray/|grep jammy|grep amd64.deb|cut -d '"' -f8|tail -n1)
+dpkg-deb -x birdtray*.deb birdtray
+cp birdtray/usr/bin/birdtray /opt/thunderbird/
+ln -fs /opt/thunderbird/birdtray /usr/local/bin/birdtray
+cp birdtray/usr/share/applications/com.ulduzsoft.Birdtray.desktop /usr/loca/share/applications/
+cp -r birdtray/usr/share/icons /usr/loca/share/
+cp -r birdtray/usr/share/ulduzsoft /usr/local/share/
