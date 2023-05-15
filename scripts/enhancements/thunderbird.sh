@@ -42,6 +42,6 @@ wget -q --show-progress https://ppa.launchpadcontent.net/linuxuprising/ppa/ubunt
 dpkg-deb -x birdtray*.deb birdtray
 cp birdtray/usr/bin/birdtray /opt/thunderbird/
 ln -fs /opt/thunderbird/birdtray /usr/local/bin/birdtray
-cp birdtray/usr/share/applications/com.ulduzsoft.Birdtray.desktop /usr/loca/share/applications/
+cp birdtray/usr/share/applications/com.ulduzsoft.Birdtray.desktop /usr/local/share/applications/
 cp -r birdtray/usr/share/icons /usr/loca/share/
 cp -r birdtray/usr/share/ulduzsoft /usr/local/share/
