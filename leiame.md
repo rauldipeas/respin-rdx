@@ -26,6 +26,7 @@ Alguns extras estão inclusos:
 * ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/apps/timeshift.svg) [**Timeshift**](https://github.com/linuxmint/timeshift) (ferramenta de backups)
 * ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/apps/firefox.svg) [**Firefox**](https://support.mozilla.org/pt-BR/kb/instale-o-firefox-no-linux) (navegador de internet, binário diretamente do site da Mozilla)
 * ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/apps/thunderbird.svg) [**Thunderbird**](https://support.mozilla.org/pt-BR/kb/instalando-o-thunderbird-no-linux) (cliente de e-mail, binário diretamente do site da Mozilla)
+* ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/apps/com.ulduzsoft.Birdtray.svg) [**Birdtray**](https://github.com/gyunaev/birdtray) (ícone da área de notificação para Thunderbird)
 * ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/apps/libreoffice-main.svg) [**LibreOffice**](https://launchpad.net/~libreoffice/+archive/ubuntu/ppa) (suíte de escritório atualizada)
 
 * ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/apps/papirus-folders-gui.svg) [**Papirus**](https://github.com/PapirusDevelopmentTeam) (tema de ícones)
