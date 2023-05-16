@@ -14,32 +14,14 @@ apt install -y grub-theme-breeze
 echo 'GRUB_THEME="/usr/share/grub/themes/breeze/theme.txt"'|tee /etc/default/grub.d/theme.cfg>/dev/null
 
 # Birdtray deps
-if [ -f /Ubuntu ]; then
-    echo 'Ubuntu'
-    apt install -y\
-	libqt5network5\
-	libqt5svg5\
-	libqt5x11extras5
-    elif [ -f /Xubuntu ]; then
-    echo 'Xubuntu'
-    apt install -y\
-	libqt5network5\
-	libqt5svg5\
-	libqt5x11extras5
-    elif [ -f /UCL ]; then
-    echo 'Cinnamon Lite'
-    apt install -y\
-	libqt5network5\
-	libqt5svg5\
-	libqt5x11extras5
-    elif [ -f /UGL ]; then
-    echo 'GNOME Lite'
-    apt install -y\
-	libqt5network5\
-	libqt5svg5\
-	libqt5x11extras5
-    elif [ -f /UGLR ]; then
-    echo 'GNOME Lite Rolling'
+if [ -f /Kubuntu ]; then
+    echo 'Qt environment'
+    elif [ -f /KDeck ]; then
+    echo 'Qt environment'
+    elif [ -f /Neon ]; then
+    echo 'Qt environment'
+    else
+    echo 'Non-Qt environment, running Birdtray deps install'
     apt install -y\
 	libqt5network5\
 	libqt5svg5\
