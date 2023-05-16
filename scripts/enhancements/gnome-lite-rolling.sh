@@ -8,8 +8,8 @@ apt autoremove --purge -y\
     libreoffice*\
     ubuntu-desktop*\
     ubuntu-session*\
-    update-manager-core*\
-    yaru*
+    update-manager-core* #\
+    #yaru*
 sed -i 's/jammy/devel/g' /etc/apt/sources.list
 dpkg --add-architecture i386
 apt update
@@ -30,6 +30,7 @@ apt install -y\
     gnome-shell-extension-manager\
     gnome-system-monitor\
     gnome-text-editor\
+    gnome-themes-extra\
     gthumb\
     nautilus\
     totem\

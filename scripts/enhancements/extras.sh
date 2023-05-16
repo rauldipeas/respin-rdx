@@ -13,6 +13,39 @@ apt install -y apt-rollback
 apt install -y grub-theme-breeze
 echo 'GRUB_THEME="/usr/share/grub/themes/breeze/theme.txt"'|tee /etc/default/grub.d/theme.cfg>/dev/null
 
+# Birdtray deps
+if [ -f /Ubuntu ]; then
+    echo 'Ubuntu'
+    apt install -y\
+	libqt5network5\
+	libqt5svg5\
+	libqt5x11extras5
+    elif [ -f /Xubuntu ]; then
+    echo 'Xubuntu'
+    apt install -y\
+	libqt5network5\
+	libqt5svg5\
+	libqt5x11extras5
+    elif [ -f /UCL ]; then
+    echo 'Cinnamon Lite'
+    apt install -y\
+	libqt5network5\
+	libqt5svg5\
+	libqt5x11extras5
+    elif [ -f /UGL ]; then
+    echo 'GNOME Lite'
+    apt install -y\
+	libqt5network5\
+	libqt5svg5\
+	libqt5x11extras5
+    elif [ -f /UGLR ]; then
+    echo 'GNOME Lite Rolling'
+    apt install -y\
+	libqt5network5\
+	libqt5svg5\
+	libqt5x11extras5
+fi
+
 # CPU-X
 apt install -y cpu-x
 
@@ -30,6 +63,7 @@ if [ -f /Neon ]; then
     apt install -y --no-install-recommends plasma-discover-backend-flatpak
     flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
     elif [ -f /UGLR ]; then
+    echo 'GNOME Lite Rolling'
     apt install -y --no-install-recommends gnome-software-plugin-flatpak
     flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
     elif [ -f /Kubuntu ]; then
@@ -98,6 +132,9 @@ export PIPX_HOME='/opt/pipx'
 export PIPX_BIN_DIR='/opt/pipx/bin'
 export PATH="\$PATH:/opt/pipx/bin"
 EOF
+
+# Qt5 style plugins
+apt install -y qt5-style-plugins
 
 # Synaptic
 apt install -y synaptic

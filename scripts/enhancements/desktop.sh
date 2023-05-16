@@ -27,6 +27,9 @@ if [ -f /Ubuntu ]; then
     echo 'Ubuntu'
     sudo papirus-folders -C yaru
     wget -q --show-progress -O /etc/skel/.config/birdtray-config.json https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/birdtray/birdtray-config.json
+    cat <<EOF |sudo tee /etc/profile.d/qt-qpa-platformtheme.sh
+export QT_QPA_PLATFORMTHEME=gtk2
+EOF
     sed -i 's/firefox_firefox/firefox/g' /usr/share/glib-2.0/schemas/10_ubuntu-settings.gschema.override
     sed -i 's/gtk-theme = "Yaru"/gtk-theme = "Yaru-dark"/g' /usr/share/glib-2.0/schemas/10_ubuntu-settings.gschema.override
     sed -i 's/icon-theme = "Yaru"/icon-theme = "Papirus-Dark"/g' /usr/share/glib-2.0/schemas/10_ubuntu-settings.gschema.override
@@ -40,6 +43,9 @@ if [ -f /UGL ]; then
     bash -x enhancements/gnome-lite.sh
     sudo papirus-folders -C adwaita
     wget -q --show-progress -O /etc/skel/.config/birdtray-config.json https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/birdtray/birdtray-config.json
+    cat <<EOF |sudo tee /etc/profile.d/qt-qpa-platformtheme.sh
+export QT_QPA_PLATFORMTHEME=gtk2
+EOF
     cp /usr/share/applications/info.desktop /usr/local/share/applications/
     echo 'Hidden=true'|tee -a /usr/local/share/applications/info.desktop>/dev/null
     wget -q --show-progress  --header="X-Auth-Token: $GITHUB_TOKEN" "$(wget -qO- --header="X-Auth-Token: $GITHUB_TOKEN" https://api.github.com/repos/lassekongo83/adw-gtk3/releases|grep browser_download_url|grep tar.xz|head -n1|cut -d '"' -f4)"
@@ -62,6 +68,9 @@ if [ -f /UGLR ]; then
     bash -x enhancements/gnome-lite-rolling.sh
     sudo papirus-folders -C adwaita
     wget -q --show-progress -O /etc/skel/.config/birdtray-config.json https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/birdtray/birdtray-config.json
+    cat <<EOF |sudo tee /etc/profile.d/qt-qpa-platformtheme.sh
+export QT_QPA_PLATFORMTHEME=gtk2
+EOF
     cp /usr/share/applications/info.desktop /usr/local/share/applications/
     echo 'Hidden=true'|tee -a /usr/local/share/applications/info.desktop>/dev/null
     wget -q --show-progress "$(wget -qO- --header="X-Auth-Token: $GITHUB_TOKEN" https://api.github.com/repos/lassekongo83/adw-gtk3/releases|grep browser_download_url|grep tar.xz|head -n1|cut -d '"' -f4)"
@@ -187,6 +196,9 @@ if [ -f /Xubuntu ]; then
     mkdir -p /etc/skel/.config/{autostart,volumeicon,xfce4/panel}
     wget -q --show-progress -O /etc/skel/.config/autostart/volumeicon.desktop https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/XFCE/volumeicon.desktop
     wget -q --show-progress -O /etc/skel/.config/birdtray-config.json https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/birdtray/birdtray-config.json
+    cat <<EOF |sudo tee /etc/profile.d/qt-qpa-platformtheme.sh
+export QT_QPA_PLATFORMTHEME=gtk2
+EOF
     wget -q --show-progress -O /etc/skel/.config/volumeicon/volumeicon https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/XFCE/volumeicon
     wget -q --show-progress -O /etc/skel/.config/xfce4/panel/docklike-2.rc https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/XFCE/docklike-2.rc
     wget -q --show-progress -O /usr/share/xfce4-panel-profiles/layouts/rauldipeas-superbar.tar.bz2 https://github.com/rauldipeas/respin-rdx/raw/main/assets/XFCE/rauldipeas-superbar.tar.bz2
@@ -204,6 +216,9 @@ if [ -f /UCL ]; then
     bash -x enhancements/cinnamon-lite.sh
     sudo papirus-folders -C orange
     wget -q --show-progress -O /etc/skel/.config/birdtray-config.json https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/birdtray/birdtray-config.json
+    cat <<EOF |sudo tee /etc/profile.d/qt-qpa-platformtheme.sh
+export QT_QPA_PLATFORMTHEME=gtk2
+EOF
     cp /usr/share/applications/info.desktop /usr/local/share/applications/
     echo 'Hidden=true'|tee -a /usr/local/share/applications/info.desktop>/dev/null
     git clone -q https://github.com/germanfr/cinnamon-transparent-panels
