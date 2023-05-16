@@ -116,7 +116,16 @@ export PATH="\$PATH:/opt/pipx/bin"
 EOF
 
 # Qt5 style plugins
-apt install -y qt5-style-plugins
+if [ -f /Kubuntu ]; then
+    echo 'Qt environment'
+    elif [ -f /KDeck ]; then
+    echo 'Qt environment'
+    elif [ -f /Neon ]; then
+    echo 'Qt environment'
+    else
+    echo 'Non-Qt environment, running Qt5 style plugins install'
+    apt install -y qt5-style-plugins
+fi
 
 # Synaptic
 apt install -y synaptic
