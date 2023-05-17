@@ -43,7 +43,6 @@ wget -q --show-progress "$(wget -qO- --header="X-Auth-Token: $GITHUB_TOKEN" http
 tar fxz MangoHud*.tar.gz
 cd MangoHud
 ./mangohud-setup.sh install
-#pacstall -I -P steamtinkerlaunch-git
 apt autoremove --purge -y yelp*
 cat <<EOF |tee /usr/local/bin/firefox-gnome-setup
 curl -s -o- https://raw.githubusercontent.com/rafaelmardojai/firefox-gnome-theme/master/scripts/install-by-curl.sh|bash
