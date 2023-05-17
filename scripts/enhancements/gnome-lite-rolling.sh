@@ -8,7 +8,7 @@ apt autoremove --purge -y\
     libreoffice*\
     ubuntu-desktop*\
     ubuntu-session*\
-    update-manager-core*
+    update-manager-core*\
     yaru*
 sed -i 's/jammy/devel/g' /etc/apt/sources.list
 dpkg --add-architecture i386
