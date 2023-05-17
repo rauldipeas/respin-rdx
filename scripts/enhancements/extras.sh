@@ -22,7 +22,7 @@ if [ -f /Kubuntu ]; then
     echo 'Qt environment'
     else
     echo 'Non-Qt environment, running Birdtray deps install'
-    apt install -y\
+    apt install -y --no-install-recommends\
 	libqt5network5\
 	libqt5svg5\
 	libqt5x11extras5

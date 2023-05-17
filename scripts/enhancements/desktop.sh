@@ -55,6 +55,7 @@ EOF
     sed -i 's/org.gnome.Software/appgrid/g' /usr/share/glib-2.0/schemas/10_gnome-shell.gschema.override
     sed -i "/color-scheme/{n;s/'default'/'prefer-dark'/;}" /usr/share/glib-2.0/schemas/org.gnome.desktop.interface.gschema.xml
     sed -i '/cursor-theme/{n;s/Adwaita/DMZ-White/;}' /usr/share/glib-2.0/schemas/org.gnome.desktop.interface.gschema.xml
+    sed -i "/enabled-extensions/{n;s/\[\]/\['ubuntu-appindicators@ubuntu.com'\]/;}" /usr/share/glib-2.0/schemas/org.gnome.shell.gschema.xml
     sed -i '/gtk-theme/{n;s/Adwaita/adw-gtk3-dark/;}' /usr/share/glib-2.0/schemas/org.gnome.desktop.interface.gschema.xml
     sed -i '/icon-theme/{n;s/Adwaita/Papirus-Dark/;}' /usr/share/glib-2.0/schemas/org.gnome.desktop.interface.gschema.xml
     sed -i '/picture-uri/{n;s/adwaita-l.jpg/blobs-l.svg/;}' /usr/share/glib-2.0/schemas/org.gnome.desktop.background.gschema.xml
@@ -68,8 +69,11 @@ if [ -f /UGLR ]; then
     bash -x enhancements/gnome-lite-rolling.sh
     sudo papirus-folders -C adwaita
     wget -q --show-progress -O /etc/skel/.config/birdtray-config.json https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/birdtray/birdtray-config.json
-    cat <<EOF |sudo tee /etc/profile.d/qt-qpa-platformtheme.sh
-export QT_QPA_PLATFORMTHEME=gtk2
+    #cat <<EOF |sudo tee /etc/profile.d/qt-qpa-platformtheme.sh
+#export QT_QPA_PLATFORMTHEME=gtk2
+#EOF
+    cat <<EOF |sudo tee /etc/profile.d/adw-gtk3.sh
+export GTK_THEME="\$(gsettings get org.gnome.desktop.interface gtk-theme|cut -d "'" -f2)"
 EOF
     cp /usr/share/applications/info.desktop /usr/local/share/applications/
     echo 'Hidden=true'|tee -a /usr/local/share/applications/info.desktop>/dev/null
@@ -80,6 +84,7 @@ EOF
     sed -i 's/org.gnome.Software/appgrid/g' /usr/share/glib-2.0/schemas/10_gnome-shell.gschema.override
     sed -i "/color-scheme/{n;s/'default'/'prefer-dark'/;}" /usr/share/glib-2.0/schemas/org.gnome.desktop.interface.gschema.xml
     sed -i '/cursor-theme/{n;s/Adwaita/DMZ-White/;}' /usr/share/glib-2.0/schemas/org.gnome.desktop.interface.gschema.xml
+    sed -i "/enabled-extensions/{n;s/\[\]/\['ubuntu-appindicators@ubuntu.com'\]/;}" /usr/share/glib-2.0/schemas/org.gnome.shell.gschema.xml
     sed -i '/gtk-theme/{n;s/Adwaita/adw-gtk3-dark/;}' /usr/share/glib-2.0/schemas/org.gnome.desktop.interface.gschema.xml
     sed -i '/icon-theme/{n;s/Adwaita/Papirus-Dark/;}' /usr/share/glib-2.0/schemas/org.gnome.desktop.interface.gschema.xml
     sed -i '/picture-uri/{n;s/adwaita-l.webp/blobs-l.svg/;}' /usr/share/glib-2.0/schemas/org.gnome.desktop.background.gschema.xml
@@ -89,7 +94,6 @@ EOF
     git clone https://github.com/tkashkin/Adwaita-for-Steam
     mkdir -p /etc/skel/.local/share/Steam/skins
     mv Adwaita-for-Steam/Adwaita /etc/skel/.local/share/Steam/skins/
-
 fi
 ## Kubuntu
 if [ -f /Kubuntu ]; then

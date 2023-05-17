@@ -21,6 +21,7 @@ apt install -y\
     gnome-disk-utility\
     gnome-session\
     gnome-shell-extension-manager\
+    gnome-shell-extension-appindicator\
     gnome-system-monitor\
     gnome-text-editor\
     gthumb\
@@ -32,3 +33,6 @@ cat <<EOF |tee /usr/local/bin/firefox-gnome-setup
 curl -s -o- https://raw.githubusercontent.com/rafaelmardojai/firefox-gnome-theme/master/scripts/install-by-curl.sh|bash
 EOF
 chmod +x /usr/local/bin/firefox-gnome-setup
+flatpak install -y\
+    org.gtk.Gtk3theme.adw-gtk3\
+    org.gtk.Gtk3theme.adw-gtk3-dark

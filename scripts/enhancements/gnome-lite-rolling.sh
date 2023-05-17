@@ -8,8 +8,8 @@ apt autoremove --purge -y\
     libreoffice*\
     ubuntu-desktop*\
     ubuntu-session*\
-    update-manager-core* #\
-    #yaru*
+    update-manager-core*
+    yaru*
 sed -i 's/jammy/devel/g' /etc/apt/sources.list
 dpkg --add-architecture i386
 apt update
@@ -28,11 +28,12 @@ apt install -y\
     gnome-disk-utility\
     gnome-session\
     gnome-shell-extension-manager\
+    gnome-shell-extension-appindicator\
     gnome-system-monitor\
     gnome-text-editor\
-    gnome-themes-extra\
     gthumb\
     nautilus\
+    qgnomeplatform-qt5\
     totem\
     wireplumber\
     xdg-user-dirs-gtk
@@ -48,3 +49,6 @@ cat <<EOF |tee /usr/local/bin/firefox-gnome-setup
 curl -s -o- https://raw.githubusercontent.com/rafaelmardojai/firefox-gnome-theme/master/scripts/install-by-curl.sh|bash
 EOF
 chmod +x /usr/local/bin/firefox-gnome-setup
+flatpak install -y\
+    org.gtk.Gtk3theme.adw-gtk3\
+    org.gtk.Gtk3theme.adw-gtk3-dark
