@@ -12,14 +12,14 @@ if [ -f /usr/bin/nala ];then
         echo 'nala não encontrado'
 fi
 if [ -f /usr/bin/pacstall ];then
-        pacstall -U
         pacstall -Up
         else
         echo 'pacstall não encontrado'
 fi
 if [ -f /usr/bin/mainline ];then
-        rm -rf "$HOME"/.cache/mainline
-        mainline --install-latest
+        #rm -rf "$HOME"/.cache/mainline
+        sudo rm -rf /root/.cache/mainline
+        sudo mainline --install-latest
         else
         echo 'mainline não encontrado'
 fi
