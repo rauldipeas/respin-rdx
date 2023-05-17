@@ -48,6 +48,7 @@ if [ -f /Neon ]; then
     echo 'GNOME Lite Rolling'
     apt install -y --no-install-recommends gnome-software-plugin-flatpak
     flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+    flatpak install -y org.gtk.Gtk3theme.adw-gtk3 org.gtk.Gtk3theme.adw-gtk3-dark
     elif [ -f /Kubuntu ]; then
     echo 'Kubuntu'
     elif [ -f /KDeck ]; then
