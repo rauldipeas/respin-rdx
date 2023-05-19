@@ -24,11 +24,14 @@ if [ -f /usr/bin/mainline ];then
         echo 'mainline não encontrado'
 fi
 if [ -f /usr/bin/pkcon ];then
-        #if [ "$(dpkg -l | grep "^hi")" ];then
-        if [ "$(apt-mark showhold)" ];then
-                sudo pkcon update -y
+        if [ -f /usr/bin/aptitude ];then
+                if [ "$(aptitude search '~U')" ];then
+                        sudo pkcon update -y
+                        else
+                        echo 'Atualização concluída com sucesso!'
+                fi
                 else
-                echo 'Atualização concluída com sucesso!'
+                echo 'aptitude não encontrado'
         fi
         else
         echo 'pkcon não encontrado'
