@@ -1,0 +1,21 @@
+{
+    "name": "DeltaChat",
+    "app_path": [
+        "/opt/DeltaChat/",
+        "/var/lib/flatpak/app/chat.delta.desktop/"
+    ],
+    "icons_path": [
+        "/opt/DeltaChat/electron_app/images/tray/",
+        "/var/lib/flatpak/app/chat.delta.desktop/current/active/files/delta/resources/app/images/tray/"
+    ],
+    "icons": {
+        "tray": {
+            "original": "deltachat.png",
+            "theme": "deltachat-tray"
+        },
+        "tray-unread": {
+            "original": "deltachat-unread.png",
+            "theme": "hipchat4-attention"
+        }
+    }
+}

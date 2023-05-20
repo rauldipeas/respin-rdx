@@ -1,33 +1,13 @@
 #!/bin/bash
 set -e
 
-# Papirus
-add-apt-repository -ny ppa:papirus/hardcode-tray
-sed -i 's/jammy/focal/g' /etc/apt/sources.list.d/*hardcode-tray* #tmp-downgrade-fix
-add-apt-repository -y ppa:papirus/papirus-dev
-apt install -y hardcode-tray papirus-icon-theme papirus-folders
-if [ -f /Neon ]; then
-    echo 'Neon'
-    elif [ -f /KDeck ];then
-    echo 'Kubuntu Deck'
-    elif [ -f /UCL ];then
-    echo 'Cinnamon Lite'
-    elif [ -f /UGL ]; then
-    echo 'GNOME Lite'
-    elif [ -f /UGLR ];then
-    echo 'GNOME Lite Rolling'
-    else
-    echo 'Flavours'
-    wget -q --show-progress https://launchpad.net/~papirus/+archive/ubuntu/papirus/+files/libreoffice-style-papirus_20180413-46+pkg3~ubuntu20.04.1_all.deb
-    apt install ./libreoffice-style-papirus*.deb
-fi
-
 ## Ubuntu
 if [ -f /Ubuntu ]; then
     echo 'Ubuntu'
+    wget -q --show-progress -O /usr/share/hardcode-tray/database/deltachat.json https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/hardcode-tray/deltachat.json
+    wget -q --show-progress -O /usr/share/hardcode-tray/database/deltachat.electron.json https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/hardcode-tray/deltachat.electron.json
     sudo hardcode-tray --apply --theme Papirus-Dark
     sudo papirus-folders -C yaru
-    #wget -q --show-progress -O /etc/skel/.config/birdtray-config.json https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/birdtray/birdtray-config.json
     cat <<EOF |sudo tee /etc/profile.d/qt-qpa-platformtheme.sh
 export QT_QPA_PLATFORMTHEME=gtk2
 EOF
@@ -44,7 +24,6 @@ if [ -f /UGL ]; then
     bash -x enhancements/gnome-lite.sh
     sudo hardcode-tray --apply --theme Papirus-Dark    
     sudo papirus-folders -C adwaita
-    #wget -q --show-progress -O /etc/skel/.config/birdtray-config.json https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/birdtray/birdtray-config.json
     cat <<EOF |sudo tee /etc/profile.d/qt-qpa-platformtheme.sh
 export QT_QPA_PLATFORMTHEME=gtk2
 EOF
@@ -71,7 +50,6 @@ if [ -f /UGLR ]; then
     bash -x enhancements/gnome-lite-rolling.sh
     sudo hardcode-tray --apply --theme Papirus-Dark
     sudo papirus-folders -C adwaita
-    #wget -q --show-progress -O /etc/skel/.config/birdtray-config.json https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/birdtray/birdtray-config.json
     cat <<EOF |sudo tee /etc/profile.d/adw-gtk3.sh
 export GTK_THEME="\$(gsettings get org.gnome.desktop.interface gtk-theme|cut -d "'" -f2)"
 EOF
@@ -100,7 +78,6 @@ if [ -f /Kubuntu ]; then
     echo 'Kubuntu'
     sudo hardcode-tray --apply --theme Papirus-Dark    
     sudo papirus-folders -C breeze
-    #wget -q --show-progress -O /etc/skel/.config/birdtray-config.json https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/birdtray/birdtray-config.json
     echo 'gtk-application-prefer-dark-theme=true'|tee -a /etc/gtk-3.0/settings.ini
     sed -i 's/Yaru/Breeze/g' /etc/gtk-3.0/settings.ini
     sed -i 's/org.kde.discover/appgrid/g' /usr/share/plasma/plasmoids/org.kde.plasma.kicker/contents/config/main.xml
@@ -148,7 +125,6 @@ if [ -f /Neon ]; then
     echo 'Neon'
     sudo hardcode-tray --apply --theme Papirus-Dark
     sudo papirus-folders -C breeze
-    #wget -q --show-progress -O /etc/skel/.config/birdtray-config.json https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/birdtray/birdtray-config.json
     echo 'gtk-application-prefer-dark-theme=true'|tee -a /etc/gtk-3.0/settings.ini
     sed -i 's/Yaru/Breeze/g' /etc/gtk-3.0/settings.ini
     sed -i 's/org.kde.discover/appgrid/g' /usr/share/plasma/plasmoids/org.kde.plasma.kicker/contents/config/main.xml
@@ -202,7 +178,6 @@ if [ -f /Xubuntu ]; then
     rm -r /etc/skel/.config/libreoffice
     mkdir -p /etc/skel/.config/{autostart,volumeicon,xfce4/panel}
     wget -q --show-progress -O /etc/skel/.config/autostart/volumeicon.desktop https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/XFCE/volumeicon.desktop
-    #wget -q --show-progress -O /etc/skel/.config/birdtray-config.json https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/birdtray/birdtray-config.json
     cat <<EOF |sudo tee /etc/profile.d/qt-qpa-platformtheme.sh
 export QT_QPA_PLATFORMTHEME=gtk2
 EOF
@@ -223,7 +198,6 @@ if [ -f /UCL ]; then
     bash -x enhancements/cinnamon-lite.sh
     sudo hardcode-tray --apply --theme Papirus-Dark
     sudo papirus-folders -C orange
-    #wget -q --show-progress -O /etc/skel/.config/birdtray-config.json https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/birdtray/birdtray-config.json
     cat <<EOF |sudo tee /etc/profile.d/qt-qpa-platformtheme.sh
 export QT_QPA_PLATFORMTHEME=gtk2
 EOF
@@ -271,7 +245,6 @@ if [ -f /KDeck ]; then
     bash -x enhancements/kdeck.sh
     sudo hardcode-tray --apply --theme Papirus-Dark
     sudo papirus-folders -C breeze
-    #wget -q --show-progress -O /etc/skel/.config/birdtray-config.json https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/birdtray/birdtray-config.json
     echo 'gtk-application-prefer-dark-theme=true'|tee -a /etc/gtk-3.0/settings.ini
     sed -i 's/Yaru/Breeze/g' /etc/gtk-3.0/settings.ini
     git clone -q https://github.com/dragoonDorise/es-theme-epicnoir /usr/share/emulationstation/themes/epicnoir

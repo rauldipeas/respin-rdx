@@ -1,0 +1,21 @@
+{
+    "name": "DeltaChat",
+    "app_path": [
+        "/opt/DeltaChat/"
+    ],
+    "icons_path": [
+        "/opt/DeltaChat/resources/"
+    ],
+    "binary": "app.asar",
+    "script": "electron",
+    "icons": {
+        "tray": {
+            "original": "images/tray/deltachat.png",
+            "theme": "deltachat-tray"
+        },
+        "tray-unread": {
+            "original": "images/tray/deltachat-unread.png",
+            "theme": "hipchat4-attention"
+        }
+    }
+}

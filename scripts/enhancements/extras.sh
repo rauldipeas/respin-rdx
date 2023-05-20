@@ -113,6 +113,27 @@ apt install -y ./nala*.deb
 # nohang
 apt install -y nohang
 
+# Papirus
+add-apt-repository -ny ppa:papirus/hardcode-tray
+sed -i 's/jammy/focal/g' /etc/apt/sources.list.d/*hardcode-tray* #tmp-downgrade-fix
+add-apt-repository -y ppa:papirus/papirus-dev
+apt install -y hardcode-tray papirus-icon-theme papirus-folders
+if [ -f /Neon ]; then
+    echo 'Neon'
+    elif [ -f /KDeck ];then
+    echo 'Kubuntu Deck'
+    elif [ -f /UCL ];then
+    echo 'Cinnamon Lite'
+    elif [ -f /UGL ]; then
+    echo 'GNOME Lite'
+    elif [ -f /UGLR ];then
+    echo 'GNOME Lite Rolling'
+    else
+    echo 'Flavours'
+    wget -q --show-progress https://launchpad.net/~papirus/+archive/ubuntu/papirus/+files/libreoffice-style-papirus_20180413-46+pkg3~ubuntu20.04.1_all.deb
+    apt install ./libreoffice-style-papirus*.deb
+fi
+
 # pipx
 rm -rf /opt/pipx/logs
 find /opt/pipx -type d -exec chmod 777 {} \;
