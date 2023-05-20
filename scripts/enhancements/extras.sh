@@ -32,7 +32,7 @@ fi
 apt install -y cpu-x
 
 # DeltaChat
-apt install deltachat-desktop
+apt install -y deltachat-desktop
 
 # Discovery/Muon
 #apt autoremove --purge -y muon plasma-discover-common
