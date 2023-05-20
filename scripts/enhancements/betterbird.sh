@@ -36,7 +36,7 @@ Exec=betterbird -compose
 EOF
 
 # KDocker
-cat <<EOF |tee /opt/betterbird/betterbird-kdocker
+cat <<EOF |tee /opt/betterbird/betterbird-kdocker>/dev/null
 #!/bin/bash
 set -e
 betterbird "\$@"&
@@ -48,4 +48,4 @@ if [ "\$(pgrep kdocker)" ];then
 fi
 EOF
 chmod +x /opt/betterbird/betterbird-kdocker
-ln -fs /opt/betterbird/betterbird-kdocker /usr/local/bin/betterbird-kdocker#!/bin/bash
+ln -fs /opt/betterbird/betterbird-kdocker /usr/local/bin/betterbird-kdocker
