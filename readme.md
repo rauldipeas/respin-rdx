@@ -24,9 +24,8 @@ A few extras are included:
 * ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/apps/cronopete_preferences.svg) [**`apt-rollback`**](https://launchpad.net/apt-rollback) (tool to revert packages installed in a specific time period)
 * ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/apps/python.svg) [**`pipx`**](https://github.com/pypa/pipx) (python package installer with isolated environments)
 * ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/apps/timeshift.svg) [**Timeshift**](https://github.com/linuxmint/timeshift) (backup tool)
-* ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/apps/firefox.svg) [**Firefox**](https://support.mozilla.org/pt-BR/kb/instale-o-firefox-no-linux) (internet browser, binary directly from Mozilla website)
-* ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/apps/thunderbird.svg) [**Thunderbird**](https://support.mozilla.org/pt-BR/kb/instalando-o-thunderbird-no-linux) (email client, binary directly from Mozilla website)
-* ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/apps/com.ulduzsoft.Birdtray.svg) [**Birdtray**](https://github.com/gyunaev/birdtray) (tray icon for Thunderbird)
+* ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/apps/firefox.svg) [**Firefox**](https://support.mozilla.org/pt-BR/kb/instale-o-firefox-no-linux) (internet browser, binary directly from the Mozilla website)
+* ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/apps/betterbird.svg) [**Betterbird**](https://www.betterbird.eu) (e-mail client, binary directly from the Betterbird website)
 * ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/apps/libreoffice-main.svg) [**LibreOffice**](https://launchpad.net/~libreoffice/+archive/ubuntu/ppa) (updated office suite)
 * ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/apps/papirus-folders-gui.svg) [**Papirus**](https://github.com/PapirusDevelopmentTeam) (icon theme)
 * ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/apps/ark.svg) [**`unrar`**](https://github.com/pmachapman/unrar) (additional support for unzipping files)
@@ -34,6 +33,7 @@ A few extras are included:
 * ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/apps/kmenuedit.svg) [**Vala Application Menu**](https://github.com/rilian-la-te/vala-panel-appmenu) (`appmenu` for XFCE panel)
 * ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/apps/cpu-x.svg) [**CPU-X**](https://thetumultuousunicornofdarkness.github.io/CPU-X) (hardware info)
 * ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/apps/telegram.svg) [**Telegram**](https://telegram.org) (instant messenger)
+* ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/apps/deltachat.svg) [**DeltaChat**](https://delta.chat) (e-mail based encrypted instant messenger)
 
 The scripts available in this repository are forked from scripts developed by [**Marcos Vallim**](https://github.com/mvallim/live-custom-ubuntu-from-scratch).
 

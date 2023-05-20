@@ -31,6 +31,9 @@ fi
 # CPU-X
 apt install -y cpu-x
 
+# DeltaChat
+apt install deltachat-desktop
+
 # Discovery/Muon
 #apt autoremove --purge -y muon plasma-discover-common
 
@@ -82,6 +85,9 @@ fi
 #MimeType=x-scheme-handler/apt;
 #EOF
 #fi
+
+# KDocker
+apt install -y kdocker
 
 # LibreOffice
 if [ -f /Neon ]; then

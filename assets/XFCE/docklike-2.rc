@@ -1,5 +1,5 @@
 [user]
-pinned=/usr/share/applications/thunar.desktop;/usr/local/share/applications/firefox.desktop;/usr/local/share/applications/thunderbird.desktop;/usr/share/applications/libreoffice-startcenter.desktop;
+pinned=/usr/share/applications/thunar.desktop;/usr/local/share/applications/firefox.desktop;/usr/local/share/applications/betterbird.desktop;/usr/share/applications/libreoffice-startcenter.desktop;
 keyComboActive=true
 forceIconSize=true
 iconSize=32
