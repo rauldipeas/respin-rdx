@@ -25,9 +25,14 @@ if [ -f /usr/bin/flatpak ];then
         else
         echo 'flatpak não encontrado'
 fi
+# pipx
+if [ -f /usr/bin/pipx ];then
+        pipx upgrade-all
+        else
+        echo 'pipx não encontrado'
+fi
 # mainline
 if [ -f /usr/bin/mainline ];then
-        #rm -rf "$HOME"/.cache/mainline
         sudo rm -rf /root/.cache/mainline
         sudo mainline --install-latest
         else
