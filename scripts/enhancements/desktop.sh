@@ -22,6 +22,8 @@ fi
 if [ -f /UGL ]; then
     echo 'GNOME Lite'
     bash -x enhancements/gnome-lite.sh
+    wget -q --show-progress -O /usr/share/hardcode-tray/database/deltachat.json https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/hardcode-tray/deltachat.json
+    wget -q --show-progress -O /usr/share/hardcode-tray/database/deltachat.electron.json https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/hardcode-tray/deltachat.electron.json
     sudo hardcode-tray --apply --theme Papirus-Dark    
     sudo papirus-folders -C adwaita
     cat <<EOF |sudo tee /etc/profile.d/qt-qpa-platformtheme.sh
@@ -48,6 +50,8 @@ fi
 if [ -f /UGLR ]; then
     echo 'GNOME Lite Rolling'
     bash -x enhancements/gnome-lite-rolling.sh
+    wget -q --show-progress -O /usr/share/hardcode-tray/database/deltachat.json https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/hardcode-tray/deltachat.json
+    wget -q --show-progress -O /usr/share/hardcode-tray/database/deltachat.electron.json https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/hardcode-tray/deltachat.electron.json
     sudo hardcode-tray --apply --theme Papirus-Dark
     sudo papirus-folders -C adwaita
     cat <<EOF |sudo tee /etc/profile.d/adw-gtk3.sh
@@ -76,7 +80,9 @@ fi
 ## Kubuntu
 if [ -f /Kubuntu ]; then
     echo 'Kubuntu'
-    sudo hardcode-tray --apply --theme Papirus-Dark    
+    wget -q --show-progress -O /usr/share/hardcode-tray/database/deltachat.json https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/hardcode-tray/deltachat.json
+    wget -q --show-progress -O /usr/share/hardcode-tray/database/deltachat.electron.json https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/hardcode-tray/deltachat.electron.json
+    sudo hardcode-tray --apply --theme Papirus-Dark
     sudo papirus-folders -C breeze
     echo 'gtk-application-prefer-dark-theme=true'|tee -a /etc/gtk-3.0/settings.ini
     sed -i 's/Yaru/Breeze/g' /etc/gtk-3.0/settings.ini
@@ -123,6 +129,8 @@ fi
 ## Neon
 if [ -f /Neon ]; then
     echo 'Neon'
+    wget -q --show-progress -O /usr/share/hardcode-tray/database/deltachat.json https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/hardcode-tray/deltachat.json
+    wget -q --show-progress -O /usr/share/hardcode-tray/database/deltachat.electron.json https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/hardcode-tray/deltachat.electron.json
     sudo hardcode-tray --apply --theme Papirus-Dark
     sudo papirus-folders -C breeze
     echo 'gtk-application-prefer-dark-theme=true'|tee -a /etc/gtk-3.0/settings.ini
@@ -173,6 +181,8 @@ fi
 ## Xubuntu
 if [ -f /Xubuntu ]; then
     echo 'Xubuntu'
+    wget -q --show-progress -O /usr/share/hardcode-tray/database/deltachat.json https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/hardcode-tray/deltachat.json
+    wget -q --show-progress -O /usr/share/hardcode-tray/database/deltachat.electron.json https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/hardcode-tray/deltachat.electron.json
     sudo hardcode-tray --apply --theme Papirus-Dark
     sudo papirus-folders -C paleorange
     rm -r /etc/skel/.config/libreoffice
@@ -196,6 +206,8 @@ fi
 if [ -f /UCL ]; then
     echo 'Cinnamon Lite'
     bash -x enhancements/cinnamon-lite.sh
+    wget -q --show-progress -O /usr/share/hardcode-tray/database/deltachat.json https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/hardcode-tray/deltachat.json
+    wget -q --show-progress -O /usr/share/hardcode-tray/database/deltachat.electron.json https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/hardcode-tray/deltachat.electron.json
     sudo hardcode-tray --apply --theme Papirus-Dark
     sudo papirus-folders -C orange
     cat <<EOF |sudo tee /etc/profile.d/qt-qpa-platformtheme.sh
@@ -243,6 +255,8 @@ fi
 if [ -f /KDeck ]; then
     echo 'Kubuntu Deck'
     bash -x enhancements/kdeck.sh
+    wget -q --show-progress -O /usr/share/hardcode-tray/database/deltachat.json https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/hardcode-tray/deltachat.json
+    wget -q --show-progress -O /usr/share/hardcode-tray/database/deltachat.electron.json https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/hardcode-tray/deltachat.electron.json
     sudo hardcode-tray --apply --theme Papirus-Dark
     sudo papirus-folders -C breeze
     echo 'gtk-application-prefer-dark-theme=true'|tee -a /etc/gtk-3.0/settings.ini
