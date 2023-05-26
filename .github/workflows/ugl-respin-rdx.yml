@@ -38,6 +38,15 @@ jobs:
         with:
           name: ugl-respin-rdx
           path: /home/runner/work/respin-rdx/ugl-respin-rdx.iso
+      - name: Envio de artefatos para o SFTP
+        uses: Dylan700/sftp-upload-action@latest
+        with:
+          server: ${{ secrets.SFTP_SERVER }}
+          username: ${{ secrets.SFTP_USER }}
+          key: ${{ secrets.SFTP_KEY}}
+          port: 22
+          uploads: |
+            /home/runner/work/respin-rdx/kdeck-respin-rdx.iso => /home/${{ secrets.SFTP_USER }}/respin-rdx/
       - name: Limpeza de logs antigos
         run: bash -x scripts/actions-cleanup.sh
         env:
