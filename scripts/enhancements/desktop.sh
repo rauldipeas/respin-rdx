@@ -261,7 +261,7 @@ if [ -f /KDeck ]; then
     sudo papirus-folders -C breeze
     wget -q --show-progress -O /usr/share/color-schemes/BreezeBlack.colors https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/KDE/BreezeBlack.colors
     wget -q --show-progress https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/KDE/breeze-alphablack-v20.zip
-    unzip breeze-alphablack-v20.zip -d /usr/share/plasma/desktop-theme/breeze-alphablack
+    unzip breeze-alphablack-v20.zip -d /usr/share/plasma/desktoptheme/breeze-alphablack
     echo 'gtk-application-prefer-dark-theme=true'|tee -a /etc/gtk-3.0/settings.ini
     sed -i 's/Yaru/Breeze/g' /etc/gtk-3.0/settings.ini
     git clone -q https://github.com/dragoonDorise/es-theme-epicnoir /usr/share/emulationstation/themes/epicnoir
