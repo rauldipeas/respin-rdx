@@ -14,19 +14,19 @@ apt install -y grub-theme-breeze
 echo 'GRUB_THEME="/usr/share/grub/themes/breeze/theme.txt"'|tee /etc/default/grub.d/theme.cfg>/dev/null
 
 # Birdtray deps
-if [ -f /Kubuntu ]; then
-    echo 'Qt environment'
-    elif [ -f /KDeck ]; then
-    echo 'Qt environment'
-    elif [ -f /Neon ]; then
-    echo 'Qt environment'
-    else
-    echo 'Non-Qt environment, running Birdtray deps install'
-    apt install -y --no-install-recommends\
-	libqt5network5\
-	libqt5svg5\
-	libqt5x11extras5
-fi
+#if [ -f /Kubuntu ]; then
+#    echo 'Qt environment'
+#    elif [ -f /KDeck ]; then
+#    echo 'Qt environment'
+#    elif [ -f /Neon ]; then
+#    echo 'Qt environment'
+#    else
+#    echo 'Non-Qt environment, running Birdtray deps install'
+#    apt install -y --no-install-recommends\
+#	libqt5network5\
+#	libqt5svg5\
+#	libqt5x11extras5
+#fi
 
 # CPU-X
 apt install -y cpu-x
@@ -56,6 +56,8 @@ if [ -f /Neon ]; then
     echo 'Kubuntu'
     elif [ -f /KDeck ]; then
     echo 'Kubuntu Deck'
+    apt install -y --no-install-recommends plasma-discover-backend-flatpak
+    flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
     else
     echo 'Flavours'
     apt install -y --no-install-recommends gnome-software
@@ -88,6 +90,12 @@ fi
 
 # KDocker
 apt install -y kdocker
+
+# Kubuntu backports
+if [ -f /KDeck ]; then
+    add-apt-repository -y ppa:kubuntu-ppa/backports
+    apt dist-upgrade -y
+fi
 
 # LibreOffice
 if [ -f /Neon ]; then
@@ -165,7 +173,7 @@ apt install -y timeshift
 apt install -y unrar
 
 # Xubuntu extras
-if [ -f /usr/share/xsessions/xubuntu.desktop ]; then
+if [ -f /Xubuntu ]; then
     add-apt-repository -y ppa:xubuntu-dev/extras
     apt install -y volumeicon-alsa xfce4-appmenu-plugin xfce4-docklike-plugin
 fi
