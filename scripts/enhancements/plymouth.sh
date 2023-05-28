@@ -26,7 +26,7 @@ if [ -f /KDeck ];then
     /usr/share/plymouth/themes/vortex-ubuntu/logo.png
     elif [ -f /UCL ];then
     convert -density 500 -background none\
-    /usr/share/icons/Papirus/48x48/apps/ubuntu-tweaks.svg\
+    /usr/share/icons/Papirus/48x48/apps/ubuntu-tweak.svg\
     /usr/share/plymouth/themes/vortex-ubuntu/logo.png
     elif [ -f /UGL ];then
     convert -density 500 -background none\
