@@ -24,4 +24,4 @@ if [ -f /KDeck ];then
     wget -q --show-progress https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/plymouth/xubuntu.png
     convert -background none xubuntu.png /usr/share/plymouth/themes/vortex-ubuntu/logo.png
 fi
-update initramfs -u -k all
+update-initramfs -u -k all
