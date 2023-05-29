@@ -12,7 +12,11 @@ mkdir -p /usr/local/bin /usr/local/share/applications /usr/local/share/pixmaps
 ln -fs /opt/betterbird/betterbird /usr/local/bin/betterbird
 ln -fs /opt/betterbird/chrome/icons/default/default128.png /usr/local/share/pixmaps/betterbird.png
 rm /opt/betterbird/chrome/icons/default/newmail.svg
-ln -fs /usr/share/icons/Papirus/22x22/panel/indicator-messages-new.svg /opt/betterbird/chrome/icons/default/newmail.svg
+if [ -f /UCL ];then
+	ln -fs /usr/share/icons/Papirus/24x24/panel/indicator-messages-new.svg /opt/betterbird/chrome/icons/default/newmail.svg
+	else
+	ln -fs /usr/share/icons/Papirus/22x22/panel/indicator-messages-new.svg /opt/betterbird/chrome/icons/default/newmail.svg
+fi
 cat <<EOF |tee /usr/local/share/applications/betterbird.desktop>/dev/null
 [Desktop Entry]
 Encoding=UTF-8

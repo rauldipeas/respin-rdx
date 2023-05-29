@@ -7,6 +7,15 @@ if [ -f /Ubuntu ]; then
     wget -q --show-progress -O /usr/share/hardcode-tray/database/deltachat.json https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/hardcode-tray/deltachat.json
     wget -q --show-progress -O /usr/share/hardcode-tray/database/deltachat.electron.json https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/hardcode-tray/deltachat.electron.json
     sudo hardcode-tray --apply --theme Papirus-Dark
+    cat <<EOF |tee /etc/skel/.config/hardcode-tray.json
+{
+    "icons": {
+        "theme": "Papirus-Dark",
+        "size": 22
+    },
+    "backup_ignore": true
+}
+EOF
     sudo papirus-folders -C yaru
     cat <<EOF |sudo tee /etc/profile.d/qt-qpa-platformtheme.sh
 export QT_QPA_PLATFORMTHEME=gtk2
@@ -24,6 +33,15 @@ if [ -f /UGL ]; then
     bash -x enhancements/gnome-lite.sh
     wget -q --show-progress -O /usr/share/hardcode-tray/database/deltachat.json https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/hardcode-tray/deltachat.json
     wget -q --show-progress -O /usr/share/hardcode-tray/database/deltachat.electron.json https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/hardcode-tray/deltachat.electron.json
+    cat <<EOF |tee /etc/skel/.config/hardcode-tray.json
+{
+    "icons": {
+        "theme": "Papirus-Dark",
+        "size": 22
+    },
+    "backup_ignore": true
+}
+EOF
     sudo hardcode-tray --apply --theme Papirus-Dark    
     sudo papirus-folders -C adwaita
     cat <<EOF |sudo tee /etc/profile.d/qt-qpa-platformtheme.sh
@@ -52,6 +70,15 @@ if [ -f /UGLR ]; then
     bash -x enhancements/gnome-lite-rolling.sh
     wget -q --show-progress -O /usr/share/hardcode-tray/database/deltachat.json https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/hardcode-tray/deltachat.json
     wget -q --show-progress -O /usr/share/hardcode-tray/database/deltachat.electron.json https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/hardcode-tray/deltachat.electron.json
+    cat <<EOF |tee /etc/skel/.config/hardcode-tray.json
+{
+    "icons": {
+        "theme": "Papirus-Dark",
+        "size": 22
+    },
+    "backup_ignore": true
+}
+EOF
     sudo hardcode-tray --apply --theme Papirus-Dark
     sudo papirus-folders -C adwaita
     cat <<EOF |sudo tee /etc/profile.d/adw-gtk3.sh
@@ -82,6 +109,15 @@ if [ -f /Kubuntu ]; then
     echo 'Kubuntu'
     wget -q --show-progress -O /usr/share/hardcode-tray/database/deltachat.json https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/hardcode-tray/deltachat.json
     wget -q --show-progress -O /usr/share/hardcode-tray/database/deltachat.electron.json https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/hardcode-tray/deltachat.electron.json
+    cat <<EOF |tee /etc/skel/.config/hardcode-tray.json
+{
+    "icons": {
+        "theme": "Papirus-Dark",
+        "size": 22
+    },
+    "backup_ignore": true
+}
+EOF
     sudo hardcode-tray --apply --theme Papirus-Dark
     sudo papirus-folders -C breeze
     echo 'gtk-application-prefer-dark-theme=true'|tee -a /etc/gtk-3.0/settings.ini
@@ -131,6 +167,15 @@ if [ -f /Neon ]; then
     echo 'Neon'
     wget -q --show-progress -O /usr/share/hardcode-tray/database/deltachat.json https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/hardcode-tray/deltachat.json
     wget -q --show-progress -O /usr/share/hardcode-tray/database/deltachat.electron.json https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/hardcode-tray/deltachat.electron.json
+    cat <<EOF |tee /etc/skel/.config/hardcode-tray.json
+{
+    "icons": {
+        "theme": "Papirus-Dark",
+        "size": 22
+    },
+    "backup_ignore": true
+}
+EOF
     sudo hardcode-tray --apply --theme Papirus-Dark
     sudo papirus-folders -C breeze
     echo 'gtk-application-prefer-dark-theme=true'|tee -a /etc/gtk-3.0/settings.ini
@@ -183,6 +228,15 @@ if [ -f /Xubuntu ]; then
     echo 'Xubuntu'
     wget -q --show-progress -O /usr/share/hardcode-tray/database/deltachat.json https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/hardcode-tray/deltachat.json
     wget -q --show-progress -O /usr/share/hardcode-tray/database/deltachat.electron.json https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/hardcode-tray/deltachat.electron.json
+    cat <<EOF |tee /etc/skel/.config/hardcode-tray.json
+{
+    "icons": {
+        "theme": "Papirus-Dark",
+        "size": 22
+    },
+    "backup_ignore": true
+}
+EOF
     sudo hardcode-tray --apply --theme Papirus-Dark
     sudo papirus-folders -C paleorange
     rm -r /etc/skel/.config/libreoffice
@@ -208,6 +262,15 @@ if [ -f /UCL ]; then
     bash -x enhancements/cinnamon-lite.sh
     wget -q --show-progress -O /usr/share/hardcode-tray/database/deltachat.json https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/hardcode-tray/deltachat.json
     wget -q --show-progress -O /usr/share/hardcode-tray/database/deltachat.electron.json https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/hardcode-tray/deltachat.electron.json
+    cat <<EOF |tee /etc/skel/.config/hardcode-tray.json
+{
+    "icons": {
+        "theme": "Papirus-Dark",
+        "size": 24
+    },
+    "backup_ignore": true
+}
+EOF
     sudo hardcode-tray --apply --theme Papirus-Dark
     sudo papirus-folders -C orange
     cat <<EOF |sudo tee /etc/profile.d/qt-qpa-platformtheme.sh
@@ -257,6 +320,15 @@ if [ -f /KDeck ]; then
     bash -x enhancements/kdeck.sh
     wget -q --show-progress -O /usr/share/hardcode-tray/database/deltachat.json https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/hardcode-tray/deltachat.json
     wget -q --show-progress -O /usr/share/hardcode-tray/database/deltachat.electron.json https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/hardcode-tray/deltachat.electron.json
+    cat <<EOF |tee /etc/skel/.config/hardcode-tray.json
+{
+    "icons": {
+        "theme": "Papirus-Dark",
+        "size": 22
+    },
+    "backup_ignore": true
+}
+EOF
     sudo hardcode-tray --apply --theme Papirus-Dark
     sudo papirus-folders -C breeze
     wget -q --show-progress -O /usr/share/color-schemes/BreezeBlack.colors https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/KDE/BreezeBlack.colors
