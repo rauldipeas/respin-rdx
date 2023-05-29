@@ -40,8 +40,10 @@ cat <<EOF |tee /opt/betterbird/betterbird-kdocker>/dev/null
 #!/bin/bash
 set -e
 if [ "\$(pgrep -l betterbird-bin|cut -d ' ' -f2)" == betterbird-bin ]; then
+	export MOZ_USE_XINPUT2=1
 	betterbird
 else
+	export MOZ_USE_XINPUT2=1
 	kdocker -i /usr/share/icons/Papirus/22x22/panel/indicator-notification-read.svg	-d15 -mq betterbird
 fi
 EOF
