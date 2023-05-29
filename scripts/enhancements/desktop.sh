@@ -286,6 +286,7 @@ EOF
     sed -i 's@>preferred://browser,@>firefox.desktop,@g' /usr/share/plasma/plasmoids/org.kde.plasma.kickoff/contents/config/main.xml
     sed -i 's@,preferred://browser<@,applications:firefox.desktop<@g' /usr/share/plasma/plasmoids/org.kde.plasma.taskmanager/contents/config/main.xml
     git clone -q https://github.com/PapirusDevelopmentTeam/materia-kde
+    cp -r materia-kde/plasma/desktoptheme/Materia/icons /usr/share/plasma/desktoptheme/breeze-alphablack/
     cp -r materia-kde/plasma/desktoptheme/Materia/icons /usr/share/plasma/desktoptheme/breeze-dark/
     cp -r materia-kde/plasma/desktoptheme/Materia-Color/icons /usr/share/plasma/desktoptheme/breeze-light/
     sed -i 's/start-here-kde/distributor-logo-steamos/g' /usr/share/plasma/plasmoids/org.kde.plasma.kicker/contents/config/main.xml
