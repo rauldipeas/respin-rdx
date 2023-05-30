@@ -12,7 +12,9 @@ mkdir -p /usr/local/bin /usr/local/share/applications /usr/local/share/pixmaps
 ln -fs /opt/betterbird/betterbird /usr/local/bin/betterbird
 ln -fs /opt/betterbird/chrome/icons/default/default128.png /usr/local/share/pixmaps/betterbird.png
 rm /opt/betterbird/chrome/icons/default/newmail.svg
-if [ -f /UCL ];then
+if [ -f /Ubuntu ];then
+	ln -fs /usr/share/icons/Papirus/16x16/panel/indicator-messages-new.svg /opt/betterbird/chrome/icons/default/newmail.svg
+	elif [ -f /UCL ];then
 	ln -fs /usr/share/icons/Papirus/24x24/panel/indicator-messages-new.svg /opt/betterbird/chrome/icons/default/newmail.svg
 	elif [ -f /UGL ];then
 	ln -fs /usr/share/icons/Papirus/16x16/panel/indicator-messages-new.svg /opt/betterbird/chrome/icons/default/newmail.svg
@@ -44,7 +46,56 @@ Exec=betterbird -compose
 EOF
 
 # KDocker
-cat <<EOF |tee /opt/betterbird/betterbird-kdocker>/dev/null
+if [ -f /Ubuntu ];then
+	cat <<EOF |tee /opt/betterbird/betterbird-kdocker>/dev/null
+#!/bin/bash
+set -e
+if [ "\$(pgrep -l betterbird-bin|cut -d ' ' -f2)" == betterbird-bin ]; then
+	betterbird
+else
+	kdocker -i /usr/share/icons/Papirus/16x16/panel/indicator-notification-read.svg	-d15 -mq betterbird
+fi
+EOF
+	chmod +x /opt/betterbird/betterbird-kdocker
+	ln -fs /opt/betterbird/betterbird-kdocker /usr/local/bin/betterbird-kdocker
+	elif [ -f /UCL ];then
+		cat <<EOF |tee /opt/betterbird/betterbird-kdocker>/dev/null
+#!/bin/bash
+set -e
+if [ "\$(pgrep -l betterbird-bin|cut -d ' ' -f2)" == betterbird-bin ]; then
+	betterbird
+else
+	kdocker -i /usr/share/icons/Papirus/24x24/panel/indicator-notification-read.svg	-d15 -mq betterbird
+fi
+EOF
+	chmod +x /opt/betterbird/betterbird-kdocker
+	ln -fs /opt/betterbird/betterbird-kdocker /usr/local/bin/betterbird-kdocker
+	elif [ -f /UGL ];then
+		cat <<EOF |tee /opt/betterbird/betterbird-kdocker>/dev/null
+#!/bin/bash
+set -e
+if [ "\$(pgrep -l betterbird-bin|cut -d ' ' -f2)" == betterbird-bin ]; then
+	betterbird
+else
+	kdocker -i /usr/share/icons/Papirus/16x16/panel/indicator-notification-read.svg	-d15 -mq betterbird
+fi
+EOF
+	chmod +x /opt/betterbird/betterbird-kdocker
+	ln -fs /opt/betterbird/betterbird-kdocker /usr/local/bin/betterbird-kdocker
+	elif [ -f /UGLR ];then
+	cat <<EOF |tee /opt/betterbird/betterbird-kdocker>/dev/null
+#!/bin/bash
+set -e
+if [ "\$(pgrep -l betterbird-bin|cut -d ' ' -f2)" == betterbird-bin ]; then
+	betterbird
+else
+	kdocker -i /usr/share/icons/Papirus/16x16/panel/indicator-notification-read.svg	-d15 -mq betterbird
+fi
+EOF
+	chmod +x /opt/betterbird/betterbird-kdocker
+	ln -fs /opt/betterbird/betterbird-kdocker /usr/local/bin/betterbird-kdocker
+	else
+	cat <<EOF |tee /opt/betterbird/betterbird-kdocker>/dev/null
 #!/bin/bash
 set -e
 if [ "\$(pgrep -l betterbird-bin|cut -d ' ' -f2)" == betterbird-bin ]; then
@@ -53,5 +104,6 @@ else
 	kdocker -i /usr/share/icons/Papirus/22x22/panel/indicator-notification-read.svg	-d15 -mq betterbird
 fi
 EOF
-chmod +x /opt/betterbird/betterbird-kdocker
-ln -fs /opt/betterbird/betterbird-kdocker /usr/local/bin/betterbird-kdocker
+	chmod +x /opt/betterbird/betterbird-kdocker
+	ln -fs /opt/betterbird/betterbird-kdocker /usr/local/bin/betterbird-kdocker
+fi

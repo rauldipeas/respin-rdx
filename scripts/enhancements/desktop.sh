@@ -6,15 +6,15 @@ if [ -f /Ubuntu ]; then
     echo 'Ubuntu'
     wget -q --show-progress -O /usr/share/hardcode-tray/database/deltachat.json https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/hardcode-tray/deltachat.json
     wget -q --show-progress -O /usr/share/hardcode-tray/database/deltachat.electron.json https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/hardcode-tray/deltachat.electron.json
-    sudo hardcode-tray --apply --theme Papirus-Dark
     cat <<EOF |tee /etc/skel/.config/hardcode-tray.json
 {
     "icons": {
         "theme": "Papirus-Dark",
-        "size": 22
+        "size": 16
     },
     "backup_ignore": true
 }
+    sudo hardcode-tray --apply --theme Papirus-Dark --size 16
 EOF
     sudo papirus-folders -C yaru
     cat <<EOF |sudo tee /etc/profile.d/mozilla-pixel-perfect-scrolling.sh
@@ -40,12 +40,12 @@ if [ -f /UGL ]; then
 {
     "icons": {
         "theme": "Papirus-Dark",
-        "size": 22
+        "size": 16
     },
     "backup_ignore": true
 }
 EOF
-    sudo hardcode-tray --apply --theme Papirus-Dark    
+    sudo hardcode-tray --apply --theme Papirus-Dark --size 16
     sudo papirus-folders -C adwaita
     cat <<EOF |sudo tee /etc/profile.d/mozilla-pixel-perfect-scrolling.sh
 export MOZ_USE_XINPUT2=1
@@ -80,12 +80,12 @@ if [ -f /UGLR ]; then
 {
     "icons": {
         "theme": "Papirus-Dark",
-        "size": 22
+        "size": 16
     },
     "backup_ignore": true
 }
 EOF
-    sudo hardcode-tray --apply --theme Papirus-Dark
+    sudo hardcode-tray --apply --theme Papirus-Dark --size 16
     sudo papirus-folders -C adwaita
     cat <<EOF |sudo tee /etc/profile.d/adw-gtk3.sh
 export GTK_THEME="\$(gsettings get org.gnome.desktop.interface gtk-theme|cut -d "'" -f2)"
@@ -127,7 +127,7 @@ if [ -f /Kubuntu ]; then
     "backup_ignore": true
 }
 EOF
-    sudo hardcode-tray --apply --theme Papirus-Dark
+    sudo hardcode-tray --apply --theme Papirus-Dark --size 22
     sudo papirus-folders -C breeze
     cat <<EOF |sudo tee /etc/profile.d/mozilla-pixel-perfect-scrolling.sh
 export MOZ_USE_XINPUT2=1
@@ -188,7 +188,7 @@ if [ -f /Neon ]; then
     "backup_ignore": true
 }
 EOF
-    sudo hardcode-tray --apply --theme Papirus-Dark
+    sudo hardcode-tray --apply --theme Papirus-Dark --size 22
     sudo papirus-folders -C breeze
     cat <<EOF |sudo tee /etc/profile.d/mozilla-pixel-perfect-scrolling.sh
 export MOZ_USE_XINPUT2=1
@@ -252,7 +252,7 @@ if [ -f /Xubuntu ]; then
     "backup_ignore": true
 }
 EOF
-    sudo hardcode-tray --apply --theme Papirus-Dark
+    sudo hardcode-tray --apply --theme Papirus-Dark --size 22
     sudo papirus-folders -C paleorange
     cat <<EOF |sudo tee /etc/profile.d/mozilla-pixel-perfect-scrolling.sh
 export MOZ_USE_XINPUT2=1
@@ -289,7 +289,7 @@ if [ -f /UCL ]; then
     "backup_ignore": true
 }
 EOF
-    sudo hardcode-tray --apply --theme Papirus-Dark
+    sudo hardcode-tray --apply --theme Papirus-Dark --size 24
     sudo papirus-folders -C orange
     cat <<EOF |sudo tee /etc/profile.d/mozilla-pixel-perfect-scrolling.sh
 export MOZ_USE_XINPUT2=1
@@ -350,7 +350,7 @@ if [ -f /KDeck ]; then
     "backup_ignore": true
 }
 EOF
-    sudo hardcode-tray --apply --theme Papirus-Dark
+    sudo hardcode-tray --apply --theme Papirus-Dark --size 22
     sudo papirus-folders -C violet
     cat <<EOF |sudo tee /etc/profile.d/mozilla-pixel-perfect-scrolling.sh
 export MOZ_USE_XINPUT2=1
