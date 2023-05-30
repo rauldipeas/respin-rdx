@@ -21,7 +21,7 @@ Name=Firefox
 Comment=Navegue na internet
 GenericName=Navegador de internet
 Keywords=Internet;WWW;Browser;Web;Explorer
-Exec=MOZ_USE_XINPUT2=1 firefox %u
+Exec=firefox %u
 Terminal=false
 X-MultipleArgs=false
 Type=Application

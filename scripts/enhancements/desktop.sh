@@ -17,6 +17,9 @@ if [ -f /Ubuntu ]; then
 }
 EOF
     sudo papirus-folders -C yaru
+    cat <<EOF |sudo tee /etc/profile.d/mozilla-pixel-perfect-scrolling.sh
+export MOZ_USE_XINPUT2=1
+EOF
     cat <<EOF |sudo tee /etc/profile.d/qt-qpa-platformtheme.sh
 export QT_QPA_PLATFORMTHEME=gtk2
 EOF
@@ -44,6 +47,9 @@ if [ -f /UGL ]; then
 EOF
     sudo hardcode-tray --apply --theme Papirus-Dark    
     sudo papirus-folders -C adwaita
+    cat <<EOF |sudo tee /etc/profile.d/mozilla-pixel-perfect-scrolling.sh
+export MOZ_USE_XINPUT2=1
+EOF
     cat <<EOF |sudo tee /etc/profile.d/qt-qpa-platformtheme.sh
 export QT_QPA_PLATFORMTHEME=gtk2
 EOF
@@ -84,6 +90,9 @@ EOF
     cat <<EOF |sudo tee /etc/profile.d/adw-gtk3.sh
 export GTK_THEME="\$(gsettings get org.gnome.desktop.interface gtk-theme|cut -d "'" -f2)"
 EOF
+    cat <<EOF |sudo tee /etc/profile.d/mozilla-pixel-perfect-scrolling.sh
+export MOZ_USE_XINPUT2=1
+EOF
     cp /usr/share/applications/info.desktop /usr/local/share/applications/
     echo 'Hidden=true'|tee -a /usr/local/share/applications/info.desktop>/dev/null
     wget -q --show-progress "$(wget -qO- --header="X-Auth-Token: $GITHUB_TOKEN" https://api.github.com/repos/lassekongo83/adw-gtk3/releases|grep browser_download_url|grep tar.xz|head -n1|cut -d '"' -f4)"
@@ -120,6 +129,9 @@ if [ -f /Kubuntu ]; then
 EOF
     sudo hardcode-tray --apply --theme Papirus-Dark
     sudo papirus-folders -C breeze
+    cat <<EOF |sudo tee /etc/profile.d/mozilla-pixel-perfect-scrolling.sh
+export MOZ_USE_XINPUT2=1
+EOF
     echo 'gtk-application-prefer-dark-theme=true'|tee -a /etc/gtk-3.0/settings.ini
     sed -i 's/Yaru/Breeze/g' /etc/gtk-3.0/settings.ini
     sed -i 's/org.kde.discover/appgrid/g' /usr/share/plasma/plasmoids/org.kde.plasma.kicker/contents/config/main.xml
@@ -178,6 +190,9 @@ if [ -f /Neon ]; then
 EOF
     sudo hardcode-tray --apply --theme Papirus-Dark
     sudo papirus-folders -C breeze
+    cat <<EOF |sudo tee /etc/profile.d/mozilla-pixel-perfect-scrolling.sh
+export MOZ_USE_XINPUT2=1
+EOF
     echo 'gtk-application-prefer-dark-theme=true'|tee -a /etc/gtk-3.0/settings.ini
     sed -i 's/Yaru/Breeze/g' /etc/gtk-3.0/settings.ini
     sed -i 's/org.kde.discover/appgrid/g' /usr/share/plasma/plasmoids/org.kde.plasma.kicker/contents/config/main.xml
@@ -239,12 +254,15 @@ if [ -f /Xubuntu ]; then
 EOF
     sudo hardcode-tray --apply --theme Papirus-Dark
     sudo papirus-folders -C paleorange
-    rm -r /etc/skel/.config/libreoffice
-    mkdir -p /etc/skel/.config/{autostart,volumeicon,xfce4/panel}
-    wget -q --show-progress -O /etc/skel/.config/autostart/volumeicon.desktop https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/XFCE/volumeicon.desktop
+    cat <<EOF |sudo tee /etc/profile.d/mozilla-pixel-perfect-scrolling.sh
+export MOZ_USE_XINPUT2=1
+EOF
     cat <<EOF |sudo tee /etc/profile.d/qt-qpa-platformtheme.sh
 export QT_QPA_PLATFORMTHEME=gtk2
 EOF
+    rm -r /etc/skel/.config/libreoffice
+    mkdir -p /etc/skel/.config/{autostart,volumeicon,xfce4/panel}
+    wget -q --show-progress -O /etc/skel/.config/autostart/volumeicon.desktop https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/XFCE/volumeicon.desktop
     wget -q --show-progress -O /etc/skel/.config/volumeicon/volumeicon https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/XFCE/volumeicon
     wget -q --show-progress -O /etc/skel/.config/xfce4/panel/docklike-2.rc https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/XFCE/docklike-2.rc
     wget -q --show-progress -O /usr/share/xfce4-panel-profiles/layouts/rauldipeas-superbar.tar.bz2 https://github.com/rauldipeas/respin-rdx/raw/main/assets/XFCE/rauldipeas-superbar.tar.bz2
@@ -273,6 +291,9 @@ if [ -f /UCL ]; then
 EOF
     sudo hardcode-tray --apply --theme Papirus-Dark
     sudo papirus-folders -C orange
+    cat <<EOF |sudo tee /etc/profile.d/mozilla-pixel-perfect-scrolling.sh
+export MOZ_USE_XINPUT2=1
+EOF
     cat <<EOF |sudo tee /etc/profile.d/qt-qpa-platformtheme.sh
 export QT_QPA_PLATFORMTHEME=gtk2
 EOF
@@ -330,7 +351,10 @@ if [ -f /KDeck ]; then
 }
 EOF
     sudo hardcode-tray --apply --theme Papirus-Dark
-    sudo papirus-folders -C breeze
+    sudo papirus-folders -C violet
+    cat <<EOF |sudo tee /etc/profile.d/mozilla-pixel-perfect-scrolling.sh
+export MOZ_USE_XINPUT2=1
+EOF
     wget -q --show-progress -O /usr/share/color-schemes/BreezeBlack.colors https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/KDE/BreezeBlack.colors
     wget -q --show-progress https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/KDE/breeze-alphablack-v20.zip
     unzip breeze-alphablack-v20.zip -d /usr/share/plasma/desktoptheme/breeze-alphablack

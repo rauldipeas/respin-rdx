@@ -14,6 +14,10 @@ ln -fs /opt/betterbird/chrome/icons/default/default128.png /usr/local/share/pixm
 rm /opt/betterbird/chrome/icons/default/newmail.svg
 if [ -f /UCL ];then
 	ln -fs /usr/share/icons/Papirus/24x24/panel/indicator-messages-new.svg /opt/betterbird/chrome/icons/default/newmail.svg
+	elif [ -f /UGL ];then
+	ln -fs /usr/share/icons/Papirus/16x16/panel/indicator-messages-new.svg /opt/betterbird/chrome/icons/default/newmail.svg
+	elif [ -f /UGLR ];then
+	ln -fs /usr/share/icons/Papirus/16x16/panel/indicator-messages-new.svg /opt/betterbird/chrome/icons/default/newmail.svg
 	else
 	ln -fs /usr/share/icons/Papirus/22x22/panel/indicator-messages-new.svg /opt/betterbird/chrome/icons/default/newmail.svg
 fi
@@ -44,10 +48,8 @@ cat <<EOF |tee /opt/betterbird/betterbird-kdocker>/dev/null
 #!/bin/bash
 set -e
 if [ "\$(pgrep -l betterbird-bin|cut -d ' ' -f2)" == betterbird-bin ]; then
-	export MOZ_USE_XINPUT2=1
 	betterbird
 else
-	export MOZ_USE_XINPUT2=1
 	kdocker -i /usr/share/icons/Papirus/22x22/panel/indicator-notification-read.svg	-d15 -mq betterbird
 fi
 EOF
