@@ -14,8 +14,8 @@ if [ -f /Ubuntu ]; then
     },
     "backup_ignore": true
 }
-    sudo hardcode-tray --apply --theme Papirus-Dark --size 16
 EOF
+    sudo hardcode-tray --apply --theme Papirus-Dark --size 16
     sudo papirus-folders -C yaru
     cat <<EOF |sudo tee /etc/profile.d/mozilla-pixel-perfect-scrolling.sh
 export MOZ_USE_XINPUT2=1

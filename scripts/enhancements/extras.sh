@@ -63,9 +63,6 @@ if [ -f /Neon ]; then
     apt install -y --no-install-recommends gnome-software
 fi
 
-# ImageMagick
-apt install -y imagemagick-6.q16
-
 # KDE custom-apturl
 #if [ -f /usr/share/xsessions/plasma.desktop ]; then
 #    apt install -y --no-install-recommends libnotify-bin qapt-deb-installer
