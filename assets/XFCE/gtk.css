@@ -1,0 +1,15 @@
+.xfce4-panel {
+	border:0;
+}
+.xfce4-panel.horizontal {
+   	/* border-top-left-radius: 10px; */
+   	/* border-top-right-radius: 10px; */
+   	/* border-bottom-left-radius: 10px; */
+   	/* border-bottom-right-radius: 10px; */
+}
+.xfce4-panel.vertical {
+   	/* border-top-left-radius: 10px; */
+   	border-top-right-radius: 10px;
+   	/* border-bottom-left-radius: 10px; */
+   	border-bottom-right-radius: 10px;
+}

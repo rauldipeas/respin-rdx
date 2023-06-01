@@ -13,21 +13,6 @@ apt install -y apt-rollback
 apt install -y grub-theme-breeze
 echo 'GRUB_THEME="/usr/share/grub/themes/breeze/theme.txt"'|tee /etc/default/grub.d/theme.cfg>/dev/null
 
-# Birdtray deps
-#if [ -f /Kubuntu ]; then
-#    echo 'Qt environment'
-#    elif [ -f /KDeck ]; then
-#    echo 'Qt environment'
-#    elif [ -f /Neon ]; then
-#    echo 'Qt environment'
-#    else
-#    echo 'Non-Qt environment, running Birdtray deps install'
-#    apt install -y --no-install-recommends\
-#	libqt5network5\
-#	libqt5svg5\
-#	libqt5x11extras5
-#fi
-
 # CPU-X
 apt install -y cpu-x
 

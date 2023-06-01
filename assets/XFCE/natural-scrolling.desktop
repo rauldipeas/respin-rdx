@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Version=0.9.4
+Type=Application
+Name=Rolagem natural
+Exec=sh -c "synclient VertScrollDelta=-58;synclient HorizScrollDelta=-58"
+OnlyShowIn=XFCE;
+StartupNotify=false
+Terminal=false
+Hidden=false
+Icon=mouse

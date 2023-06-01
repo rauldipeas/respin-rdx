@@ -20,7 +20,13 @@ if [ -f /KDeck ];then
     wget -q --show-progress https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/plymouth/neon.svg
     convert -density 1200 -resize 128x128 -background none neon.svg /usr/share/plymouth/themes/vortex-ubuntu/logo.png
     elif [ -f /UCL ];then
-    wget -q --show-progress https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/plymouth/ucl.svg
+    wget -q --show-progress https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/plymouth/custom.svg
+    convert -density 1200 -resize 128x128 -background none ucl.svg /usr/share/plymouth/themes/vortex-ubuntu/logo.png
+    elif [ -f /UGL ];then
+    wget -q --show-progress https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/plymouth/custom.svg
+    convert -density 1200 -resize 128x128 -background none ucl.svg /usr/share/plymouth/themes/vortex-ubuntu/logo.png
+    elif [ -f /UGLR ];then
+    wget -q --show-progress https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/plymouth/gnome.svg
     convert -density 1200 -resize 128x128 -background none ucl.svg /usr/share/plymouth/themes/vortex-ubuntu/logo.png
     elif [ -f /Xubuntu ];then
     wget -q --show-progress https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/plymouth/xubuntu.svg

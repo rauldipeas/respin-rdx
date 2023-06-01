@@ -1,0 +1,44 @@
+name: Xubuntu Lite Rolling Respin RDX
+on:
+  push:
+    branches:
+      - 'main'
+    paths-ignore:
+      - '.editorconfig'
+      - 'leiame.md'
+      - 'readme.md'
+      - '*.jpg'
+      - '*.png'
+      - '*.svg'
+      - '_config.yml'
+      - 'get-respin-rdx.sh'
+      - 'upgrade-respin-rdx.sh'
+  schedule:
+    - cron:  '0 */24 * * *'
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+      - name: Configuração do ambiente de compilação
+        run: bash -x scripts/env.sh
+      - name: Compilação do Xubuntu Lite Rolling Respin RDX
+        run: bash -x scripts/build.sh
+        env:
+          CODENAME: jammy
+          FLAVOUR: ubuntu
+          FLAVOUR_NAME: Xubuntu Lite Rolling
+          VERSION: 22.04.2
+          CHROOT: respin-rdx/xl-rolling-chroot
+          FLAVOUR_ID: XLR
+          ISO_NAME: xl-rolling
+      - name: Envio dos artefatos
+        uses: actions/upload-artifact@v3
+        with:
+          name: xl-rolling-respin-rdx
+          path: /home/runner/work/respin-rdx/xl-rolling-respin-rdx.iso
+      - name: Limpeza de logs antigos
+        run: bash -x scripts/actions-cleanup.sh
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}

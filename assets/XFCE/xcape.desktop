@@ -1,0 +1,7 @@
+[Desktop Entry]
+Encoding=UTF-8
+Exec=xcape -e "Super_L=Super_L|x"
+Name=Alternador de teclas
+Type=Application
+OnlyShowIn=XFCE;
+Icon=system-keyboard-mx
