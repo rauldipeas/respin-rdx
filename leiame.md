@@ -7,7 +7,8 @@ A base do sistema está [**otimizada**](https://github.com/rauldipeas/respin-rdx
 Alguns extras estão inclusos:
 
 * ~~![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/apps/tux.svg) [**Linux RDX**](https://github.com/rauldipeas/linux-rdx) (minha compilação pessoal do kernel Linux)~~
-* ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/apps/mintsources-ppa.svg) [**Mainline**](https://github.com/cappelikan/mainline) (ferramenta de atualização para o kernel do Ubuntu)
+* ~~![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/apps/mintsources-ppa.svg) [**Mainline**](https://github.com/cappelikan/mainline) (ferramenta de atualização para o kernel do Ubuntu)~~
+* ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/apps/tux.svg) [**Linux XanMod**](https://xanmod.org/) (kernel Linux customizado)
 * ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/devices/cpu.svg) [**CFS Zen tweaks**](https://github.com/igo95862/cfs-zen-tweaks) (agendador de tarefas com melhorias de responsividade)
 * ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/devices/media-memory.svg) [**ZSwap**](https://pt.wikipedia.org/wiki/Zswap) (gerenciador de memória alternativo)
 * ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/apps/rsibreak.svg) [**nohang**](https://github.com/hakavlad/nohang) (prevenção de OOM)
