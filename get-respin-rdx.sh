@@ -49,5 +49,6 @@ if [ "$1" ]; then
 	get_zip ucl;copy_iso_to_ventoy ucl
 	get_zip ugl;copy_iso_to_ventoy ugl
 	get_zip ugl-rolling;copy_iso_to_ventoy ugl-rolling
+	get_zip xl-rolling;copy_iso_to_ventoy xl-rolling
 	get_zip kdeck;copy_iso_to_ventoy kdeck
 fi
