@@ -174,6 +174,8 @@ if [ -f /Xubuntu ]; then
     add-apt-repository -y ppa:xubuntu-dev/extras
     apt install -y volumeicon-alsa xfce4-appmenu-plugin xfce4-docklike-plugin
     # LightPad
-    add-apt-repository -y ppa:libredeb/lightpad
+    add-apt-repository -ny ppa:libredeb/lightpad
+    sed -i 's/jammy/focal/g' /etc/apt/sources.list.d/*lightpad* #tmp-downgrade-fix
+    apt update
     apt install -y com.github.libredeb.lightpad
 fi
