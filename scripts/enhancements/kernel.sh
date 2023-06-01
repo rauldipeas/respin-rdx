@@ -9,7 +9,7 @@ apt autoremove --purge -y linux*generic*
 #update-initramfs -u -k "$(find /boot/|grep vmlinuz|grep -v old|tail -n1|sed 's@/boot/vmlinuz-@@g')"
 
 # XanMod
-wget -qO- https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/xandmod/archive.key|sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/xanmod-archive-keyring.gpg
+wget -qO- https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/xanmod/archive.key|sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/xanmod-archive-keyring.gpg
 echo 'deb http://deb.xanmod.org releases main'|sudo tee /etc/apt/sources.list.d/xanmod-release.list>/dev/null
 apt update
 apt install -y linux-xanmod-x64v3
