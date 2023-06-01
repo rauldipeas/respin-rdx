@@ -17,7 +17,13 @@ sed -i 's/jammy/devel/g' /etc/apt/sources.list
 dpkg --add-architecture i386
 apt update
 export DEBIAN_FRONTEND=noninteractive
+cat <<EOF |tee /etc/apt/preferences.d/nosnap.pref
+Package: snapd
+Pin: release a=*
+Pin-Priority: -10
+EOF
 apt dist-upgrade -y -o Dpkg::Options::="--force-confold" --force-yes
+rm /etc/apt/preferences.d/nosnap.pref
 apt install -y\
     aspell-pt-br\
     gamemode\
