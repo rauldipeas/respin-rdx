@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<channel name="xfdashboard" version="1.0">
-  <property name="theme" type="string" value="xfdashboard-dark"/>
-  <property name="favourites" type="array">
-  </property>
-  <property name="enable-unmapped-window-workaround" type="bool" value="true"/>
-</channel>
