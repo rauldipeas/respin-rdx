@@ -173,4 +173,7 @@ if [ -f /Xubuntu ]; then
     elif [ -f /XLR ]; then
     add-apt-repository -y ppa:xubuntu-dev/extras
     apt install -y volumeicon-alsa xfce4-appmenu-plugin xfce4-docklike-plugin
+    # LightPad
+    add-apt-repository -y ppa:libredeb/lightpad
+    apt install -y com.github.libredeb.lightpad
 fi

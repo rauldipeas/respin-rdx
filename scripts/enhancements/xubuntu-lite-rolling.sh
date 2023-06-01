@@ -31,8 +31,6 @@ apt install -y\
     redshift-gtk\
     smplayer\
     xfdashboard
-add-apt-repository -y ppa:libredeb/lightpad
-apt install -y com.github.libredeb.lightpad
 wget -q --show-progress https://cdn.akamai.steamstatic.com/client/installer/steam.deb
 apt install -y ./steam.deb
 wget -q --show-progress "$(wget -qO- --header="X-Auth-Token: $GITHUB_TOKEN" https://api.github.com/repos/flightlessmango/MangoHud/releases|grep browser_download_url|grep tar.gz|head -n1|cut -d '"' -f4)"
