@@ -27,7 +27,7 @@ jobs:
         run: bash -x scripts/build.sh
         env:
           CODENAME: jammy
-          FLAVOUR: ubuntu
+          FLAVOUR: xubuntu
           FLAVOUR_NAME: Xubuntu Lite Rolling
           VERSION: 22.04.2
           CHROOT: respin-rdx/xl-rolling-chroot
