@@ -37,6 +37,11 @@ if [ -f /Neon ]; then
     apt install -y --no-install-recommends gnome-software-plugin-flatpak
     flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
     flatpak install -y org.gtk.Gtk3theme.adw-gtk3 org.gtk.Gtk3theme.adw-gtk3-dark
+    elif [ -f /XLR ]; then
+    echo 'Xubuntu Lite Rolling'
+    apt install -y --no-install-recommends gnome-software-plugin-flatpak
+    flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+    flatpak install -y org.gtk.Gtk3theme.Greybird org.gtk.Gtk3theme.Greybird-dark
     elif [ -f /Kubuntu ]; then
     echo 'Kubuntu'
     elif [ -f /KDeck ]; then
@@ -93,6 +98,8 @@ if [ -f /Neon ]; then
     echo 'GNOME Lite'
     elif [ -f /UGLR ];then
     echo 'GNOME Lite Rolling'
+    elif [ -f /XLR ];then
+    echo 'Xubuntu Lite Rolling'
     else
     echo 'Flavours'
     add-apt-repository -y ppa:libreoffice/ppa
@@ -121,6 +128,8 @@ if [ -f /Neon ]; then
     echo 'GNOME Lite'
     elif [ -f /UGLR ];then
     echo 'GNOME Lite Rolling'
+    elif [ -f /XLR ];then
+    echo 'Xubuntu Lite Rolling'
     else
     echo 'Flavours'
     wget -q --show-progress https://launchpad.net/~papirus/+archive/ubuntu/papirus/+files/libreoffice-style-papirus_20180413-46+pkg3~ubuntu20.04.1_all.deb
@@ -159,6 +168,9 @@ apt install -y unrar
 
 # Xubuntu extras
 if [ -f /Xubuntu ]; then
+    add-apt-repository -y ppa:xubuntu-dev/extras
+    apt install -y volumeicon-alsa xfce4-appmenu-plugin xfce4-docklike-plugin
+    elif [ -f /XLR ]; then
     add-apt-repository -y ppa:xubuntu-dev/extras
     apt install -y volumeicon-alsa xfce4-appmenu-plugin xfce4-docklike-plugin
 fi
