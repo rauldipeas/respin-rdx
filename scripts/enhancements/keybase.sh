@@ -5,7 +5,7 @@ set -e
 wget -qO- https://keybase.io/docs/server_security/code_signing_key.asc|gpg --dearmor -o /etc/apt/trusted.gpg.d/keybase-keyring.gpg
 echo 'deb http://prerelease.keybase.io/deb stable main'|tee /etc/apt/sources.list.d/keybase.list>/dev/null
 apt update
-apt install inotify-tools keybase
+apt install -y inotify-tools keybase
 mkdir -p /etc/skel/Sync /etc/xdg/autostart
 cat <<EOF |tee /usr/local/bin/keybase-rsync>/dev/null
 #!/bin/bash
