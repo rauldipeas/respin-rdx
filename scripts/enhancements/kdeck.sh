@@ -36,7 +36,7 @@ tar fxz MangoHud*.tar.gz
 cd MangoHud
 ./mangohud-setup.sh install
 
-io.github.philipk.boilr
-org.libretro.RetroArch
-com.valvesoftware.Steam
-org.freedesktop.Platform.VulkanLayer.MangoHud
+#io.github.philipk.boilr
+#org.libretro.RetroArch
+#com.valvesoftware.Steam
+#org.freedesktop.Platform.VulkanLayer.MangoHud
