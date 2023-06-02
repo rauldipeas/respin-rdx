@@ -11,6 +11,7 @@ apt remove --purge -y\
     parole\
     rhythmbox*\
     sgt-launcher\
+    simple-scan\
     transmission*\
     xfburn\
     xfce4-dict

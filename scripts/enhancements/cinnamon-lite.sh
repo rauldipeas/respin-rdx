@@ -20,12 +20,13 @@ apt install -y\
     gnome-characters\
     gnome-disk-utility\
     gnome-system-monitor\
-    gnome-mpv\
     gthumb\
     lightdm\
     lightdm-gtk-greeter\
+    mplayer\
     nemo-fileroller\
     python3-polib\
+    smplayer\
     xdg-user-dirs-gtk
 apt autoremove --purge -y\
     gnome-startup-applications*\

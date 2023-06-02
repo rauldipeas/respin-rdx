@@ -1,2 +1,9 @@
 [user]
 pinned=/usr/share/applications/xfce4-appfinder.desktop;/usr/share/applications/thunar.desktop;/usr/local/share/applications/firefox.desktop;/usr/share/applications/appgrid.desktop;
+onlyDisplayScreen=false
+showPreviews=true
+showWindowCount=true
+inactiveIndicatorStyle=2
+inactiveColor=rgb(94,92,100)
+indicatorColorFromTheme=false
+keyComboActive=true

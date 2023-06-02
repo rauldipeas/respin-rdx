@@ -32,9 +32,10 @@ apt install -y\
     gnome-system-monitor\
     gnome-text-editor\
     gthumb\
+    mplayer\
     nautilus\
     qgnomeplatform-qt5\
-    totem\
+    smplayer\
     wireplumber\
     xdg-user-dirs-gtk
 wget -q --show-progress https://cdn.akamai.steamstatic.com/client/installer/steam.deb

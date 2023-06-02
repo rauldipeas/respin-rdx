@@ -57,6 +57,8 @@ EOF
     echo 'Hidden=true'|tee -a /usr/local/share/applications/info.desktop>/dev/null
     wget -q --show-progress  --header="X-Auth-Token: $GITHUB_TOKEN" "$(wget -qO- --header="X-Auth-Token: $GITHUB_TOKEN" https://api.github.com/repos/lassekongo83/adw-gtk3/releases|grep browser_download_url|grep tar.xz|head -n1|cut -d '"' -f4)"
     tar fx adw-gtk3*.tar.xz -C /usr/share/themes/
+    mkdir -p /etc/skel/.config/smplayer
+    wget -q --show-progress -O /etc/skel/.config/smplayer/smplayer.ini https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/smplayer/smplayer.ini
     sed -i 's/firefox-esr/firefox/g' /usr/share/glib-2.0/schemas/10_gnome-shell.gschema.override
     sed -i 's/org.gnome.Evolution/betterbird/g' /usr/share/glib-2.0/schemas/10_gnome-shell.gschema.override
     sed -i 's/org.gnome.Software/appgrid/g' /usr/share/glib-2.0/schemas/10_gnome-shell.gschema.override
@@ -97,6 +99,8 @@ EOF
     echo 'Hidden=true'|tee -a /usr/local/share/applications/info.desktop>/dev/null
     wget -q --show-progress "$(wget -qO- --header="X-Auth-Token: $GITHUB_TOKEN" https://api.github.com/repos/lassekongo83/adw-gtk3/releases|grep browser_download_url|grep tar.xz|head -n1|cut -d '"' -f4)"
     tar fx adw-gtk3*.tar.xz -C /usr/share/themes/
+    mkdir -p /etc/skel/.config/smplayer
+    wget -q --show-progress -O /etc/skel/.config/smplayer/smplayer.ini https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/smplayer/smplayer.ini
     sed -i 's/firefox-esr/firefox/g' /usr/share/glib-2.0/schemas/10_gnome-shell.gschema.override
     sed -i 's/org.gnome.Evolution/betterbird/g' /usr/share/glib-2.0/schemas/10_gnome-shell.gschema.override
     sed -i 's/org.gnome.Software/appgrid/g' /usr/share/glib-2.0/schemas/10_gnome-shell.gschema.override
@@ -145,7 +149,7 @@ EOF
     cp -r materia-kde/plasma/desktoptheme/Materia-Color/icons /usr/share/plasma/desktoptheme/breeze-light/
     sed -i 's/start-here-kde/distributor-logo-kubuntu/g' /usr/share/plasma/plasmoids/org.kde.plasma.kicker/contents/config/main.xml
     sed -i 's/start-here-kde/distributor-logo-kubuntu/g' /usr/share/plasma/plasmoids/org.kde.plasma.kickoff/contents/config/main.xml
-    cat <<EOF |tee /usr/share/plasma/look-and-feel/org.kubuntu.desktop/contents/defaults
+    cat <<EOF |tee /usr/share/plasma/look-and-feel/org.kubuntu.desktop/contents/defaults /usr/share/plasma/look-and-feel/org.kde.breezedark.desktop/contents/defaults
 [kdeglobals][KDE]
 widgetStyle=Breeze
 
@@ -262,7 +266,7 @@ export QT_QPA_PLATFORMTHEME=gtk2
 EOF
     rm -r /etc/skel/.config/libreoffice
     mkdir -p /etc/skel/.config/{autostart,volumeicon,xfce4/panel}
-    wget -q --show-progress -O /etc/skel/.config/autostart/volumeicon.desktop https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/XFCE/volumeicon.desktop
+    wget -q --show-progress -O /etc/xdg/autostart/volumeicon.desktop https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/XFCE/volumeicon.desktop
     wget -q --show-progress -O /etc/skel/.config/volumeicon/volumeicon https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/XFCE/volumeicon
     wget -q --show-progress -O /etc/skel/.config/xfce4/panel/docklike-2.rc https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/XFCE/docklike-2.rc
     wget -q --show-progress -O /usr/share/xfce4-panel-profiles/layouts/rauldipeas-superbar.tar.bz2 https://github.com/rauldipeas/respin-rdx/raw/main/assets/XFCE/rauldipeas-superbar.tar.bz2
@@ -304,6 +308,8 @@ EOF
     ./utils.sh install
     mv /root/.local/share/cinnamon/extensions /usr/share/cinnamon/
     cd ..
+    mkdir -p /etc/skel/.config/smplayer
+    wget -q --show-progress -O /etc/skel/.config/smplayer/smplayer.ini https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/smplayer/smplayer.ini    
     sed -i '/cursor-theme/{n;s/Adwaita/DMZ-White/;}' /usr/share/glib-2.0/schemas/org.cinnamon.desktop.interface.gschema.xml
     sed -i "/enabled-extensions/{n;s/>\[\]</>\['transparent-panels@germanfr'\]</;}" /usr/share/glib-2.0/schemas/org.cinnamon.gschema.xml
     sed -i '/gtk-theme/{n;s/Adwaita/Flat-Remix-GTK-Brown-Darkest/;}' /usr/share/glib-2.0/schemas/org.cinnamon.desktop.interface.gschema.xml
@@ -359,6 +365,8 @@ EOF
     wget -q --show-progress https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/KDE/breeze-alphablack-v20.zip
     unzip breeze-alphablack-v20.zip -d /usr/share/plasma/desktoptheme/breeze-alphablack
     echo 'gtk-application-prefer-dark-theme=true'|tee -a /etc/gtk-3.0/settings.ini
+    mkdir -p /etc/skel/.config/smplayer
+    wget -q --show-progress -O /etc/skel/.config/smplayer/smplayer.ini https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/smplayer/smplayer.ini
     sed -i 's/Yaru/Breeze/g' /etc/gtk-3.0/settings.ini
     git clone -q https://github.com/dragoonDorise/es-theme-epicnoir /usr/share/emulationstation/themes/epicnoir
     mkdir -p /usr/local/share/applications
@@ -387,7 +395,7 @@ EOF
     cp -r materia-kde/plasma/desktoptheme/Materia-Color/icons /usr/share/plasma/desktoptheme/breeze-light/
     sed -i 's/start-here-kde/distributor-logo-steamos/g' /usr/share/plasma/plasmoids/org.kde.plasma.kicker/contents/config/main.xml
     sed -i 's/start-here-kde/distributor-logo-steamos/g' /usr/share/plasma/plasmoids/org.kde.plasma.kickoff/contents/config/main.xml
-    cat <<EOF |tee /usr/share/plasma/look-and-feel/org.kubuntu.desktop/contents/defaults
+    cat <<EOF |tee /usr/share/plasma/look-and-feel/org.kubuntu.desktop/contents/defaults /usr/share/plasma/look-and-feel/org.kde.breezedark.desktop/contents/defaults
 [kdeglobals][KDE]
 widgetStyle=Breeze
 
@@ -444,17 +452,17 @@ EOF
     wget -q --show-progress -O /etc/xdg/autostart/natural-scrolling.desktop https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/XFCE/natural-scrolling.desktop
     wget -q --show-progress -O /etc/xdg/autostart/volumeicon.desktop https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/XFCE/volumeicon.desktop
     sed -i 's/Hidden=true//g' /etc/xdg/autostart/volumeicon.desktop
-    wget -q --show-progress -O /etc/xdg/autostart/xcape.desktop https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/XFCE/xcape.desktop
     wget -q --show-progress -O /etc/skel/.config/gtk-3.0/gtk.css https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/XFCE/gtk.css
+    wget -q --show-progress -O /etc/skel/.config/smplayer/smplayer.ini https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/smplayer/smplayer.ini
     wget -q --show-progress -O /etc/skel/.config/volumeicon/volumeicon https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/XFCE/volumeicon
     wget -q --show-progress -O /etc/skel/.config/xfce4/panel/docklike-2.rc https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/XFCE/docklike-2.rc
     wget -q --show-progress -O /etc/skel/.config/xfce4/panel/docklike-8.rc https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/XFCE/docklike-8.rc
-    wget -q --show-progress -O /etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-appfinder.xml https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/XFCE/xfce4-appfinder.xml
     wget -q --show-progress -O /etc/skel/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/XFCE/xfce4-panel.xml
+    wget -q --show-progress -O /etc/xdg/autostart/xcape.desktop https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/XFCE/xcape.desktop
+    wget -q --show-progress -O /etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-appfinder.xml https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/XFCE/xfce4-appfinder.xml
     wget -q --show-progress -O /usr/share/xfce4-panel-profiles/layouts/rauldipeas-rhino.tar.bz2 https://github.com/rauldipeas/respin-rdx/raw/main/assets/XFCE/rauldipeas-rhino.tar.bz2
     wget -q --show-progress -O /usr/share/xfce4-panel-profiles/layouts/rauldipeas-superbar.tar.bz2 https://github.com/rauldipeas/respin-rdx/raw/main/assets/XFCE/rauldipeas-superbar.tar.bz2
     wget -q --show-progress -O /usr/share/xfce4-panel-profiles/layouts/rauldipeas-unity.tar.bz2 https://github.com/rauldipeas/respin-rdx/raw/main/assets/XFCE/rauldipeas-unity.tar.bz2
-    wget -q --show-progress -O /etc/skel/.config/smplayer/smplayer.ini https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/smplayer/smplayer.ini
     sed -i 's/org.gnome.Software/appgrid/g' /etc/skel/.config/xfce4/panel/whiskermenu-1.rc /etc/xdg/xdg-xubuntu/xfce4/whiskermenu/defaults.rc
     sed -i 's/home" type="bool" value="true/home" type="bool" value="false/g' /etc/xdg/xdg-xubuntu/xfce4/xfconf/xfce-perchannel-xml/xfce4-desktop.xml
     sed -i 's/trash" type="bool" value="true/trash" type="bool" value="false/g' /etc/xdg/xdg-xubuntu/xfce4/xfconf/xfce-perchannel-xml/xfce4-desktop.xml

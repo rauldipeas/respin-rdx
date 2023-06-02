@@ -25,8 +25,9 @@ apt install -y\
     gnome-system-monitor\
     gnome-text-editor\
     gthumb\
+    mplayer\
     nautilus\
-    totem\
+    smplayer\
     xdg-user-dirs-gtk
 apt autoremove --purge -y yelp*
 cat <<EOF |tee /usr/local/bin/firefox-gnome-setup

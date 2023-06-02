@@ -32,6 +32,7 @@ if [ -f /Neon ]; then
     echo 'Neon'
     apt install -y --no-install-recommends plasma-discover-backend-flatpak
     flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+    flatpak install -y org.gtk.Gtk3theme.Breeze
     elif [ -f /UGLR ]; then
     echo 'GNOME Lite Rolling'
     apt install -y --no-install-recommends gnome-software-plugin-flatpak
@@ -48,6 +49,7 @@ if [ -f /Neon ]; then
     echo 'Kubuntu Deck'
     apt install -y --no-install-recommends plasma-discover-backend-flatpak
     flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+    flatpak install -y org.gtk.Gtk3theme.Breeze
     else
     echo 'Flavours'
     apt install -y --no-install-recommends gnome-software
