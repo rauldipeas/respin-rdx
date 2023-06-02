@@ -40,16 +40,16 @@
       <property name="command" type="string" value="catfish --path=~ --start %s"/>
     </property>
   </property>
-  <property name="hide-window-decorations" type="bool" value="false"/>
-  <property name="hide-category-pane" type="empty"/>
-  <property name="sort-by-frecency" type="empty"/>
-  <property name="icon-view" type="empty"/>
+  <property name="hide-window-decorations" type="bool" value="true"/>
+  <property name="hide-category-pane" type="bool" value="true"/>
+  <property name="sort-by-frecency" type="bool" value="true"/>
+  <property name="icon-view" type="bool" value="true"/>
   <property name="last" type="empty">
-    <property name="window-height" type="int" value="562"/>
-    <property name="window-width" type="int" value="672"/>
-    <property name="pane-position" type="empty"/>
+    <property name="window-height" type="empty"/>
+    <property name="window-width" type="empty"/>
+    <property name="pane-position" type="int" value="180"/>
   </property>
   <property name="item-icon-size" type="uint" value="3"/>
-  <property name="always-center" type="bool" value="true"/>
-  <property name="text-beside-icons" type="bool" value="true"/>
+  <property name="always-center" type="empty"/>
+  <property name="text-beside-icons" type="empty"/>
 </channel>
