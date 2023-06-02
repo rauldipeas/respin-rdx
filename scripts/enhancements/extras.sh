@@ -81,7 +81,7 @@ fi
 #fi
 
 # KDocker
-apt install -y kdocker
+apt install -y kdocker libdbus-glib-1-2
 
 # Kubuntu backports
 if [ -f /KDeck ]; then
