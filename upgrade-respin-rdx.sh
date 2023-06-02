@@ -32,12 +32,12 @@ if [ -f /usr/bin/pipx ];then
         echo 'pipx não encontrado'
 fi
 # mainline
-if [ -f /usr/bin/mainline ];then
-        sudo rm -rf /root/.cache/mainline
-        sudo mainline --install-latest
-        else
-        echo 'mainline não encontrado'
-fi
+#if [ -f /usr/bin/mainline ];then
+#        sudo rm -rf /root/.cache/mainline
+#        sudo mainline --install-latest
+#        else
+#        echo 'mainline não encontrado'
+#fi
 # pkcon
 if [ -f /usr/bin/pkcon ];then
         if [ -f /usr/bin/aptitude ];then
