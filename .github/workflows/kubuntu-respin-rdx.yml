@@ -17,7 +17,7 @@ on:
     - cron:  '0 */24 * * *'
   workflow_dispatch:
 jobs:
-  build:
+  build-kubuntu:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v3

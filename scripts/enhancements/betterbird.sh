@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-# Instalação do Betterbird
+# Betterbird
 apt autoremove --purge -y *thunderbird*
 wget -cq --show-progress -O betterbird-latest.pt-BR.linux-x86_64.tar.bz2 'https://www.betterbird.eu/downloads/get.php?os=linux&lang=pt-BR&version=release'
 tar fjx betterbird-latest.pt-BR.linux-x86_64.tar.bz2
