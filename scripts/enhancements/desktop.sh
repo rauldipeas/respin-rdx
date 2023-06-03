@@ -27,7 +27,7 @@ EOF
     sed -i 's/thunderbird/betterbird/g' /usr/share/glib-2.0/schemas/10_ubuntu-settings.gschema.override
     sed -i 's/gtk-theme = "Yaru"/gtk-theme = "Yaru-dark"/g' /usr/share/glib-2.0/schemas/10_ubuntu-settings.gschema.override
     sed -i 's/icon-theme = "Yaru"/icon-theme = "Papirus-Dark"/g' /usr/share/glib-2.0/schemas/10_ubuntu-settings.gschema.override
-    sed -i 's/snap-store_ubuntu-software/appgrid/g' /usr/share/glib-2.0/schemas/10_ubuntu-settings.gschema.override
+    sed -i 's/snap-store_ubuntu-software/synaptic/g' /usr/share/glib-2.0/schemas/10_ubuntu-settings.gschema.override
     sed -i 's/warty-final-ubuntu.png/DSC2943_by_kcpru.jpg/g' /usr/share/glib-2.0/schemas/10_ubuntu-settings.gschema.override
 fi
 ## GNOME Lite
@@ -61,7 +61,7 @@ EOF
     wget -q --show-progress -O /etc/skel/.config/smplayer/smplayer.ini https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/smplayer/smplayer.ini
     sed -i 's/firefox-esr/firefox/g' /usr/share/glib-2.0/schemas/10_gnome-shell.gschema.override
     sed -i 's/org.gnome.Evolution/betterbird/g' /usr/share/glib-2.0/schemas/10_gnome-shell.gschema.override
-    sed -i 's/org.gnome.Software/appgrid/g' /usr/share/glib-2.0/schemas/10_gnome-shell.gschema.override
+    sed -i 's/org.gnome.Software/synaptic/g' /usr/share/glib-2.0/schemas/10_gnome-shell.gschema.override
     sed -i "/color-scheme/{n;s/'default'/'prefer-dark'/;}" /usr/share/glib-2.0/schemas/org.gnome.desktop.interface.gschema.xml
     sed -i '/cursor-theme/{n;s/Adwaita/DMZ-White/;}' /usr/share/glib-2.0/schemas/org.gnome.desktop.interface.gschema.xml
     sed -i "/enabled-extensions/{n;s/\[\]/\['ubuntu-appindicators@ubuntu.com'\]/;}" /usr/share/glib-2.0/schemas/org.gnome.shell.gschema.xml
@@ -89,7 +89,7 @@ if [ -f /UGLR ]; then
 EOF
     sudo hardcode-tray --apply --theme Papirus-Dark --size 16
     sudo papirus-folders -C adwaita
-    cat <<EOF |sudo tee /etc/profile.d/adw-gtk3.sh
+    cat <<EOF |sudo tee /etc/profile.d/gtk-theme.sh
 export GTK_THEME="\$(gsettings get org.gnome.desktop.interface gtk-theme|cut -d "'" -f2)"
 EOF
     cat <<EOF |sudo tee /etc/profile.d/mozilla-pixel-perfect-scrolling.sh
@@ -103,7 +103,7 @@ EOF
     wget -q --show-progress -O /etc/skel/.config/smplayer/smplayer.ini https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/smplayer/smplayer.ini
     sed -i 's/firefox-esr/firefox/g' /usr/share/glib-2.0/schemas/10_gnome-shell.gschema.override
     sed -i 's/org.gnome.Evolution/betterbird/g' /usr/share/glib-2.0/schemas/10_gnome-shell.gschema.override
-    sed -i 's/org.gnome.Software/appgrid/g' /usr/share/glib-2.0/schemas/10_gnome-shell.gschema.override
+    sed -i 's/org.gnome.Software/synaptic/g' /usr/share/glib-2.0/schemas/10_gnome-shell.gschema.override
     sed -i "/color-scheme/{n;s/'default'/'prefer-dark'/;}" /usr/share/glib-2.0/schemas/org.gnome.desktop.interface.gschema.xml
     sed -i '/cursor-theme/{n;s/Adwaita/DMZ-White/;}' /usr/share/glib-2.0/schemas/org.gnome.desktop.interface.gschema.xml
     sed -i "/enabled-extensions/{n;s/\[\]/\['ubuntu-appindicators@ubuntu.com'\]/;}" /usr/share/glib-2.0/schemas/org.gnome.shell.gschema.xml
@@ -138,9 +138,9 @@ export MOZ_USE_XINPUT2=1
 EOF
     echo 'gtk-application-prefer-dark-theme=true'|tee -a /etc/gtk-3.0/settings.ini
     sed -i 's/Yaru/Breeze/g' /etc/gtk-3.0/settings.ini
-    sed -i 's/org.kde.discover/appgrid/g' /usr/share/plasma/plasmoids/org.kde.plasma.kicker/contents/config/main.xml
-    sed -i 's/org.kde.discover/appgrid/g' /usr/share/plasma/plasmoids/org.kde.plasma.kickoff/contents/config/main.xml
-    sed -i 's/org.kde.discover/appgrid/g' /usr/share/plasma/plasmoids/org.kde.plasma.taskmanager/contents/config/main.xml
+    sed -i 's/org.kde.discover/synaptic/g' /usr/share/plasma/plasmoids/org.kde.plasma.kicker/contents/config/main.xml
+    sed -i 's/org.kde.discover/synaptic/g' /usr/share/plasma/plasmoids/org.kde.plasma.kickoff/contents/config/main.xml
+    sed -i 's/org.kde.discover/synaptic/g' /usr/share/plasma/plasmoids/org.kde.plasma.taskmanager/contents/config/main.xml
     sed -i 's@>preferred://browser,@>firefox.desktop,@g' /usr/share/plasma/plasmoids/org.kde.plasma.kicker/contents/config/main.xml
     sed -i 's@>preferred://browser,@>firefox.desktop,@g' /usr/share/plasma/plasmoids/org.kde.plasma.kickoff/contents/config/main.xml
     sed -i 's@,preferred://browser<@,applications:firefox.desktop<@g' /usr/share/plasma/plasmoids/org.kde.plasma.taskmanager/contents/config/main.xml
@@ -199,9 +199,9 @@ export MOZ_USE_XINPUT2=1
 EOF
     echo 'gtk-application-prefer-dark-theme=true'|tee -a /etc/gtk-3.0/settings.ini
     sed -i 's/Yaru/Breeze/g' /etc/gtk-3.0/settings.ini
-    sed -i 's/org.kde.discover/appgrid/g' /usr/share/plasma/plasmoids/org.kde.plasma.kicker/contents/config/main.xml
-    sed -i 's/org.kde.discover/appgrid/g' /usr/share/plasma/plasmoids/org.kde.plasma.kickoff/contents/config/main.xml
-    sed -i 's/org.kde.discover/appgrid/g' /usr/share/plasma/plasmoids/org.kde.plasma.taskmanager/contents/config/main.xml
+    sed -i 's/org.kde.discover/synaptic/g' /usr/share/plasma/plasmoids/org.kde.plasma.kicker/contents/config/main.xml
+    sed -i 's/org.kde.discover/synaptic/g' /usr/share/plasma/plasmoids/org.kde.plasma.kickoff/contents/config/main.xml
+    sed -i 's/org.kde.discover/synaptic/g' /usr/share/plasma/plasmoids/org.kde.plasma.taskmanager/contents/config/main.xml
     sed -i 's@>preferred://browser,@>firefox.desktop,@g' /usr/share/plasma/plasmoids/org.kde.plasma.kicker/contents/config/main.xml
     sed -i 's@>preferred://browser,@>firefox.desktop,@g' /usr/share/plasma/plasmoids/org.kde.plasma.kickoff/contents/config/main.xml
     sed -i 's@,preferred://browser<@,applications:firefox.desktop<@g' /usr/share/plasma/plasmoids/org.kde.plasma.taskmanager/contents/config/main.xml
@@ -271,7 +271,7 @@ EOF
     wget -q --show-progress -O /etc/skel/.config/xfce4/panel/docklike-2.rc https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/XFCE/docklike-2.rc
     wget -q --show-progress -O /usr/share/xfce4-panel-profiles/layouts/rauldipeas-superbar.tar.bz2 https://github.com/rauldipeas/respin-rdx/raw/main/assets/XFCE/rauldipeas-superbar.tar.bz2
     wget -q --show-progress -O /usr/share/xfce4-panel-profiles/layouts/rauldipeas-unity.tar.bz2 https://github.com/rauldipeas/respin-rdx/raw/main/assets/XFCE/rauldipeas-unity.tar.bz2
-    sed -i 's/org.gnome.Software/appgrid/g' /etc/skel/.config/xfce4/panel/whiskermenu-1.rc /etc/xdg/xdg-xubuntu/xfce4/whiskermenu/defaults.rc
+    sed -i 's/org.gnome.Software/synaptic/g' /etc/skel/.config/xfce4/panel/whiskermenu-1.rc /etc/xdg/xdg-xubuntu/xfce4/whiskermenu/defaults.rc
     sed -i 's/xubuntu-wallpaper.png/Kanchanjunga_Peaks_by_Pushkar_Deshpande.jpg/g' /etc/xdg/xdg-xubuntu/xfce4/xfconf/xfce-perchannel-xml/xfce4-desktop.xml
     sed -i 's/Greybird/Greybird-dark/g' /etc/xdg/xdg-xubuntu/xfce4/xfconf/xfce-perchannel-xml/xfwm4.xml
     sed -i 's/Greybird/Greybird-dark/g' /etc/xdg/xdg-xubuntu/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml
@@ -382,9 +382,9 @@ EOF
 [Autologin]
 Session=/usr/share/xsessions/steamos.desktop
 EOF
-    sed -i 's/org.kde.discover/appgrid/g' /usr/share/plasma/plasmoids/org.kde.plasma.kicker/contents/config/main.xml
-    sed -i 's/org.kde.discover/appgrid/g' /usr/share/plasma/plasmoids/org.kde.plasma.kickoff/contents/config/main.xml
-    sed -i 's/org.kde.discover/appgrid/g' /usr/share/plasma/plasmoids/org.kde.plasma.taskmanager/contents/config/main.xml
+    sed -i 's/org.kde.discover/synaptic/g' /usr/share/plasma/plasmoids/org.kde.plasma.kicker/contents/config/main.xml
+    sed -i 's/org.kde.discover/synaptic/g' /usr/share/plasma/plasmoids/org.kde.plasma.kickoff/contents/config/main.xml
+    sed -i 's/org.kde.discover/synaptic/g' /usr/share/plasma/plasmoids/org.kde.plasma.taskmanager/contents/config/main.xml
     sed -i 's/systemsettings/steam/g' /usr/share/plasma/plasmoids/org.kde.plasma.taskmanager/contents/config/main.xml
     sed -i 's@>preferred://browser,@>firefox.desktop,@g' /usr/share/plasma/plasmoids/org.kde.plasma.kicker/contents/config/main.xml
     sed -i 's@>preferred://browser,@>firefox.desktop,@g' /usr/share/plasma/plasmoids/org.kde.plasma.kickoff/contents/config/main.xml
@@ -441,6 +441,9 @@ if [ -f /XLR ]; then
 EOF
     sudo hardcode-tray --apply --theme Papirus-Dark --size 22
     sudo papirus-folders -C paleorange
+    cat <<EOF |sudo tee /etc/profile.d/gtk-theme.sh
+export GTK_THEME="\$(gsettings get org.gnome.desktop.interface gtk-theme|cut -d "'" -f2)"
+EOF
     cat <<EOF |sudo tee /etc/profile.d/mozilla-pixel-perfect-scrolling.sh
 export MOZ_USE_XINPUT2=1
 EOF
@@ -463,7 +466,7 @@ EOF
     wget -q --show-progress -O /usr/share/xfce4-panel-profiles/layouts/rauldipeas-rhino.tar.bz2 https://github.com/rauldipeas/respin-rdx/raw/main/assets/XFCE/rauldipeas-rhino.tar.bz2
     wget -q --show-progress -O /usr/share/xfce4-panel-profiles/layouts/rauldipeas-superbar.tar.bz2 https://github.com/rauldipeas/respin-rdx/raw/main/assets/XFCE/rauldipeas-superbar.tar.bz2
     wget -q --show-progress -O /usr/share/xfce4-panel-profiles/layouts/rauldipeas-unity.tar.bz2 https://github.com/rauldipeas/respin-rdx/raw/main/assets/XFCE/rauldipeas-unity.tar.bz2
-    sed -i 's/org.gnome.Software/appgrid/g' /etc/skel/.config/xfce4/panel/whiskermenu-1.rc /etc/xdg/xdg-xubuntu/xfce4/whiskermenu/defaults.rc
+    sed -i 's/org.gnome.Software/synaptic/g' /etc/skel/.config/xfce4/panel/whiskermenu-1.rc /etc/xdg/xdg-xubuntu/xfce4/whiskermenu/defaults.rc
     sed -i 's/home" type="bool" value="true/home" type="bool" value="false/g' /etc/xdg/xdg-xubuntu/xfce4/xfconf/xfce-perchannel-xml/xfce4-desktop.xml
     sed -i 's/trash" type="bool" value="true/trash" type="bool" value="false/g' /etc/xdg/xdg-xubuntu/xfce4/xfconf/xfce-perchannel-xml/xfce4-desktop.xml
     sed -i '/tooltip-size/{n;s/  /\    <property name="gravity" type="int" value="2"\/\>\n \ /;}' /etc/xdg/xdg-xubuntu/xfce4/xfconf/xfce-perchannel-xml/xfce4-desktop.xml
