@@ -17,7 +17,7 @@ fi
 sudo apt dist-upgrade -y -o Dpkg::Options::="--force-confdef" --force-yes
 
 # deb-get
-sudo apt install -y deb-get
+#sudo apt install -y deb-get
 
 # Pacstall
 sudo apt install -y pacstall
@@ -30,9 +30,14 @@ set -e
 bash <(wget -qO- https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/get-respin-rdx.sh) "\$1"
 EOF
 chmod +x /usr/local/bin/get-respin-rdx
-cat <<EOF |sudo tee /usr/local/bin/upgrade-respin-rdx
-#!/bin/bash
-set -e
-bash <(wget -qO- https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/upgrade-respin-rdx.sh)
-EOF
-chmod +x /usr/local/bin/upgrade-respin-rdx
+#cat <<EOF |sudo tee /usr/local/bin/upgrade-respin-rdx
+##!/bin/bash
+#set -e
+#bash <(wget -qO- https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/upgrade-respin-rdx.sh)
+#EOF
+#chmod +x /usr/local/bin/upgrade-respin-rdx
+
+# topgrade
+wget -q --show-progress "$(wget -qO- https://api.github.com/repos/topgrade-rs/topgrade/releases|grep browser_download_url|grep x86_64|grep linux-gnu|head -n1|cut -d '"' -f4)"
+tar fxz topgrade-*-x86_64-unknown-linux-gnu.tar.gz 
+sudo mv topgrade /usr/local/bin/
