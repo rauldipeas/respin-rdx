@@ -8,7 +8,7 @@ A few extras are included:
 
 * ~~![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/apps/tux.svg) [**Linux RDX**](https://github.com/rauldipeas/linux-rdx) (my personal Linux kernel build)~~
 * ~~![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/apps/mintsources-ppa.svg) [**Mainline**](https://github.com/cappelikan/mainline) (updating tool for ubuntu kernel)~~
-* ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/apps/tux.svg) [**Linux XanMod**](https://xanmod.org/) (custom Linux kernel)
+* ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/apps/dragonframe4.svg) [**Linux XanMod**](https://xanmod.org/) (custom Linux kernel)
 * ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/devices/cpu.svg) [**CFS Zen tweaks**](https://github.com/igo95862/cfs-zen-tweaks) (task scheduler with responsiveness improvements)
 * ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/devices/media-memory.svg) [**ZSwap**](https://en.wikipedia.org/wiki/Zswap) (alternative memory manager)
 * ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/apps/rsibreak.svg) [**nohang**](https://github.com/hakavlad/nohang) (prevent OOM)
