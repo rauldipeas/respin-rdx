@@ -78,6 +78,10 @@ fi
 # KDocker
 apt install -y kdocker libdbus-glib-1-2
 
+# Kitty
+apt autoremove --purge -y gnome-terminal konsole xfce4-terminal
+apt install -y kitty
+
 # Kubuntu backports
 if [ -f /KDeck ]; then
     add-apt-repository -y ppa:kubuntu-ppa/backports

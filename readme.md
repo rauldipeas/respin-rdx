@@ -31,6 +31,7 @@ A few extras are included:
 * ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/apps/kmenuedit.svg) [**Vala Application Menu**](https://github.com/rilian-la-te/vala-panel-appmenu) (`appmenu` for XFCE panel)
 * ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/apps/cpu-x.svg) [**CPU-X**](https://thetumultuousunicornofdarkness.github.io/CPU-X) (hardware info)
 * ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/apps/deltachat.svg) [**DeltaChat**](https://delta.chat) (e-mail based encrypted instant messenger)
+* ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/apps/kitty.svg) [**Kitty**](https://sw.kovidgoyal.net/kitty/) (GPU based terminal)
 
 The scripts available in this repository are forked from scripts developed by [**Marcos Vallim**](https://github.com/mvallim/live-custom-ubuntu-from-scratch).
 

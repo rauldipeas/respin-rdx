@@ -140,6 +140,9 @@ EOF
     sed -i 's/org.kde.discover/synaptic/g' /usr/share/plasma/plasmoids/org.kde.plasma.kicker/contents/config/main.xml
     sed -i 's/org.kde.discover/synaptic/g' /usr/share/plasma/plasmoids/org.kde.plasma.kickoff/contents/config/main.xml
     sed -i 's/org.kde.discover/synaptic/g' /usr/share/plasma/plasmoids/org.kde.plasma.taskmanager/contents/config/main.xml
+    sed -i 's/org.kde.konsole/kitty/g' /usr/share/plasma/plasmoids/org.kde.plasma.kicker/contents/config/main.xml
+    sed -i 's/org.kde.konsole/kitty/g' /usr/share/plasma/plasmoids/org.kde.plasma.kickoff/contents/config/main.xml
+    sed -i 's/CommandURL=konsole/CommandURL=kitty/g' /usr/share/khotkeys/kde32b1.khotkeys
     sed -i 's@>preferred://browser,@>firefox.desktop,@g' /usr/share/plasma/plasmoids/org.kde.plasma.kicker/contents/config/main.xml
     sed -i 's@>preferred://browser,@>firefox.desktop,@g' /usr/share/plasma/plasmoids/org.kde.plasma.kickoff/contents/config/main.xml
     sed -i 's@,preferred://browser<@,applications:firefox.desktop<@g' /usr/share/plasma/plasmoids/org.kde.plasma.taskmanager/contents/config/main.xml
@@ -276,6 +279,7 @@ EOF
     sed -i 's/Greybird/Greybird-dark/g' /etc/xdg/xdg-xubuntu/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml
     sed -i 's/elementary-xfce-darker/Papirus-Dark/g' /etc/xdg/xdg-xubuntu/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml
     sed -i "/color-scheme/{n;s/'default'/'prefer-dark'/;}" /usr/share/glib-2.0/schemas/org.gnome.desktop.interface.gschema.xml
+    sed -i 's/xfce4-terminal/kitty/g' /etc/xdg/xdg-xubuntu/xfce4/helpers.rc
 fi
 ## Cinnamon Lite
 if [ -f /UCL ]; then
@@ -326,6 +330,7 @@ EOF
     sed -i '/picture-uri/{n;s@themes/Adwaita/backgrounds/adwaita-timed.xml@backgrounds/DSC2943_by_kcpru.jpg@;}' /usr/share/glib-2.0/schemas/org.cinnamon.desktop.background.gschema.xml
     sed -i 's/tango/oblivion/g' /usr/share/glib-2.0/schemas/org.gnome.gedit.gschema.xml
     sed -i '/tap-to-click/{n;s/false/true/;}' /usr/share/glib-2.0/schemas/org.cinnamon.settings-daemon.peripherals.gschema.xml
+    sed -i '/natural-scroll/{n;s/false/true/;}' /usr/share/glib-2.0/schemas/org.cinnamon.settings-daemon.peripherals.gschema.xml
     sed -i '/theme/{n;s/Default/Flat-Remix-Darkest-Metacity/;}' /usr/share/glib-2.0/schemas/org.cinnamon.desktop.wm.preferences.gschema.xml
     rm /usr/share/glib-2.0/schemas/{10_cinnamon-core.gschema.override,10_cinnamon-settings-daemon.gschema.override}
     sed -i "/color-scheme/{n;s/'default'/'prefer-dark'/;}" /usr/share/glib-2.0/schemas/org.gnome.desktop.interface.gschema.xml
@@ -337,6 +342,8 @@ EOF
     sed -i 's@#background=@background=/usr/share/backgrounds/DSC2943_by_kcpru.jpg@g' /etc/lightdm/lightdm-gtk-greeter.conf
     sed -i 's/#theme-name=/theme-name=Flat-Remix-GTK-Brown-Darkest/g' /etc/lightdm/lightdm-gtk-greeter.conf
     sed -i 's/#icon-theme-name=/icon-theme-name=Papirus-Dark/g' /etc/lightdm/lightdm-gtk-greeter.conf
+    sed -i 's/gnome-terminal/kitty/g' /usr/share/glib-2.0/schemas/org.cinnamon.desktop.default-applications.gschema.xml
+    sed -i 's/org.gnome.Terminal/kitty/g' /usr/share/glib-2.0/schemas/org.cinnamon.gschema.xml
     echo '[SeatDefaults]'|tee -a /etc/lightdm/lightdm.conf.d/50-user-session.conf
     echo 'user-session=cinnamon'|tee -a /etc/lightdm/lightdm.conf.d/50-user-session.conf
 fi
@@ -440,9 +447,9 @@ if [ -f /XLR ]; then
 EOF
     sudo hardcode-tray --apply --theme Papirus-Dark --size 22
     sudo papirus-folders -C paleorange
-    cat <<EOF |sudo tee /etc/profile.d/gtk-theme.sh
-export GTK_THEME="\$(gsettings get org.gnome.desktop.interface gtk-theme|cut -d "'" -f2)"
-EOF
+    #cat <<EOF |sudo tee /etc/profile.d/gtk-theme.sh
+#export GTK_THEME="\$(gsettings get org.gnome.desktop.interface gtk-theme|cut -d "'" -f2)"
+#EOF
     cat <<EOF |sudo tee /etc/profile.d/mozilla-pixel-perfect-scrolling.sh
 export MOZ_USE_XINPUT2=1
 EOF
@@ -479,6 +486,7 @@ EOF
     sed -i 's/Noto Sans/FreeSans/g' /etc/xdg/xdg-xubuntu/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml
     sed -i 's/elementary-xfce-darker/Papirus-Dark/g' /etc/xdg/xdg-xubuntu/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml
     sed -i "/color-scheme/{n;s/'default'/'prefer-dark'/;}" /usr/share/glib-2.0/schemas/org.gnome.desktop.interface.gschema.xml
+    sed -i 's/xfce4-terminal/kitty/g' /etc/xdg/xdg-xubuntu/xfce4/helpers.rc
 fi
 
 # Ubiquity
