@@ -1,0 +1,31 @@
+#!/bin/bash
+set -e
+# Ubuntu
+if [ -f /Ubuntu ]; then
+    echo 'Ubuntu'
+    wget -q --show-progress -O /usr/share/hardcode-tray/database/deltachat.json https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/hardcode-tray/deltachat.json
+    wget -q --show-progress -O /usr/share/hardcode-tray/database/deltachat.electron.json https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/hardcode-tray/deltachat.electron.json
+    cat <<EOF |tee /etc/skel/.config/hardcode-tray.json
+{
+    "icons": {
+        "theme": "Papirus-Dark",
+        "size": 16
+    },
+    "backup_ignore": true
+}
+EOF
+    sudo hardcode-tray --apply --theme Papirus-Dark --size 16
+    sudo papirus-folders -C yaru
+    cat <<EOF |sudo tee /etc/profile.d/mozilla-pixel-perfect-scrolling.sh
+export MOZ_USE_XINPUT2=1
+EOF
+    cat <<EOF |sudo tee /etc/profile.d/qt-qpa-platformtheme.sh
+export QT_QPA_PLATFORMTHEME=gtk2
+EOF
+    sed -i 's/firefox_firefox/firefox/g' /usr/share/glib-2.0/schemas/10_ubuntu-settings.gschema.override
+    sed -i 's/gnome-terminal/kitty/g' /usr/share/glib-2.0/schemas/org.gnome.desktop.default-applications.gschema.xml
+    sed -i 's/gtk-theme = "Yaru"/gtk-theme = "Yaru-dark"/g' /usr/share/glib-2.0/schemas/10_ubuntu-settings.gschema.override
+    sed -i 's/icon-theme = "Yaru"/icon-theme = "Papirus-Dark"/g' /usr/share/glib-2.0/schemas/10_ubuntu-settings.gschema.override
+    sed -i 's/snap-store_ubuntu-software/synaptic/g' /usr/share/glib-2.0/schemas/10_ubuntu-settings.gschema.override
+    sed -i 's/warty-final-ubuntu.png/DSC2943_by_kcpru.jpg/g' /usr/share/glib-2.0/schemas/10_ubuntu-settings.gschema.override
+fi
