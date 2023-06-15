@@ -11,3 +11,4 @@ bash -x enhancements/thunderbird.sh
 bash -x enhancements/extras.sh
 bash -x enhancements/desktop.sh
 bash -x enhancements/plymouth.sh
+bash -x enhancements/apt.sh

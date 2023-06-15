@@ -24,6 +24,7 @@ export QT_QPA_PLATFORMTHEME=gtk2
 EOF
     sed -i 's/firefox_firefox/firefox/g' /usr/share/glib-2.0/schemas/10_ubuntu-settings.gschema.override
     sed -i 's/gnome-terminal/kitty/g' /usr/share/glib-2.0/schemas/org.gnome.desktop.default-applications.gschema.xml
+    sed -i 's/x-terminal-emulator/kitty/g' /usr/share/glib-2.0/schemas/10_gsettings-desktop-schemas.gschema.override
     sed -i 's/gtk-theme = "Yaru"/gtk-theme = "Yaru-dark"/g' /usr/share/glib-2.0/schemas/10_ubuntu-settings.gschema.override
     sed -i 's/icon-theme = "Yaru"/icon-theme = "Papirus-Dark"/g' /usr/share/glib-2.0/schemas/10_ubuntu-settings.gschema.override
     sed -i 's/snap-store_ubuntu-software/synaptic/g' /usr/share/glib-2.0/schemas/10_ubuntu-settings.gschema.override
