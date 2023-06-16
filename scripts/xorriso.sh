@@ -32,6 +32,7 @@ cat /usr/lib/grub/i386-pc/cdboot.img isolinux/core.img>isolinux/bios.img
 sudo bash -c "(find . -type f -print0|xargs -0 md5sum|grep -v -e 'md5sum.txt' -e 'bios.img' -e 'efiboot.img'|tee md5sum.txt>/dev/null)"
 
 # xorriso
+mkdir -p /home/runner/work/respin-rdx/iso
 sudo xorriso\
    -as mkisofs\
    -iso-level 3\
