@@ -45,4 +45,5 @@ EOF
     sed -i 's/gnome-terminal/kitty/g' /usr/share/glib-2.0/schemas/org.gnome.desktop.default-applications.gschema.xml
     sed -i 's/org.gnome.Evolution/thunderbird/g' /usr/share/glib-2.0/schemas/10_gnome-shell.gschema.override
     sed -i 's/org.gnome.Software/synaptic/g' /usr/share/glib-2.0/schemas/10_gnome-shell.gschema.override
+    sed -i 's/x-terminal-emulator/kitty/g' /usr/share/glib-2.0/schemas/10_gsettings-desktop-schemas.gschema.override
 fi

@@ -65,4 +65,5 @@ EOF
     sed -i "s/panel1:right:10/panel1:right:8/g" /usr/share/glib-2.0/schemas/org.cinnamon.gschema.xml
     sed -i 's/tango/oblivion/g' /usr/share/glib-2.0/schemas/org.gnome.gedit.gschema.xml
     sed -i 's/#theme-name=/theme-name=Flat-Remix-GTK-Brown-Darkest/g' /etc/lightdm/lightdm-gtk-greeter.conf
+    sed -i 's/x-terminal-emulator/kitty/g' /usr/share/glib-2.0/schemas/10_gsettings-desktop-schemas.gschema.override
 fi
