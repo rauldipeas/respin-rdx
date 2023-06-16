@@ -39,12 +39,12 @@ jobs:
           name: kdeck-respin-rdx
           path: /home/runner/work/respin-rdx/kdeck-respin-rdx.iso
       - name: Envio dos artefatos para o MEGA
-        uses: Siege-Wizard/mega-upload@main
+        uses: Difegue/action-megacmd@master
         with:
-          file: /home/runner/work/respin-rdx/kdeck-respin-rdx.iso
+          args: put /home/runner/work/respin-rdx/kdeck-respin-rdx.iso /respin-rdx/
         env:
           USERNAME: ${{ secrets.MEGA_USERNAME }}
-          PASSWORD: ${{ secrets.MEGA_PASSWORD }}
+          PASSWORD: ${{ secrets.MEGA_PASSWORD }}          
       - name: Limpeza de logs antigos
         run: bash -x scripts/actions-cleanup.sh
         env:
