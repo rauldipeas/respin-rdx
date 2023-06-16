@@ -38,6 +38,13 @@ jobs:
         with:
           name: kubuntu-respin-rdx
           path: /home/runner/work/respin-rdx/kubuntu-respin-rdx.iso
+      - name: Envio dos artefatos para o MEGA
+        uses: Siege-Wizard/mega-upload@1.0.1
+        with:
+          file: /home/runner/work/respin-rdx/kubuntu-respin-rdx.iso
+        env:
+          USERNAME: ${{ secrets.MEGA_USERNAME }}
+          PASSWORD: ${{ secrets.MEGA_PASSWORD }}      
       - name: Limpeza de logs antigos
         run: bash -x scripts/actions-cleanup.sh
         env:
