@@ -37,7 +37,7 @@ sudo xorriso\
    -iso-level 3\
    -full-iso9660-filenames\
    -volid 'Respin RDX'\
-   -output "/home/runner/work/respin-rdx/$ISO_NAME-respin-rdx.iso"\
+   -output "/home/runner/work/respin-rdx/iso/$ISO_NAME-respin-rdx.iso"\
    -eltorito-boot boot/grub/bios.img\
    -no-emul-boot\
    -boot-load-size 4\
