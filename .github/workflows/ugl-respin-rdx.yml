@@ -39,7 +39,7 @@ jobs:
           name: ugl-respin-rdx
           path: /home/runner/work/respin-rdx/ugl-respin-rdx.iso
       - name: Envio dos artefatos para o MEGA
-        uses: Siege-Wizard/mega-upload@master
+        uses: Siege-Wizard/mega-upload@main
         with:
           file: /home/runner/work/respin-rdx/ugl-respin-rdx.iso
         env:
