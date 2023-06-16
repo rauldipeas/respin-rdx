@@ -33,18 +33,18 @@ jobs:
           CHROOT: respin-rdx/ubuntu-chroot
           FLAVOUR_ID: Ubuntu
           ISO_NAME: ubuntu
+      - name: Envio dos artefatos para o MEGA
+        uses: Difegue/action-megacmd@master
+        with:
+          args: put $(find / -name "*-respin-rdx.iso") -c /respin-rdx/
+        env:
+          USERNAME: ${{ secrets.MEGA_USERNAME }}
+          PASSWORD: ${{ secrets.MEGA_PASSWORD }}
       - name: Envio dos artefatos
         uses: actions/upload-artifact@v3
         with:
           name: ubuntu-respin-rdx
           path: /home/runner/work/respin-rdx/ubuntu-respin-rdx.iso
-      - name: Envio dos artefatos para o MEGA
-        uses: Difegue/action-megacmd@master
-        with:
-          args: put /home/runner/work/respin-rdx/ubuntu-respin-rdx.iso -c /respin-rdx/
-        env:
-          USERNAME: ${{ secrets.MEGA_USERNAME }}
-          PASSWORD: ${{ secrets.MEGA_PASSWORD }}
       - name: Limpeza de logs antigos
         run: bash -x scripts/actions-cleanup.sh
         env:
