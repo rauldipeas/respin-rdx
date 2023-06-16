@@ -24,6 +24,7 @@ apt install -y\
     gnome-shell-extension-appindicator\
     gnome-system-monitor\
     gnome-text-editor\
+    gnome-themes-standard\
     gthumb\
     mplayer\
     nautilus\
