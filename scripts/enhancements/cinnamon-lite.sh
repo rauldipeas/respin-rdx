@@ -9,7 +9,7 @@ apt autoremove --purge -y\
     ubuntu-session*\
     update-manager-core*\
     yaru*
-sudo add-apt-repository -y ppa:daniruiz/flat-remix
+add-apt-repository -y ppa:daniruiz/flat-remix
 apt install --no-install-recommends -y cinnamon-core w3m
 apt install -y\
     apturl\

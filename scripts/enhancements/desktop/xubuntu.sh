@@ -14,12 +14,12 @@ if [ -f /Xubuntu ]; then
     "backup_ignore": true
 }
 EOF
-    sudo hardcode-tray --apply --theme Papirus-Dark --size 22
-    sudo papirus-folders -C paleorange
-    cat <<EOF |sudo tee /etc/profile.d/mozilla-pixel-perfect-scrolling.sh
+    hardcode-tray --apply --theme Papirus-Dark --size 22
+    papirus-folders -C paleorange
+    cat <<EOF |tee /etc/profile.d/mozilla-pixel-perfect-scrolling.sh
 export MOZ_USE_XINPUT2=1
 EOF
-    cat <<EOF |sudo tee /etc/profile.d/qt-qpa-platformtheme.sh
+    cat <<EOF |tee /etc/profile.d/qt-qpa-platformtheme.sh
 export QT_QPA_PLATFORMTHEME=gtk2
 EOF
     rm -r /etc/skel/.config/libreoffice

@@ -14,12 +14,12 @@ if [ -f /Ubuntu ]; then
     "backup_ignore": true
 }
 EOF
-    sudo hardcode-tray --apply --theme Papirus-Dark --size 16
-    sudo papirus-folders -C yaru
-    cat <<EOF |sudo tee /etc/profile.d/mozilla-pixel-perfect-scrolling.sh
+    hardcode-tray --apply --theme Papirus-Dark --size 16
+    papirus-folders -C yaru
+    cat <<EOF |tee /etc/profile.d/mozilla-pixel-perfect-scrolling.sh
 export MOZ_USE_XINPUT2=1
 EOF
-    cat <<EOF |sudo tee /etc/profile.d/qt-qpa-platformtheme.sh
+    cat <<EOF |tee /etc/profile.d/qt-qpa-platformtheme.sh
 export QT_QPA_PLATFORMTHEME=gtk2
 EOF
     sed -i 's/firefox_firefox/firefox/g' /usr/share/glib-2.0/schemas/10_ubuntu-settings.gschema.override

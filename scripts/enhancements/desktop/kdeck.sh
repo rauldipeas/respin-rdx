@@ -15,9 +15,9 @@ if [ -f /KDeck ]; then
     "backup_ignore": true
 }
 EOF
-    sudo hardcode-tray --apply --theme Papirus-Dark --size 22
-    sudo papirus-folders -C violet
-    cat <<EOF |sudo tee /etc/profile.d/mozilla-pixel-perfect-scrolling.sh
+    hardcode-tray --apply --theme Papirus-Dark --size 22
+    papirus-folders -C violet
+    cat <<EOF |tee /etc/profile.d/mozilla-pixel-perfect-scrolling.sh
 export MOZ_USE_XINPUT2=1
 EOF
     wget -q --show-progress -O /usr/share/color-schemes/BreezeBlack.colors https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/KDE/BreezeBlack.colors
@@ -37,7 +37,7 @@ EOF
     sed -i 's/%U/-gamepadui/g' /etc/xdg/autostart/steam.desktop
 #    sed -i 's/plasma/steamos/g' /var/lib/sddm/state.conf
     mkdir -p /etc/sddm.conf.d
-    cat <<EOF |sudo tee /etc/sddm.conf.d/kdeck.conf
+    cat <<EOF |tee /etc/sddm.conf.d/kdeck.conf
 [Autologin]
 Session=/usr/share/xsessions/steamos.desktop
 EOF

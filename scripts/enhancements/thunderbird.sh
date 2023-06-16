@@ -4,13 +4,13 @@ set -e
 # Thunderbird
 wget -cq --show-progress -O thunderbird-latest-linux64-pt-br.tar.bz2 'https://download.mozilla.org/?product=thunderbird-latest&os=linux64&lang=pt-BR'
 tar fjx thunderbird-latest-linux64-pt-br.tar.bz2
-sudo mkdir -p /opt/thunderbird
-sudo chmod 777 /opt/thunderbird
+mkdir -p /opt/thunderbird
+chmod 777 /opt/thunderbird
 mv thunderbird/* /opt/thunderbird/
-sudo mkdir -p /usr/local/bin /usr/local/share/applications /usr/local/share/pixmaps
-sudo ln -fs /opt/thunderbird/thunderbird /usr/local/bin/thunderbird
-sudo ln -fs /opt/thunderbird/chrome/icons/default/default128.png /usr/local/share/pixmaps/thunderbird.png
-cat <<EOF |sudo tee /usr/local/share/applications/thunderbird.desktop>/dev/null
+mkdir -p /usr/local/bin /usr/local/share/applications /usr/local/share/pixmaps
+ln -fs /opt/thunderbird/thunderbird /usr/local/bin/thunderbird
+ln -fs /opt/thunderbird/chrome/icons/default/default128.png /usr/local/share/pixmaps/thunderbird.png
+cat <<EOF |tee /usr/local/share/applications/thunderbird.desktop>/dev/null
 [Desktop Entry]
 Encoding=UTF-8
 Name=Thunderbird

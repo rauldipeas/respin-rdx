@@ -41,7 +41,7 @@ jobs:
       - name: Envio dos artefatos para o MEGA
         uses: Difegue/action-megacmd@master
         with:
-          args: put /home/runner/work/respin-rdx/ugl-respin-rdx.iso /respin-rdx/
+          args: put /home/runner/work/respin-rdx/ugl-respin-rdx.iso -c /respin-rdx/
         env:
           USERNAME: ${{ secrets.MEGA_USERNAME }}
           PASSWORD: ${{ secrets.MEGA_PASSWORD }}

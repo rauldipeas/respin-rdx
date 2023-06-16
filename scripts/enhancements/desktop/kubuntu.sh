@@ -14,9 +14,9 @@ if [ -f /Kubuntu ]; then
     "backup_ignore": true
 }
 EOF
-    sudo hardcode-tray --apply --theme Papirus-Dark --size 22
-    sudo papirus-folders -C breeze
-    cat <<EOF |sudo tee /etc/profile.d/mozilla-pixel-perfect-scrolling.sh
+    hardcode-tray --apply --theme Papirus-Dark --size 22
+    papirus-folders -C breeze
+    cat <<EOF |tee /etc/profile.d/mozilla-pixel-perfect-scrolling.sh
 export MOZ_USE_XINPUT2=1
 EOF
     echo 'gtk-application-prefer-dark-theme=true'|tee -a /etc/gtk-3.0/settings.ini

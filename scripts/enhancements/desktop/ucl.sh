@@ -15,12 +15,12 @@ if [ -f /UCL ]; then
     "backup_ignore": true
 }
 EOF
-    sudo hardcode-tray --apply --theme Papirus-Dark --size 24
-    sudo papirus-folders -C orange
-    cat <<EOF |sudo tee /etc/profile.d/mozilla-pixel-perfect-scrolling.sh
+    hardcode-tray --apply --theme Papirus-Dark --size 24
+    papirus-folders -C orange
+    cat <<EOF |tee /etc/profile.d/mozilla-pixel-perfect-scrolling.sh
 export MOZ_USE_XINPUT2=1
 EOF
-    cat <<EOF |sudo tee /etc/profile.d/qt-qpa-platformtheme.sh
+    cat <<EOF |tee /etc/profile.d/qt-qpa-platformtheme.sh
 export QT_QPA_PLATFORMTHEME=gtk2
 EOF
     cp /usr/share/applications/info.desktop /usr/local/share/applications/

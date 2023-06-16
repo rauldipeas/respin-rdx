@@ -22,7 +22,7 @@ sed -i 's/#EXTRA_GROUPS=/EXTRA_GROUPS=/g' /etc/adduser.conf
 echo 'GRUB_CMDLINE_LINUX_DEFAULT="cpufreq.default_governor=performance logo.nologo loglevel=0 mitigations=off preempt=full quiet splash threadirqs vt.global_cursor_default=0 zswap.enabled=1 zswap.compressor=lz4"'|tee /etc/default/grub.d/cmdline-linux-default.cfg>/dev/null
 
 # GVFS
-sudo apt autoremove --purge -y gvfs-fuse
+apt autoremove --purge -y gvfs-fuse
 
 # Swappiness
 echo 'vm.swappiness = 10'|tee /etc/sysctl.d/swappiness.conf>/dev/null

@@ -19,7 +19,7 @@ apt autoremove --purge -y\
     usb-creator*\
     vlc*
 dpkg --add-architecture i386
-sudo add-apt-repository -y ppa:libretro/stable
+add-apt-repository -y ppa:libretro/stable
 wget -q --show-progress https://cdn.akamai.steamstatic.com/client/installer/steam.deb
 apt install -y\
     boilr\
