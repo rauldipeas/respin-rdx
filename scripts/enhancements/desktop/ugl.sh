@@ -16,7 +16,7 @@ if [ -f /UGL ]; then
 }
 EOF
     hardcode-tray --apply --theme Papirus-Dark --size 16
-    papirus-folders -C adwaita
+    sudo papirus-folders -C adwaita
     cat <<EOF |tee /etc/profile.d/mozilla-pixel-perfect-scrolling.sh
 export MOZ_USE_XINPUT2=1
 EOF

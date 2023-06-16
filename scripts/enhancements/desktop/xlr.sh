@@ -16,7 +16,7 @@ if [ -f /XLR ]; then
 }
 EOF
     hardcode-tray --apply --theme Papirus-Dark --size 22
-    papirus-folders -C paleorange
+    sudo papirus-folders -C paleorange
     #cat <<EOF |tee /etc/profile.d/gtk-theme.sh
 #export GTK_THEME="\$(gsettings get org.gnome.desktop.interface gtk-theme|cut -d "'" -f2)"
 #EOF

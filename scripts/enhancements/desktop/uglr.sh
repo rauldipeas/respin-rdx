@@ -16,7 +16,7 @@ if [ -f /UGLR ]; then
 }
 EOF
     hardcode-tray --apply --theme Papirus-Dark --size 16
-    papirus-folders -C adwaita
+    sudo papirus-folders -C adwaita
     cat <<EOF |tee /etc/profile.d/gtk-theme.sh
 export GTK_THEME="\$(gsettings get org.gnome.desktop.interface gtk-theme|cut -d "'" -f2)"
 EOF

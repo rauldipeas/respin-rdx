@@ -16,7 +16,7 @@ if [ -f /UCL ]; then
 }
 EOF
     hardcode-tray --apply --theme Papirus-Dark --size 24
-    papirus-folders -C orange
+    sudo papirus-folders -C orange
     cat <<EOF |tee /etc/profile.d/mozilla-pixel-perfect-scrolling.sh
 export MOZ_USE_XINPUT2=1
 EOF

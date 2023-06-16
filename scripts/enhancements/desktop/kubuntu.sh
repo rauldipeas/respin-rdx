@@ -15,7 +15,7 @@ if [ -f /Kubuntu ]; then
 }
 EOF
     hardcode-tray --apply --theme Papirus-Dark --size 22
-    papirus-folders -C breeze
+    sudo papirus-folders -C breeze
     cat <<EOF |tee /etc/profile.d/mozilla-pixel-perfect-scrolling.sh
 export MOZ_USE_XINPUT2=1
 EOF

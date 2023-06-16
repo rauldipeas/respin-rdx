@@ -16,7 +16,7 @@ if [ -f /KDeck ]; then
 }
 EOF
     hardcode-tray --apply --theme Papirus-Dark --size 22
-    papirus-folders -C violet
+    sudo papirus-folders -C violet
     cat <<EOF |tee /etc/profile.d/mozilla-pixel-perfect-scrolling.sh
 export MOZ_USE_XINPUT2=1
 EOF

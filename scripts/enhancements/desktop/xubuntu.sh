@@ -15,7 +15,7 @@ if [ -f /Xubuntu ]; then
 }
 EOF
     hardcode-tray --apply --theme Papirus-Dark --size 22
-    papirus-folders -C paleorange
+    sudo papirus-folders -C paleorange
     cat <<EOF |tee /etc/profile.d/mozilla-pixel-perfect-scrolling.sh
 export MOZ_USE_XINPUT2=1
 EOF
