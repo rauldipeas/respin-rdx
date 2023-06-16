@@ -34,12 +34,9 @@ jobs:
           FLAVOUR_ID: Xubuntu
           ISO_NAME: xubuntu
       - name: Envio dos artefatos para o MEGA
-        uses: Difegue/action-megacmd@master
-        with:
-          args: put /home/runner/work/respin-rdx/iso -c /respin-rdx/
-        env:
-          USERNAME: ${{ secrets.MEGA_USERNAME }}
-          PASSWORD: ${{ secrets.MEGA_PASSWORD }}
+        run: |
+          mega-login ${{ secrets.MEGA_USERNAME }} ${{ secrets.MEGA_PASSWORD }}
+          mega-put -c /home/runner/work/respin-rdx/iso/xubuntu-respin-rdx.iso /respin-rdx/
       - name: Envio dos artefatos
         uses: actions/upload-artifact@v3
         with:
