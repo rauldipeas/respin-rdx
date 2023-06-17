@@ -39,8 +39,9 @@ apt install -y\
     wireplumber\
     xdg-user-dirs-gtk
 wget -q --show-progress https://cdn.akamai.steamstatic.com/client/installer/steam.deb
+apt install -y ./steam.deb
+apt update
 apt install -y\
-    ./steam.deb\
     steam-libs-amd64\
     steam-libs-i386:i386
 wget -q --show-progress "$(wget -qO- --header="X-Auth-Token: $GITHUB_TOKEN" https://api.github.com/repos/flightlessmango/MangoHud/releases|grep browser_download_url|grep tar.gz|head -n1|cut -d '"' -f4)"
