@@ -29,9 +29,6 @@ EOF
     tar fx adw-gtk3*.tar.xz -C /usr/share/themes/
     mkdir -p /etc/skel/.config/smplayer
     wget -q --show-progress -O /etc/skel/.config/smplayer/smplayer.ini https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/smplayer/smplayer.ini
-    git clone https://github.com/tkashkin/Adwaita-for-Steam
-    mkdir -p /etc/skel/.local/share/Steam/skins
-    mv Adwaita-for-Steam/Adwaita /etc/skel/.local/share/Steam/skins/
     sed -i "/color-scheme/{n;s/'default'/'prefer-dark'/;}" /usr/share/glib-2.0/schemas/org.gnome.desktop.interface.gschema.xml
     sed -i '/cursor-theme/{n;s/Adwaita/DMZ-White/;}' /usr/share/glib-2.0/schemas/org.gnome.desktop.interface.gschema.xml
     sed -i "/enabled-extensions/{n;s/\[\]/\['ubuntu-appindicators@ubuntu.com'\]/;}" /usr/share/glib-2.0/schemas/org.gnome.shell.gschema.xml
