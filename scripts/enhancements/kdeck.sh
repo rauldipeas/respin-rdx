@@ -25,7 +25,7 @@ apt install -y\
     boilr\
     emulationstation-de\
     gamemode\
-    libssl1.1\
+    libgl1-mesa-glx:i386\
     mplayer\
     retroarch\
     smplayer\
