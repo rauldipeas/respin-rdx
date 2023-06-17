@@ -30,6 +30,8 @@ apt install -y\
     retroarch\
     smplayer\
     ./steam.deb\
+    steam-libs-amd64\
+    steam-libs-i386:i386
     steamos-compositor-plus
 wget -q --show-progress "$(wget -qO- --header="X-Auth-Token: $GITHUB_TOKEN" https://api.github.com/repos/flightlessmango/MangoHud/releases|grep browser_download_url|grep tar.gz|head -n1|cut -d '"' -f4)"
 tar fxz MangoHud*.tar.gz
