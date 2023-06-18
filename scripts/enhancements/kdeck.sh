@@ -4,6 +4,7 @@ set -e
 # Kubuntu Deck
 apt autoremove --purge -y\
     elisa*\
+    kde-config-tablet*\
     kdeconnect*\
     kmahjongg*\
     kmines*\
@@ -13,6 +14,7 @@ apt autoremove --purge -y\
     ksudoku*\
     ktorrent*\
     libreoffice*\
+    muon*\
     partitionmanager*\
     pavucontrol*\
     skanlite*\
