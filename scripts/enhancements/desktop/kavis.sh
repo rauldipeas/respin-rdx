@@ -32,7 +32,7 @@ EOF
     cp -r materia-kde/plasma/desktoptheme/Materia/icons /usr/share/plasma/desktoptheme/breeze-dark/
     cp -r materia-kde/plasma/desktoptheme/Materia-Color/icons /usr/share/plasma/desktoptheme/breeze-light/
     cp /usr/share/applications/cadence.desktop /etc/xdg/autostart/
-    sed -i 's@applications:systemsettings.desktop,applications:org.kde.discover.desktop,preferred://filemanager,preferred://browser@preferred://filemanager,applications:firefox.desktop@g,applications:cockos-reaper.desktop,applications:org.kde.kdenlive.desktop,applications:gimp.desktop' /usr/share/plasma/plasmoids/org.kde.plasma.taskmanager/contents/config/main.xml
+    sed -i 's@applications:systemsettings.desktop,applications:org.kde.discover.desktop,preferred://filemanager,preferred://browser@preferred://filemanager,applications:firefox.desktop,applications:cockos-reaper.desktop,applications:org.kde.kdenlive.desktop,applications:gimp.desktop@g' /usr/share/plasma/plasmoids/org.kde.plasma.taskmanager/contents/config/main.xml
     sed -i 's@>preferred://browser,@>firefox.desktop,@g' /usr/share/plasma/plasmoids/org.kde.plasma.kicker/contents/config/main.xml
     sed -i 's@>preferred://browser,@>firefox.desktop,@g' /usr/share/plasma/plasmoids/org.kde.plasma.kickoff/contents/config/main.xml
     sed -i '/DataCount=8/{n;s/Enabled=false/Enabled=true/;}' /usr/share/khotkeys/kde32b1.khotkeys
