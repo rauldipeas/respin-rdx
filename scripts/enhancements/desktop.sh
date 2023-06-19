@@ -11,6 +11,7 @@ bash -x enhancements/desktop/ugl.sh
 bash -x enhancements/desktop/uglr.sh
 bash -x enhancements/desktop/xlr.sh
 bash -x enhancements/desktop/kdeck.sh
+bash -x enhancements/desktop/kavis.sh
 
 # Ubiquity
 find /usr/share/applications -name "*ubiquity*.desktop" -delete

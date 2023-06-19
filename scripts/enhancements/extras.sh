@@ -40,6 +40,8 @@ if [ -f /Neon ]; then
     flatpak install -y org.gtk.Gtk3theme.Greybird-dark
     elif [ -f /Kubuntu ]; then
     echo 'Kubuntu'
+    elif [ -f /KAVIS ]; then
+    echo 'Kubuntu Audio Video Image Studio'
     elif [ -f /KDeck ]; then
     echo 'Kubuntu Deck'
     apt install -y --no-install-recommends plasma-discover-backend-flatpak
@@ -84,6 +86,9 @@ apt autoremove --purge -y gnome-terminal konsole xfce4-terminal
 
 # Kubuntu backports
 if [ -f /KDeck ]; then
+    add-apt-repository -y ppa:kubuntu-ppa/backports
+    apt dist-upgrade -y
+    elif [ -f /KAVIS ]; then
     add-apt-repository -y ppa:kubuntu-ppa/backports
     apt dist-upgrade -y
 fi
@@ -151,6 +156,8 @@ if [ -f /Kubuntu ]; then
     echo 'Qt environment'
     elif [ -f /KDeck ]; then
     echo 'Qt environment'
+    elif [ -f /KAVIS ]; then
+    echo 'Qt environment'    
     elif [ -f /Neon ]; then
     echo 'Qt environment'
     else

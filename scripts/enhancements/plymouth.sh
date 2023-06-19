@@ -10,7 +10,10 @@ cd ..
 rm -rf vortex-ubuntu-plymouth-theme
 sed -i 's/logo_image = logo_image.Scale (120 * s , 120 * s);/logo_image = logo_image.Scale (128 * s , 128 * s);/g' /usr/share/plymouth/themes/vortex-ubuntu/vortex-ubuntu.script
 apt install -y imagemagick-6.q16
-if [ -f /KDeck ];then
+if [ -f /KAVIS ];then
+    wget -q --show-progress https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/plymouth/kavis.svg
+    convert -density 1200 -resize 128x128 -background none kavis.svg /usr/share/plymouth/themes/vortex-ubuntu/logo.png
+    elif [ -f /KDeck ];then
     wget -q --show-progress https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/plymouth/kdeck.png
     convert -density 1200 -resize 128x128 -background none kdeck.png /usr/share/plymouth/themes/vortex-ubuntu/logo.png
     elif [ -f /Kubuntu ];then
