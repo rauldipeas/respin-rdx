@@ -2,7 +2,7 @@
 set -e
 # Kubuntu Autio Video Image Studio
 if [ -f /KAVIS ]; then
-    echo 'Kubuntu Audio Video Image Studio'
+    echo 'KAVIS'
     bash -x enhancements/kavis.sh
     wget -q --show-progress -O /usr/share/hardcode-tray/database/deltachat.json https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/hardcode-tray/deltachat.json
     wget -q --show-progress -O /usr/share/hardcode-tray/database/deltachat.electron.json https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/hardcode-tray/deltachat.electron.json
@@ -58,7 +58,7 @@ Theme=Papirus-Dark
 name=breeze-alphablack
 
 [Wallpaper]
-Image=Shell
+Image=Flow
 
 [kcminputrc][Mouse]
 cursorTheme=Breeze_Snow

@@ -16,7 +16,6 @@ apt remove --purge -y\
     xfburn\
     xfce4-dict
 sed -i 's/jammy/devel/g' /etc/apt/sources.list
-dpkg --add-architecture i386
 apt update
 export DEBIAN_FRONTEND=noninteractive
 cat <<EOF |tee /etc/apt/preferences.d/nosnap.pref
