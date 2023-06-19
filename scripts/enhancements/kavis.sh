@@ -40,10 +40,12 @@ apt install -y\
     mediainfo\
     mediainfo-gui\
     mplayer\
+    mystiq\
     neurontube\
     obs-studio\
     q4wine\
     shotwell\
+    simplescreenrecorder\
     smplayer\
     spotube\
     tonelib*\
@@ -51,6 +53,8 @@ apt install -y\
     yabridge\
     wine-tkg\
     winetricks
+wget -q --show-progress http://mirrors.kernel.org/ubuntu/pool/universe/p/plasma-welcome/"$(wget -qO- http://mirrors.kernel.org/ubuntu/pool/universe/p/plasma-welcome|grep amd64.deb|tail -n1|cut -d '"' -f2)"
+apt install ./plasma-welcome*.deb
 mkdir -p /etc/skel/.audacity-data/Theme
 wget -q --show-progress -O /etc/skel/.audacity-data/Theme/ImageCache.png https://github.com/visoart/audacity-themes/raw/master/themes/dark-blue/ImageCache.png
 mkdir -p /etc/skel/.config/REAPER/{LangPack,UserPlugins}
