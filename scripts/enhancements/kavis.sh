@@ -37,14 +37,18 @@ apt install -y\
     kcolorchooser\
     kdenlive\
     krename\
+    libgegl-0.4-0\
+    libmypaint-1.5-1\
     mediainfo\
     mediainfo-gui\
+    mini-video-me\
     mplayer\
     mystiq\
     neurontube\
     obs-studio\
     q4wine\
     shotwell\
+    sfizz\
     simplescreenrecorder\
     smplayer\
     spotube\
