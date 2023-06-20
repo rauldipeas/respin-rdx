@@ -37,6 +37,7 @@ apt install -y\
     kcolorchooser\
     kdenlive\
     krename\
+    kwin-bismuth\
     libgegl-0.4-0\
     libmypaint-1.5-1\
     mediainfo\
@@ -46,6 +47,7 @@ apt install -y\
     mystiq\
     neurontube\
     obs-studio\
+    plasma-hud\
     q4wine\
     shotwell\
     sfizz\
@@ -56,11 +58,16 @@ apt install -y\
     tuxguitar\
     yabridge\
     wine-tkg\
-    winetricks
+    winetricks\
+    zenity
 wget -q --show-progress http://mirrors.kernel.org/ubuntu/pool/universe/p/plasma-welcome/"$(wget -qO- http://mirrors.kernel.org/ubuntu/pool/universe/p/plasma-welcome|grep amd64.deb|tail -n1|cut -d '"' -f2)"
 apt install ./plasma-welcome*.deb
 mkdir -p /etc/skel/.audacity-data/Theme
 wget -q --show-progress -O /etc/skel/.audacity-data/Theme/ImageCache.png https://github.com/visoart/audacity-themes/raw/master/themes/dark-blue/ImageCache.png
+cat <<EOF |tee /etc/skel/.audacity-data/audacity.cfg
+[GUI]
+Theme=custom
+EOF
 mkdir -p /etc/skel/.config/REAPER/{LangPack,UserPlugins}
 wget -q --show-progress -O /etc/skel/.config/REAPER/LangPack/pt-BR.ReaperLangPack https://stash.reaper.fm"$(wget -qO- https://stash.reaper.fm/tag/Language-Packs|grep pt-BR|head -n1|cut -d '"' -f2|sed 's/\/v//g')"
 wget -q --show-progress https://sws-extension.org/download/pre-release/"$(wget -qO- http://sws-extension.org/download/pre-release/|grep Linux-x86_64|head -n1|cut -d '"' -f4)"
@@ -68,5 +75,18 @@ tar fx sws-*-Linux-x86_64-*.tar.xz -C /etc/skel/.config/REAPER
 wget -q --show-progress -O /etc/skel/.config/REAPER/UserPlugins/reaper_reapack-x86_64.so "$(wget -qO- https://api.github.com/repos/cfillion/reapack/releases|grep browser_download_url|grep download/v|grep x86_64.so|head -n1|cut -d '"' -f4)"
 cat <<EOF |tee /etc/apt/apt.conf.d/100iriunwebcam-icon>/dev/null
 DPkg::Post-Invoke {"sed -i 's/Icon=iriunwebcam/Icon=webcamoid/g' /usr/share/applications/iriunwebcam.desktop";};
+EOF
+mkdir -p /etc/skel/.config/autostart-scripts
+cat <<EOF |tee /etc/skel/.config/autostart-scripts/plasma-hud.sh
+kwriteconfig5 --file "\$HOME"/.config/kwinrc --group ModifierOnlyShortcuts --key Alt "com.github.zren.PlasmaHUD,/PlasmaHUD,com.github.zren.PlasmaHUD,toggleHUD"
+qdbus org.kde.KWin /KWin reconfigure
+EOF
+cat <<EOF |tee /etc/skel/.config/plasmahudrc
+[Style]
+#Font=FreeSans 10
+
+[Icons]
+Enabled=true
+Theme=Papirus-Dark
 EOF
 apt autoremove --purge -y meterbridge
