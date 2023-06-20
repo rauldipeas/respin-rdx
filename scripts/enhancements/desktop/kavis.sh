@@ -29,6 +29,16 @@ EOF
     mkdir -p /etc/skel/.config/smplayer
     wget -q --show-progress -O /etc/skel/.config/smplayer/smplayer.ini https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/smplayer/smplayer.ini
     sed -i 's/Yaru/Breeze/g' /etc/gtk-3.0/settings.ini
+    git clone -q https://github.com/dark-eye/com.darkeye.chatGPT
+    cp -r com.darkeye.chatGPT/package /usr/share/plasma/plasmoids/com.darkeye.chatGPT
+    git clone -q https://github.com/HimDek/Overview-Widget-for-Plasma
+    cp -r Overview-Widget-for-Plasma /usr/share/plasma/plasmoids/com.himdek.kde.plasma.overview
+    sed -i 's/panel.addWidget("org.kde.plasma.minimizeall")//g' /usr/share/plasma/layout-templates/org.kubuntu.desktop.defaultPanel/contents/layout.js
+    cat <<EOF |tee -a /usr/share/plasma/layout-templates/org.kubuntu.desktop.defaultPanel/contents/layout.js
+panel.addWidget("com.darkeye.chatGPT")
+panel.addWidget("com.himdek.kde.plasma.overview")
+panel.addWidget("org.kde.plasma.minimizeall")
+EOF
     git clone -q https://github.com/PapirusDevelopmentTeam/materia-kde
     cp -r materia-kde/plasma/desktoptheme/Materia/icons /usr/share/plasma/desktoptheme/breeze-alphablack/
     cp -r materia-kde/plasma/desktoptheme/Materia/icons /usr/share/plasma/desktoptheme/breeze-dark/
