@@ -20,6 +20,8 @@ EOF
     cat <<EOF |tee /etc/profile.d/mozilla-pixel-perfect-scrolling.sh
 export MOZ_USE_XINPUT2=1
 EOF
+    mkdir -p /etc/skel/.config/touchegg
+    wget -q --show-progress -O /etc/skel/.config/touchegg/touchegg.conf https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/touchegg/touchegg.conf
     wget -q --show-progress -O /usr/share/color-schemes/BreezeBlack.colors https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/KDE/BreezeBlack.colors
     wget -q --show-progress https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/KDE/breeze-alphablack-v20.zip
     unzip breeze-alphablack-v20.zip -d /usr/share/plasma/desktoptheme/breeze-alphablack
@@ -76,5 +78,31 @@ library=org.kde.breeze
 
 [KSplash]
 Theme=none
+EOF
+    cat <<EOF |tee /usr/share/kubuntu-default-settings/kf5-settings/kdeglobals
+[General]
+XftAntialias=true
+XftHintStyle=hintslight
+XftSubPixel=rgb
+BrowserApplication=firefox.desktop
+font=FreeSans,10,-1,5,50,0,0,0,0,0
+menuFont=FreeSans,10,-1,5,50,0,0,0,0,0
+smallestReadableFont=FreeSans,8,-1,5,50,0,0,0,0,0
+toolBarFont=FreeSans,10,-1,5,50,0,0,0,0,0
+
+[KDE]
+LookAndFeelPackage=org.kubuntu.desktop
+SingleClick=false
+
+[WM]
+activeFont=FreeSans,10,-1,5,50,0,0,0,0,0
+EOF
+    cat <<EOF |tee /etc/skel/.config/plasmahudrc
+[Style]
+Font=FreeSans 10
+
+[Icons]
+Enabled=true
+Theme=Papirus-Dark
 EOF
 fi

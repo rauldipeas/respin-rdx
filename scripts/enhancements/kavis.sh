@@ -23,7 +23,8 @@ wget -cq --show-progress http://ppa.launchpad.net/kxstudio-debian/kxstudio/ubunt
 apt install ./kxstudio-repos*.deb
 add-apt-repository -ny ppa:ubuntuhandbook1/gimp
 add-apt-repository -ny ppa:kdenlive/kdenlive-stable
-add-apt-repository -y ppa:obsproject/obs-studio
+add-apt-repository -ny ppa:obsproject/obs-studio
+add-apt-repository -y ppa:touchegg/stable
 echo 'jackd2 jackd/tweak_rt_limits string true'|sudo debconf-set-selections
 apt install -y\
     4kvideodownloader\
@@ -55,6 +56,8 @@ apt install -y\
     smplayer\
     spotube\
     tonelib*\
+    touche\
+    touchegg\
     tuxguitar\
     yabridge\
     wine-tkg\
@@ -75,18 +78,5 @@ tar fx sws-*-Linux-x86_64-*.tar.xz -C /etc/skel/.config/REAPER
 wget -q --show-progress -O /etc/skel/.config/REAPER/UserPlugins/reaper_reapack-x86_64.so "$(wget -qO- https://api.github.com/repos/cfillion/reapack/releases|grep browser_download_url|grep download/v|grep x86_64.so|head -n1|cut -d '"' -f4)"
 cat <<EOF |tee /etc/apt/apt.conf.d/100iriunwebcam-icon>/dev/null
 DPkg::Post-Invoke {"sed -i 's/Icon=iriunwebcam/Icon=webcamoid/g' /usr/share/applications/iriunwebcam.desktop";};
-EOF
-mkdir -p /etc/skel/.config/autostart-scripts
-cat <<EOF |tee /etc/skel/.config/autostart-scripts/plasma-hud.sh
-kwriteconfig5 --file "\$HOME"/.config/kwinrc --group ModifierOnlyShortcuts --key Alt "com.github.zren.PlasmaHUD,/PlasmaHUD,com.github.zren.PlasmaHUD,toggleHUD"
-qdbus org.kde.KWin /KWin reconfigure
-EOF
-cat <<EOF |tee /etc/skel/.config/plasmahudrc
-[Style]
-#Font=FreeSans 10
-
-[Icons]
-Enabled=true
-Theme=Papirus-Dark
 EOF
 apt autoremove --purge -y meterbridge
