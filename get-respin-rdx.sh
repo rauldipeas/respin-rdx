@@ -51,4 +51,5 @@ if [ "$1" ]; then
 	get_zip ugl-rolling;copy_iso_to_ventoy ugl-rolling
 	get_zip xl-rolling;copy_iso_to_ventoy xl-rolling
 	get_zip kdeck;copy_iso_to_ventoy kdeck
+	get_zip kavis;copy_iso_to_ventoy kavis
 fi

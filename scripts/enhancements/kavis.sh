@@ -20,11 +20,10 @@ apt autoremove --purge -y\
     xterm*
 dpkg --add-architecture i386
 wget -cq --show-progress http://ppa.launchpad.net/kxstudio-debian/kxstudio/ubuntu/pool/main/k/kxstudio-repos/"$(wget -qO- http://ppa.launchpad.net/kxstudio-debian/kxstudio/ubuntu/pool/main/k/kxstudio-repos/|grep all.deb|tail -n1|cut -d '"' -f8)"
-apt install ./kxstudio-repos*.deb
+apt install -y ./kxstudio-repos*.deb
 add-apt-repository -ny ppa:ubuntuhandbook1/gimp
 add-apt-repository -ny ppa:kdenlive/kdenlive-stable
-add-apt-repository -ny ppa:obsproject/obs-studio
-add-apt-repository -y ppa:touchegg/stable
+add-apt-repository -y ppa:obsproject/obs-studio
 echo 'jackd2 jackd/tweak_rt_limits string true'|sudo debconf-set-selections
 apt install -y\
     4kvideodownloader\
@@ -56,15 +55,16 @@ apt install -y\
     smplayer\
     spotube\
     tonelib*\
-    touche\
-    touchegg\
     tuxguitar\
     yabridge\
     wine-tkg\
     winetricks\
     zenity
+#add-apt-repository -y ppa:touchegg/stable
+wget -cq --show-progress "$(wget -qO- https://ppa.launchpadcontent.net/touchegg/stable/ubuntu/pool/main/t/touchegg/|grep 22.04|grep amd64.deb|tail -n1|cut -d '"' -f8)" #tmp-fix
+apt install -y touche ./touchegg*.deb
 wget -q --show-progress http://mirrors.kernel.org/ubuntu/pool/universe/p/plasma-welcome/"$(wget -qO- http://mirrors.kernel.org/ubuntu/pool/universe/p/plasma-welcome|grep amd64.deb|tail -n1|cut -d '"' -f2)"
-apt install ./plasma-welcome*.deb
+apt install -y ./plasma-welcome*.deb
 mkdir -p /etc/skel/.audacity-data/Theme
 wget -q --show-progress -O /etc/skel/.audacity-data/Theme/ImageCache.png https://github.com/visoart/audacity-themes/raw/master/themes/dark-blue/ImageCache.png
 cat <<EOF |tee /etc/skel/.audacity-data/audacity.cfg
