@@ -71,6 +71,10 @@ cat <<EOF |tee /etc/skel/.audacity-data/audacity.cfg
 [GUI]
 Theme=custom
 EOF
+cat <<EOF |tee /etc/skel/.config/kdenliverc
+[UiSettings]
+ColorSchemePath=
+EOF
 mkdir -p /etc/skel/.config/REAPER/{LangPack,UserPlugins}
 wget -q --show-progress -O /etc/skel/.config/REAPER/LangPack/pt-BR.ReaperLangPack https://stash.reaper.fm"$(wget -qO- https://stash.reaper.fm/tag/Language-Packs|grep pt-BR|head -n1|cut -d '"' -f2|sed 's/\/v//g')"
 wget -q --show-progress https://sws-extension.org/download/pre-release/"$(wget -qO- http://sws-extension.org/download/pre-release/|grep Linux-x86_64|head -n1|cut -d '"' -f4)"

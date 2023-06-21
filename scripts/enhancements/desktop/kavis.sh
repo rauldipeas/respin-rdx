@@ -33,12 +33,32 @@ EOF
     cp -r com.darkeye.chatGPT/package /usr/share/plasma/plasmoids/com.darkeye.chatGPT
     git clone -q https://github.com/HimDek/Overview-Widget-for-Plasma
     cp -r Overview-Widget-for-Plasma /usr/share/plasma/plasmoids/com.himdek.kde.plasma.overview
+    sed -i 's/bottom/temp/g' /usr/share/plasma/layout-templates/org.kubuntu.desktop.defaultPanel/contents/layout.js
+    sed -i 's/top/bottom/g' /usr/share/plasma/layout-templates/org.kubuntu.desktop.defaultPanel/contents/layout.js
+    sed -i 's/temp/top/g' /usr/share/plasma/layout-templates/org.kubuntu.desktop.defaultPanel/contents/layout.js
     sed -i 's/panel.addWidget("org.kde.plasma.minimizeall")//g' /usr/share/plasma/layout-templates/org.kubuntu.desktop.defaultPanel/contents/layout.js
+    sed -i 's/panel.height = 2/panel.height = 1.7/g' /usr/share/plasma/layout-templates/org.kubuntu.desktop.defaultPanel/contents/layout.js
+    sed -i 's/panel.addWidget("org.kde.plasma.digitalclock")/var digitalclock = panel.addWidget("org.kde.plasma.digitalclock")/g' /usr/share/plasma/layout-templates/org.kubuntu.desktop.defaultPanel/contents/layout.js
     cat <<EOF |tee -a /usr/share/plasma/layout-templates/org.kubuntu.desktop.defaultPanel/contents/layout.js
+digitalclock.writeConfig("showDate", "false")
+var appmenu = panel.addWidget("org.kde.plasma.appmenu")
+appmenu.writeConfig("compactView", "true")
 panel.addWidget("com.darkeye.chatGPT")
 panel.addWidget("com.himdek.kde.plasma.overview")
 panel.addWidget("org.kde.plasma.minimizeall")
 EOF
+    cat <<EOF |tee -a /usr/share/kubuntu-default-settings/kf5-settings/kwinrc
+magiclampEnabled=true
+
+[Script-bismuth]
+floatingClass=cpu-x,kcalc,mini-video-me,reaper,rtcqs,simplescreenrecorder,yabridge-host.exe.so
+screenGapBottom=10
+screenGapLeft=10
+screenGapRight=10
+screenGapTop=10
+tileLayoutGap=10
+EOF
+    wget -q --show-progress -O /etc/skel/.config/kwinrulesrc https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/kwin/kwinrulesrc
     git clone -q https://github.com/PapirusDevelopmentTeam/materia-kde
     cp -r materia-kde/plasma/desktoptheme/Materia/icons /usr/share/plasma/desktoptheme/breeze-alphablack/
     cp -r materia-kde/plasma/desktoptheme/Materia/icons /usr/share/plasma/desktoptheme/breeze-dark/
