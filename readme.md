@@ -19,6 +19,7 @@ A few extras are included:
 * ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/apps/synaptic.svg) [**Synaptic**](https://savannah.nongnu.org/projects/synaptic) (package manager)
 * ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/apps/cats-are-liquid.svg) [**`nala`**](https://gitlab.com/volian/nala) (Python APT front-end)
 * ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/mimetypes/text-x-pkgbuild.svg) [**Pacstall**](https://pacstall.dev) (software repository for the Debian base, close to the Arch Linux AUR)
+* ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/places/folder-yellow-apple.svg) [**`LinuxBrew`**](https://brew.sh) (additional package manager for CLI apps)
 * ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/apps/cronopete_preferences.svg) [**`apt-rollback`**](https://launchpad.net/apt-rollback) (tool to revert packages installed in a specific time period)
 * ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/apps/python.svg) [**`pipx`**](https://github.com/pypa/pipx) (python package installer with isolated environments)
 * ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/apps/timeshift.svg) [**Timeshift**](https://github.com/linuxmint/timeshift) (backup tool)
