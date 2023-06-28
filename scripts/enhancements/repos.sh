@@ -65,14 +65,14 @@ mkdir -p /usr/local/bin
 cat <<EOF |tee /usr/local/bin/startup-setup
 #!/bin/bash
 set -e
-address="rauldipeas.surge.sh"
-ping -c 1 $address > /dev/null 2>&1
-while [ $? -ne 0 ]; do
-  echo -e "\e[1A\e[K $(date): Connecting - ${address}"
+address='rauldipeas.surge.sh'
+ping -c 1 "\$address" > /dev/null 2>&1
+while [ \$? -ne 0 ]; do
+  echo -e "\e[1A\e[K \$(date): Connecting - \${address}"
   sleep 1
-  ping -c 1 $address > /dev/null 2>&1
+  ping -c 1 "\$address" > /dev/null 2>&1
 done
-echo "$(date): Conectado - ${address}";
+echo "\$(date): Conectado - \${address}";
 kitty -- bash "\$HOME"/.config/autostart/startup-setup.sh
 EOF
 chmod +x /usr/local/bin/startup-setup
