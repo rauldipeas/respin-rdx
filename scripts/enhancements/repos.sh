@@ -75,7 +75,7 @@ Type=Application
 Exec=startup-setup
 Name=Inicialização
 EOF
-wget -q --show-progress -O /etc/skel/.config/autostart/startup-setup.sh https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/startup-setup.sh
+wget -q --show-progress -O /etc/skel/.config/autostart/startup-setup.sh https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/startup-setup/startup-setup.sh
 cat <<EOF |tee /etc/X11/Xsession.d/99linuxbrew
 if [ -f /home/linuxbrew/.linuxbrew/bin/brew ];then
         eval "\$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
