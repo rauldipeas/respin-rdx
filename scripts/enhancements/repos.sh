@@ -38,15 +38,28 @@ chmod +x /usr/local/bin/get-respin-rdx
 #chmod +x /usr/local/bin/upgrade-respin-rdx
 
 # LinuxBrew
-NONINTERACTIVE=1 /bin/bash -c "$(wget -qO- https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-cat <<EOF |tee /etc/X11/Xsession.d/99linuxbrew
+cat <<EOF |tee /usr/local/bin/brew-topgrade-install
+NONINTERACTIVE=1 /bin/bash -c "\$(wget -qO- https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 eval "\$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+brew install topgrade
+EOF
+chmod +x /usr/local/bin/brew-topgrade-install
+cat <<EOF |tee /etc/xdg/autostart/brew-topgrade-install.desktop
+[Desktop Entry]
+Encoding=UTF-8
+Version=1.0
+Type=Application
+Exec=brew-install
+Name=LinuxBrew and Topgrade install
+EOF
+cat <<EOF |tee /etc/X11/Xsession.d/99linuxbrew
+if [ -f /home/linuxbrew/.linuxbrew/bin/brew ];then
+        eval "\$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
 EOF
 
 # topgrade
 apt install -y aptitude
-brew install topgrade
 #wget -q --show-progress "$(wget -qO- https://api.github.com/repos/topgrade-rs/topgrade/releases|grep browser_download_url|grep x86_64|grep linux-gnu|head -n1|cut -d '"' -f4)"
 #tar fxz topgrade-*-x86_64-unknown-linux-gnu.tar.gz 
 #mv topgrade /usr/local/bin/
