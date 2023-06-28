@@ -38,7 +38,7 @@ if [ -f /home/linuxbrew/.linuxbrew/bin/topgrade ];then
 	    	echo 'Houve um problema com a instalação do LinuxBrew'
 	    fi
 	fi
-if
+fi
 
 # cleanup
 if [[ -f /home/linuxbrew/.linuxbrew/bin/brew && -f /home/linuxbrew/.linuxbrew/bin/topgrade && -f /opt/pipx/bin/rtcqs ]];then
