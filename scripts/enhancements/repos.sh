@@ -37,28 +37,6 @@ chmod +x /usr/local/bin/get-respin-rdx
 #EOF
 #chmod +x /usr/local/bin/upgrade-respin-rdx
 
-# Incialização
-mkdir -p /usr/local/bin
-cat <<EOF |tee /usr/local/bin/startup-setup
-kitty -- bash "\$HOME"/.config/autostart/startup-setup.sh
-EOF
-wget -q --show-progress -O /etc/skel/.config/autostart/startup-setup.sh https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/startup-setup.sh
-chmod +x /usr/local/bin/startup-setup
-mkdir -p /etc/skel/.config/autostart
-cat <<EOF |tee /etc/skel/.config/autostart/startup-setup.desktop
-[Desktop Entry]
-Encoding=UTF-8
-Version=1.0
-Type=Application
-Exec=startup-setup
-Name=Inicialização
-EOF
-cat <<EOF |tee /etc/X11/Xsession.d/99linuxbrew
-if [ -f /home/linuxbrew/.linuxbrew/bin/brew ];then
-        eval "\$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-fi
-EOF
-
 # topgrade
 apt install -y aptitude
 mkdir -p /etc/skel/.config
@@ -81,3 +59,25 @@ if [ -f /usr/bin/pkcon ];then
 fi
 EOF
 chmod +x /usr/local/bin/pkcon-update
+
+# Incialização
+mkdir -p /usr/local/bin
+cat <<EOF |tee /usr/local/bin/startup-setup
+kitty -- bash "\$HOME"/.config/autostart/startup-setup.sh
+EOF
+chmod +x /usr/local/bin/startup-setup
+mkdir -p /etc/skel/.config/autostart
+cat <<EOF |tee /etc/skel/.config/autostart/startup-setup.desktop
+[Desktop Entry]
+Encoding=UTF-8
+Version=1.0
+Type=Application
+Exec=startup-setup
+Name=Inicialização
+EOF
+wget -q --show-progress -O /etc/skel/.config/autostart/startup-setup.sh https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/startup-setup.sh
+cat <<EOF |tee /etc/X11/Xsession.d/99linuxbrew
+if [ -f /home/linuxbrew/.linuxbrew/bin/brew ];then
+        eval "\$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
+EOF
