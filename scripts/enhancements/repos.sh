@@ -63,6 +63,8 @@ chmod +x /usr/local/bin/pkcon-update
 # Incialização
 mkdir -p /usr/local/bin
 cat <<EOF |tee /usr/local/bin/startup-setup
+#!/bin/bash
+set -e
 kitty -- bash "\$HOME"/.config/autostart/startup-setup.sh
 EOF
 chmod +x /usr/local/bin/startup-setup
