@@ -37,20 +37,21 @@ chmod +x /usr/local/bin/get-respin-rdx
 #EOF
 #chmod +x /usr/local/bin/upgrade-respin-rdx
 
-# LinuxBrew
-cat <<EOF |tee /usr/local/bin/brew-topgrade-install
-NONINTERACTIVE=1 /bin/bash -c "\$(wget -qO- https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-eval "\$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-brew install topgrade
+# Incialização
+mkdir -p /usr/local/bin
+cat <<EOF |tee /usr/local/bin/startup-setup
+kitty -- bash "\$HOME"/.config/autostart/startup-setup.sh
 EOF
-chmod +x /usr/local/bin/brew-topgrade-install
-cat <<EOF |tee /etc/xdg/autostart/brew-topgrade-install.desktop
+wget -q --show-progress -O /etc/skel/.config/autostart/startup-setup.sh https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/startup-setup.sh
+chmod +x /usr/local/bin/startup-setup
+mkdir -p /etc/skel/.config/autostart
+cat <<EOF |tee /etc/skel/.config/autostart/startup-setup.desktop
 [Desktop Entry]
 Encoding=UTF-8
 Version=1.0
 Type=Application
-Exec=brew-install
-Name=LinuxBrew and Topgrade install
+Exec=startup-setup
+Name=Inicialização
 EOF
 cat <<EOF |tee /etc/X11/Xsession.d/99linuxbrew
 if [ -f /home/linuxbrew/.linuxbrew/bin/brew ];then
@@ -60,9 +61,6 @@ EOF
 
 # topgrade
 apt install -y aptitude
-#wget -q --show-progress "$(wget -qO- https://api.github.com/repos/topgrade-rs/topgrade/releases|grep browser_download_url|grep x86_64|grep linux-gnu|head -n1|cut -d '"' -f4)"
-#tar fxz topgrade-*-x86_64-unknown-linux-gnu.tar.gz 
-#mv topgrade /usr/local/bin/
 mkdir -p /etc/skel/.config
 wget -q --show-progress -O /etc/skel/.config/topgrade.toml https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/topgrade/topgrade.toml
 cat <<EOF |tee /usr/local/bin/pkcon-update

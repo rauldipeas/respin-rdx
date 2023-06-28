@@ -51,7 +51,7 @@ EOF
 magiclampEnabled=true
 
 [Script-bismuth]
-floatingClass=cpu-x,kcalc,mini-video-me,reaper,rtcqs,simplescreenrecorder,yabridge-host.exe.so
+floatingClass=cpu-x,kcalc,mini-video-me,reaper,rtcqs,simplescreenrecorder,wineboot.exe,yabridge-host.exe.so
 screenGapBottom=10
 screenGapLeft=10
 screenGapRight=10
