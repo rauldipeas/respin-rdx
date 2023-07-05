@@ -26,6 +26,7 @@ wget -q --show-progress https://cdn.akamai.steamstatic.com/client/installer/stea
 apt install -y\
     boilr\
     emulationstation-de\
+    filelight\
     gamemode\
     libgl1-mesa-glx:i386\
     mplayer\

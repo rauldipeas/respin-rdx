@@ -30,6 +30,7 @@ apt install -y\
     audacity\
     cadence\
     cockos-reaper\
+    filelight\
     gimp\
     glaxnimate\
     inkscape\
@@ -49,6 +50,7 @@ apt install -y\
     obs-studio\
     plasma-hud\
     q4wine\
+    rustdesk\
     shotwell\
     sfizz\
     simplescreenrecorder\
@@ -67,6 +69,12 @@ wget -q --show-progress http://mirrors.kernel.org/ubuntu/pool/universe/p/plasma-
 apt install -y ./plasma-welcome*.deb
 mkdir -p /etc/skel/.audacity-data/Theme
 wget -q --show-progress -O /etc/skel/.audacity-data/Theme/ImageCache.png https://github.com/visoart/audacity-themes/raw/master/themes/dark-blue/ImageCache.png
+cat <<EOF |tee /etc/apt/apt.conf.d/100mpv-hide-launcher>/dev/null
+DPkg::Post-Invoke {"echo 'Hidden=true'|tee -a /usr/share/applications/mpv.desktop";};
+EOF
+cat <<EOF |tee /etc/apt/apt.conf.d/100rustdesk-icon>/dev/null
+DPkg::Post-Invoke {"sed -i 's@Icon=/usr/share/rustdesk/files/rustdesk.png@Icon=rustdesk@g' /usr/share/applications/rustdesk.desktop";};
+EOF
 cat <<EOF |tee /etc/skel/.audacity-data/audacity.cfg
 [GUI]
 Theme=custom
@@ -75,7 +83,8 @@ cat <<EOF |tee /etc/skel/.config/kdenliverc
 [UiSettings]
 ColorSchemePath=
 EOF
-mkdir -p /etc/skel/.config/REAPER/{LangPack,UserPlugins}
+mkdir -p /etc/skel/.config/REAPER/{ColorThemes,LangPack,UserPlugins}
+wget -q --show-progress -O /etc/skel/.config/REAPER/ColorThemes/Default_6.0.ReaperThemeZip https://stash.reaper.fm/40797/Mammoth.ReaperThemeZip
 wget -q --show-progress -O /etc/skel/.config/REAPER/LangPack/pt-BR.ReaperLangPack https://stash.reaper.fm"$(wget -qO- https://stash.reaper.fm/tag/Language-Packs|grep pt-BR|head -n1|cut -d '"' -f2|sed 's/\/v//g')"
 wget -q --show-progress https://sws-extension.org/download/pre-release/"$(wget -qO- http://sws-extension.org/download/pre-release/|grep Linux-x86_64|head -n1|cut -d '"' -f4)"
 tar fx sws-*-Linux-x86_64-*.tar.xz -C /etc/skel/.config/REAPER
