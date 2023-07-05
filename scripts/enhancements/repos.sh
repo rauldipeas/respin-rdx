@@ -13,6 +13,8 @@ apt update
 export DEBIAN_FRONTEND=noninteractive
 if [ -f /usr/share/xsessions/xubuntu.desktop ]; then
     apt autoremove --purge -y chromium-browser
+    else
+    apt autoremove --purge -y firefox* snapd*
 fi
 apt dist-upgrade -y -o Dpkg::Options::="--force-confdef" --force-yes
 
