@@ -13,7 +13,6 @@ apt update
 export DEBIAN_FRONTEND=noninteractive
 if [ -f /usr/share/xsessions/xubuntu.desktop ]; then
     apt autoremove --purge -y chromium-browser
-    else
 fi
 apt autoremove --purge -y firefox* snapd*
 cat <<EOF |tee /etc/apt/preferences.d/nosnap.pref
