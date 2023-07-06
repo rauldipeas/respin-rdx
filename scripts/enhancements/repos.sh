@@ -15,8 +15,14 @@ if [ -f /usr/share/xsessions/xubuntu.desktop ]; then
     apt autoremove --purge -y chromium-browser
     else
     apt autoremove --purge -y firefox* snapd*
+    cat <<EOF |tee /etc/apt/preferences.d/nosnap.pref
+Package: snapd
+Pin: release a=*
+Pin-Priority: -10
+EOF
 fi
 apt dist-upgrade -y -o Dpkg::Options::="--force-confdef" --force-yes
+rm /etc/apt/preferences.d/nosnap.pref
 
 # deb-get
 #apt install -y deb-get

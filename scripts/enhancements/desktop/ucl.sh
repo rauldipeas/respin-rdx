@@ -3,7 +3,7 @@ set -e
 # Cinnamon Lite
 if [ -f /UCL ]; then
     echo 'Cinnamon Lite'
-    bash -x enhancements/cinnamon-lite.sh
+    bash -x enhancements/custom-spin/cinnamon-lite.sh
     wget -q --show-progress -O /usr/share/hardcode-tray/database/deltachat.json https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/hardcode-tray/deltachat.json
     wget -q --show-progress -O /usr/share/hardcode-tray/database/deltachat.electron.json https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/hardcode-tray/deltachat.electron.json
     cat <<EOF |tee /etc/skel/.config/hardcode-tray.json

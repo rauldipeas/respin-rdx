@@ -3,7 +3,7 @@ set -e
 # GNOME Lite Rolling
 if [ -f /UGLR ]; then
     echo 'GNOME Lite Rolling'
-    bash -x enhancements/gnome-lite-rolling.sh
+    bash -x enhancements/custom-spin/gnome-lite-rolling.sh
     wget -q --show-progress -O /usr/share/hardcode-tray/database/deltachat.json https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/hardcode-tray/deltachat.json
     wget -q --show-progress -O /usr/share/hardcode-tray/database/deltachat.electron.json https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/hardcode-tray/deltachat.electron.json
     cat <<EOF |tee /etc/skel/.config/hardcode-tray.json

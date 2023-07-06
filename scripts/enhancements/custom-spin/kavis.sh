@@ -69,8 +69,11 @@ wget -q --show-progress http://mirrors.kernel.org/ubuntu/pool/universe/p/plasma-
 apt install -y ./plasma-welcome*.deb
 mkdir -p /etc/skel/.audacity-data/Theme
 wget -q --show-progress -O /etc/skel/.audacity-data/Theme/ImageCache.png https://github.com/visoart/audacity-themes/raw/master/themes/dark-blue/ImageCache.png
+cat <<EOF |tee /etc/apt/apt.conf.d/100iriunwebcam-icon>/dev/null
+DPkg::Post-Invoke {"sed -i 's/Icon=iriunwebcam/Icon=webcamoid/g' /usr/share/applications/iriunwebcam.desktop";};
+EOF
 cat <<EOF |tee /etc/apt/apt.conf.d/100mpv-hide-launcher>/dev/null
-DPkg::Post-Invoke {"echo 'Hidden=true'|tee -a /usr/share/applications/mpv.desktop";};
+DPkg::Post-Invoke {"echo 'Hidden=true'|tee -a /usr/share/applications/mpv.desktop>/dev/null";};
 EOF
 cat <<EOF |tee /etc/apt/apt.conf.d/100rustdesk-icon>/dev/null
 DPkg::Post-Invoke {"sed -i 's@Icon=/usr/share/rustdesk/files/rustdesk.png@Icon=rustdesk@g' /usr/share/applications/rustdesk.desktop";};
@@ -89,7 +92,4 @@ wget -q --show-progress -O /etc/skel/.config/REAPER/LangPack/pt-BR.ReaperLangPac
 wget -q --show-progress https://sws-extension.org/download/pre-release/"$(wget -qO- http://sws-extension.org/download/pre-release/|grep Linux-x86_64|head -n1|cut -d '"' -f4)"
 tar fx sws-*-Linux-x86_64-*.tar.xz -C /etc/skel/.config/REAPER
 wget -q --show-progress -O /etc/skel/.config/REAPER/UserPlugins/reaper_reapack-x86_64.so "$(wget -qO- https://api.github.com/repos/cfillion/reapack/releases|grep browser_download_url|grep download/v|grep x86_64.so|head -n1|cut -d '"' -f4)"
-cat <<EOF |tee /etc/apt/apt.conf.d/100iriunwebcam-icon>/dev/null
-DPkg::Post-Invoke {"sed -i 's/Icon=iriunwebcam/Icon=webcamoid/g' /usr/share/applications/iriunwebcam.desktop";};
-EOF
 apt autoremove --purge -y meterbridge

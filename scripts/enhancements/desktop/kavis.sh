@@ -3,7 +3,7 @@ set -e
 # Kubuntu Autio Video Image Studio
 if [ -f /KAVIS ]; then
     echo 'KAVIS'
-    bash -x enhancements/kavis.sh
+    bash -x enhancements/custom-spin/kavis.sh
     wget -q --show-progress -O /usr/share/hardcode-tray/database/deltachat.json https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/hardcode-tray/deltachat.json
     wget -q --show-progress -O /usr/share/hardcode-tray/database/deltachat.electron.json https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/hardcode-tray/deltachat.electron.json
     cat <<EOF |tee /etc/skel/.config/hardcode-tray.json
