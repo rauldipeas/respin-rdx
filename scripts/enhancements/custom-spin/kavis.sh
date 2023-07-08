@@ -55,7 +55,6 @@ apt install -y\
     sfizz\
     simplescreenrecorder\
     smplayer\
-    spotube\
     tonelib*\
     tuxguitar\
     yabridge\
@@ -71,9 +70,6 @@ mkdir -p /etc/skel/.audacity-data/Theme
 wget -q --show-progress -O /etc/skel/.audacity-data/Theme/ImageCache.png https://github.com/visoart/audacity-themes/raw/master/themes/dark-blue/ImageCache.png
 cat <<EOF |tee /etc/apt/apt.conf.d/100iriunwebcam-icon>/dev/null
 DPkg::Post-Invoke {"sed -i 's/Icon=iriunwebcam/Icon=webcamoid/g' /usr/share/applications/iriunwebcam.desktop";};
-EOF
-cat <<EOF |tee /etc/apt/apt.conf.d/100mpv-hide-launcher>/dev/null
-DPkg::Post-Invoke {"echo 'Hidden=true'|tee -a /usr/share/applications/mpv.desktop>/dev/null";};
 EOF
 cat <<EOF |tee /etc/apt/apt.conf.d/100rustdesk-icon>/dev/null
 DPkg::Post-Invoke {"sed -i 's@Icon=/usr/share/rustdesk/files/rustdesk.png@Icon=rustdesk@g' /usr/share/applications/rustdesk.desktop";};

@@ -16,6 +16,32 @@ if [ -f /opt/pipx/bin/rtcqs ];then
     fi
 fi
 
+# pipx/spotdl
+if [ -f /opt/pipx/bin/spotdl ];then
+    echo 'SpotDL instalado'
+    else
+    echo 'Instalando o SpotDL...'
+    export PIPX_HOME='/opt/pipx'
+    export PIPX_BIN_DIR='/opt/pipx/bin'
+    pipx install spotdl
+	mkdir -p "$HOME"/.local/share/applications
+	cat <<EOF |tee "$HOME"/.local/share/applications/spotdl.desktop
+[Desktop Entry]
+Type=Application
+Name=SpotDL
+Icon=wihotspot
+NoDisplay=false
+Exec=spotdl web
+Terminal=false
+X-GNOME-UsesNotifications=true
+EOF
+    if [ -f /opt/pipx/bin/spotdl && -f "$HOME"/.local/share/applications/spotdl.desktop ];then
+        echo 'Instalação do SpotDL concluída com sucesso!'
+        else
+        echo 'Houve um problema com a instalação do SpotDL'
+    fi
+fi
+
 # LinuxBrew/Topgrade
 if [ -f /home/linuxbrew/.linuxbrew/bin/topgrade ];then
 	echo 'Topgrade instalado'
