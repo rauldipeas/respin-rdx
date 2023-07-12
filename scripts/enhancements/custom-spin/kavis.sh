@@ -89,7 +89,7 @@ unzip Smooth\ 6\ V2.1.zip -d smooth-reaper-theme
 mv smooth-reaper-theme/Smooth\ 6\ V2.1/1-Fonts/Mac /opt/REAPER/fonts
 mv smooth-reaper-theme/Smooth\ 6\ V2.1/2-Theme\ Adjuster/* /etc/skel/.config/REAPER/Scripts/Cockos/
 mv smooth-reaper-theme/Smooth\ 6\ V2.1/3-Theme/Smooth_6.ReaperThemeZip /etc/skel/.config/REAPER/ColorThemes/
-mv smooth-reaper-theme/Smooth\ 6\ V2.1/3-Theme/Smooth_6_Dark.ReaperTheme /etc/skel/.config/REAPER/ColorThemes/
+cp smooth-reaper-theme/Smooth\ 6\ V2.1/3-Theme/Smooth_6_Dark.ReaperTheme /etc/skel/.config/REAPER/ColorThemes/
 mv smooth-reaper-theme/Smooth\ 6\ V2.1/3-Theme/Smooth_6_Dark.ReaperTheme /etc/skel/.config/REAPER/ColorThemes/Default_6.0.ReaperThemeZip
 wget -q --show-progress -O /etc/skel/.config/REAPER/LangPack/pt-BR.ReaperLangPack https://stash.reaper.fm"$(wget -qO- https://stash.reaper.fm/tag/Language-Packs|grep '/pt-BR.ReaperLangPack'|tail -n1|cut -d '"' -f2|sed 's/\/v//g')"
 wget -q --show-progress https://sws-extension.org/download/pre-release/"$(wget -qO- http://sws-extension.org/download/pre-release/|grep Linux-x86_64|head -n1|cut -d '"' -f4)"
