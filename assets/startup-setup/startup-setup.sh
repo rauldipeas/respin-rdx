@@ -17,15 +17,16 @@ if [ -f /opt/pipx/bin/rtcqs ];then
 fi
 
 # pipx/spotdl
-if [ -f /opt/pipx/bin/spotdl ];then
-    echo 'SpotDL instalado'
-    else
-    echo 'Instalando o SpotDL...'
-    export PIPX_HOME='/opt/pipx'
-    export PIPX_BIN_DIR='/opt/pipx/bin'
-    pipx install spotdl
-	mkdir -p "$HOME"/.local/share/applications
-	cat <<EOF |tee "$HOME"/.local/share/applications/spotdl.desktop
+if [ -f /usr/bin/4kvideodownloader ];then
+    if [ -f /opt/pipx/bin/spotdl ];then
+        echo 'SpotDL instalado'
+        else
+        echo 'Instalando o SpotDL...'
+        export PIPX_HOME='/opt/pipx'
+        export PIPX_BIN_DIR='/opt/pipx/bin'
+        pipx install spotdl
+        mkdir -p "$HOME"/.local/share/applications
+        cat <<EOF |tee "$HOME"/.local/share/applications/spotdl.desktop
 [Desktop Entry]
 Type=Application
 Name=SpotDL
@@ -35,10 +36,11 @@ Exec=spotdl web
 Terminal=false
 X-GNOME-UsesNotifications=true
 EOF
-    if [ -f /opt/pipx/bin/spotdl && -f "$HOME"/.local/share/applications/spotdl.desktop ];then
-        echo 'Instalação do SpotDL concluída com sucesso!'
-        else
-        echo 'Houve um problema com a instalação do SpotDL'
+        if [ -f /opt/pipx/bin/spotdl && -f "$HOME"/.local/share/applications/spotdl.desktop ];then
+            echo 'Instalação do SpotDL concluída com sucesso!'
+            else
+            echo 'Houve um problema com a instalação do SpotDL'
+        fi
     fi
 fi
 
