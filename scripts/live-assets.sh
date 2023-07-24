@@ -24,4 +24,5 @@ sed -i '/os-prober/d' respin-rdx/image/casper/filesystem.manifest-desktop
 sed -i '/ubiquity/d' respin-rdx/image/casper/filesystem.manifest-desktop
 ## Compactação do sistema de arquivos
 sudo mksquashfs "$CHROOT" respin-rdx/image/casper/filesystem.squashfs -comp xz -quiet
-printf $(sudo du -sx --block-size=1 "$CHROOT"|cut -f1)|tee respin-rdx/image/casper/filesystem.size>/dev/null
+#printf $(sudo du -sx --block-size=1 "$CHROOT"|cut -f1)|tee respin-rdx/image/casper/filesystem.size>/dev/null
+sudo du -sx --block-size=1 "$CHROOT"|cut -f1>respin-rdx/image/casper/filesystem.size

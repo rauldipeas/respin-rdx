@@ -36,7 +36,7 @@ Exec=spotdl web
 Terminal=false
 X-GNOME-UsesNotifications=true
 EOF
-        if [ -f /opt/pipx/bin/spotdl && -f "$HOME"/.local/share/applications/spotdl.desktop ];then
+        if [ -f /opt/pipx/bin/spotdl ] && [ -f "$HOME"/.local/share/applications/spotdl.desktop ];then
             echo 'Instalação do SpotDL concluída com sucesso!'
             else
             echo 'Houve um problema com a instalação do SpotDL'

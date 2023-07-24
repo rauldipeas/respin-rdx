@@ -7,7 +7,7 @@ apt autoremove --purge -y libgl1-amber-dri #tmp-fix
 apt dist-upgrade -y
 
 # ALSA firmware
-wget -q --show-progress http://ppa.launchpad.net/kxstudio-debian/libs/ubuntu/pool/main/a/alsa-firmware/$(wget -qO- http://ppa.launchpad.net/kxstudio-debian/libs/ubuntu/pool/main/a/alsa-firmware/|grep amd64.deb|cut -d '"' -f8)
+wget -q --show-progress http://ppa.launchpad.net/kxstudio-debian/libs/ubuntu/pool/main/a/alsa-firmware/"$(wget -qO- http://ppa.launchpad.net/kxstudio-debian/libs/ubuntu/pool/main/a/alsa-firmware/|grep amd64.deb|cut -d '"' -f8)"
 apt install -y ./alsa-firmware*.deb
 
 # JACK
