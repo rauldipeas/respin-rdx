@@ -29,7 +29,7 @@ jobs:
           CODENAME: jammy
           FLAVOUR: neon
           FLAVOUR_NAME: Neon
-          VERSION: 22.04.2
+          VERSION: 22.04.3
           CHROOT: respin-rdx/neon-chroot
           FLAVOUR_ID: Neon
           ISO_NAME: neon

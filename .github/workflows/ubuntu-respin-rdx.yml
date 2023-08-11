@@ -29,7 +29,7 @@ jobs:
           CODENAME: jammy
           FLAVOUR: ubuntu
           FLAVOUR_NAME: Ubuntu
-          VERSION: 22.04.2
+          VERSION: 22.04.3
           CHROOT: respin-rdx/ubuntu-chroot
           FLAVOUR_ID: Ubuntu
           ISO_NAME: ubuntu
