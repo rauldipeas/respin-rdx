@@ -7,10 +7,10 @@ sudo apt autoremove --purge -y\
     "^dotnet-.*"\
     firefox\
     google-chrome-stable\
-    google-cloud-sdk\
     "^llvm-.*"\
     powershell\
     snapd
+    #google-cloud-sdk\
 sudo apt clean
 sudo swapoff -a
 sudo rm -r\
