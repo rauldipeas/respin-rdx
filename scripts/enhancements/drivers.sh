@@ -4,7 +4,7 @@ set -e
 # MESA
 add-apt-repository -y ppa:kisak/kisak-mesa
 apt autoremove --purge -y libgl1-amber-dri #tmp-fix
-apt dist-upgrade -y
+apt dist-upgrade -y --allow-downgrades
 
 # ALSA firmware
 wget -q --show-progress http://ppa.launchpad.net/kxstudio-debian/libs/ubuntu/pool/main/a/alsa-firmware/"$(wget -qO- http://ppa.launchpad.net/kxstudio-debian/libs/ubuntu/pool/main/a/alsa-firmware/|grep amd64.deb|cut -d '"' -f8)"
