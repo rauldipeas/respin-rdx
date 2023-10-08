@@ -75,7 +75,7 @@ set -e
 address='rauldipeas.surge.sh'
 ping -c 1 "\$address" > /dev/null 2>&1
 while [ \$? -ne 0 ]; do
-  echo -e "\e[1A\e[K \$(date): Connecting - \${address}"
+  echo -e "\e[1A\e[K \$(date): Conectando - \${address}"
   sleep 1
   ping -c 1 "\$address" > /dev/null 2>&1
 done
