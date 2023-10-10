@@ -68,10 +68,10 @@ EOF
 chmod +x /usr/local/bin/pkcon-update
 
 # Incialização
+apt install -y libnotify-bin
 mkdir -p /usr/local/bin
 cat <<EOF |tee /usr/local/bin/startup-setup
 #!/bin/bash
-set -e
 address='rauldipeas.surge.sh'
 ping -c 1 "\$address" > /dev/null 2>&1
 while [ \$? -ne 0 ]; do
