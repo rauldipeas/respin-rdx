@@ -23,6 +23,7 @@ Package: snapd
 Pin: release a=*
 Pin-Priority: -10
 EOF
+apt autoremove --purge -y --allow-downgrades libsgutils*
 apt dist-upgrade -y -o Dpkg::Options::="--force-confold" --allow-downgrades
 rm /etc/apt/preferences.d/nosnap.pref
 apt install -y\
