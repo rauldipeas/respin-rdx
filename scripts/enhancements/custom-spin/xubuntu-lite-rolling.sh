@@ -23,7 +23,7 @@ Package: snapd
 Pin: release a=*
 Pin-Priority: -10
 EOF
-apt dist-upgrade -y -o Dpkg::Options::="--force-confold" --allow
+apt dist-upgrade -y -o Dpkg::Options::="--force-confold" --allow-downgrades
 rm /etc/apt/preferences.d/nosnap.pref
 apt install -y\
     mplayer\
