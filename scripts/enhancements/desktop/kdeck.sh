@@ -64,7 +64,7 @@ EOF
     sed -i 's/org.kde.konsole/kitty/g' /usr/share/plasma/plasmoids/org.kde.plasma.kickoff/contents/config/main.xml
     sed -i 's/start-here-kde/distributor-logo-steamos/g' /usr/share/plasma/plasmoids/org.kde.plasma.kicker/contents/config/main.xml
     sed -i 's/start-here-kde/distributor-logo-steamos/g' /usr/share/plasma/plasmoids/org.kde.plasma.kickoff/contents/config/main.xml
-    sed -i 's/systemsettings/steam/g' /usr/share/plasma/plasmoids/org.kde.plasma.taskmanager/contents/config/main.xml
+    sed -i 's/systemsettings/com.valvesoftware.Steam/g' /usr/share/plasma/plasmoids/org.kde.plasma.taskmanager/contents/config/main.xml
     cat <<EOF |tee /usr/share/plasma/look-and-feel/org.kubuntu.desktop/contents/defaults /usr/share/plasma/look-and-feel/org.kde.breezedark.desktop/contents/defaults
 [kdeglobals][KDE]
 widgetStyle=Breeze
