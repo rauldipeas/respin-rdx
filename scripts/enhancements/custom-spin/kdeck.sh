@@ -26,7 +26,7 @@ apt update
 #wget -q --show-progress https://cdn.akamai.steamstatic.com/client/installer/steam.deb
 apt install -y\
     emulationstation-de\
-    gamemode\
+    gamemode
 #    libgl1-mesa-glx:i386\
 #    boilr\
 #    filelight\
