@@ -42,7 +42,7 @@ apt install -y\
 #tar fxz MangoHud*.tar.gz
 #cd MangoHud
 #./mangohud-setup.sh install
-flatpak install -y\
+flatpak install --assumeyes --noninteractive\
     com.valvesoftware.Steam\
     info.smplayer.SMPlayer\
     io.github.philipk.boilr\
