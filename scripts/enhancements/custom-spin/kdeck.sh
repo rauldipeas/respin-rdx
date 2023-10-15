@@ -27,9 +27,7 @@ wget -q --show-progress https://cdn.akamai.steamstatic.com/client/installer/stea
 apt install -y\
     emulationstation-de\
     gamemode\
-    libgl1-mesa-glx:i386\
     ./steam.deb\
-    steam-devices\
     steamos-compositor-plus
 #    boilr\
 #    filelight\
@@ -37,6 +35,7 @@ apt install -y\
 #    retroarch\
 #    smplayer\
 apt install -y\
+    libgl1-mesa-glx:i386\
     steam-libs-amd64\
     steam-libs-i386:i386
 wget -q --show-progress "$(wget -qO- --header="X-Auth-Token: $GITHUB_TOKEN" https://api.github.com/repos/flightlessmango/MangoHud/releases|grep browser_download_url|grep tar.gz|head -n1|cut -d '"' -f4)"
