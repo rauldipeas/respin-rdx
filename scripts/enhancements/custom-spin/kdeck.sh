@@ -34,6 +34,7 @@ apt install -y\
 #    mplayer\
 #    retroarch\
 #    smplayer\
+apt update
 apt install -y\
     libgl1-mesa-glx:i386\
     steam-libs-amd64\
