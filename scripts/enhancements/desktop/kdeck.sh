@@ -41,12 +41,12 @@ Type=Application
 Name=Steam
 Exec=flatpak run com.valvesoftware.Steam -gamepadui
 EOF
-    sed -i 's/plasma/steamos/g' /var/lib/sddm/state.conf
-    mkdir -p /etc/sddm.conf.d
-    cat <<EOF |tee /etc/sddm.conf.d/kdeck.conf
-[Autologin]
-Session=/usr/share/xsessions/steamos.desktop
-EOF
+#    sed -i 's/plasma/steamos/g' /var/lib/sddm/state.conf
+#    mkdir -p /etc/sddm.conf.d
+#    cat <<EOF |tee /etc/sddm.conf.d/kdeck.conf
+#[Autologin]
+#Session=/usr/share/xsessions/steamos.desktop
+#EOF
     git clone -q https://github.com/PapirusDevelopmentTeam/materia-kde
     cp -r materia-kde/plasma/desktoptheme/Materia/icons /usr/share/plasma/desktoptheme/breeze-alphablack/
     cp -r materia-kde/plasma/desktoptheme/Materia/icons /usr/share/plasma/desktoptheme/breeze-dark/
