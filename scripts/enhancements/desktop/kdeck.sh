@@ -33,14 +33,14 @@ EOF
 #    sed -i 's@steam://open/bigpicture@-gamepadui@g' /usr/local/share/applications/steam.desktop
 #    sed -i 's/Name=Big Picture/Name=Gamepad UI/g' /usr/local/share/applications/steam.desktop
 #    sed -i 's/Categories=Network;/Categories=/g' /usr/local/share/applications/steam.desktop
-#    cp /usr/share/applications/steam.desktop /etc/xdg/autostart/
-#    sed -i 's/%U/-gamepadui/g' /etc/xdg/autostart/steam.desktop
-    cat <<EOF |tee /etc/xdg/autostart/steam.desktop
-[Desktop Entry]
-Type=Application
-Name=Steam
-Exec=flatpak run com.valvesoftware.Steam -gamepadui
-EOF
+    cp /usr/share/applications/steam.desktop /etc/xdg/autostart/
+    sed -i 's/%U/-gamepadui %U/g' /etc/xdg/autostart/steam.desktop
+#    cat <<EOF |tee /etc/xdg/autostart/steam.desktop
+#[Desktop Entry]
+#Type=Application
+#Name=Steam
+#Exec=flatpak run com.valvesoftware.Steam -gamepadui
+#EOF
 #    sed -i 's/plasma/steamos/g' /var/lib/sddm/state.conf
 #    mkdir -p /etc/sddm.conf.d
 #    cat <<EOF |tee /etc/sddm.conf.d/kdeck.conf
@@ -64,7 +64,7 @@ EOF
     sed -i 's/org.kde.konsole/kitty/g' /usr/share/plasma/plasmoids/org.kde.plasma.kickoff/contents/config/main.xml
     sed -i 's/start-here-kde/distributor-logo-steamos/g' /usr/share/plasma/plasmoids/org.kde.plasma.kicker/contents/config/main.xml
     sed -i 's/start-here-kde/distributor-logo-steamos/g' /usr/share/plasma/plasmoids/org.kde.plasma.kickoff/contents/config/main.xml
-    sed -i 's/systemsettings/com.valvesoftware.Steam/g' /usr/share/plasma/plasmoids/org.kde.plasma.taskmanager/contents/config/main.xml
+    sed -i 's/systemsettings/steam/g' /usr/share/plasma/plasmoids/org.kde.plasma.taskmanager/contents/config/main.xml
     cat <<EOF |tee /usr/share/plasma/look-and-feel/org.kubuntu.desktop/contents/defaults /usr/share/plasma/look-and-feel/org.kde.breezedark.desktop/contents/defaults
 [kdeglobals][KDE]
 widgetStyle=Breeze
