@@ -46,6 +46,6 @@ flatpak install --assumeyes --noninteractive\
     com.valvesoftware.Steam\
     info.smplayer.SMPlayer\
     io.github.philipk.boilr\
-    org.freedesktop.Platform.VulkanLayer.MangoHud\
+    org.freedesktop.Platform.VulkanLayer.MangoHud//23.08\
     org.kde.filelight\
     org.libretro.RetroArch
