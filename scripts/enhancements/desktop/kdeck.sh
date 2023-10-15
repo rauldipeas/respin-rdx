@@ -35,7 +35,7 @@ EOF
 #    sed -i 's/Categories=Network;/Categories=/g' /usr/local/share/applications/steam.desktop
 #    cp /usr/share/applications/steam.desktop /etc/xdg/autostart/
 #    sed -i 's/%U/-gamepadui/g' /etc/xdg/autostart/steam.desktop
-    cat <<EOF | /etc/xdg/autostart/steam.desktop
+    cat <<EOF |tee /etc/xdg/autostart/steam.desktop
 [Desktop Entry]
 Type=Application
 Name=Steam
