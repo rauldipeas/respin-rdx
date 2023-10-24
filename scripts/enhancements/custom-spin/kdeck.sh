@@ -44,6 +44,7 @@ tar fxz MangoHud*.tar.gz
 cd MangoHud
 ./mangohud-setup.sh install
 flatpak install --assumeyes --noninteractive\
+    com.steamgriddb.steam-rom-manager\
     com.valvesoftware.Steam\
     info.smplayer.SMPlayer\
     io.github.philipk.boilr\
