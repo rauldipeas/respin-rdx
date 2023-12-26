@@ -26,7 +26,7 @@ EOF
 apt install -y amd64-microcode intel-microcode mainline thermald
 
 # Latest kernel
-KERNEL_VER="v6.3.13/"
+KERNEL_VER="v6.2.16/"
 #KERNEL_VER="$(wget -qO- https://kernel.ubuntu.com/~kernel-ppa/mainline/|grep folder|grep -v "\-rc"|tail -n1|cut -d '"' -f8)"
 #KERNEL_VER="$(wget -qO- https://kernel.ubuntu.com/~kernel-ppa/mainline/|grep folder|grep -v "\-rc"|tail -n2|head -n1|cut -d '"' -f8)"
 KERNEL_HEADERS_COMMON_FILE=$(wget -qO- https://kernel.ubuntu.com/~kernel-ppa/mainline/"$KERNEL_VER"|grep headers|grep all.deb|cut -d '"' -f2)
