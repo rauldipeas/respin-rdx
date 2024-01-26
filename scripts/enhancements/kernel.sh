@@ -42,5 +42,5 @@ apt install ./linux-headers*.deb ./linux-image*.deb ./linux-modules*.deb
 # ZSwap
 echo lz4|tee -a /etc/initramfs-tools/modules>/dev/null
 echo lz4_compress|tee -a /etc/initramfs-tools/modules>/dev/null
-#update-initramfs -u -k all
-update-initramfs -u -k "$(find /boot/|grep vmlinuz|grep -v old|tail -n1|sed 's@/boot/vmlinuz-@@g')"
+update-initramfs -u -k all
+#update-initramfs -u -k "$(find /boot/|grep vmlinuz|grep -v old|tail -n1|sed 's@/boot/vmlinuz-@@g')"
