@@ -23,13 +23,13 @@ apt autoremove --purge -y\
 dpkg --add-architecture i386
 #add-apt-repository -y ppa:libretro/stable
 apt update
-wget -q --show-progress https://cdn.akamai.steamstatic.com/client/installer/steam.deb
+#wget -q --show-progress https://cdn.akamai.steamstatic.com/client/installer/steam.deb
 apt install -y\
-    emulationstation-de\
     gamemode\
-    ./steam.deb\
     steamos-compositor-plus
+#    ./steam.deb\
 #    boilr\
+#    emulationstation-de\
 #    filelight\
 #    mplayer\
 #    retroarch\
@@ -44,10 +44,10 @@ tar fxz MangoHud*.tar.gz
 cd MangoHud
 ./mangohud-setup.sh install
 flatpak install --assumeyes --noninteractive\
-    com.steamgriddb.steam-rom-manager\
     com.valvesoftware.Steam\
     info.smplayer.SMPlayer\
     io.github.philipk.boilr\
-    org.kde.filelight\
-    org.libretro.RetroArch
+    org.kde.filelight
+#    com.steamgriddb.steam-rom-manager\
+#    org.libretro.RetroArch
 #    org.freedesktop.Platform.VulkanLayer.MangoHud//23.08\
