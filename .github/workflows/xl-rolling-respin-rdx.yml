@@ -29,7 +29,7 @@ jobs:
           CODENAME: jammy
           FLAVOUR: xubuntu
           FLAVOUR_NAME: Xubuntu Lite Rolling
-          VERSION: 22.04.3
+          VERSION: 22.04.4
           CHROOT: respin-rdx/xl-rolling-chroot
           FLAVOUR_ID: XLR
           ISO_NAME: xl-rolling
