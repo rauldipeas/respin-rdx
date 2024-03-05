@@ -3,7 +3,7 @@
 # ISO download
 set -e
 if [ "$FLAVOUR" = ubuntu ]; then
-   wget -q https://releases.ubuntu.com/"$VERSION"/ubuntu-"$VERSION"-desktop-amd64.iso
+   wget -q https://releases.ubuntu.com/22.04/ubuntu-"$VERSION"-desktop-amd64.iso
    elif [ "$FLAVOUR" = neon ]; then
    wget -q https://files.kde.org/neon/images/user/current/neon-user-current.iso
    else
