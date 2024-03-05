@@ -27,14 +27,15 @@ EOF
     mkdir -p /etc/skel/.var/app/info.smplayer.SMPlayer/config/smplayer
     wget -q --show-progress -O /etc/skel/.var/app/info.smplayer.SMPlayer/config/smplayer/smplayer.ini https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/smplayer/smplayer.ini
     sed -i 's/Yaru/Breeze/g' /etc/gtk-3.0/settings.ini
-    git clone -q https://github.com/dragoonDorise/es-theme-epicnoir /usr/share/emulationstation/themes/epicnoir
+    #git clone -q https://github.com/dragoonDorise/es-theme-epicnoir /usr/share/emulationstation/themes/epicnoir
     mkdir -p /usr/local/share/applications
 #    cp /usr/share/applications/steam.desktop /usr/local/share/applications/
 #    sed -i 's@steam://open/bigpicture@-gamepadui@g' /usr/local/share/applications/steam.desktop
 #    sed -i 's/Name=Big Picture/Name=Gamepad UI/g' /usr/local/share/applications/steam.desktop
 #    sed -i 's/Categories=Network;/Categories=/g' /usr/local/share/applications/steam.desktop
-    cp /usr/share/applications/steam.desktop /etc/xdg/autostart/
-    sed -i 's/%U/-gamepadui %U/g' /etc/xdg/autostart/steam.desktop
+#    cp /usr/share/applications/steam.desktop /etc/xdg/autostart/
+    cp /var/lib/flatpak/app/com.valvesoftware.Steam/current/active/files/share/applications/com.valvesoftware.Steam.desktop /etc/xdg/autostart/com.valvesoftware.Steam.desktop
+    sed -i 's/%U/-gamepadui %U/g' /etc/xdg/autostart/com.valvesoftware.Steam.desktop
 #    cat <<EOF |tee /etc/xdg/autostart/steam.desktop
 #[Desktop Entry]
 #Type=Application
