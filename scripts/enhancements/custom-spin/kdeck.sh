@@ -21,19 +21,10 @@ apt autoremove --purge -y\
     usb-creator*\
     vlc*
 dpkg --add-architecture i386
-#add-apt-repository -y ppa:libretro/stable
 apt update
-#wget -q --show-progress https://cdn.akamai.steamstatic.com/client/installer/steam.deb
 apt install -y\
     gamemode\
     steamos-compositor-plus
-#    ./steam.deb\
-#    boilr\
-#    emulationstation-de\
-#    filelight\
-#    mplayer\
-#    retroarch\
-#    smplayer\
 apt update
 apt install -y\
     libgl1-mesa-glx:i386\
@@ -48,6 +39,3 @@ flatpak install --assumeyes --noninteractive\
     info.smplayer.SMPlayer\
     io.github.philipk.boilr\
     org.kde.filelight
-#    com.steamgriddb.steam-rom-manager\
-#    org.libretro.RetroArch
-#    org.freedesktop.Platform.VulkanLayer.MangoHud//23.08\
