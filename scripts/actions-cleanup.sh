@@ -3,7 +3,7 @@ set -e
 
 # Actions cleanup
 PROJECT='rauldipeas/respin-rdx'
-KEEP=10
+KEEP=9
 gh api\
 	repos/"$PROJECT"/actions/runs\
 	--paginate -q '.workflow_runs[]|select(.head_branch != "any")|"\(.id)"'|tail -n+$((KEEP+1))\
