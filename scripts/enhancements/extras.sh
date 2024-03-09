@@ -168,6 +168,9 @@ fi
 # Synaptic
 apt install -y synaptic
 
+# Thunderbird
+apt autoremove --purge *thunderbird*
+
 # Timeshift
 apt install -y timeshift
 
