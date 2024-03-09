@@ -2,6 +2,7 @@
 set -e
 
 # Thunderbird
+apt autoremove --purge *thunderbird*
 wget -cq --show-progress -O thunderbird-latest-linux64-pt-br.tar.bz2 "$(wget -qO- https://www.thunderbird.net/pt-BR/|grep linux64|cut -d '"' -f2|head -n1)"
 tar fjx thunderbird-latest-linux64-pt-br.tar.bz2
 mkdir -p /opt/thunderbird
