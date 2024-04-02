@@ -5,11 +5,8 @@ set -e
 bash -x enhancements/desktop/ubuntu.sh
 bash -x enhancements/desktop/kubuntu.sh
 bash -x enhancements/desktop/xubuntu.sh
-bash -x enhancements/desktop/neon.sh
 bash -x enhancements/desktop/ucl.sh
 bash -x enhancements/desktop/ugl.sh
-bash -x enhancements/desktop/uglr.sh
-bash -x enhancements/desktop/xlr.sh
 bash -x enhancements/desktop/kdeck.sh
 bash -x enhancements/desktop/kavis.sh
 

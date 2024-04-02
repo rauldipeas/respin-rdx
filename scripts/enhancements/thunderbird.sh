@@ -70,18 +70,6 @@ fi
 EOF
 	chmod +x /opt/thunderbird/thunderbird-kdocker
 	ln -fs /opt/thunderbird/thunderbird-kdocker /usr/local/bin/thunderbird-kdocker
-	elif [ -f /UGLR ];then
-	cat <<EOF |tee /opt/thunderbird/thunderbird-kdocker>/dev/null
-#!/bin/bash
-set -e
-if [ "\$(pgrep -l thunderbird-bin|cut -d ' ' -f2)" == thunderbird-bin ]; then
-	thunderbird
-else
-	kdocker -i /usr/share/icons/Papirus/16x16/panel/thunderbird-panel.svg -d15 -mq thunderbird
-fi
-EOF
-	chmod +x /opt/thunderbird/thunderbird-kdocker
-	ln -fs /opt/thunderbird/thunderbird-kdocker /usr/local/bin/thunderbird-kdocker
 	else
 	cat <<EOF |tee /opt/thunderbird/thunderbird-kdocker>/dev/null
 #!/bin/bash

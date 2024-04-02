@@ -45,11 +45,8 @@ if [ "$1" ]; then
 	get_zip ubuntu;copy_iso_to_ventoy ubuntu
 	get_zip kubuntu;copy_iso_to_ventoy kubuntu
 	get_zip xubuntu;copy_iso_to_ventoy xubuntu
-	get_zip neon;copy_iso_to_ventoy neon
 	get_zip ucl;copy_iso_to_ventoy ucl
 	get_zip ugl;copy_iso_to_ventoy ugl
-	get_zip ugl-rolling;copy_iso_to_ventoy ugl-rolling
-	get_zip xl-rolling;copy_iso_to_ventoy xl-rolling
 	get_zip kdeck;copy_iso_to_ventoy kdeck
 	get_zip kavis;copy_iso_to_ventoy kavis
 fi

@@ -3,11 +3,7 @@ set -e
 
 # chroot
 ## Montagem da ISO e descompactação do sistema de arquivos compactado
-if [ "$FLAVOUR" = neon ]; then
-    sudo mount -o loop neon-user-current.iso /mnt
-    else
-    sudo mount -o loop "$FLAVOUR"-*-desktop-amd64.iso /mnt
-fi
+sudo mount -o loop "$FLAVOUR"-*-desktop-amd64.iso /mnt
 mkdir respin-rdx
 sudo unsquashfs -q -d "$CHROOT" /mnt/casper/filesystem.squashfs
 ## Montagem do enjaulamento

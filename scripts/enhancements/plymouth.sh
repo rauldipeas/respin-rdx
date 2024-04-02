@@ -19,21 +19,12 @@ if [ -f /KAVIS ];then
     elif [ -f /Kubuntu ];then
     wget -q --show-progress https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/plymouth/kubuntu.svg
     convert -density 1200 -resize 128x128 -background none kubuntu.svg /usr/share/plymouth/themes/vortex-ubuntu/logo.png
-    elif [ -f /Neon ];then
-    wget -q --show-progress https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/plymouth/neon.svg
-    convert -density 1200 -resize 128x128 -background none neon.svg /usr/share/plymouth/themes/vortex-ubuntu/logo.png
     elif [ -f /UCL ];then
     wget -q --show-progress https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/plymouth/cinnamon.png
     convert -density 1200 -resize 128x128 -background none cinnamon.png /usr/share/plymouth/themes/vortex-ubuntu/logo.png
     elif [ -f /UGL ];then
     wget -q --show-progress https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/plymouth/gnome.svg
     convert -density 1200 -resize 128x128 -background none gnome.svg /usr/share/plymouth/themes/vortex-ubuntu/logo.png
-    elif [ -f /UGLR ];then
-    wget -q --show-progress https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/plymouth/custom.svg
-    convert -density 1200 -resize 128x128 -background none custom.svg /usr/share/plymouth/themes/vortex-ubuntu/logo.png
-    elif [ -f /XLR ];then
-    wget -q --show-progress https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/plymouth/custom.svg
-    convert -density 1200 -resize 128x128 -background none custom.svg /usr/share/plymouth/themes/vortex-ubuntu/logo.png
     elif [ -f /Xubuntu ];then
     wget -q --show-progress https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/plymouth/xubuntu.svg
     convert -density 1200 -resize 128x128 -background none xubuntu.svg /usr/share/plymouth/themes/vortex-ubuntu/logo.png

@@ -31,9 +31,7 @@ Alguns extras estão inclusos:
 * ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/apps/preferences-system-windows.svg) [**Docklike**](https://github.com/nsz32/docklike-plugin) (`superbar` para o painel do XFCE)
 * ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/apps/kmenuedit.svg) [**Vala Application Menu**](https://github.com/rilian-la-te/vala-panel-appmenu) (`appmenu` para o painel do XFCE)
 * ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/apps/cpu-x.svg) [**CPU-X**](https://thetumultuousunicornofdarkness.github.io/CPU-X) (informações de hardware)
-* ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/apps/deltachat.svg) [**DeltaChat**](https://delta.chat/pt_BR) (mensageiro instantâneo criptografado, baseado em e-mail)
 * ![](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/22x22/apps/kitty.svg) [**Kitty**](https://sw.kovidgoyal.net/kitty/) (terminal baseado em GPU)
-
 
 Os scripts disponíveis neste repositório, são derivados dos scripts desenvolvidos pelo [**Marcos Vallim**](https://github.com/mvallim/live-custom-ubuntu-from-scratch).
 
@@ -42,15 +40,11 @@ Os scripts disponíveis neste repositório, são derivados dos scripts desenvolv
 
 [![gnome-lite](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/48x48/apps/desktop-environment-gnome.svg "GNOME Lite")![](https://img.shields.io/github/actions/workflow/status/rauldipeas/respin-rdx/ugl-respin-rdx.yml?branch=main&label=Ubuntu%20GNOME%20Lite%20Respin%20RDX&logo=GitHub&style=for-the-badge "GNOME Lite")](https://nightly.link/rauldipeas/respin-rdx/workflows/ugl-respin-rdx/main/ugl-respin-rdx.zip)
 
-[![gnome-lite-rolling](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/48x48/apps/applications-development.svg "GNOME Lite Rolling")![](https://img.shields.io/github/actions/workflow/status/rauldipeas/respin-rdx/ugl-rolling-respin-rdx.yml?branch=main&label=Ubuntu%20GNOME%20Lite%20Rolling%20Respin%20RDX&logo=GitHub&style=for-the-badge "GNOME Lite Rolling")](https://nightly.link/rauldipeas/respin-rdx/workflows/ugl-rolling-respin-rdx/main/ugl-rolling-respin-rdx.zip)
-
 [![kubuntu](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/48x48/apps/distributor-logo-kubuntu.svg "Kubuntu")![](https://img.shields.io/github/actions/workflow/status/rauldipeas/respin-rdx/kubuntu-respin-rdx.yml?branch=main&label=Kubuntu%20Respin%20RDX&logo=GitHub&style=for-the-badge "Kubuntu")](https://nightly.link/rauldipeas/respin-rdx/workflows/kubuntu-respin-rdx/main/kubuntu-respin-rdx.zip)
 
 [![xubuntu](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/48x48/apps/desktop-environment-xfce.svg "Xubuntu")![](https://img.shields.io/github/actions/workflow/status/rauldipeas/respin-rdx/xubuntu-respin-rdx.yml?branch=main&label=Xubuntu%20Respin%20RDX&logo=GitHub&style=for-the-badge "Xubuntu")](https://nightly.link/rauldipeas/respin-rdx/workflows/xubuntu-respin-rdx/main/xubuntu-respin-rdx.zip)
 
 [![cinnamon-lite](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/48x48/apps/preferences-desktop-theme.svg "Cinnamon Lite")![](https://img.shields.io/github/actions/workflow/status/rauldipeas/respin-rdx/ucl-respin-rdx.yml?branch=main&label=Ubuntu%20Cinnamon%20Lite%20Respin%20RDX&logo=GitHub&style=for-the-badge "Cinnamon Lite")](https://nightly.link/rauldipeas/respin-rdx/workflows/ucl-respin-rdx/main/ucl-respin-rdx.zip)
-
-[![xubuntu-lite-rolling](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/48x48/apps/applications-development.svg "Xubuntu Lite Rolling")![](https://img.shields.io/github/actions/workflow/status/rauldipeas/respin-rdx/xl-rolling-respin-rdx.yml?branch=main&label=Xubuntu%20Lite%20Rolling%20Respin%20RDX&logo=GitHub&style=for-the-badge "Xubuntu Lite Rolling")](https://nightly.link/rauldipeas/respin-rdx/workflows/xl-rolling-respin-rdx/main/xl-rolling-respin-rdx.zip)
 
 [![kdeck](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/48x48/apps/distributor-logo-steamos.svg "Kubuntu Deck")![](https://img.shields.io/github/actions/workflow/status/rauldipeas/respin-rdx/kdeck-respin-rdx.yml?branch=main&label=Kubuntu%20Deck%20Respin%20RDX&logo=GitHub&style=for-the-badge "Kubuntu Deck")](https://nightly.link/rauldipeas/respin-rdx/workflows/kdeck-respin-rdx/main/kdeck-respin-rdx.zip)
 

@@ -3,8 +3,6 @@ set -e
 # Ubuntu
 if [ -f /Ubuntu ]; then
     echo 'Ubuntu'
-    wget -q --show-progress -O /usr/share/hardcode-tray/database/deltachat.json https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/hardcode-tray/deltachat.json
-    wget -q --show-progress -O /usr/share/hardcode-tray/database/deltachat.electron.json https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/hardcode-tray/deltachat.electron.json
     cat <<EOF |tee /etc/skel/.config/hardcode-tray.json
 {
     "icons": {

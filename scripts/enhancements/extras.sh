@@ -11,9 +11,6 @@ echo 'GRUB_THEME="/usr/share/grub/themes/breeze/theme.txt"'|tee /etc/default/gru
 # CPU-X
 apt install -y cpu-x
 
-# DeltaChat
-apt install -y deltachat-desktop
-
 # Discovery/Muon
 #apt autoremove --purge -y muon plasma-discover-common
 
@@ -23,22 +20,7 @@ apt install -y deltachat-desktop
 #fi
 
 # GNOME software
-if [ -f /Neon ]; then
-    echo 'Neon'
-    apt install -y --no-install-recommends plasma-discover-backend-flatpak
-    flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-    flatpak install -y org.gtk.Gtk3theme.Breeze
-    elif [ -f /UGLR ]; then
-    echo 'GNOME Lite Rolling'
-    apt install -y --no-install-recommends gnome-software-plugin-flatpak
-    flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-    flatpak install -y org.gtk.Gtk3theme.adw-gtk3 org.gtk.Gtk3theme.adw-gtk3-dark
-    elif [ -f /XLR ]; then
-    echo 'Xubuntu Lite Rolling'
-    apt install -y --no-install-recommends gnome-software-plugin-flatpak
-    flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-    flatpak install -y org.gtk.Gtk3theme.Greybird-dark
-    elif [ -f /Kubuntu ]; then
+if [ -f /Kubuntu ]; then
     echo 'Kubuntu'
     elif [ -f /KAVIS ]; then
     echo 'Kubuntu Audio Video Image Studio'
@@ -94,18 +76,12 @@ if [ -f /KDeck ]; then
 fi
 
 # LibreOffice
-if [ -f /Neon ]; then
-    echo 'Neon'
-    elif [ -f /KDeck ];then
+if [ -f /KDeck ];then
     echo 'Kubuntu Deck'
     elif [ -f /UCL ];then
     echo 'Cinnamon Lite'
     elif [ -f /UGL ]; then
     echo 'GNOME Lite'
-    elif [ -f /UGLR ];then
-    echo 'GNOME Lite Rolling'
-    elif [ -f /XLR ];then
-    echo 'Xubuntu Lite Rolling'
     else
     echo 'Flavours'
     add-apt-repository -y ppa:libreoffice/ppa
@@ -124,18 +100,12 @@ add-apt-repository -ny ppa:papirus/hardcode-tray
 sed -i 's/jammy/focal/g' /etc/apt/sources.list.d/*hardcode-tray* #tmp-downgrade-fix
 add-apt-repository -y ppa:papirus/papirus-dev
 apt install -y hardcode-tray papirus-icon-theme papirus-folders
-if [ -f /Neon ]; then
-    echo 'Neon'
-    elif [ -f /KDeck ];then
+if [ -f /KDeck ];then
     echo 'Kubuntu Deck'
     elif [ -f /UCL ];then
     echo 'Cinnamon Lite'
     elif [ -f /UGL ]; then
     echo 'GNOME Lite'
-    elif [ -f /UGLR ];then
-    echo 'GNOME Lite Rolling'
-    elif [ -f /XLR ];then
-    echo 'Xubuntu Lite Rolling'
     else
     echo 'Flavours'
     wget -q --show-progress https://launchpad.net/~papirus/+archive/ubuntu/papirus/+files/libreoffice-style-papirus_20180413-46+pkg3~ubuntu20.04.1_all.deb
@@ -158,8 +128,6 @@ if [ -f /Kubuntu ]; then
     echo 'Qt environment'
     elif [ -f /KAVIS ]; then
     echo 'Qt environment'    
-    elif [ -f /Neon ]; then
-    echo 'Qt environment'
     else
     echo 'Non-Qt environment, running Qt5 style plugins install'
     apt install -y qt5-style-plugins
@@ -176,9 +144,6 @@ apt install -y unrar
 
 # Xubuntu extras
 if [ -f /Xubuntu ]; then
-    add-apt-repository -y ppa:xubuntu-dev/extras
-    apt install -y volumeicon-alsa xfce4-appmenu-plugin xfce4-docklike-plugin
-    elif [ -f /XLR ]; then
     add-apt-repository -y ppa:xubuntu-dev/extras
     apt install -y volumeicon-alsa xfce4-appmenu-plugin xfce4-docklike-plugin
     # LightPad
