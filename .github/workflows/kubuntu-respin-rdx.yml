@@ -29,7 +29,7 @@ jobs:
           CODENAME: jammy
           FLAVOUR: kubuntu
           FLAVOUR_NAME: Kubuntu
-          VERSION: 24.04
+          VERSION: daily
           CHROOT: respin-rdx/kubuntu-chroot
           FLAVOUR_ID: Kubuntu
           ISO_NAME: kubuntu
