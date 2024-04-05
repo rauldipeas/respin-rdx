@@ -29,7 +29,7 @@ jobs:
           CODENAME: jammy
           FLAVOUR: ubuntu
           FLAVOUR_NAME: Ubuntu GNOME Lite
-          VERSION: 22.04.4
+          VERSION: 24.04
           CHROOT: respin-rdx/ugl-chroot
           FLAVOUR_ID: UGL
           ISO_NAME: ugl

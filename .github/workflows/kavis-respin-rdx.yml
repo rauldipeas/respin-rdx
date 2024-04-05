@@ -29,7 +29,7 @@ jobs:
           CODENAME: jammy
           FLAVOUR: kubuntu
           FLAVOUR_NAME: KAVIS
-          VERSION: 22.04.4
+          VERSION: 24.04
           CHROOT: respin-rdx/kavis-chroot
           FLAVOUR_ID: KAVIS
           ISO_NAME: kavis
