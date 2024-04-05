@@ -3,7 +3,7 @@ set -e
 
 # chroot
 ## Montagem da ISO e descompactação do sistema de arquivos compactado
-sudo mount -o loop "$FLAVOUR"-*-desktop-amd64.iso /mnt
+sudo mount -o loop *-desktop-amd64.iso /mnt
 mkdir respin-rdx
 sudo unsquashfs -q -d "$CHROOT" /mnt/casper/filesystem.squashfs
 ## Montagem do enjaulamento
