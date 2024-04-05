@@ -26,7 +26,7 @@ jobs:
       - name: Compilação do Ubuntu GNOME Lite Respin RDX
         run: bash -x scripts/build.sh
         env:
-          CODEMANE: noble
+          CODENAME: noble
           FLAVOUR: ubuntu
           FLAVOUR_NAME: Ubuntu GNOME Lite
           VERSION: daily
