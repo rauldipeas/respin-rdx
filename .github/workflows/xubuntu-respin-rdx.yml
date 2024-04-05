@@ -26,7 +26,7 @@ jobs:
       - name: Compilação do Xubuntu Respin RDX
         run: bash -x scripts/build.sh
         env:
-          CODENAME: jammy
+          CODEMANE: noble
           FLAVOUR: xubuntu
           FLAVOUR_NAME: Xubuntu
           VERSION: daily
