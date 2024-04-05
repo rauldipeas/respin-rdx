@@ -5,7 +5,7 @@ set -e
 ## Montagem da ISO e descompactação do sistema de arquivos compactado
 sudo mount -o loop *-desktop-amd64.iso /mnt
 mkdir respin-rdx
-sudo unsquashfs -q -d "$CHROOT" /mnt/casper/filesystem.squashfs
+sudo unsquashfs -q -d "$CHROOT" /mnt/casper/*.live.squashfs
 ## Montagem do enjaulamento
 sudo mount -o bind /dev "$CHROOT"/dev
 sudo mount -o bind /dev/pts "$CHROOT"/dev/pts
