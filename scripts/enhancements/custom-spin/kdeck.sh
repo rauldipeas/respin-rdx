@@ -21,7 +21,7 @@ apt autoremove --purge -y\
     usb-creator*\
     vlc*
 dpkg --add-architecture i386
-#add-apt-repository -y ppa:libretro/stable
+#add-apt-repository -yd jammy ppa:libretro/stable
 apt update
 #wget -q --show-progress https://cdn.akamai.steamstatic.com/client/installer/steam.deb
 apt install -y\

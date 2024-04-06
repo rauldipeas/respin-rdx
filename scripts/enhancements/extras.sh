@@ -68,10 +68,10 @@ apt autoremove --purge -y gnome-terminal konsole xfce4-terminal
 
 # Kubuntu backports
 if [ -f /KDeck ]; then
-    add-apt-repository -y ppa:kubuntu-ppa/backports
+    add-apt-repository -yd jammy ppa:kubuntu-ppa/backports
     apt dist-upgrade -y
     elif [ -f /KAVIS ]; then
-    add-apt-repository -y ppa:kubuntu-ppa/backports
+    add-apt-repository -yd jammy ppa:kubuntu-ppa/backports
     apt dist-upgrade -y
 fi
 
@@ -84,7 +84,7 @@ if [ -f /KDeck ];then
     echo 'GNOME Lite'
     else
     echo 'Flavours'
-    add-apt-repository -y ppa:libreoffice/ppa
+    add-apt-repository -yd jammy ppa:libreoffice/ppa
     apt dist-upgrade -y -o Dpkg::Options::="--force-confdef" --force-yes
 fi
 
@@ -96,9 +96,9 @@ apt install -y ./nala*.deb
 apt install -y nohang
 
 # Papirus
-add-apt-repository -ny -d focal ppa:papirus/hardcode-tray
+add-apt-repository -nyd focal ppa:papirus/hardcode-tray
 #sed -i 's/jammy/focal/g' /etc/apt/sources.list.d/*hardcode-tray* #tmp-downgrade-fix
-add-apt-repository -y ppa:papirus/papirus-dev
+add-apt-repository -yd jammy ppa:papirus/papirus-dev
 apt install -y hardcode-tray papirus-icon-theme papirus-folders
 if [ -f /KDeck ];then
     echo 'Kubuntu Deck'
@@ -144,10 +144,10 @@ apt install -y unrar
 
 # Xubuntu extras
 if [ -f /Xubuntu ]; then
-    add-apt-repository -y ppa:xubuntu-dev/extras
+    add-apt-repository -yd jammy ppa:xubuntu-dev/extras
     apt install -y volumeicon-alsa xfce4-appmenu-plugin xfce4-docklike-plugin
     # LightPad
-    #add-apt-repository -ny -d focal ppa:libredeb/lightpad
+    #add-apt-repository -nyd focal ppa:libredeb/lightpad
     ##sed -i 's/jammy/focal/g' /etc/apt/sources.list.d/*lightpad* #tmp-downgrade-fix
     #apt update
     #apt install -y com.github.libredeb.lightpad
