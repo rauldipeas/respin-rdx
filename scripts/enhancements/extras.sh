@@ -68,10 +68,10 @@ apt autoremove --purge -y gnome-terminal konsole xfce4-terminal
 
 # Kubuntu backports
 if [ -f /KDeck ]; then
-    LC_ALL=C.UTF-8 add-apt-repository -y ppa:kubuntu-ppa/backports -d jammy
+    LC_ALL=C.UTF-8 add-apt-repository -y ppa:kubuntu-ppa/backports
     apt dist-upgrade -y
     elif [ -f /KAVIS ]; then
-    LC_ALL=C.UTF-8 add-apt-repository -y ppa:kubuntu-ppa/backports -d jammy
+    LC_ALL=C.UTF-8 add-apt-repository -y ppa:kubuntu-ppa/backports
     apt dist-upgrade -y
 fi
 
@@ -84,7 +84,7 @@ if [ -f /KDeck ];then
     echo 'GNOME Lite'
     else
     echo 'Flavours'
-    LC_ALL=C.UTF-8 add-apt-repository -y ppa:libreoffice/ppa -d jammy
+    LC_ALL=C.UTF-8 add-apt-repository -y ppa:libreoffice/ppa
     apt dist-upgrade -y -o Dpkg::Options::="--force-confdef" --force-yes
 fi
 
@@ -96,9 +96,9 @@ apt install -y ./nala*.deb
 apt install -y nohang
 
 # Papirus
-LC_ALL=C.UTF-8 add-apt-repository -ny ppa:papirus/hardcode-tray -d focal
+LC_ALL=C.UTF-8 add-apt-repository -ny ppa:papirus/hardcode-tray
 #sed -i 's/jammy/focal/g' /etc/apt/sources.list.d/*hardcode-tray* #tmp-downgrade-fix
-LC_ALL=C.UTF-8 add-apt-repository -y ppa:papirus/papirus-dev -d jammy
+LC_ALL=C.UTF-8 add-apt-repository -y ppa:papirus/papirus-dev
 apt install -y hardcode-tray papirus-icon-theme papirus-folders
 if [ -f /KDeck ];then
     echo 'Kubuntu Deck'
@@ -144,10 +144,10 @@ apt install -y unrar
 
 # Xubuntu extras
 if [ -f /Xubuntu ]; then
-    LC_ALL=C.UTF-8 add-apt-repository -y ppa:xubuntu-dev/extras -d jammy
+    LC_ALL=C.UTF-8 add-apt-repository -y ppa:xubuntu-dev/extras
     apt install -y volumeicon-alsa xfce4-appmenu-plugin xfce4-docklike-plugin
     # LightPad
-    #LC_ALL=C.UTF-8 add-apt-repository -ny ppa:libredeb/lightpad -d focal
+    #LC_ALL=C.UTF-8 add-apt-repository -ny ppa:libredeb/lightpad
     ##sed -i 's/jammy/focal/g' /etc/apt/sources.list.d/*lightpad* #tmp-downgrade-fix
     #apt update
     #apt install -y com.github.libredeb.lightpad

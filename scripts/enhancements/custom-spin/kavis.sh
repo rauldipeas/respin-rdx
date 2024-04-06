@@ -21,9 +21,9 @@ apt autoremove --purge -y\
 dpkg --add-architecture i386
 wget -cq --show-progress http://ppa.launchpad.net/kxstudio-debian/kxstudio/ubuntu/pool/main/k/kxstudio-repos/"$(wget -qO- http://ppa.launchpad.net/kxstudio-debian/kxstudio/ubuntu/pool/main/k/kxstudio-repos/|grep all.deb|tail -n1|cut -d '"' -f8)"
 apt install -y ./kxstudio-repos*.deb
-LC_ALL=C.UTF-8 add-apt-repository -ny ppa:ubuntuhandbook1/gimp -d jammy
-LC_ALL=C.UTF-8 add-apt-repository -ny ppa:kdenlive/kdenlive-stable -d jammy
-LC_ALL=C.UTF-8 add-apt-repository -y ppa:obsproject/obs-studio -d jammy
+LC_ALL=C.UTF-8 add-apt-repository -ny ppa:ubuntuhandbook1/gimp
+LC_ALL=C.UTF-8 add-apt-repository -ny ppa:kdenlive/kdenlive-stable
+LC_ALL=C.UTF-8 add-apt-repository -y ppa:obsproject/obs-studio
 echo 'jackd2 jackd/tweak_rt_limits string true'|sudo debconf-set-selections
 apt install -y\
     4kvideodownloader\
@@ -61,7 +61,7 @@ apt install -y\
     wine-tkg\
     winetricks\
     zenity
-#LC_ALL=C.UTF-8 add-apt-repository -y ppa:touchegg/stable -d jammy
+#LC_ALL=C.UTF-8 add-apt-repository -y ppa:touchegg/stable
 wget -cq --show-progress https://ppa.launchpadcontent.net/touchegg/stable/ubuntu/pool/main/t/touchegg/"$(wget -qO- https://ppa.launchpadcontent.net/touchegg/stable/ubuntu/pool/main/t/touchegg/|grep 22.04|grep amd64.deb|tail -n1|cut -d '"' -f8)" #tmp-fix
 apt install -y touche ./touchegg*.deb
 wget -q --show-progress http://mirrors.kernel.org/ubuntu/pool/universe/p/plasma-welcome/"$(wget -qO- http://mirrors.kernel.org/ubuntu/pool/universe/p/plasma-welcome|grep amd64.deb|tail -n1|cut -d '"' -f2)"
