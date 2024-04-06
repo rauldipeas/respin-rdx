@@ -16,19 +16,19 @@ sudo touch "$CHROOT"/"$FLAVOUR_ID"
 ## Desktop base
 if [ -f /Kubuntu ]; then
     echo 'Kubuntu'
-    apt install -y kubuntu-desktop
+    sudo chroot "$CHROOT" apt install -y kubuntu-desktop
     elif [ -f /KAVIS ]; then
-    echo 'Kubuntu Audio Video Image Studio'
-    apt install -y kubuntu-desktop
+    sudo chroot "$CHROOT" echo 'Kubuntu Audio Video Image Studio'
+    sudo chroot "$CHROOT" apt install -y kubuntu-desktop
     elif [ -f /KDeck ]; then
-    echo 'Kubuntu Deck'
+    sudo chroot "$CHROOT" echo 'Kubuntu Deck'
     apt install -y kubuntu-desktop
-    elif [ -f /Xubuntu ]; then
+    sudo chroot "$CHROOT" elif [ -f /Xubuntu ]; then
     echo 'Xubuntu'
-    apt install -y xubuntu-desktop
+    sudo chroot "$CHROOT" apt install -y xubuntu-desktop
     else
     echo 'Ubuntu'
-    apt install -y ubuntu-desktop
+    sudo chroot "$CHROOT" apt install -y ubuntu-desktop
 fi
 ## Execução dos scripts de personalização
 sudo cp -r scripts/enhancements* "$CHROOT"/
