@@ -25,7 +25,7 @@ deb-src http://us.archive.ubuntu.com/ubuntu/ jammy-security main restricted univ
 deb http://us.archive.ubuntu.com/ubuntu/ jammy-updates main restricted universe multiverse
 deb-src http://us.archive.ubuntu.com/ubuntu/ jammy-updates main restricted universe multiverse
 EOF
-cat <<EOF |tee /etc/apt/preferences.d/nosnap.pref
+cat <<EOF |sudo tee "$CHROOT"/etc/apt/preferences.d/nosnap.pref
 Package: snapd
 Pin: release a=*
 Pin-Priority: -10
