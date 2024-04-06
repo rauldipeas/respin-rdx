@@ -96,8 +96,8 @@ apt install -y ./nala*.deb
 apt install -y nohang
 
 # Papirus
-add-apt-repository -ny ppa:papirus/hardcode-tray
-sed -i 's/jammy/focal/g' /etc/apt/sources.list.d/*hardcode-tray* #tmp-downgrade-fix
+add-apt-repository -ny -d focal ppa:papirus/hardcode-tray
+#sed -i 's/jammy/focal/g' /etc/apt/sources.list.d/*hardcode-tray* #tmp-downgrade-fix
 add-apt-repository -y ppa:papirus/papirus-dev
 apt install -y hardcode-tray papirus-icon-theme papirus-folders
 if [ -f /KDeck ];then
@@ -147,8 +147,8 @@ if [ -f /Xubuntu ]; then
     add-apt-repository -y ppa:xubuntu-dev/extras
     apt install -y volumeicon-alsa xfce4-appmenu-plugin xfce4-docklike-plugin
     # LightPad
-    #add-apt-repository -ny ppa:libredeb/lightpad
-    #sed -i 's/jammy/focal/g' /etc/apt/sources.list.d/*lightpad* #tmp-downgrade-fix
+    #add-apt-repository -ny -d focal ppa:libredeb/lightpad
+    ##sed -i 's/jammy/focal/g' /etc/apt/sources.list.d/*lightpad* #tmp-downgrade-fix
     #apt update
     #apt install -y com.github.libredeb.lightpad
 fi
