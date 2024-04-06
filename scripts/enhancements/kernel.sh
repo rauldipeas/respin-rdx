@@ -19,7 +19,7 @@ apt install -y cfs-zen-tweaks
 systemctl enable set-cfs-tweaks.service
 
 # Mainline
-LC_ALL=C.UTF-8 add-apt-repository -y ppa:cappelikan/ppa
+bash -x enhancements/add-ppa.sh ppa:cappelikan/ppa jammy
 cat <<EOF |tee /etc/apt/apt.conf.d/100mainline-icon
 DPkg::Post-Invoke {"sed -i 's/Icon=mainline/Icon=mintsources-ppa/g' /usr/share/applications/mainline.desktop";};
 EOF
