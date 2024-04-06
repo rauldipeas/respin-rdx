@@ -31,6 +31,7 @@ Pin: release a=*
 Pin-Priority: -10
 EOF
 sudo chroot "$CHROOT" apt update
+sudo chroot "$CHROOT" apt install -y sudo
 if [ -f /Kubuntu ]; then
     echo 'Kubuntu'
     sudo chroot "$CHROOT" apt install -y kubuntu-desktop

@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 # Live assets
 ## Criação das pastas na imagem de instalação
