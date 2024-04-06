@@ -29,7 +29,7 @@ jobs:
           CODENAME: noble
           FLAVOUR: xubuntu
           FLAVOUR_NAME: Xubuntu
-          VERSION: daily
+          VERSION: 22.04.4
           CHROOT: respin-rdx/xubuntu-chroot
           FLAVOUR_ID: Xubuntu
           ISO_NAME: xubuntu
