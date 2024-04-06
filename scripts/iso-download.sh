@@ -2,7 +2,7 @@
 
 # ISO download
 set -e
-if [ "$VERSION" = daily ];then
+if [ "$VERSION" = daily ]; then
    if [ "$FLAVOUR" = ubuntu ]; then
       wget -q https://cdimage.ubuntu.com/daily-live/current/"$CODENAME"-desktop-amd64.iso
       else
