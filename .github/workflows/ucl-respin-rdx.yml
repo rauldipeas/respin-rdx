@@ -26,7 +26,7 @@ jobs:
       - name: Compilação do Ubuntu Cinnamon Lite Respin RDX
         run: bash -x scripts/build.sh
         env:
-          CODENAME: noble
+          CODENAME: jammy
           FLAVOUR: ubuntu
           FLAVOUR_NAME: Ubuntu Cinnamon Lite
           VERSION: 22.04.4
