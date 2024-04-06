@@ -14,16 +14,28 @@ sudo mount -o bind /run "$CHROOT"/run
 sudo mount -o bind /sys "$CHROOT"/sys
 sudo touch "$CHROOT"/"$FLAVOUR_ID"
 ## Desktop base
+echo "respin-rdx"|sudo tee "$CHROOT"/etc/hostname
+cat <<EOF |sudo tee "$CHROOT"/etc/apt/sources.list
+deb http://us.archive.ubuntu.com/ubuntu/ jammy main restricted universe multiverse
+deb-src http://us.archive.ubuntu.com/ubuntu/ jammy main restricted universe multiverse
+
+deb http://us.archive.ubuntu.com/ubuntu/ jammy-security main restricted universe multiverse
+deb-src http://us.archive.ubuntu.com/ubuntu/ jammy-security main restricted universe multiverse
+
+deb http://us.archive.ubuntu.com/ubuntu/ jammy-updates main restricted universe multiverse
+deb-src http://us.archive.ubuntu.com/ubuntu/ jammy-updates main restricted universe multiverse
+EOF
+sudo chroot "$CHROOT" apt update
 if [ -f /Kubuntu ]; then
     echo 'Kubuntu'
     sudo chroot "$CHROOT" apt install -y kubuntu-desktop
     elif [ -f /KAVIS ]; then
-    sudo chroot "$CHROOT" echo 'Kubuntu Audio Video Image Studio'
+    echo 'Kubuntu Audio Video Image Studio'
     sudo chroot "$CHROOT" apt install -y kubuntu-desktop
     elif [ -f /KDeck ]; then
-    sudo chroot "$CHROOT" echo 'Kubuntu Deck'
-    apt install -y kubuntu-desktop
-    sudo chroot "$CHROOT" elif [ -f /Xubuntu ]; then
+    echo 'Kubuntu Deck'
+    sudo chroot "$CHROOT" apt install -y kubuntu-desktop
+    elif [ -f /Xubuntu ]; then
     echo 'Xubuntu'
     sudo chroot "$CHROOT" apt install -y xubuntu-desktop
     else
