@@ -2,8 +2,8 @@
 set -e
 
 # Ubuntu extra repo
-add-apt-repository -ny multiverse
-add-apt-repository -ny universe
+LC_ALL=C.UTF-8 add-apt-repository -ny multiverse
+LC_ALL=C.UTF-8 add-apt-repository -ny universe
 
 # Raul Dipeas apt repository
 bash -x <(wget -qO- https://raw.githubusercontent.com/rauldipeas/apt-repository/main/apt-repository.sh)

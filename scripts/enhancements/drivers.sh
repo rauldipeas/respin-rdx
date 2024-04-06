@@ -2,7 +2,7 @@
 set -e
 
 # MESA
-add-apt-repository -yd jammy ppa:kisak/kisak-mesa
+LC_ALL=C.UTF-8 add-apt-repository -y ppa:kisak/kisak-mesa -d jammy
 apt autoremove --purge -y libgl1-amber-dri #tmp-fix
 apt dist-upgrade -y --allow-downgrades
 
@@ -11,7 +11,7 @@ wget -q --show-progress http://ppa.launchpad.net/kxstudio-debian/libs/ubuntu/poo
 apt install -y ./alsa-firmware*.deb
 
 # JACK
-add-apt-repository -yd jammy ppa:ubuntustudio-ppa/backports
+LC_ALL=C.UTF-8 add-apt-repository -y ppa:ubuntustudio-ppa/backports -d jammy
 echo 'jackd2 jackd/tweak_rt_limits string true'|debconf-set-selections>/dev/null
 apt install --no-install-recommends -y jackd2
 
