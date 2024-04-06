@@ -26,9 +26,9 @@ EOF
 apt install -y amd64-microcode intel-microcode mainline thermald
 
 # Latest kernel
-KERNEL_VER="v6.1.69/"
-#KERNEL_VER="$(wget -qO- https://kernel.ubuntu.com/~kernel-ppa/mainline/|grep folder|grep -v "\-rc"|tail -n1|cut -d '"' -f8)"
-#KERNEL_VER="$(wget -qO- https://kernel.ubuntu.com/~kernel-ppa/mainline/|grep folder|grep -v "\-rc"|tail -n2|head -n1|cut -d '"' -f8)"
+#KERNEL_VER="v6.1.69/"
+KERNEL_VER="$(wget -qO- https://kernel.ubuntu.com/~kernel-ppa/mainline/|grep folder|grep -v "\-rc"|tail -n1|cut -d '"' -f8)"
+KERNEL_VER="$(wget -qO- https://kernel.ubuntu.com/~kernel-ppa/mainline/|grep folder|grep -v "\-rc"|tail -n2|head -n1|cut -d '"' -f8)"
 KERNEL_HEADERS_COMMON_FILE=$(wget -qO- https://kernel.ubuntu.com/~kernel-ppa/mainline/"$KERNEL_VER"|grep headers|grep all.deb|cut -d '"' -f2)
 KERNEL_HEADERS_FILE=$(wget -qO- https://kernel.ubuntu.com/~kernel-ppa/mainline/"$KERNEL_VER"|grep headers|grep amd64.deb|cut -d '"' -f2)
 KERNEL_IMAGE_FILE=$(wget -qO- https://kernel.ubuntu.com/~kernel-ppa/mainline/"$KERNEL_VER"|grep image|grep amd64.deb|cut -d '"' -f2)
@@ -37,7 +37,7 @@ wget -q --show-progress https://kernel.ubuntu.com/~kernel-ppa/mainline/"$KERNEL_
 wget -q --show-progress https://kernel.ubuntu.com/~kernel-ppa/mainline/"$KERNEL_VER""$KERNEL_HEADERS_FILE"
 wget -q --show-progress https://kernel.ubuntu.com/~kernel-ppa/mainline/"$KERNEL_VER""$KERNEL_IMAGE_FILE"
 wget -q --show-progress https://kernel.ubuntu.com/~kernel-ppa/mainline/"$KERNEL_VER""$KERNEL_MODULES_FILE"
-apt install ./linux-headers*.deb ./linux-image*.deb ./linux-modules*.deb
+apt install -y ./linux-headers*.deb ./linux-image*.deb ./linux-modules*.deb
 
 # ZSwap
 echo lz4|tee -a /etc/initramfs-tools/modules>/dev/null
