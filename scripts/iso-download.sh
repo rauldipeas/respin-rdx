@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 # ISO download
 set -e
