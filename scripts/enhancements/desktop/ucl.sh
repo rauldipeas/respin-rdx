@@ -21,8 +21,8 @@ EOF
     cat <<EOF |tee /etc/profile.d/qt-qpa-platformtheme.sh
 export QT_QPA_PLATFORMTHEME=gtk2
 EOF
-    cp /usr/share/applications/info.desktop /usr/local/share/applications/
-    echo 'Hidden=true'|tee -a /usr/local/share/applications/info.desktop>/dev/null
+    #cp /usr/share/applications/info.desktop /usr/local/share/applications/
+    #echo 'Hidden=true'|tee -a /usr/local/share/applications/info.desktop>/dev/null
     git clone -q https://github.com/germanfr/cinnamon-transparent-panels
     cd cinnamon-transparent-panels
     ./utils.sh install

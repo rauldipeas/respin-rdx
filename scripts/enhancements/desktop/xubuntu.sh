@@ -20,7 +20,7 @@ EOF
     cat <<EOF |tee /etc/profile.d/qt-qpa-platformtheme.sh
 export QT_QPA_PLATFORMTHEME=gtk2
 EOF
-    rm -r /etc/skel/.config/libreoffice
+    #rm -r /etc/skel/.config/libreoffice
     mkdir -p /etc/skel/.config/{autostart,volumeicon,xfce4/panel}
     wget -q --show-progress -O /etc/xdg/autostart/volumeicon.desktop https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/XFCE/volumeicon.desktop
     wget -q --show-progress -O /etc/skel/.config/volumeicon/volumeicon https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/XFCE/volumeicon

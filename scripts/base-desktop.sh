@@ -22,13 +22,13 @@ sudo chroot "$CHROOT" apt update
 sudo chroot "$CHROOT" apt install -y sudo
 if [ -f /Kubuntu ]; then
     echo 'Kubuntu'
-    sudo chroot "$CHROOT" apt install -y kubuntu-desktop
+    sudo chroot "$CHROOT" apt install -y kubuntu-desktop --install-recommends --install-suggests
     elif [ -f /KAVIS ]; then
     echo 'Kubuntu Audio Video Image Studio'
-    sudo chroot "$CHROOT" apt install -y kubuntu-desktop
+    sudo chroot "$CHROOT" apt install -y kubuntu-desktop --install-recommends --install-suggests
     elif [ -f /KDeck ]; then
     echo 'Kubuntu Deck'
-    sudo chroot "$CHROOT" apt install -y kubuntu-desktop
+    sudo chroot "$CHROOT" apt install -y kubuntu-desktop --install-recommends --install-suggests
     elif [ -f /Xubuntu ]; then
     echo 'Xubuntu'
     sudo chroot "$CHROOT" apt install -y xubuntu-desktop

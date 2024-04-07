@@ -24,7 +24,7 @@ EOF
     cat <<EOF |tee /etc/profile.d/qt-qpa-platformtheme.sh
 export QT_QPA_PLATFORMTHEME=gtk2
 EOF
-    rm -r /etc/skel/.config/libreoffice
+    #rm -r /etc/skel/.config/libreoffice
     mkdir -p /etc/skel/.config/{autostart,gtk-3.0,smplayer,volumeicon,xfce4/panel,xfce4/xfconf/xfce-perchannel-xml}
     wget -q --show-progress -O /etc/xdg/autostart/natural-scrolling.desktop https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/XFCE/natural-scrolling.desktop
     wget -q --show-progress -O /etc/xdg/autostart/volumeicon.desktop https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/XFCE/volumeicon.desktop

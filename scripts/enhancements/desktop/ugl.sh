@@ -21,8 +21,8 @@ EOF
     cat <<EOF |tee /etc/profile.d/qt-qpa-platformtheme.sh
 export QT_QPA_PLATFORMTHEME=gtk2
 EOF
-    cp /usr/share/applications/info.desktop /usr/local/share/applications/
-    echo 'Hidden=true'|tee -a /usr/local/share/applications/info.desktop>/dev/null
+    #cp /usr/share/applications/info.desktop /usr/local/share/applications/
+    #echo 'Hidden=true'|tee -a /usr/local/share/applications/info.desktop>/dev/null
     wget -q --show-progress  --header="X-Auth-Token: $GITHUB_TOKEN" "$(wget -qO- --header="X-Auth-Token: $GITHUB_TOKEN" https://api.github.com/repos/lassekongo83/adw-gtk3/releases|grep browser_download_url|grep tar.xz|head -n1|cut -d '"' -f4)"
     tar fx adw-gtk3*.tar.xz -C /usr/share/themes/
     cp -r /usr/share/themes/Adwaita/gtk-2.0 /usr/share/themes/adw-gtk3/
