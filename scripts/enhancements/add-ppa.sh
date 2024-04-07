@@ -12,9 +12,9 @@ if [ $# -eq 1 ]
         echo "$0 ppa:user/ppa-name"
         else
         echo "$PPA_NAME"
-        echo "deb http://ppa.launchpad.net/$PPA_NAME/ubuntu $CODENAME main">/etc/apt/sources.list.d/"$(echo $PPA_NAME|sed 's/\\/-/g')".list
-        apt-get update>/dev/null 2>/tmp/${NAME}_apt_add_key.txt
-        PPA_KEY=$(cat /tmp/${NAME}_apt_add_key.txt | cut -d":" -f6 | cut -d" " -f3)
+        echo "deb http://ppa.launchpad.net/$PPA_NAME/ubuntu $CODENAME main"|tee /etc/apt/sources.list.d/"$(echo $PPA_NAME|sed 's/\//-/g')".list
+        apt update>>/dev/null 2|tee /tmp/${NAME}_apt_add_key.txt
+        PPA_KEY=$(cat /tmp/${NAME}_apt_add_key.txt|cut -d":" -f6|cut -d" " -f3)
         apt-key adv --keyserver keyserver.ubuntu.com --recv-keys $PPA_KEY
         rm -rf /tmp/${NAME}_apt_add_key.txt
     fi
@@ -22,6 +22,6 @@ if [ $# -eq 1 ]
     echo "Utility to add PPA repositories in your debian machine"
     echo "$0 ppa:user/ppa-name"
 fi
-if [ -f /etc/apt/sources.list.d/$(echo $PPA_NAME|sed 's/\\/-/g').list ];then
+if [ -f /etc/apt/sources.list.d/$(echo $PPA_NAME|sed 's/\//-/g').list ];then
     apt update
 fi
