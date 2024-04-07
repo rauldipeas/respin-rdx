@@ -21,6 +21,7 @@ EOF
     mkdir -p /usr/share/color-schemes
     wget -q --show-progress -O /usr/share/color-schemes/BreezeBlack.colors https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/KDE/BreezeBlack.colors
     wget -q --show-progress https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/KDE/breeze-alphablack-v20.zip
+    mkdir -p /usr/share/plasma/desktoptheme/breeze-alphablack
     unzip breeze-alphablack-v20.zip -d /usr/share/plasma/desktoptheme/breeze-alphablack
     echo 'gtk-application-prefer-dark-theme=true'|tee -a /etc/gtk-3.0/settings.ini
     mkdir -p /etc/skel/.var/app/info.smplayer.SMPlayer/config/smplayer
@@ -52,18 +53,18 @@ EOF
     mkdir -p /usr/share/plasma/desktoptheme/breeze-dark
     cp -r materia-kde/plasma/desktoptheme/Materia/icons /usr/share/plasma/desktoptheme/breeze-dark/
     cp -r materia-kde/plasma/desktoptheme/Materia-Color/icons /usr/share/plasma/desktoptheme/breeze-light/
-    sed -i 's@>preferred://browser,@>firefox.desktop,@g' /usr/share/plasma/plasmoids/org.kde.plasma.kicker/contents/config/main.xml
+    sed -i 's@>preferred://browser,@>firefox.desktop,@g' /usr/share/plasma/plasmoids/org.kde.plasma.kickerdash/contents/config/main.xml
     sed -i 's@>preferred://browser,@>firefox.desktop,@g' /usr/share/plasma/plasmoids/org.kde.plasma.kickoff/contents/config/main.xml
     sed -i 's@,preferred://browser<@,applications:firefox.desktop<@g' /usr/share/plasma/plasmoids/org.kde.plasma.taskmanager/contents/config/main.xml
     sed -i '/DataCount=8/{n;s/Enabled=false/Enabled=true/;}' /usr/share/khotkeys/kde32b1.khotkeys
     sed -i '/zh_TW/{n;s/Enabled=false/Enabled=true/;}' /usr/share/khotkeys/kde32b1.khotkeys
     sed -i 's/CommandURL=konsole/CommandURL=kitty/g' /usr/share/khotkeys/kde32b1.khotkeys
-    sed -i 's/org.kde.discover/synaptic/g' /usr/share/plasma/plasmoids/org.kde.plasma.kicker/contents/config/main.xml
+    sed -i 's/org.kde.discover/synaptic/g' /usr/share/plasma/plasmoids/org.kde.plasma.kickerdash/contents/config/main.xml
     sed -i 's/org.kde.discover/synaptic/g' /usr/share/plasma/plasmoids/org.kde.plasma.kickoff/contents/config/main.xml
     sed -i 's/org.kde.discover/synaptic/g' /usr/share/plasma/plasmoids/org.kde.plasma.taskmanager/contents/config/main.xml
-    sed -i 's/org.kde.konsole/kitty/g' /usr/share/plasma/plasmoids/org.kde.plasma.kicker/contents/config/main.xml
+    sed -i 's/org.kde.konsole/kitty/g' /usr/share/plasma/plasmoids/org.kde.plasma.kickerdash/contents/config/main.xml
     sed -i 's/org.kde.konsole/kitty/g' /usr/share/plasma/plasmoids/org.kde.plasma.kickoff/contents/config/main.xml
-    sed -i 's/start-here-kde/distributor-logo-steamos/g' /usr/share/plasma/plasmoids/org.kde.plasma.kicker/contents/config/main.xml
+    sed -i 's/start-here-kde/distributor-logo-steamos/g' /usr/share/plasma/plasmoids/org.kde.plasma.kickerdash/contents/config/main.xml
     sed -i 's/start-here-kde/distributor-logo-steamos/g' /usr/share/plasma/plasmoids/org.kde.plasma.kickoff/contents/config/main.xml
     sed -i 's/systemsettings/steam/g' /usr/share/plasma/plasmoids/org.kde.plasma.taskmanager/contents/config/main.xml
     cat <<EOF |tee /usr/share/plasma/look-and-feel/org.kubuntu.desktop/contents/defaults /usr/share/plasma/look-and-feel/org.kde.breezedark.desktop/contents/defaults

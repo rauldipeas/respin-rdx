@@ -31,7 +31,7 @@ if [ -f /Kubuntu ]; then
     sudo chroot "$CHROOT" apt install -y kubuntu-desktop
     elif [ -f /Xubuntu ]; then
     echo 'Xubuntu'
-    sudo chroot "$CHROOT" apt install -y xubuntu-desktop
+    sudo chroot "$CHROOT" apt install -y xubuntu-desktop xfce4-helpers
     else
     echo 'Ubuntu'
     sudo chroot "$CHROOT" apt install -y ubuntu-desktop

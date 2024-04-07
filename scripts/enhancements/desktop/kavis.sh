@@ -65,18 +65,18 @@ EOF
     cp -r materia-kde/plasma/desktoptheme/Materia-Color/icons /usr/share/plasma/desktoptheme/breeze-light/
     cp /usr/share/applications/cadence.desktop /etc/xdg/autostart/
     sed -i 's@applications:systemsettings.desktop,applications:org.kde.discover.desktop,preferred://filemanager,preferred://browser@preferred://filemanager,applications:firefox.desktop,applications:cockos-reaper.desktop,applications:org.kde.kdenlive.desktop,applications:gimp.desktop@g' /usr/share/plasma/plasmoids/org.kde.plasma.taskmanager/contents/config/main.xml
-    sed -i 's@>preferred://browser,@>firefox.desktop,@g' /usr/share/plasma/plasmoids/org.kde.plasma.kicker/contents/config/main.xml
+    sed -i 's@>preferred://browser,@>firefox.desktop,@g' /usr/share/plasma/plasmoids/org.kde.plasma.kickerdash/contents/config/main.xml
     sed -i 's@>preferred://browser,@>firefox.desktop,@g' /usr/share/plasma/plasmoids/org.kde.plasma.kickoff/contents/config/main.xml
     sed -i '/DataCount=8/{n;s/Enabled=false/Enabled=true/;}' /usr/share/khotkeys/kde32b1.khotkeys
     sed -i '/zh_TW/{n;s/Enabled=false/Enabled=true/;}' /usr/share/khotkeys/kde32b1.khotkeys
     sed -i 's/ --minimized-/-/g' /etc/xdg/autostart/cadence.desktop 
     sed -i 's/CommandURL=konsole/CommandURL=kitty/g' /usr/share/khotkeys/kde32b1.khotkeys
     sed -i 's/Exec=cadence/Exec=cadence --minimized/g' /etc/xdg/autostart/cadence.desktop
-    sed -i 's/org.kde.discover/synaptic/g' /usr/share/plasma/plasmoids/org.kde.plasma.kicker/contents/config/main.xml
+    sed -i 's/org.kde.discover/synaptic/g' /usr/share/plasma/plasmoids/org.kde.plasma.kickerdash/contents/config/main.xml
     sed -i 's/org.kde.discover/synaptic/g' /usr/share/plasma/plasmoids/org.kde.plasma.kickoff/contents/config/main.xml
-    sed -i 's/org.kde.konsole/kitty/g' /usr/share/plasma/plasmoids/org.kde.plasma.kicker/contents/config/main.xml
+    sed -i 's/org.kde.konsole/kitty/g' /usr/share/plasma/plasmoids/org.kde.plasma.kickerdash/contents/config/main.xml
     sed -i 's/org.kde.konsole/kitty/g' /usr/share/plasma/plasmoids/org.kde.plasma.kickoff/contents/config/main.xml
-    sed -i 's/start-here-kde/audio-speaker-mono-testing/g' /usr/share/plasma/plasmoids/org.kde.plasma.kicker/contents/config/main.xml
+    sed -i 's/start-here-kde/audio-speaker-mono-testing/g' /usr/share/plasma/plasmoids/org.kde.plasma.kickerdash/contents/config/main.xml
     sed -i 's/start-here-kde/audio-speaker-mono-testing/g' /usr/share/plasma/plasmoids/org.kde.plasma.kickoff/contents/config/main.xml
     cat <<EOF |tee /usr/share/plasma/look-and-feel/org.kubuntu.desktop/contents/defaults /usr/share/plasma/look-and-feel/org.kde.breezedark.desktop/contents/defaults
 [kdeglobals][KDE]
