@@ -15,7 +15,7 @@ cp assets/live/README.diskdefines respin-rdx/image/README.diskdefines
 cp -r "$CHROOT"/boot/grub/unicode.pf2 respin-rdx/image/boot/grub/
 cp -r "$CHROOT"/usr/share/grub/themes respin-rdx/image/boot/grub/
 ## Criação dos arquivos de manifesto da imagem de instalação
-cp /mnt/casper/*remove* respin-rdx/image/casper/
+#cp /mnt/casper/*remove* respin-rdx/image/casper/
 sudo chroot "$CHROOT" dpkg-query -W --showformat='${Package} ${Version}\n'|tee respin-rdx/image/casper/filesystem.manifest>/dev/null
 cp respin-rdx/image/casper/filesystem.manifest respin-rdx/image/casper/filesystem.manifest-desktop
 sed -i '/casper/d' respin-rdx/image/casper/filesystem.manifest-desktop
