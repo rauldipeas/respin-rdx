@@ -19,7 +19,10 @@ apt install -y cfs-zen-tweaks
 systemctl enable set-cfs-tweaks.service
 
 # Mainline
-bash -x enhancements/add-ppa.sh ppa:cappelikan/ppa jammy
+#add-apt-repository ppa:cappelikan/ppa
+wget -qO- 'https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x3ae27527713d2479dcaffd58a89d7c1b2f76304d'|gpg --dearmor -o /etc/apt/trusted.gpg.d/cappelikan-ppa.gpg
+echo 'deb https://ppa.launchpadcontent.net/cappelikan/ppa/ubuntu jammy main'|tee /etc/apt/sources.list.d/cappelikan-ppa.list
+apt update -qq
 cat <<EOF |tee /etc/apt/apt.conf.d/100mainline-icon
 DPkg::Post-Invoke {"sed -i 's/Icon=mainline/Icon=mintsources-ppa/g' /usr/share/applications/mainline.desktop";};
 EOF

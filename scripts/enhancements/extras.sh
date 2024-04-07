@@ -68,10 +68,16 @@ apt autoremove --purge -y gnome-terminal konsole xfce4-terminal
 
 # Kubuntu backports
 if [ -f /KDeck ]; then
-    bash -x enhancements/add-ppa.sh ppa:kubuntu-ppa/backports jammy
+    #add-apt-repository ppa:kubuntu-ppa/backports 
+    wget -qO- 'https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xe4dfec907deda4b8a670e8042836cb0a8ac93f7a'|gpg --dearmor -o /etc/apt/trusted.gpg.d/kubuntu-ppa-backports.gpg
+    echo 'deb https://ppa.launchpadcontent.net/kubuntu-ppa/backports/ubuntu jammy main'|tee /etc/apt/sources.list.d/kubuntu-ppa-backports.list
+    apt update -qq
     apt dist-upgrade -y
     elif [ -f /KAVIS ]; then
-    bash -x enhancements/add-ppa.sh ppa:kubuntu-ppa/backports jammy
+    #add-apt-repository ppa:kubuntu-ppa/backports
+    wget -qO- 'https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xe4dfec907deda4b8a670e8042836cb0a8ac93f7a'|gpg --dearmor -o /etc/apt/trusted.gpg.d/kubuntu-ppa-backports.gpg
+    echo 'deb https://ppa.launchpadcontent.net/kubuntu-ppa/backports/ubuntu jammy main'|tee /etc/apt/sources.list.d/kubuntu-ppa-backports.list
+    apt update -qq
     apt dist-upgrade -y
 fi
 
@@ -84,7 +90,10 @@ if [ -f /KDeck ];then
     echo 'GNOME Lite'
     else
     echo 'Flavours'
-    bash -x enhancements/add-ppa.sh ppa:libreoffice/ppa jammy
+    #add-apt-repository ppa:libreoffice/ppa
+    wget -qO- 'https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x36e81c9267fd1383fcc4490983fba1751378b444'|gpg --dearmor -o /etc/apt/trusted.gpg.d/libreoffice-ppa.gpg
+    echo 'deb https://ppa.launchpadcontent.net/libreoffice/ppa/ubuntu jammy main'|tee /etc/apt/sources.list.d/libreoffice-ppa.list
+    apt update -qq
     apt dist-upgrade -y -o Dpkg::Options::="--force-confdef" --force-yes
 fi
 
@@ -96,9 +105,15 @@ apt install -y ./nala*.deb
 apt install -y nohang
 
 # Papirus
-bash -x enhancements/add-ppa.sh ppa:papirus/hardcode-tray focal
+#add-apt-repository ppa:papirus/hardcode-tray
+wget -qO- 'https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x9461999446faf0df770bfc9ae58a9d36647cae7f'|gpg --dearmor -o /etc/apt/trusted.gpg.d/papirus-hardcode-tray.gpg
+echo 'deb https://ppa.launchpadcontent.net/papirus/hardcode-tray/ubuntu focal main'|tee /etc/apt/sources.list.d/papirus-hardcode-tray.list
+apt update -qq
 #sed -i 's/jammy/focal/g' /etc/apt/sources.list.d/*hardcode-tray* #tmp-downgrade-fix
-bash -x enhancements/add-ppa.sh ppa:papirus/papirus-dev jammy
+#add-apt-repository ppa:papirus/papirus-dev
+wget -qO- 'https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x9461999446faf0df770bfc9ae58a9d36647cae7f'|gpg --dearmor -o /etc/apt/trusted.gpg.d/papirus-papirus-dev.gpg
+echo 'deb https://ppa.launchpadcontent.net/papirus/papirus-dev/ubuntu jammy main'|tee /etc/apt/sources.list.d/papirus-papirus-dev.list
+apt update -qq
 apt install -y hardcode-tray papirus-icon-theme papirus-folders
 if [ -f /KDeck ];then
     echo 'Kubuntu Deck'
@@ -144,10 +159,16 @@ apt install -y unrar
 
 # Xubuntu extras
 if [ -f /Xubuntu ]; then
-    bash -x enhancements/add-ppa.sh ppa:xubuntu-dev/extras jammy
+    #add-apt-repository ppa:xubuntu-dev/extras
+    wget -qO- 'https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x07d44a5424c7c12a4bab1e80eb563f93142986ce'|gpg --dearmor -o /etc/apt/trusted.gpg.d/xubuntu-dev-extras.gpg
+    echo 'deb https://ppa.launchpadcontent.net/xubuntu-dev/extras/ubuntu jammy main'|tee /etc/apt/sources.list.d/xubuntu-dev-extras.list
+    apt update -qq
     apt install -y volumeicon-alsa xfce4-appmenu-plugin xfce4-docklike-plugin
     # LightPad
-    #bash -x enhancements/add-ppa.sh ppa:libredeb/lightpad focal
+    ##add-apt-repository ppa:libredeb/lightpad
+    #wget -qO- 'https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x915a8790215835440cb8d7c09f5ab4ce89a00d47'|gpg --dearmor -o /etc/apt/trusted.gpg.d/libredeb-lightpad.gpg
+    #echo 'deb https://ppa.launchpadcontent.net/libredeb/lightpad/ubuntu focal main'|tee /etc/apt/sources.list.d/libredeb-lightpad.list
+    #apt update -qq
     ##sed -i 's/jammy/focal/g' /etc/apt/sources.list.d/*lightpad* #tmp-downgrade-fix
     #apt update
     #apt install -y com.github.libredeb.lightpad

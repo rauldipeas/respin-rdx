@@ -21,7 +21,10 @@ apt autoremove --purge -y\
     usb-creator*\
     vlc*
 dpkg --add-architecture i386
-#bash -x enhancements/add-ppa.sh ppa:libretro/stable jammy
+#add-apt-repository ppa:libretro/stable
+#wget -qO- 'https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x3b2ba0b6750986899b189aff18daae7feca3745f'|gpg --dearmor -o /etc/apt/trusted.gpg.d/libretro-stable.gpg
+#echo 'deb https://ppa.launchpadcontent.net/libretro/stable/ubuntu jammy main'|tee /etc/apt/sources.list.d/libretro-stable.list
+#apt update -qq
 apt update
 #wget -q --show-progress https://cdn.akamai.steamstatic.com/client/installer/steam.deb
 apt install -y\

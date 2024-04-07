@@ -21,9 +21,16 @@ apt autoremove --purge -y\
 dpkg --add-architecture i386
 wget -cq --show-progress http://ppa.launchpad.net/kxstudio-debian/kxstudio/ubuntu/pool/main/k/kxstudio-repos/"$(wget -qO- http://ppa.launchpad.net/kxstudio-debian/kxstudio/ubuntu/pool/main/k/kxstudio-repos/|grep all.deb|tail -n1|cut -d '"' -f8)"
 apt install -y ./kxstudio-repos*.deb
-bash -x enhancements/add-ppa.sh ppa:ubuntuhandbook1/gimp jammy
-bash -x enhancements/add-ppa.sh ppa:kdenlive/kdenlive-stable jammy
-bash -x enhancements/add-ppa.sh ppa:obsproject/obs-studio jammy
+#add-apt-repository ppa:ubuntuhandbook1/gimp
+wget -qO- 'https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xa0062203196ca4482ddb859e4c1cbe14852541cb'|gpg --dearmor -o /etc/apt/trusted.gpg.d/ubuntuhandbook1-gimp.gpg
+echo 'deb https://ppa.launchpadcontent.net/ubuntuhandbook1/gimp/ubuntu jammy main'|tee /etc/apt/sources.list.d/ubuntuhandbook1-gimp.list
+#add-apt-repository ppa:kdenlive/kdenlive-stable
+wget -qO- 'https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xa59e5ebfccc61564d6d4365b2763b0ee7709fe97'|gpg --dearmor -o /etc/apt/trusted.gpg.d/kdenlive-kdenlive-stable.gpg
+echo 'deb https://ppa.launchpadcontent.net/kdenlive/kdenlive-stable/ubuntu jammy main'|tee /etc/apt/sources.list.d/kdenlive-kdenlive-stable.list
+#add-apt-repository ppa:obsproject/obs-studio
+wget -qO- 'https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xbc7345f522079769f5bbe987efc71127f425e228'|gpg --dearmor -o /etc/apt/trusted.gpg.d/obsproject-obs-studio.gpg
+echo 'deb https://ppa.launchpadcontent.net/obsproject/obs-studio/ubuntu jammy main'|tee /etc/apt/sources.list.d/obsproject-obs-studio.list
+apt update -qq
 echo 'jackd2 jackd/tweak_rt_limits string true'|sudo debconf-set-selections
 apt install -y\
     4kvideodownloader\
@@ -63,7 +70,10 @@ apt install -y\
     zenity
 #wget -cq --show-progress https://ppa.launchpadcontent.net/touchegg/stable/ubuntu/pool/main/t/touchegg/"$(wget -qO- https://ppa.launchpadcontent.net/touchegg/stable/ubuntu/pool/main/t/touchegg/|grep 22.04|grep amd64.deb|tail -n1|cut -d '"' -f8)" #tmp-fix
 #apt install -y touche ./touchegg*.deb
-bash -x enhancements/add-ppa.sh ppa:touchegg/stable jammy
+#add-apt-repository ppa:touchegg/stable
+wget -qO- 'https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x7ea12677d47b593ce22727d4c0fce32af6b96252'|gpg --dearmor -o /etc/apt/trusted.gpg.d/touchegg-stable.gpg
+echo 'deb https://ppa.launchpadcontent.net/touchegg/stable/ubuntu jammy main'|tee /etc/apt/sources.list.d/touchegg-stable.list
+apt update -qq
 apt install -y touchegg
 wget -q --show-progress http://mirrors.kernel.org/ubuntu/pool/universe/p/plasma-welcome/"$(wget -qO- http://mirrors.kernel.org/ubuntu/pool/universe/p/plasma-welcome|grep amd64.deb|tail -n1|cut -d '"' -f2)"
 apt install -y ./plasma-welcome*.deb

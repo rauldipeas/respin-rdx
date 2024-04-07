@@ -9,7 +9,10 @@ apt autoremove --purge -y\
     ubuntu-session*\
     update-manager-core*\
     yaru*
-bash -x enhancements/add-ppa.sh ppa:daniruiz/flat-remix jammy
+#add-apt-repository ppa:daniruiz/flat-remix
+wget -qO- 'https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xba309d7c0cbe9a2df584ac50a074f0583066c9c9'|gpg --dearmor -o /etc/apt/trusted.gpg.d/daniruiz-flat-remix.gpg
+echo 'deb https://ppa.launchpadcontent.net/daniruiz/flat-remix/ubuntu jammy main'|tee /etc/apt/sources.list.d/daniruiz-flat-remix.list
+apt update -qq
 apt install --no-install-recommends -y cinnamon-core w3m
 apt install -y\
     apturl\
