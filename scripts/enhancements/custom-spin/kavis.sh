@@ -45,6 +45,7 @@ apt install -y\
     kcolorchooser\
     kdenlive\
     krename\
+    kubuntu-settings-desktop\
     kwin-bismuth\
     libgegl-0.4-0\
     libmypaint-1.5-1\

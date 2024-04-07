@@ -20,6 +20,7 @@ export MOZ_USE_XINPUT2=1
 EOF
     mkdir -p /etc/skel/.config/touchegg
     wget -q --show-progress -O /etc/skel/.config/touchegg/touchegg.conf https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/touchegg/touchegg.conf
+    mkdir -p /usr/share/color-schemes
     wget -q --show-progress -O /usr/share/color-schemes/BreezeBlack.colors https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/KDE/BreezeBlack.colors
     wget -q --show-progress https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/KDE/breeze-alphablack-v20.zip
     unzip breeze-alphablack-v20.zip -d /usr/share/plasma/desktoptheme/breeze-alphablack
@@ -59,6 +60,7 @@ EOF
     wget -q --show-progress -O /etc/skel/.config/kwinrulesrc https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/kwin/kwinrulesrc
     git clone -q https://github.com/PapirusDevelopmentTeam/materia-kde
     cp -r materia-kde/plasma/desktoptheme/Materia/icons /usr/share/plasma/desktoptheme/breeze-alphablack/
+    mkdir -p /usr/share/plasma/desktoptheme/breeze-dark
     cp -r materia-kde/plasma/desktoptheme/Materia/icons /usr/share/plasma/desktoptheme/breeze-dark/
     cp -r materia-kde/plasma/desktoptheme/Materia-Color/icons /usr/share/plasma/desktoptheme/breeze-light/
     cp /usr/share/applications/cadence.desktop /etc/xdg/autostart/

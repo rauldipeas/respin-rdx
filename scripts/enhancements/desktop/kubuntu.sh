@@ -19,6 +19,7 @@ export MOZ_USE_XINPUT2=1
 EOF
     echo 'gtk-application-prefer-dark-theme=true'|tee -a /etc/gtk-3.0/settings.ini
     git clone -q https://github.com/PapirusDevelopmentTeam/materia-kde
+    mkdir -p /usr/share/plasma/desktoptheme/breeze-dark
     cp -r materia-kde/plasma/desktoptheme/Materia/icons /usr/share/plasma/desktoptheme/breeze-dark/
     cp -r materia-kde/plasma/desktoptheme/Materia-Color/icons /usr/share/plasma/desktoptheme/breeze-light/
     sed -i 's@>preferred://browser,@>firefox.desktop,@g' /usr/share/plasma/plasmoids/org.kde.plasma.kicker/contents/config/main.xml
