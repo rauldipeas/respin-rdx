@@ -26,10 +26,10 @@ jobs:
       - name: Compilação do Ubuntu Respin RDX
         run: bash -x scripts/build.sh
         env:
-          CODENAME: noble
+          CODENAME: jammy
           FLAVOUR: ubuntu
           FLAVOUR_NAME: Ubuntu
-          VERSION: 24.04
+          VERSION: 22.04.04
           CHROOT: respin-rdx/ubuntu-chroot
           FLAVOUR_ID: Ubuntu
           ISO_NAME: ubuntu

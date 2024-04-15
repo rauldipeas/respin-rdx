@@ -26,10 +26,10 @@ jobs:
       - name: Compilação do Kubuntu Deck Respin RDX
         run: bash -x scripts/build.sh
         env:
-          CODENAME: noble
+          CODENAME: jammy
           FLAVOUR: kubuntu
           FLAVOUR_NAME: Kubuntu Deck
-          VERSION: 24.04
+          VERSION: 22.04.04
           CHROOT: respin-rdx/kdeck-chroot
           FLAVOUR_ID: KDeck
           ISO_NAME: kdeck

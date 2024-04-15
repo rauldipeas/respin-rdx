@@ -26,10 +26,10 @@ jobs:
       - name: Compilação do Xubuntu Respin RDX
         run: bash -x scripts/build.sh
         env:
-          CODENAME: noble
+          CODENAME: jammy
           FLAVOUR: xubuntu
           FLAVOUR_NAME: Xubuntu
-          VERSION: 24.04
+          VERSION: 22.04.04
           CHROOT: respin-rdx/xubuntu-chroot
           FLAVOUR_ID: Xubuntu
           ISO_NAME: xubuntu
