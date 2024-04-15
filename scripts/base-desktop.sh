@@ -20,16 +20,16 @@ Pin-Priority: -10
 EOF
 sudo chroot "$CHROOT" apt update
 sudo chroot "$CHROOT" apt install -y sudo
-if [ -f /Kubuntu ]; then
+if [ -f "$CHROOT"/Kubuntu ]; then
     echo 'Kubuntu'
     sudo chroot "$CHROOT" apt install -y kubuntu-desktop
-    elif [ -f /KAVIS ]; then
+    elif [ -f "$CHROOT"/KAVIS ]; then
     echo 'Kubuntu Audio Video Image Studio'
     sudo chroot "$CHROOT" apt install -y kubuntu-desktop
-    elif [ -f /KDeck ]; then
+    elif [ -f "$CHROOT"/KDeck ]; then
     echo 'Kubuntu Deck'
     sudo chroot "$CHROOT" apt install -y kubuntu-desktop
-    elif [ -f /Xubuntu ]; then
+    elif [ -f "$CHROOT"/Xubuntu ]; then
     echo 'Xubuntu'
     sudo chroot "$CHROOT" apt install -y xubuntu-desktop xfce4-helpers
     else
