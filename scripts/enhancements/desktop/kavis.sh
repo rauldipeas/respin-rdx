@@ -20,7 +20,6 @@ export MOZ_USE_XINPUT2=1
 EOF
     mkdir -p /etc/skel/.config/touchegg
     wget -q --show-progress -O /etc/skel/.config/touchegg/touchegg.conf https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/touchegg/touchegg.conf
-    mkdir -p /usr/share/color-schemes
     wget -q --show-progress -O /usr/share/color-schemes/BreezeBlack.colors https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/KDE/BreezeBlack.colors
     wget -q --show-progress https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/KDE/breeze-alphablack-v20.zip
     unzip breeze-alphablack-v20.zip -d /usr/share/plasma/desktoptheme/breeze-alphablack
@@ -60,23 +59,22 @@ EOF
     wget -q --show-progress -O /etc/skel/.config/kwinrulesrc https://raw.githubusercontent.com/rauldipeas/respin-rdx/main/assets/kwin/kwinrulesrc
     git clone -q https://github.com/PapirusDevelopmentTeam/materia-kde
     cp -r materia-kde/plasma/desktoptheme/Materia/icons /usr/share/plasma/desktoptheme/breeze-alphablack/
-    mkdir -p /usr/share/plasma/desktoptheme/breeze-dark
     cp -r materia-kde/plasma/desktoptheme/Materia/icons /usr/share/plasma/desktoptheme/breeze-dark/
     cp -r materia-kde/plasma/desktoptheme/Materia-Color/icons /usr/share/plasma/desktoptheme/breeze-light/
     cp /usr/share/applications/cadence.desktop /etc/xdg/autostart/
     sed -i 's@applications:systemsettings.desktop,applications:org.kde.discover.desktop,preferred://filemanager,preferred://browser@preferred://filemanager,applications:firefox.desktop,applications:cockos-reaper.desktop,applications:org.kde.kdenlive.desktop,applications:gimp.desktop@g' /usr/share/plasma/plasmoids/org.kde.plasma.taskmanager/contents/config/main.xml
-    sed -i 's@>preferred://browser,@>firefox.desktop,@g' /usr/share/plasma/plasmoids/org.kde.plasma.kickerdash/contents/config/main.xml
+    sed -i 's@>preferred://browser,@>firefox.desktop,@g' /usr/share/plasma/plasmoids/org.kde.plasma.kicker/contents/config/main.xml
     sed -i 's@>preferred://browser,@>firefox.desktop,@g' /usr/share/plasma/plasmoids/org.kde.plasma.kickoff/contents/config/main.xml
     sed -i '/DataCount=8/{n;s/Enabled=false/Enabled=true/;}' /usr/share/khotkeys/kde32b1.khotkeys
     sed -i '/zh_TW/{n;s/Enabled=false/Enabled=true/;}' /usr/share/khotkeys/kde32b1.khotkeys
     sed -i 's/ --minimized-/-/g' /etc/xdg/autostart/cadence.desktop 
     sed -i 's/CommandURL=konsole/CommandURL=kitty/g' /usr/share/khotkeys/kde32b1.khotkeys
     sed -i 's/Exec=cadence/Exec=cadence --minimized/g' /etc/xdg/autostart/cadence.desktop
-    sed -i 's/org.kde.discover/synaptic/g' /usr/share/plasma/plasmoids/org.kde.plasma.kickerdash/contents/config/main.xml
+    sed -i 's/org.kde.discover/synaptic/g' /usr/share/plasma/plasmoids/org.kde.plasma.kicker/contents/config/main.xml
     sed -i 's/org.kde.discover/synaptic/g' /usr/share/plasma/plasmoids/org.kde.plasma.kickoff/contents/config/main.xml
-    sed -i 's/org.kde.konsole/kitty/g' /usr/share/plasma/plasmoids/org.kde.plasma.kickerdash/contents/config/main.xml
+    sed -i 's/org.kde.konsole/kitty/g' /usr/share/plasma/plasmoids/org.kde.plasma.kicker/contents/config/main.xml
     sed -i 's/org.kde.konsole/kitty/g' /usr/share/plasma/plasmoids/org.kde.plasma.kickoff/contents/config/main.xml
-    sed -i 's/start-here-kde/audio-speaker-mono-testing/g' /usr/share/plasma/plasmoids/org.kde.plasma.kickerdash/contents/config/main.xml
+    sed -i 's/start-here-kde/audio-speaker-mono-testing/g' /usr/share/plasma/plasmoids/org.kde.plasma.kicker/contents/config/main.xml
     sed -i 's/start-here-kde/audio-speaker-mono-testing/g' /usr/share/plasma/plasmoids/org.kde.plasma.kickoff/contents/config/main.xml
     cat <<EOF |tee /usr/share/plasma/look-and-feel/org.kubuntu.desktop/contents/defaults /usr/share/plasma/look-and-feel/org.kde.breezedark.desktop/contents/defaults
 [kdeglobals][KDE]
