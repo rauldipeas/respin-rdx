@@ -4,14 +4,14 @@ set -e
 ## Desktop base
 echo "respin-rdx"|sudo tee "$CHROOT"/etc/hostname
 cat <<EOF |sudo tee "$CHROOT"/etc/apt/sources.list
-deb http://us.archive.ubuntu.com/ubuntu/ jammy main restricted universe multiverse
-deb-src http://us.archive.ubuntu.com/ubuntu/ jammy main restricted universe multiverse
+deb http://us.archive.ubuntu.com/ubuntu/ "$CODENAME" main restricted universe multiverse
+deb-src http://us.archive.ubuntu.com/ubuntu/ "$CODENAME" main restricted universe multiverse
 
-deb http://us.archive.ubuntu.com/ubuntu/ jammy-security main restricted universe multiverse
-deb-src http://us.archive.ubuntu.com/ubuntu/ jammy-security main restricted universe multiverse
+deb http://us.archive.ubuntu.com/ubuntu/ "$CODENAME"-security main restricted universe multiverse
+deb-src http://us.archive.ubuntu.com/ubuntu/ "$CODENAME"-security main restricted universe multiverse
 
-deb http://us.archive.ubuntu.com/ubuntu/ jammy-updates main restricted universe multiverse
-deb-src http://us.archive.ubuntu.com/ubuntu/ jammy-updates main restricted universe multiverse
+deb http://us.archive.ubuntu.com/ubuntu/ "$CODENAME"-updates main restricted universe multiverse
+deb-src http://us.archive.ubuntu.com/ubuntu/ "$CODENAME"-updates main restricted universe multiverse
 EOF
 cat <<EOF |sudo tee "$CHROOT"/etc/apt/preferences.d/nosnap.pref
 Package: snapd

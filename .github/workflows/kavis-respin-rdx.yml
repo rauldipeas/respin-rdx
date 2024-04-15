@@ -26,10 +26,10 @@ jobs:
       - name: Compilação do KAVIS Respin RDX
         run: bash -x scripts/build.sh
         env:
-          CODENAME: jammy
+          CODENAME: noble
           FLAVOUR: kubuntu
           FLAVOUR_NAME: KAVIS
-          VERSION: 22.04.4
+          VERSION: 24.04
           CHROOT: respin-rdx/kavis-chroot
           FLAVOUR_ID: KAVIS
           ISO_NAME: kavis

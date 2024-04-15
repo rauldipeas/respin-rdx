@@ -26,10 +26,10 @@ jobs:
       - name: Compilação do Kubuntu Respin RDX
         run: bash -x scripts/build.sh
         env:
-          CODENAME: jammy
+          CODENAME: noble
           FLAVOUR: kubuntu
           FLAVOUR_NAME: Kubuntu
-          VERSION: 22.04.4
+          VERSION: 24.04
           CHROOT: respin-rdx/kubuntu-chroot
           FLAVOUR_ID: Kubuntu
           ISO_NAME: kubuntu

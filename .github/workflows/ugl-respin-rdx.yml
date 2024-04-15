@@ -26,10 +26,10 @@ jobs:
       - name: Compilação do Ubuntu GNOME Lite Respin RDX
         run: bash -x scripts/build.sh
         env:
-          CODENAME: jammy
+          CODENAME: noble
           FLAVOUR: ubuntu
           FLAVOUR_NAME: Ubuntu GNOME Lite
-          VERSION: 22.04.4
+          VERSION: 24.04
           CHROOT: respin-rdx/ugl-chroot
           FLAVOUR_ID: UGL
           ISO_NAME: ugl
