@@ -6,30 +6,6 @@ cd
 sudo apt update
 sudo apt upgrade -y
 
-# Desempenho
-## CFS Zen tweaks
-rm -rf cfs-zen-tweaks*.deb>/dev/null
-wget -q --show-progress "$(wget -qO- https://api.github.com/repos/igo95862/cfs-zen-tweaks/releases|grep browser_download_url|grep .deb|head -n1|cut -d '"' -f4)"
-sudo apt install -y ./cfs-zen-tweaks*.deb
-sudo systemctl enable set-cfs-tweaks.service
-sudo systemctl start set-cfs-tweaks.service
-rm cfs-zen-tweaks*.deb
-## ZSwap
-RAM="$(grep MemTotal /proc/meminfo|cut -d ' ' -f9)"
-sudo swapoff /swap.img
-sudo fallocate -l "$RAM" /swap.img
-sudo dd if=/dev/zero of=/swap.img bs=1024 count="$RAM" status=progress
-sudo chmod 600 /swap.img
-sudo mkswap /swap.img
-sudo swapon /swap.img
-sudo sed -i 's/quiet splash/quiet splash zswap.enabled=1 zswap.compressor=lz4/g' /etc/default/grub
-sudo update-grub
-echo lz4|sudo tee -a /etc/initramfs-tools/modules>/dev/null
-echo lz4_compress|sudo tee -a /etc/initramfs-tools/modules>/dev/null
-sudo update-initramfs -u -k all
-## nohang
-sudo apt install -y nohang
-
 # Instaladores de programas
 ## apt-rollback
 sudo apt install -y apt-rollback
@@ -46,6 +22,12 @@ sudo apt install -y pipx
 sudo apt install -y synaptic
 
 # Drivers
+## ALSA Firmware
+rm -rf kxstudio-repos*.deb>/dev/null
+wget -cq --show-progress http://ppa.launchpad.net/kxstudio-debian/kxstudio/ubuntu/pool/main/k/kxstudio-repos/"$(wget -qO- http://ppa.launchpad.net/kxstudio-debian/kxstudio/ubuntu/pool/main/k/kxstudio-repos/|grep all.deb|tail -n1|cut -d '"' -f8)"
+sudo apt install -y ./kxstudio-repos*.deb
+sudo apt install -y alsa-firmware
+rm kxstudio-repos*.deb
 ## JACK
 echo 'jackd2 jackd/tweak_rt_limits string true'|sudo debconf-set-selections
 cat <<EOF |sudo tee /etc/apt/preferences.d/qjackctl.pref>/dev/null
@@ -54,7 +36,7 @@ Pin: release a=*
 Pin-Priority: -10
 EOF
 sudo apt install -y jackd2
-sudo rm /etc/apt/preferences.d/qjackctl.conf
+sudo rm /etc/apt/preferences.d/qjackctl.pref
 ## udev-rtirq
 rm -rf udev-rtirq>/dev/null
 git clone -q https://github.com/jhernberg/udev-rtirq
@@ -65,46 +47,26 @@ rm -rf udev-rtirq
 
 # rtcqs
 sudo apt install -y python3-tk
-pipx install rtcqs
+pipx install --force rtcqs
 mkdir -p "$HOME"/.local/share/{applications,icons}
 wget -qO "$HOME"/.local/share/applications/rtcqs.desktop https://github.com/autostatic/rtcqs/raw/main/rtcqs.desktop
 sed -i "s@Exec=rtcqs_gui@Exec=$HOME/.local/bin/rtcqs_gui@g" "$HOME"/.local/share/applications/rtcqs.desktop
 wget -qO "$HOME"/.local/share/icons/rtcqs.svg https://github.com/autostatic/rtcqs/raw/main/rtcqs_logo.svg
 ## Configuração
 sudo usermod -aG audio "$USER"
-cat <<EOF |sudo tee /etc/sysctl.d/swappiness.conf>/dev/null
-vm.swappiness = 10
+cat <<EOF |sudo tee /etc/rc.local>/dev/null
+#!/bin/bash
+set -e
+sysctl --system
 EOF
-cat <<EOF |sudo tee /etc/default/grub.d/cmdline-linux-default.cfg>/dev/null
-GRUB_CMDLINE_LINUX_DEFAULT="cpufreq.default_governor=performance mitigations=off preempt=full quiet splash threadirqs"
-EOF
-sudo update-grub
+sudo chmod +x /etc/rc.local
+sudo kernelstub -a "cpufreq.default_governor=performance mitigations=off preempt=full threadirqs"
 sudo wget -qO /etc/udev/rules.d/99-cpu-dma-latency.rules https://raw.githubusercontent.com/Ardour/ardour/master/tools/udev/99-cpu-dma-latency.rules
-
-# Miscelânea
-## UnRAR
-sudo apt install -y unrar
-## BZip2
-sudo apt install -y bzip2 #vbox-extras
+### PipeWire
+mkdir -p "$HOME"/.config/pipewire
+cp /usr/share/pipewire/pipewire.conf "$HOME"/.config/pipewire/
 
 # Multimídia
-## Cadence
-rm -rf kxstudio-repos*.deb>/dev/null
-wget -cq --show-progress http://ppa.launchpad.net/kxstudio-debian/kxstudio/ubuntu/pool/main/k/kxstudio-repos/"$(wget -qO- http://ppa.launchpad.net/kxstudio-debian/kxstudio/ubuntu/pool/main/k/kxstudio-repos/|grep all.deb|tail -n1|cut -d '"' -f8)"
-sudo apt install -y ./kxstudio-repos*.deb
-sudo add-apt-repository -ny multiverse
-sudo add-apt-repository -y universe
-sudo apt install -y alsa-firmware cadence pulseaudio
-sudo apt autoremove --purge -y meterbridge
-systemctl --user mask pipewire.service pipewire.socket
-systemctl --user stop pipewire.service pipewire.socket
-systemctl --user disable pipewire.service pipewire.socket
-sudo sed -i 's/NoDisplay=true/NoDisplay=false/g' /etc/xdg/autostart/pulseaudio.desktop
-sudo sed -i 's/Systemd=true/Systemd=false/g' /etc/xdg/autostart/pulseaudio.desktop
-sudo sed -i 's/start-pulseaudio-x11/systemctl --user start pulseaudio.service/g' /etc/xdg/autostart/pulseaudio.desktop
-systemctl --user start pulseaudio.service pulseaudio.socket
-pactl info|grep "Nome do servidor"
-rm kxstudio-repos*.deb
 ## WINE TkG
 sudo dpkg --add-architecture i386
 sudo apt update
