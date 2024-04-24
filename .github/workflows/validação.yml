@@ -1,0 +1,35 @@
+name: Validação do script
+on:
+  push:
+    branches:
+      - 'main'
+    paths-ignore:
+      - '.editorconfig'
+      - 'leiame.md'
+      - 'readme.md'
+      - '*.jpg'
+      - '*.png'
+      - '*.svg'
+      - '_config.yml'
+      - 'get-respin-rdx.sh'
+      - 'upgrade-respin-rdx.sh'
+  schedule:
+    - cron:  '0 */12 * * *'
+  workflow_dispatch:
+jobs:
+  build-kavis:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+      - name: Configuração do ambiente de compilação
+        run: |
+            bash -x /scripts/env.sh
+            sudo sed -i 's/jammy/noble/g' /etc/apt/sources.list
+            sudo apt update
+            sudo apt dist-upgrade -y
+      - name: Execução do script
+        run: bash -x scripts/respin-rdx.sh
+      - name: Limpeza de logs antigos
+        run: bash -x scripts/actions-cleanup.sh
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
