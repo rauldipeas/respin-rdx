@@ -49,4 +49,36 @@ autoinstall:
         landscape-common htop git fonts-ubuntu-console ethtool
       - curtin in-target -- apt install -y cloud-init
       - curtin in-target -- apt autoremove -y
-      - curtin in-target -- bash -x <(wget -qO- http://github.com/rauldipeas/respin-rdx/raw/main/postinstall.sh)
+      - curtin in-target -- wget -q --show-progress "$(wget -qO- https://api.github.com/repos/igo95862/cfs-zen-tweaks/releases|grep browser_download_url|grep .deb|head -n1|cut -d '"' -f4)"
+      - curtin in-target -- apt install -y ./cfs-zen-tweaks*.deb
+      - curtin in-target -- systemctl enable set-cfs-tweaks.service
+      - curtin in-target -- rm cfs-zen-tweaks*.deb
+      - curtin in-target -- wget -q --show-progress "$(wget -qO- https://api.github.com/repos/pacstall/pacstall/releases|grep browser_download_url|grep .deb|head -n1|cut -d '"' -f4)"
+      - curtin in-target -- apt install -y ./pacstall*.deb
+      - curtin in-target -- rm pacstall*.deb
+      - curtin in-target -- echo 'jackd2 jackd/tweak_rt_limits string true'|debconf-set-selections
+      - >-
+        curtin in-target -- cat <<EOF |tee /etc/apt/preferences.d/qjackctl.pref>/dev/null
+        Package: qjackctl
+        Pin: release a=*
+        Pin-Priority: -10
+        EOF
+      - curtin in-target -- apt install -y jackd2
+      - curtin in-target -- rm /etc/apt/preferences.d/qjackctl.pref
+      - curtin in-target -- git clone -q https://github.com/jhernberg/udev-rtirq
+      - curtin in-target -- cd udev-rtirq
+      - curtin in-target -- make install
+      - curtin in-target -- cd ..
+      - curtin in-target -- rm -rf udev-rtirq
+      - curtin in-target -- usermod -aG audio "$USER"
+      - >-
+        curtin in-target -- cat <<EOF |tee /etc/sysctl.d/swappiness.conf>/dev/null
+        vm.swappiness = 10
+        EOF
+      - >-
+        curtin in-target -- cat <<EOF |tee /etc/default/grub.d/cmdline-linux-default.cfg>/dev/null
+        GRUB_CMDLINE_LINUX_DEFAULT="cpufreq.default_governor=performance mitigations=off preempt=full quiet splash threadirqs"
+        EOF
+      - curtin in-target -- update-grub
+      - curtin in-target -- wget -qO --show-progress /etc/udev/rules.d/99-cpu-dma-latency.rules https://raw.githubusercontent.com/Ardour/ardour/master/tools/udev/99-cpu-dma-latency.rules
+
