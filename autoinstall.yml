@@ -24,6 +24,8 @@ autoinstall:
     storage:
       layout:
         name: direct
+    early-commands:
+      - echo 'linux-generic-hwe-24.04' > /run/kernel-meta-package
     late-commands:
       - >-
         curtin in-target --
