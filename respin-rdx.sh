@@ -125,9 +125,9 @@ tar fx wine-lutris-ge*.tar.xz
 sudo cp lutris*/lib/wine/i386-windows/winemenubuilder.exe /opt/wine-tkg/lib/wine/i386-windows/winemenubuilder.exe
 sudo cp lutris*/lib64/wine/x86_64-windows/winemenubuilder.exe /opt/wine-tkg/lib/wine/x86_64-windows/winemenubuilder.exe
 find . -name "*lutris-ge*" -print0|xargs -0 rm -r
-rm wine-gecko-*-x86.tar.xz>/dev/null
-rm wine-gecko-*-x86_64.tar.xz>/dev/null
-rm wine-mono-*-x86.tar.xz>/dev/null
+rm -f wine-gecko-*-x86.tar.xz>/dev/null
+rm -f wine-gecko-*-x86_64.tar.xz>/dev/null
+rm -f wine-mono-*-x86.tar.xz>/dev/null
 WINE_GECKO_VER="$(wget -qO- https://dl.winehq.org/wine/wine-gecko/|grep folder|cut -d '"' -f6|sort -d|grep -v wine|tail -n1)"
 wget -qO- https://dl.winehq.org/wine/wine-gecko/"$WINE_GECKO_VER"|grep x86|grep tar|grep -wv pdb|grep -wv rc|cut -d '"' -f6>wine-gecko.links
 sed -i 's@wine-gecko@https://dl.winehq.org/wine/wine-gecko/wine-gecko@g' wine-gecko.links
