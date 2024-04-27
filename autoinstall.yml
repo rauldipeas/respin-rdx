@@ -49,10 +49,6 @@ autoinstall:
         landscape-common htop git fonts-ubuntu-console ethtool
       - curtin in-target -- apt install -y cloud-init
       - curtin in-target -- apt autoremove -y
-      - curtin in-target -- wget -q --show-progress "$(wget -qO- https://api.github.com/repos/igo95862/cfs-zen-tweaks/releases|grep browser_download_url|grep .deb|head -n1|cut -d '"' -f4)"
-      - curtin in-target -- apt install -y ./cfs-zen-tweaks*.deb
-      - curtin in-target -- systemctl enable set-cfs-tweaks.service
-      - curtin in-target -- rm cfs-zen-tweaks*.deb
       - curtin in-target -- wget -q --show-progress "$(wget -qO- https://api.github.com/repos/pacstall/pacstall/releases|grep browser_download_url|grep .deb|head -n1|cut -d '"' -f4)"
       - curtin in-target -- apt install -y ./pacstall*.deb
       - curtin in-target -- rm pacstall*.deb
