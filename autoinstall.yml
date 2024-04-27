@@ -49,6 +49,6 @@ autoinstall:
         landscape-common htop git fonts-ubuntu-console ethtool
       - curtin in-target -- apt install -y cloud-init
       - curtin in-target -- apt autoremove -y
-      - wget -qO /target/postinstall.sh http://raw.githubusercontent.com/rauldipeas/respin-rdx/main/postinstall.sh
+      - wget -qO /target/postinstall.sh http://github.com/rauldipeas/respin-rdx/raw/main/postinstall.sh
       - curtin in-target -- bash /postinstall.sh
       - rm /target/postinstall.sh
