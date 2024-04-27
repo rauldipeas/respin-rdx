@@ -54,7 +54,7 @@ Pin: release a=*
 Pin-Priority: -10
 EOF
 sudo apt install -y jackd2
-sudo rm /etc/apt/preferences.d/qjackctl.conf
+sudo rm /etc/apt/preferences.d/qjackctl.pref
 ## udev-rtirq
 rm -rf udev-rtirq>/dev/null
 git clone -q https://github.com/jhernberg/udev-rtirq
@@ -101,7 +101,7 @@ Pin: release a=*
 Pin-Priority: -10
 EOF
 sudo apt install -y alsa-firmware cadence pulseaudio
-sudo rm /etc/apt/preferences.d/meterbridge.conf
+sudo rm /etc/apt/preferences.d/meterbridge.pref
 systemctl --user mask pipewire.service pipewire.socket
 systemctl --user stop pipewire.service pipewire.socket
 systemctl --user disable pipewire.service pipewire.socket
