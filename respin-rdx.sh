@@ -8,12 +8,12 @@ sudo apt upgrade -y
 
 # Desempenho
 ## CFS Zen tweaks
-rm -rf cfs-zen-tweaks*.deb>/dev/null
+rm -f cfs-zen-tweaks*.deb>/dev/null
 wget -q --show-progress "$(wget -qO- https://api.github.com/repos/igo95862/cfs-zen-tweaks/releases|grep browser_download_url|grep .deb|head -n1|cut -d '"' -f4)"
 sudo apt install -y ./cfs-zen-tweaks*.deb
+rm cfs-zen-tweaks*.deb
 sudo systemctl enable set-cfs-tweaks.service
 sudo systemctl start set-cfs-tweaks.service
-rm cfs-zen-tweaks*.deb
 ## ZSwap
 RAM="$(grep MemTotal /proc/meminfo|cut -d ' ' -f9)"
 sudo swapoff /swap.img
@@ -89,13 +89,19 @@ sudo apt install -y bzip2 #vbox-extras
 
 # Multimídia
 ## Cadence
-rm -rf kxstudio-repos*.deb>/dev/null
+rm -f kxstudio-repos*.deb>/dev/null
 wget -cq --show-progress http://ppa.launchpad.net/kxstudio-debian/kxstudio/ubuntu/pool/main/k/kxstudio-repos/"$(wget -qO- http://ppa.launchpad.net/kxstudio-debian/kxstudio/ubuntu/pool/main/k/kxstudio-repos/|grep all.deb|tail -n1|cut -d '"' -f8)"
 sudo apt install -y ./kxstudio-repos*.deb
+rm kxstudio-repos*.deb
 sudo add-apt-repository -ny multiverse
 sudo add-apt-repository -y universe
+cat <<EOF |sudo tee /etc/apt/preferences.d/meterbridge.pref>/dev/null
+Package: meterbridge
+Pin: release a=*
+Pin-Priority: -10
+EOF
 sudo apt install -y alsa-firmware cadence pulseaudio
-sudo apt autoremove --purge -y meterbridge
+sudo rm /etc/apt/preferences.d/meterbridge.conf
 systemctl --user mask pipewire.service pipewire.socket
 systemctl --user stop pipewire.service pipewire.socket
 systemctl --user disable pipewire.service pipewire.socket
@@ -104,12 +110,11 @@ sudo sed -i 's/Systemd=true/Systemd=false/g' /etc/xdg/autostart/pulseaudio.deskt
 sudo sed -i 's/start-pulseaudio-x11/systemctl --user start pulseaudio.service/g' /etc/xdg/autostart/pulseaudio.desktop
 systemctl --user start pulseaudio.service pulseaudio.socket
 pactl info|grep "Nome do servidor"
-rm kxstudio-repos*.deb
 ## WINE TkG
 sudo dpkg --add-architecture i386
 sudo apt update
 sudo apt install -y q4wine wine wine32:i386 winetricks
-rm -rf wine*staging-tkg-amd64.tar.xz>/dev/null
+rm -f wine*staging-tkg-amd64.tar.xz>/dev/null
 wget -q --show-progress "$(wget -qO- https://api.github.com/repos/Kron4ek/Wine-Builds/releases|grep browser_download_url|grep staging-tkg-amd64.tar.xz|head -n1|cut -d '"' -f4)"
 tar fx wine*staging-tkg-amd64.tar.xz
 rm wine*staging-tkg-amd64.tar.xz
@@ -120,16 +125,16 @@ tar fx wine-lutris-ge*.tar.xz
 sudo cp lutris*/lib/wine/i386-windows/winemenubuilder.exe /opt/wine-tkg/lib/wine/i386-windows/winemenubuilder.exe
 sudo cp lutris*/lib64/wine/x86_64-windows/winemenubuilder.exe /opt/wine-tkg/lib/wine/x86_64-windows/winemenubuilder.exe
 find . -name "*lutris-ge*" -print0|xargs -0 rm -r
-rm -rf wine-gecko-*-x86.tar.xz>/dev/null
-rm -rf wine-gecko-*-x86_64.tar.xz>/dev/null
-rm -rf wine-mono-*-x86.tar.xz>/dev/null
+rm wine-gecko-*-x86.tar.xz>/dev/null
+rm wine-gecko-*-x86_64.tar.xz>/dev/null
+rm wine-mono-*-x86.tar.xz>/dev/null
 WINE_GECKO_VER="$(wget -qO- https://dl.winehq.org/wine/wine-gecko/|grep folder|cut -d '"' -f6|sort -d|grep -v wine|tail -n1)"
 wget -qO- https://dl.winehq.org/wine/wine-gecko/"$WINE_GECKO_VER"|grep x86|grep tar|grep -wv pdb|grep -wv rc|cut -d '"' -f6>wine-gecko.links
 sed -i 's@wine-gecko@https://dl.winehq.org/wine/wine-gecko/wine-gecko@g' wine-gecko.links
 sed -i 's@wine/wine-gecko/@'wine/wine-gecko/"$WINE_GECKO_VER"'@g' wine-gecko.links
 wget -q --show-progress "$(cat<wine-gecko.links|head -n1)"
 wget -q --show-progress "$(cat<wine-gecko.links|tail -n1)"
-rm -rf wine-gecko.links>/dev/null
+rm wine-gecko.links>/dev/null
 WINE_MONO_VER="$(wget -qO- https://dl.winehq.org/wine/wine-mono/|grep folder|cut -d '"' -f6|sort -g|tail -n1)"
 wget -qO- https://dl.winehq.org/wine/wine-mono/"$WINE_MONO_VER"|grep x86|grep tar|cut -d '"' -f6>wine-mono.links
 sed -i 's@wine-mono@https://dl.winehq.org/wine/wine-mono/wine-mono@g' wine-mono.links
@@ -140,9 +145,9 @@ sudo mkdir -p /opt/wine-tkg/share/wine/{gecko,mono}
 sudo tar fx wine-gecko-*-x86.tar.xz -C /opt/wine-tkg/share/wine/gecko/
 sudo tar fx wine-gecko-*-x86_64.tar.xz -C /opt/wine-tkg/share/wine/gecko/
 sudo tar fx wine-mono-*-x86.tar.xz -C /opt/wine-tkg/share/wine/mono/
-rm -r wine-gecko-*-x86.tar.xz
-rm -r wine-gecko-*-x86_64.tar.xz
-rm -r wine-mono-*-x86.tar.xz
+rm wine-gecko-*-x86.tar.xz
+rm wine-gecko-*-x86_64.tar.xz
+rm wine-mono-*-x86.tar.xz
 cat <<EOF |sudo tee /etc/environment.d/99wine.conf>/dev/null
 if [ -d "/opt/wine-tkg/bin" ] ; then
     PATH="/opt/wine-tkg/bin:\$PATH"
@@ -154,10 +159,10 @@ EOF
 ### Configuração
 winetricks -f -q dxvk
 ## yabridge
-rm -rf yabridge*.tar.gz>/dev/null
+rm -f yabridge*.tar.gz>/dev/null
 wget -q --show-progress "$(wget -qO- https://api.github.com/repos/robbert-vdh/yabridge/releases|grep browser_download_url|head -n2|tail -n1|cut -d '"' -f4)"
 tar fxz yabridge*.tar.gz
-rm -r yabridge*.tar.gz
+rm yabridge*.tar.gz
 sudo mv yabridge/yabridgectl /usr/bin/yabridgectl
 sudo mv yabridge/libyabridge* /usr/lib/
 sudo mv yabridge/yabridge* /usr/bin/
@@ -210,7 +215,7 @@ EOF
 ### Configuração
 mkdir -p "$HOME"/.config/REAPER/{LangPack,UserPlugins}
 wget -O "$HOME"/.config/REAPER/LangPack/pt-BR.ReaperLangPack https://stash.reaper.fm"$(wget -qO- https://stash.reaper.fm/tag/Language-Packs|grep pt-BR|head -n1|cut -d '"' -f2|sed 's/\/v//g')"
-rm -rf sws-*-Linux-x86_64-*.tar.xz>/dev/null
+rm -f sws-*-Linux-x86_64-*.tar.xz>/dev/null
 wget https://sws-extension.org/download/pre-release/"$(wget -qO- http://sws-extension.org/download/pre-release/|grep Linux-x86_64|head -n1|cut -d '"' -f4)"
 tar fx sws-*-Linux-x86_64-*.tar.xz -C "$HOME"/.config/REAPER
 rm sws-*-Linux-x86_64-*.tar.xz
