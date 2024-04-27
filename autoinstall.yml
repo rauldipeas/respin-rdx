@@ -32,7 +32,7 @@ autoinstall:
         sed -i /etc/default/grub -e
         's/GRUB_CMDLINE_LINUX_DEFAULT=".*/GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"/'
       - curtin in-target -- update-grub
-      - rm /target/etc/netplan/00-installer-config*yaml
+      - rm -f /target/etc/netplan/00-installer-config*yaml
       - >-
         printf "network:\n  version: 2\n  renderer: NetworkManager"
         > /target/etc/netplan/01-network-manager-all.yaml
