@@ -34,18 +34,18 @@ autoinstall:
     #    which means this single-user identity section may be removed.
     # 3. Prompt for user configuration on first boot.  Remove this identity
     #    section and see the "Installation without a default user" section.
-#    identity:
-#      realname: ''
-#      username: ubuntu
+    identity:
+      realname: 'Usuário'
+      username: respin-rdx
       # A password hash is needed. `mkpasswd --method=SHA-512` can help.
       # mkpasswd can be found in the package 'whois'
-#      password: '<password hash>'
-#      hostname: ubuntu-desktop
+      password: '$6$Q58XN.vuCmKMTWrp$yT8OZSodi7Xl1n93Ak77rJrNr8pOWJJGEnkwBNPEEwTupAquaAcExldZ/2axH0mez7MrGPpWcF3EFowLvNcMv0'
+      hostname: Respin-RDX
 
   # This inhibits user creation, which for Desktop images means that
   # gnome-initial-setup will prompt for user creation on first boot.
-  user-data:
-    users: ['']
+#  user-data:
+#    users: ['']
 
     # Subiquity will, by default, configure a partition layout using LVM.
     # The 'direct' layout method shown here will produce a non-LVM result.
