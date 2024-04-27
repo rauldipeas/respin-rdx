@@ -3,7 +3,7 @@ set -e
 
 # Desempenho
 ## CFS Zen tweaks
-rm -r cfs-zen-tweaks*.deb>/dev/null
+rm -f cfs-zen-tweaks*.deb>/dev/null
 wget -q --show-progress "$(wget -qO- https://api.github.com/repos/igo95862/cfs-zen-tweaks/releases|grep browser_download_url|grep .deb|head -n1|cut -d '"' -f4)"
 apt install -y ./cfs-zen-tweaks*.deb
 systemctl enable set-cfs-tweaks.service
@@ -32,7 +32,7 @@ rm pacstall*.deb
 
 # Drivers
 ## JACK
-echo 'jackd2 jackd/tweak_rt_limits string true'|sudo debconf-set-selections
+echo 'jackd2 jackd/tweak_rt_limits string true'|debconf-set-selections
 cat <<EOF |tee /etc/apt/preferences.d/qjackctl.pref>/dev/null
 Package: qjackctl
 Pin: release a=*
