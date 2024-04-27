@@ -1,9 +1,7 @@
-#!/bin/sh
-set -e
+#!/bin/bash
 
 # Desempenho
 ## CFS Zen tweaks
-rm -f cfs-zen-tweaks*.deb>/dev/null
 wget -q --show-progress "$(wget -qO- https://api.github.com/repos/igo95862/cfs-zen-tweaks/releases|grep browser_download_url|grep .deb|head -n1|cut -d '"' -f4)"
 apt install -y ./cfs-zen-tweaks*.deb
 systemctl enable set-cfs-tweaks.service
@@ -25,7 +23,6 @@ rm cfs-zen-tweaks*.deb
 
 # Instaladores de programas
 ## Pacstall
-rm -f pacstall*.deb>/dev/null
 wget -q --show-progress "$(wget -qO- https://api.github.com/repos/pacstall/pacstall/releases|grep browser_download_url|grep .deb|head -n1|cut -d '"' -f4)"
 apt install -y ./pacstall*.deb
 rm pacstall*.deb
@@ -41,7 +38,6 @@ EOF
 apt install -y jackd2
 rm /etc/apt/preferences.d/qjackctl.pref
 ## udev-rtirq
-rm -f udev-rtirq>/dev/null
 git clone -q https://github.com/jhernberg/udev-rtirq
 cd udev-rtirq
 make install
@@ -68,7 +64,6 @@ wget -qO --show-progress /etc/udev/rules.d/99-cpu-dma-latency.rules https://raw.
 
 # Multimídia
 ## Cadence
-rm -f kxstudio-repos*.deb>/dev/null
 wget -q --show-progress http://ppa.launchpad.net/kxstudio-debian/kxstudio/ubuntu/pool/main/k/kxstudio-repos/"$(wget -qO- http://ppa.launchpad.net/kxstudio-debian/kxstudio/ubuntu/pool/main/k/kxstudio-repos/|grep all.deb|tail -n1|cut -d '"' -f8)"
 apt install -y ./kxstudio-repos*.deb
 rm kxstudio-repos*.deb
@@ -94,20 +89,16 @@ sed -i 's/start-pulseaudio-x11/systemctl --user start pulseaudio.service/g' /etc
 dpkg --add-architecture i386
 apt update
 apt install -y q4wine wine wine32:i386 winetricks
-rm -f wine*staging-tkg-amd64.tar.xz>/dev/null
 wget -q --show-progress "$(wget -qO- https://api.github.com/repos/Kron4ek/Wine-Builds/releases|grep browser_download_url|grep staging-tkg-amd64.tar.xz|head -n1|cut -d '"' -f4)"
 tar fx wine*staging-tkg-amd64.tar.xz
 rm wine*staging-tkg-amd64.tar.xz
 mv wine*staging-tkg-amd64 /opt/wine-tkg
-find . -name "*lutris-ge*" -print0|xargs -0 rm -rf>/dev/null
+#find . -name "*lutris-ge*" -print0|xargs -0 rm -rf>/dev/null
 wget -q --show-progress "$(wget -qO- https://api.github.com/repos/GloriousEggroll/wine-ge-custom/releases|grep browser_download_url|grep wine-lutris-ge|grep .tar.xz|head -n1|cut -d '"' -f4)"
 tar fx wine-lutris-ge*.tar.xz
 cp lutris*/lib/wine/i386-windows/winemenubuilder.exe /opt/wine-tkg/lib/wine/i386-windows/winemenubuilder.exe
 cp lutris*/lib64/wine/x86_64-windows/winemenubuilder.exe /opt/wine-tkg/lib/wine/x86_64-windows/winemenubuilder.exe
 find . -name "*lutris-ge*" -print0|xargs -0 rm -r
-rm -f wine-gecko-*-x86.tar.xz>/dev/null
-rm -f wine-gecko-*-x86_64.tar.xz>/dev/null
-rm -f wine-mono-*-x86.tar.xz>/dev/null
 WINE_GECKO_VER="$(wget -qO- https://dl.winehq.org/wine/wine-gecko/|grep folder|cut -d '"' -f6|sort -d|grep -v wine|tail -n1)"
 wget -qO- https://dl.winehq.org/wine/wine-gecko/"$WINE_GECKO_VER"|grep x86|grep tar|grep -wv pdb|grep -wv rc|cut -d '"' -f6>wine-gecko.links
 sed -i 's@wine-gecko@https://dl.winehq.org/wine/wine-gecko/wine-gecko@g' wine-gecko.links
@@ -139,7 +130,6 @@ EOF
 ### Configuração
 #winetricks -f -q dxvk
 ## yabridge
-rm -f yabridge*.tar.gz>/dev/null
 wget -q --show-progress "$(wget -qO- https://api.github.com/repos/robbert-vdh/yabridge/releases|grep browser_download_url|head -n2|tail -n1|cut -d '"' -f4)"
 tar fxz yabridge*.tar.gz
 rm -r yabridge*.tar.gz
@@ -155,7 +145,6 @@ rm -r yabridge
 #yabridgectl sync --prune --verbose
 ## REAPER
 cd /tmp
-rm -rf /tmp/*reaper* /tmp/*libSwell*>/dev/null
 wget -q --show-progress http://reaper.fm/"$(wget -qO- http://reaper.fm/download.php|grep _linux_x86_64.tar.xz|cut -d '"' -f2)"
 tar fx reaper*_linux_x86_64.tar.xz -C /tmp
 sed -i 's/rmdir --/rm -rf --/g' /tmp/reaper*/install-reaper.sh
