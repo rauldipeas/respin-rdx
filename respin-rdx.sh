@@ -220,7 +220,61 @@ wget https://sws-extension.org/download/pre-release/"$(wget -qO- http://sws-exte
 tar fx sws-*-Linux-x86_64-*.tar.xz -C "$HOME"/.config/REAPER
 rm sws-*-Linux-x86_64-*.tar.xz
 wget -O "$HOME"/.config/REAPER/UserPlugins/reaper_reapack-x86_64.so "$(wget -qO- https://api.github.com/repos/cfillion/reapack/releases|grep browser_download_url|grep download/v|grep x86_64.so|head -n1|cut -d '"' -f4)"
+## Audacity
+sudo apt install -y	audacity
+## GIMP
+sudo apt install -y	gimp
+## Inkscape
+cat <<EOF |sudo tee /etc/apt/preferences.d/imagemagick.pref>/dev/null
+Package: imagemagick
+Pin: release a=*
+Pin-Priority: -10
+
+Package: imagemagick:i386
+Pin: release a=*
+Pin-Priority: -10
+
+Package: imagemagick-6.q16
+Pin: release a=*
+Pin-Priority: -10
+
+Package: imagemagick-6.q16:i386
+Pin: release a=*
+Pin-Priority: -10
+EOF
+sudo apt install -y	inkscape
+sudo rm /etc/apt/preferences.d/imagemagick.pref
+## KDEnLive
+sudo apt install -y	kdenlive
 ## MediaInfo GUI
 sudo apt install -y mediainfo-gui
+## OBS Studio
+sudo apt install -y	obs-studio
+## Shotwell
+sudo apt install -y	shotwell
+## TuxGuitar
+sudo apt install -y	tuxguitar
+## VLC
+sudo apt install -y	vlc
 ## WinFF
 sudo apt install -y winff
+## 4kVideoDownloader
+rm -f 4kvideodownloader*.deb>/dev/null
+wget -qO- https://www.4kdownload.com/pt-br/downloads|grep amd64.deb|grep 4kvideodownloader|grep -v 4kvideodownloaderplus|cut -d '"' -f4|cut -d '?' -f1|xargs wget -q --show-progress
+sudo apt install -y ./4kvideodownloader*.deb
+rm 4kvideodownloader*.deb
+## Glaxnimate
+#rm -f glaxnimate*.deb>/dev/null
+#wget -q --show-progress -O glaxnimate-amd64.deb "https://gitlab.com/api/v4/projects/19921167/jobs/artifacts/release/raw/build/glaxnimate.deb?job=linux%3Adeb"
+#sudo apt install -y ./glaxnimate*.deb
+#rm glaxnimate*.deb
+## Mini-video-me
+rm -f mini-video-me*.deb>/dev/null
+wget -q --show-progress "$(wget -qO- --header="X-Auth-Token: $GITHUB_TOKEN" https://api.github.com/repos/maykbrito/mini-video-me/releases|grep browser_download_url|grep amd64.deb|head -n1|cut -d '"' -f4)"
+sudo apt install -y ./mini-video-me*.deb
+rm mini-video-me*.deb
+## RustDesk
+rm -f rustdesk*.deb>/dev/null
+wget -q --show-progress "$(wget -qO- --header="X-Auth-Token: $GITHUB_TOKEN" https://api.github.com/repos/rustdesk/rustdesk/releases|grep browser_download_url|grep deb|grep -v aarch64|grep -v armv7|grep -v armhf|head -n1|cut -d '"' -f4)"
+sudo apt install -y ./rustdesk*.deb
+rm rustdesk*.deb
