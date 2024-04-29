@@ -15,13 +15,14 @@ rm cfs-zen-tweaks*.deb
 sudo systemctl enable set-cfs-tweaks.service
 sudo systemctl start set-cfs-tweaks.service
 ## ZSwap
+SWAPFILE="$(ls /swap*)"
 RAM="$(grep MemTotal /proc/meminfo|cut -d ' ' -f9)"
-sudo swapoff /swap.img
-sudo fallocate -l "$RAM" /swap.img
-sudo dd if=/dev/zero of=/swap.img bs=1024 count="$RAM" status=progress
-sudo chmod 600 /swap.img
-sudo mkswap /swap.img
-sudo swapon /swap.img
+sudo swapoff "$SWAPFILE"
+sudo fallocate -l "$RAM" "$SWAPFILE"
+sudo dd if=/dev/zero of="$SWAPFILE" bs=1024 count="$RAM" status=progress
+sudo chmod 600 "$SWAPFILE"
+sudo mkswap "$SWAPFILE"
+sudo swapon "$SWAPFILE"
 sudo sed -i 's/quiet splash/quiet splash zswap.enabled=1 zswap.compressor=lz4/g' /etc/default/grub
 sudo update-grub
 echo lz4|sudo tee -a /etc/initramfs-tools/modules>/dev/null
