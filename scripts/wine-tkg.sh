@@ -42,7 +42,10 @@ if [ -f /opt/wine-tkg/bin/wine ] && [ -f /etc/environment.d/99wine.conf ];then
     rm wine-gecko-*-x86_64.tar.xz
     rm wine-mono-*-x86.tar.xz
     if [ $(echo $XDG_SESSION_TYPE) = x11 ];then
-        cat <<EOF |tee "$HOME"/.xsessionrc>/dev/null
+        if grep wine-tkg "$HOME"/.xsessionrc && grep WINEFSYNC "$HOME"/.xsessionrc;then
+            echo wine-tkg habilitado!
+            else
+            cat <<EOF |tee "$HOME"/.xsessionrc>/dev/null
 if [ -d /opt/wine-tkg/bin ];then
     PATH="/opt/wine-tkg/bin:\$PATH"
 fi
@@ -50,6 +53,7 @@ export WINE_ENABLE_PIPE_SYNC_FOR_APP=1
 export WINEESYNC=1
 export WINEFSYNC=1
 EOF
+        fi
         else
         cat <<EOF |sudo tee /etc/environment.d/99wine.conf>/dev/null
 if [ -d /opt/wine-tkg/bin ];then
