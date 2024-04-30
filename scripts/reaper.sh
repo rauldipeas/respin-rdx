@@ -50,3 +50,4 @@ EOF
     tar fx sws-*-Linux-x86_64-*.tar.xz -C "$HOME"/.config/REAPER
     rm sws-*-Linux-x86_64-*.tar.xz
     wget -O "$HOME"/.config/REAPER/UserPlugins/reaper_reapack-x86_64.so "$(wget -qO- https://api.github.com/repos/cfillion/reapack/releases|grep browser_download_url|grep download/v|grep x86_64.so|head -n1|cut -d '"' -f4)"
+fi
