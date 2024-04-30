@@ -20,7 +20,24 @@ if grep universe /etc/apt/sources.list.d/ubuntu.sources;then
     else
     sudo add-apt-repository -y universe
 fi
-if  grep ii <(dpkg --list alsa-firmware) && grep ii <(dpkg --list cadence) && grep ii <(dpkg --list pulseaudio);then
+if [ $(cut -d' ' -f4 <(grep "Nome do servidor" <(pactl info))) = pipewire ];then
+    if  grep ii <(dpkg --list pulseaudio);then
+        echo pulseaudio instalado!
+        else
+        sudo apt install -y pulseaudio
+        systemctl --user mask pipewire.service pipewire.socket
+        systemctl --user stop pipewire.service pipewire.socket
+        systemctl --user disable pipewire.service pipewire.socket
+        sudo sed -i 's/NoDisplay=true/NoDisplay=false/g' /etc/xdg/autostart/pulseaudio.desktop
+        sudo sed -i 's/Systemd=true/Systemd=false/g' /etc/xdg/autostart/pulseaudio.desktop
+        sudo sed -i 's/start-pulseaudio-x11/systemctl --user start pulseaudio.service/g' /etc/xdg/autostart/pulseaudio.desktop
+        systemctl --user start pulseaudio.service pulseaudio.socket
+        grep "Nome do servidor" <(pactl info)
+    fi
+    else
+    grep "Nome do servidor" <(pactl info)
+fi
+if  grep ii <(dpkg --list alsa-firmware) && grep ii <(dpkg --list cadence) && grep ii <(dpkg --list pulseaudio) && grep ii <(dpkg --list pulseaudio-module-jack);then
     echo cadence instalado!
     else
     cat <<EOF |sudo tee /etc/apt/preferences.d/meterbridge.pref>/dev/null
@@ -28,14 +45,6 @@ Package: meterbridge
 Pin: release a=*
 Pin-Priority: -10
 EOF
-    sudo apt install -y alsa-firmware cadence pulseaudio
+    sudo apt install -y alsa-firmware cadence
     sudo rm /etc/apt/preferences.d/meterbridge.pref
-    systemctl --user mask pipewire.service pipewire.socket
-    systemctl --user stop pipewire.service pipewire.socket
-    systemctl --user disable pipewire.service pipewire.socket
-    sudo sed -i 's/NoDisplay=true/NoDisplay=false/g' /etc/xdg/autostart/pulseaudio.desktop
-    sudo sed -i 's/Systemd=true/Systemd=false/g' /etc/xdg/autostart/pulseaudio.desktop
-    sudo sed -i 's/start-pulseaudio-x11/systemctl --user start pulseaudio.service/g' /etc/xdg/autostart/pulseaudio.desktop
-    systemctl --user start pulseaudio.service pulseaudio.socket
-    pactl info|grep "Nome do servidor"
 fi
