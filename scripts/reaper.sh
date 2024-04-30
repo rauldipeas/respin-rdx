@@ -13,7 +13,6 @@ if [ -f /opt/REAPER/reaper ];then
     wget -qO libSwell.colortheme https://stash.reaper.fm/41334/libSwell.colortheme
     sudo mv libSwell.colortheme /opt/REAPER/libSwell.colortheme
     rm -rf /tmp/*reaper* /tmp/*libSwell*
-    cd
     cat <<EOF |sudo tee -a /usr/share/applications/cockos-reaper.desktop>/dev/null
 # Ações complementares
 Actions=NewProject;ShowAudioConfig;ReaMote;WhatsNew;License;
