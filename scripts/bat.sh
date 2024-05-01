@@ -2,8 +2,8 @@
 set -e
 
 ## OBS Studio
-if  grep ii <(dpkg --list batcat);then
-    echo batcat instalado!
+if  grep ii <(dpkg --list bat);then
+    echo bat instalado!
     else
-    sudo apt install -y	batcat
+    sudo apt install -y	bat
 fi
