@@ -76,9 +76,13 @@ bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/winff
 bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/yabridge.sh)
 
 # Miscelânea
+## Bat
+bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/bat.sh)
+## BZip2 (vbox-extras)
+#bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/bzip2.sh)
+## Micro
+bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/micro.sh)
 ## Papirus
 bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/papirus-icon-theme.sh)
 ## UnRAR
 #bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/unrar.sh)
-## BZip2 (vbox-extras)
-#bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/bzip2.sh)
