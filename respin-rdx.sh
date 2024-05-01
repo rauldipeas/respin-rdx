@@ -33,14 +33,6 @@ bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/udev-
 # rtcqs
 bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/rtcqs.sh)
 
-# Miscelânea
-## Papirus
-bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/papirus-icon-theme.sh)
-## UnRAR
-#bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/unrar.sh)
-## BZip2 (vbox-extras)
-#bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/bzip2.sh)
-
 # Multimídia
 ## 4kVideoDownloader
 bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/4kvideodownloader.sh)
@@ -82,3 +74,11 @@ bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/wine-
 bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/winff.sh)
 ## yabridge
 bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/yabridge.sh)
+
+# Miscelânea
+## Papirus
+bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/papirus-icon-theme.sh)
+## UnRAR
+#bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/unrar.sh)
+## BZip2 (vbox-extras)
+#bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/bzip2.sh)
