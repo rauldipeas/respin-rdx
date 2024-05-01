@@ -37,9 +37,9 @@ bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/rtcqs
 ## Papirus
 bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/papirus-icon-theme.sh)
 ## UnRAR
-bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/unrar.sh)
+#bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/unrar.sh)
 ## BZip2 (vbox-extras)
-bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/bzip2.sh)
+#bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/bzip2.sh)
 
 # Multimídia
 ## 4kVideoDownloader
