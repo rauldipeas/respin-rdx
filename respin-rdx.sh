@@ -34,6 +34,8 @@ bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/udev-
 bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/rtcqs.sh)
 
 # Miscelânea
+## Papirus
+bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/papirus-icon-theme.sh)
 ## UnRAR
 bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/unrar.sh)
 ## BZip2 (vbox-extras)
