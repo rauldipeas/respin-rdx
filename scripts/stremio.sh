@@ -2,7 +2,7 @@
 set -e
 
 ## Stremio
-if [ -d /usr/bin/stremio ];then
+if [ -f /usr/bin/stremio ];then
     echo stremio instalado!
     else
     if  \
