@@ -31,30 +31,30 @@ if [ -d /usr/bin/stremio ];then
             qml-module-qt-labs-settings\
             librubberband2\
             libfdk-aac2
-        if [ -f /usr/lib/x86_64-linux-gnu/libmpv.so.1 ];then
-            echo libmpv1 disponível!
-            else
-            sudo ln -fs\
-                /usr/lib/x86_64-linux-gnu/libmpv.so.2\
-                /usr/lib/x86_64-linux-gnu/libmpv.so.1
-        fi
-        if [ -d /opt/stremio ];then
-            echo stremio instalado!
-            else
-            rm -f stremio*.deb stremio/>/dev/null
-            wget -cq --show-progress https://dl.strem.io/shell-linux/v4.4.168/stremio_4.4.168-1_amd64.deb
-            dpkg-deb -R stremio*.deb stremio
-            sudo mv stremio/opt/stremio /opt/
-            sudo ln -fs\
-                /opt/stremio/stremio\
-                /usr/bin/stremio
-            sudo ln -fs\
-                /opt/stremio/smartcode-stremio.desktop\
-                /usr/share/applications/smartcode-stremio.desktop
-            sudo ln -fs\
-                /opt/stremio/icons/smartcode-stremio_128.png\
-                /usr/share/pixmaps/smartcode-stremio.png
-            rm -r stremio*.deb stremio/>/dev/null
-        fi
+    fi
+    if [ -f /usr/lib/x86_64-linux-gnu/libmpv.so.1 ];then
+        echo libmpv1 disponível!
+        else
+        sudo ln -fs\
+            /usr/lib/x86_64-linux-gnu/libmpv.so.2\
+            /usr/lib/x86_64-linux-gnu/libmpv.so.1
+    fi
+    if [ -d /opt/stremio ];then
+        echo stremio instalado!
+        else
+        rm -f stremio*.deb stremio/>/dev/null
+        wget -cq --show-progress https://dl.strem.io/shell-linux/v4.4.168/stremio_4.4.168-1_amd64.deb
+        dpkg-deb -R stremio*.deb stremio
+        sudo mv stremio/opt/stremio /opt/
+        sudo ln -fs\
+            /opt/stremio/stremio\
+            /usr/bin/stremio
+        sudo ln -fs\
+            /opt/stremio/smartcode-stremio.desktop\
+            /usr/share/applications/smartcode-stremio.desktop
+        sudo ln -fs\
+            /opt/stremio/icons/smartcode-stremio_128.png\
+            /usr/share/pixmaps/smartcode-stremio.png
+        rm -r stremio*.deb stremio/>/dev/null
     fi
 fi
