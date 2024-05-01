@@ -5,6 +5,14 @@ set -e
 if [ -f /usr/bin/stremio ];then
     echo stremio instalado!
     else
+    if grep ii <(dpkg --list libssl1.1);then
+        echo libssl1.1 instalado
+        else
+        rm -f libssl1.1*.deb>/dev/null
+        wget -cq --show-progress http://security.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2.22_amd64.deb
+        sudo apt install ./libssl1.1*.deb
+        rm libssl1.1*.deb>/dev/null
+    fi
     if  \
         grep ii <(dpkg --list nodejs) &&\
         grep ii <(dpkg --list libmpv2) &&\
@@ -33,7 +41,7 @@ if [ -f /usr/bin/stremio ];then
             libfdk-aac2
     fi
     if [ -f /usr/lib/x86_64-linux-gnu/libmpv.so.1 ];then
-        echo libmpv1 disponível!
+        echo libmpv1 instalado!
         else
         sudo ln -fs\
             /usr/lib/x86_64-linux-gnu/libmpv.so.2\
