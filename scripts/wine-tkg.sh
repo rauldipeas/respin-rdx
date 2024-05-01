@@ -5,7 +5,7 @@ if [ -f /opt/wine-tkg/bin/wine ] && [ -f /etc/environment.d/99wine.conf ];then
     echo wine-tkg instalado!
     else
     sudo dpkg --add-architecture i386
-    sudo apt update
+    sudo apt update 2>/dev/null
     sudo apt install -y q4wine wine wine32:i386 winetricks
     rm -f wine*staging-tkg-amd64.tar.xz>/dev/null
     wget -q --show-progress "$(wget -qO- https://api.github.com/repos/Kron4ek/Wine-Builds/releases|grep browser_download_url|grep staging-tkg-amd64.tar.xz|head -n1|cut -d '"' -f4)"
