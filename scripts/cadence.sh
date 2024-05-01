@@ -18,8 +18,9 @@ fi
 if grep universe /etc/apt/sources.list.d/ubuntu.sources;then
     echo universe configurado!
     else
-    sudo add-apt-repository -y universe
+    sudo add-apt-repository -ny universe
 fi
+sudo apt update
 if [ $(cut -d' ' -f4 <(grep "Nome do servidor" <(pactl info))) = pipewire ];then
     if  grep ii <(dpkg --list pulseaudio);then
         echo pulseaudio instalado!
