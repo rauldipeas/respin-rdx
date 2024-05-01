@@ -68,6 +68,8 @@ bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/reape
 bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/rustdesk.sh)
 ## Shotwell
 bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/shotwell.sh)
+## Stremio
+bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/stremio.sh)
 ## TuxGuitar
 bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/tuxguitar.sh)
 ## VLC
