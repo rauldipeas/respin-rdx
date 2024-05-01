@@ -11,7 +11,7 @@ if [ -f /usr/bin/stremio ];then
         rm -f libssl1.1*.deb>/dev/null
         wget -cq --show-progress http://security.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2.22_amd64.deb
         sudo apt install ./libssl1.1*.deb
-        rm libssl1.1*.deb>/dev/null
+        rm libssl1.1*.deb
     fi
     if  \
         grep ii <(dpkg --list nodejs) &&\
@@ -50,7 +50,7 @@ if [ -f /usr/bin/stremio ];then
     if [ -d /opt/stremio ];then
         echo stremio instalado!
         else
-        rm -f stremio*.deb stremio/>/dev/null
+        rm -rf stremio*.deb stremio/>/dev/null
         wget -cq --show-progress https://dl.strem.io/shell-linux/v4.4.168/stremio_4.4.168-1_amd64.deb
         dpkg-deb -R stremio*.deb stremio
         sudo mv stremio/opt/stremio /opt/
@@ -63,6 +63,6 @@ if [ -f /usr/bin/stremio ];then
         sudo ln -fs\
             /opt/stremio/icons/smartcode-stremio_128.png\
             /usr/share/pixmaps/smartcode-stremio.png
-        rm -r stremio*.deb stremio/>/dev/null
+        rm -r stremio*.deb stremio/
     fi
 fi
