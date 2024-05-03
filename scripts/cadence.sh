@@ -13,12 +13,12 @@ fi
 if grep multiverse /etc/apt/sources.list.d/ubuntu.sources;then
     echo multiverse configurado!
     else
-    sudo add-apt-repository -y multiverse
+    sudo add-apt-repository -ny multiverse
 fi
 if grep universe /etc/apt/sources.list.d/ubuntu.sources;then
     echo universe configurado!
     else
-    sudo add-apt-repository -y universe
+    sudo add-apt-repository -ny universe
 fi
 sudo apt update 2>/dev/null
 if [ $(cut -d' ' -f4 <(grep "Nome do servidor" <(pactl info))) = pipewire ];then
