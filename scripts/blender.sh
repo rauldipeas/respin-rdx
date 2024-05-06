@@ -11,7 +11,8 @@ if  grep ii <(dpkg --list blender 2>/dev/null);then
     rm -rf blender*/ blender*.tar.xz>/dev/null
     wget -c https://ftp.nluug.nl/pub/graphics/blender/release/"$BLENDER_VER""$BLENDER_FILE"
     sudo mkdir -p /opt/blender
-    sudo tar -xf blender*.tar.xz -C /opt/blender
+    sudo tar -xf blender*.tar.xz -C /opt/
+    sudo mv /opt/blender* /opt/blender
     rm blender*.tar.xz
     sudo ln -sf /opt/blender/blender /usr/bin/blender
     sudo cp /opt/blender/blender.desktop /usr/share/applications/blender.desktop
@@ -22,7 +23,8 @@ if  grep ii <(dpkg --list blender 2>/dev/null);then
     rm -rf blender*/ blender*.tar.xz>/dev/null
     wget -c https://ftp.nluug.nl/pub/graphics/blender/release/"$BLENDER_VER""$BLENDER_FILE"
     sudo mkdir -p /opt/blender
-    sudo tar -xf blender*.tar.xz -C /opt/blender
+    sudo tar -xf blender*.tar.xz -C /opt/
+    sudo mv /opt/blender* /opt/blender
     rm blender*.tar.xz
     sudo ln -sf /opt/blender/blender /usr/bin/blender
     sudo cp /opt/blender/blender.desktop /usr/share/applications/blender.desktop
