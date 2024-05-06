@@ -31,18 +31,18 @@ if  grep ii <(dpkg --list audacity 2>/dev/null);then
     echo audacity instalado!
     mkdir -p "$HOME"/.audacity-data/Theme
     wget -qO "$HOME"/.audacity-data/Theme/ImageCache.png https://github.com/visoart/audacity-themes/raw/master/themes/dark-blue/ImageCache.png
-    rm -f audacity_tools_for_blender-main.zip>/dev/null
+    rm -f main.zip>/dev/null
     wget -q --show-progress https://github.com/tin2tin/audacity_tools_for_blender/archive/main.zip
     mkdir -p "$HOME"/.config/blender/"$(find /opt/blender/* -type d|head -n1|sed "s@/opt/blender/@@g")"/scripts/addons/
-    unzip audacity_tools_for_blender-main.zip -d "$HOME"/.config/blender/"$(find /opt/blender/* -type d|head -n1|sed "s@/opt/blender/@@g")"/scripts/addons/
-    rm audacity_tools_for_blender-main.zip
+    unzip main.zip -d "$HOME"/.config/blender/"$(find /opt/blender/* -type d|head -n1|sed "s@/opt/blender/@@g")"/scripts/addons/
+    rm main.zip
     else
     sudo apt install -y	audacity
     mkdir -p "$HOME"/.audacity-data/Theme
     wget -qO "$HOME"/.audacity-data/Theme/ImageCache.png https://github.com/visoart/audacity-themes/raw/master/themes/dark-blue/ImageCache.png
-    rm -f audacity_tools_for_blender-main.zip>/dev/null
+    rm -f main.zip>/dev/null
     wget -q --show-progress https://github.com/tin2tin/audacity_tools_for_blender/archive/main.zip
     mkdir -p "$HOME"/.config/blender/"$(find /opt/blender/* -type d|head -n1|sed "s@/opt/blender/@@g")"/scripts/addons/
-    unzip audacity_tools_for_blender-main.zip -d "$HOME"/.config/blender/"$(find /opt/blender/* -type d|head -n1|sed "s@/opt/blender/@@g")"/scripts/addons/
-    rm audacity_tools_for_blender-main.zip
+    unzip main.zip -d "$HOME"/.config/blender/"$(find /opt/blender/* -type d|head -n1|sed "s@/opt/blender/@@g")"/scripts/addons/
+    rm main.zip
 fi
