@@ -2,10 +2,11 @@
 set -e
 
 
-if  grep ii <(dpkg --list blender 2>/dev/null);then
+if  grep ii <(dpkg --list blender 2>/dev/null) || grep blender <(snap list);then
     echo blender instalado!
     echo desinstalando blender...
     sudo apt autoremove --purge -y blender*
+    sudo snap remove blender
     BLENDER_VER=$(wget -qO- https://ftp.nluug.nl/pub/graphics/blender/release|grep Blender4.|tail -n1|cut -d \" -f6)
     BLENDER_FILE=$(wget -qO- https://ftp.nluug.nl/pub/graphics/blender/release/"$BLENDER_VER"|grep .tar.xz|tail -n1|cut -d \" -f6)
     wget -cq --show-progress -O /tmp/"$BLENDER_FILE" https://ftp.nluug.nl/pub/graphics/blender/release/"$BLENDER_VER""$BLENDER_FILE"
