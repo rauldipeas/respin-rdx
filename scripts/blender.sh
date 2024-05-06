@@ -12,7 +12,7 @@ if  grep ii <(dpkg --list blender 2>/dev/null);then
     wget -c https://ftp.nluug.nl/pub/graphics/blender/release/"$BLENDER_VER""$BLENDER_FILE"
     sudo mkdir -p /opt/blender
     sudo tar -xf blender*.tar.xz -C /opt/blender
-    rm -r blender*/ blender*.tar.xz
+    rm blender*.tar.xz
     sudo ln -sf /opt/blender/blender /usr/bin/blender
     sudo cp /opt/blender/blender.desktop /usr/share/applications/blender.desktop
     sudo ln -sf /opt/blender/blender.svg /usr/share/pixmaps/blender.svg
@@ -23,13 +23,13 @@ if  grep ii <(dpkg --list blender 2>/dev/null);then
     wget -c https://ftp.nluug.nl/pub/graphics/blender/release/"$BLENDER_VER""$BLENDER_FILE"
     sudo mkdir -p /opt/blender
     sudo tar -xf blender*.tar.xz -C /opt/blender
-    rm -r blender*/ blender*.tar.xz
+    rm blender*.tar.xz
     sudo ln -sf /opt/blender/blender /usr/bin/blender
     sudo cp /opt/blender/blender.desktop /usr/share/applications/blender.desktop
     sudo ln -sf /opt/blender/blender.svg /usr/share/pixmaps/blender.svg
 fi
 
-if  grep ii <(dpkg --list audacity);then
+if  grep ii <(dpkg --list audacity 2>/dev/null);then
     echo audacity instalado!
     mkdir -p "$HOME"/.audacity-data/Theme
     wget -qO "$HOME"/.audacity-data/Theme/ImageCache.png https://github.com/visoart/audacity-themes/raw/master/themes/dark-blue/ImageCache.png
