@@ -2,7 +2,7 @@
 set -e
 
 
-if  grep ii <(dpkg --list blender);then
+if  grep ii <(dpkg --list blender 2>/dev/null);then
     echo blender instalado!
     echo desinstalando blender...
     sudo apt autoremove --purge -y blender*
