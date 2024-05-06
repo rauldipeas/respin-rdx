@@ -8,7 +8,7 @@ if  grep ii <(dpkg --list blender);then
     sudo apt autoremove --purge -y blender*
     BLENDER_VER=$(wget -qO- https://ftp.nluug.nl/pub/graphics/blender/release|grep Blender3.|tail -n1|cut -d \" -f6)
     BLENDER_FILE=$(wget -qO- https://ftp.nluug.nl/pub/graphics/blender/release/"$BLENDER_VER"|grep .tar.xz|tail -n1|cut -d \" -f6)
-    rm -r blender*/ blender*.tar.xz
+    rm -rf blender*/ blender*.tar.xz
     wget -c https://ftp.nluug.nl/pub/graphics/blender/release/"$BLENDER_VER""$BLENDER_FILE"
     sudo tar -xf blender*.tar.xz -C /opt/blender
     rm -r blender*/ blender*.tar.xz
@@ -18,7 +18,7 @@ if  grep ii <(dpkg --list blender);then
     else
     BLENDER_VER=$(wget -qO- https://ftp.nluug.nl/pub/graphics/blender/release|grep Blender3.|tail -n1|cut -d \" -f6)
     BLENDER_FILE=$(wget -qO- https://ftp.nluug.nl/pub/graphics/blender/release/"$BLENDER_VER"|grep .tar.xz|tail -n1|cut -d \" -f6)
-    rm -r blender*/ blender*.tar.xz
+    rm -rf blender*/ blender*.tar.xz
     wget -c https://ftp.nluug.nl/pub/graphics/blender/release/"$BLENDER_VER""$BLENDER_FILE"
     sudo tar -xf blender*.tar.xz -C /opt/blender
     rm -r blender*/ blender*.tar.xz
