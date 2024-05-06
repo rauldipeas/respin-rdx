@@ -41,6 +41,8 @@ if [ "$(whoami)" = root ];then
     bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/4kvideodownloader.sh)
     ## Audacity
     bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/audacity.sh)
+    ## Blender
+    bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/blender.sh)
     ## Cadence
     bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/cadence.sh)
     ## GIMP
