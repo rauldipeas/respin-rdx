@@ -8,24 +8,20 @@ if  grep ii <(dpkg --list blender 2>/dev/null);then
     sudo apt autoremove --purge -y blender*
     BLENDER_VER=$(wget -qO- https://ftp.nluug.nl/pub/graphics/blender/release|grep Blender4.|tail -n1|cut -d \" -f6)
     BLENDER_FILE=$(wget -qO- https://ftp.nluug.nl/pub/graphics/blender/release/"$BLENDER_VER"|grep .tar.xz|tail -n1|cut -d \" -f6)
-    rm -rf blender*/ blender*.tar.xz>/dev/null
-    wget -c https://ftp.nluug.nl/pub/graphics/blender/release/"$BLENDER_VER""$BLENDER_FILE"
+    wget -cq --show-progress -O /tmp/"$BLENDER_FILE" https://ftp.nluug.nl/pub/graphics/blender/release/"$BLENDER_VER""$BLENDER_FILE"
     sudo rm -rf /opt/blender*>/dev/null
-    sudo tar -xf blender*.tar.xz -C /opt/
+    sudo tar -xf /tmp/"$BLENDER_FILE" -C /opt/
     sudo mv /opt/blender* /opt/blender
-    rm blender*.tar.xz
     sudo ln -sf /opt/blender/blender /usr/bin/blender
     sudo cp /opt/blender/blender.desktop /usr/share/applications/blender.desktop
     sudo ln -sf /opt/blender/blender.svg /usr/share/pixmaps/blender.svg
     else
     BLENDER_VER=$(wget -qO- https://ftp.nluug.nl/pub/graphics/blender/release|grep Blender4.|tail -n1|cut -d \" -f6)
     BLENDER_FILE=$(wget -qO- https://ftp.nluug.nl/pub/graphics/blender/release/"$BLENDER_VER"|grep .tar.xz|tail -n1|cut -d \" -f6)
-    rm -rf blender*/ blender*.tar.xz>/dev/null
-    wget -c https://ftp.nluug.nl/pub/graphics/blender/release/"$BLENDER_VER""$BLENDER_FILE"
+    wget -cq --show-progress -O /tmp/"$BLENDER_FILE" https://ftp.nluug.nl/pub/graphics/blender/release/"$BLENDER_VER""$BLENDER_FILE"
     sudo rm -rf /opt/blender*>/dev/null
-    sudo tar -xf blender*.tar.xz -C /opt/
+    sudo tar -xf /tmp/"$BLENDER_FILE" -C /opt/
     sudo mv /opt/blender* /opt/blender
-    rm blender*.tar.xz
     sudo ln -sf /opt/blender/blender /usr/bin/blender
     sudo cp /opt/blender/blender.desktop /usr/share/applications/blender.desktop
     sudo ln -sf /opt/blender/blender.svg /usr/share/pixmaps/blender.svg
