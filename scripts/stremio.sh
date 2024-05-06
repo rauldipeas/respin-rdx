@@ -5,7 +5,7 @@ set -e
 if [ -f /usr/bin/stremio ];then
     echo stremio instalado!
     else
-    if grep ii <(dpkg --list libssl1.1);then
+    if grep ii <(dpkg --list libssl1.1 2>/dev/null);then
         echo libssl1.1 instalado
         else
         rm -f libssl1.1*.deb>/dev/null
@@ -14,17 +14,17 @@ if [ -f /usr/bin/stremio ];then
         rm libssl1.1*.deb
     fi
     if  \
-        grep ii <(dpkg --list nodejs) &&\
-        grep ii <(dpkg --list libmpv2) &&\
-        grep ii <(dpkg --list qml-module-qt-labs-platform) &&\
-        grep ii <(dpkg --list qml-module-qtquick-controls) &&\
-        grep ii <(dpkg --list qml-module-qtquick-dialogs) &&\
-        grep ii <(dpkg --list qml-module-qtwebchannel) &&\
-        grep ii <(dpkg --list qml-module-qtwebengine) &&\
-        grep ii <(dpkg --list qml-module-qt-labs-folderlistmodel) &&\
-        grep ii <(dpkg --list qml-module-qt-labs-settings) &&\
-        grep ii <(dpkg --list librubberband2) &&\
-        grep ii <(dpkg --list libfdk-aac2);then
+        grep ii <(dpkg --list nodejs 2>/dev/null) &&\
+        grep ii <(dpkg --list libmpv2 2>/dev/null) &&\
+        grep ii <(dpkg --list qml-module-qt-labs-platform 2>/dev/null) &&\
+        grep ii <(dpkg --list qml-module-qtquick-controls 2>/dev/null) &&\
+        grep ii <(dpkg --list qml-module-qtquick-dialogs 2>/dev/null) &&\
+        grep ii <(dpkg --list qml-module-qtwebchannel 2>/dev/null) &&\
+        grep ii <(dpkg --list qml-module-qtwebengine 2>/dev/null) &&\
+        grep ii <(dpkg --list qml-module-qt-labs-folderlistmodel 2>/dev/null) &&\
+        grep ii <(dpkg --list qml-module-qt-labs-settings 2>/dev/null) &&\
+        grep ii <(dpkg --list librubberband2 2>/dev/null) &&\
+        grep ii <(dpkg --list libfdk-aac2 2>/dev/null);then
         echo dependências instaladas!
         else
         sudo apt install -y \

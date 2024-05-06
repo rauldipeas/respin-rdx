@@ -2,7 +2,7 @@
 set -e
 
 ## Inkscape
-if  grep ii <(dpkg --list inkscape);then
+if  grep ii <(dpkg --list inkscape 2>/dev/null);then
     echo inkscape instalado!
     else
     cat <<EOF |sudo tee /etc/apt/preferences.d/imagemagick.pref>/dev/null

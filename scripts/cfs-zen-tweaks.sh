@@ -2,7 +2,7 @@
 set -e
 
 ## CFS Zen tweaks
-if  grep ii <(dpkg --list cfs-zen-tweaks);then
+if  grep ii <(dpkg --list cfs-zen-tweaks 2>/dev/null);then
     echo cfs-zen-tweaks instalado!
     else
     rm -f cfs-zen-tweaks*.deb>/dev/null

@@ -2,7 +2,7 @@
 set -e
 
 ## Pacstall
-if  grep ii <(dpkg --list pacstall);then
+if  grep ii <(dpkg --list pacstall 2>/dev/null);then
     echo pacstall instalado!
     else
     rm -rf pacstall*.deb>/dev/null

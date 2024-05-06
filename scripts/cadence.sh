@@ -2,7 +2,7 @@
 set -e
 
 ## Cadence
-if  grep ii <(dpkg --list kxstudio-repos);then
+if  grep ii <(dpkg --list kxstudio-repos 2>/dev/null);then
     echo kxstudio-repos instalado!
     else
     rm -f kxstudio-repos*.deb>/dev/null
@@ -22,7 +22,7 @@ if grep universe /etc/apt/sources.list.d/ubuntu.sources;then
 fi
 sudo apt update 2>/dev/null
 if [ $(cut -d' ' -f14 <(grep pipewire-pulse <(ps -e))) = pipewire-pulse ];then
-    if  grep ii <(dpkg --list pulseaudio);then
+    if  grep ii <(dpkg --list pulseaudio 2>/dev/null);then
         echo pulseaudio instalado!
         systemctl --user mask pipewire.service pipewire.socket
         systemctl --user stop pipewire.service pipewire.socket
@@ -46,7 +46,7 @@ if [ $(cut -d' ' -f14 <(grep pipewire-pulse <(ps -e))) = pipewire-pulse ];then
     else
     grep 'Nome do servidor' <(pactl info)
 fi
-if  grep ii <(dpkg --list alsa-firmware) && grep ii <(dpkg --list cadence) && grep ii <(dpkg --list pulseaudio) && grep ii <(dpkg --list pulseaudio-module-jack);then
+if grep ii <(dpkg --list alsa-firmware 2>/dev/null) && grep ii <(dpkg --list cadence 2>/dev/null) && grep ii <(dpkg --list pulseaudio 2>/dev/null) && grep ii <(dpkg --list pulseaudio-module-jack 2>/dev/null);then
     echo cadence instalado!
     else
     cat <<EOF |sudo tee /etc/apt/preferences.d/meterbridge.pref>/dev/null

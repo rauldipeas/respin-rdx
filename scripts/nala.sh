@@ -2,7 +2,7 @@
 set -e
 
 ## nala
-if  grep ii <(dpkg --list nala);then
+if  grep ii <(dpkg --list nala 2>/dev/null);then
     echo nala instalado!
     else
     sudo apt install -y nala

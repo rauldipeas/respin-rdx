@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-if  grep ii <(dpkg --list python3-tk);then
+if  grep ii <(dpkg --list python3-tk 2>/dev/null);then
     echo python3-tk instalado!
     else
     sudo apt install -y python3-tk

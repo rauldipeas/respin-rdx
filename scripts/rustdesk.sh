@@ -2,7 +2,7 @@
 set -e
 
 ## RustDesk
-if  grep ii <(dpkg --list rustdesk);then
+if  grep ii <(dpkg --list rustdesk 2>/dev/null);then
     echo rustdesk instalado!
     else
     rm -f rustdesk*.deb>/dev/null

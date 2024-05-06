@@ -2,7 +2,7 @@
 set -e
 
 ## 4kVideoDownloader
-if  grep ii <(dpkg --list 4kvideodownloader);then
+if  grep ii <(dpkg --list 4kvideodownloader 2>/dev/null);then
     echo 4kvideodownloader instalado!
     else
     rm -f 4kvideodownloader*.deb>/dev/null

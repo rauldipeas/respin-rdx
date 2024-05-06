@@ -2,7 +2,7 @@
 set -e
 
 ## Synaptic
-if  grep ii <(dpkg --list synaptic);then
+if  grep ii <(dpkg --list synaptic 2>/dev/null);then
     echo synaptic instalado!
     else
     sudo apt install -y synaptic

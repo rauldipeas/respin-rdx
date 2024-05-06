@@ -2,7 +2,7 @@
 set -e
 
 ## JACK
-if  grep ii <(dpkg --list jackd2);then
+if  grep ii <(dpkg --list jackd2 2>/dev/null);then
     echo jackd2 instalado!
     else
     echo 'jackd2 jackd/tweak_rt_limits string true'|sudo debconf-set-selections

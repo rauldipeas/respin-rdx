@@ -2,7 +2,7 @@
 set -e
 
 ## Papirus
-if  grep ii <(dpkg --list papirus-icon-theme);then
+if  grep ii <(dpkg --list papirus-icon-theme 2>/dev/null);then
     echo papirus-icont-theme instalado!
     else
     sudo apt install -y papirus-icon-theme
