@@ -10,7 +10,7 @@ if  grep ii <(dpkg --list blender 2>/dev/null);then
     BLENDER_FILE=$(wget -qO- https://ftp.nluug.nl/pub/graphics/blender/release/"$BLENDER_VER"|grep .tar.xz|tail -n1|cut -d \" -f6)
     rm -rf blender*/ blender*.tar.xz>/dev/null
     wget -c https://ftp.nluug.nl/pub/graphics/blender/release/"$BLENDER_VER""$BLENDER_FILE"
-    sudo rm -r /opt/blender*
+    sudo rm -rf /opt/blender*>/dev/null
     sudo tar -xf blender*.tar.xz -C /opt/
     sudo mv /opt/blender* /opt/blender
     rm blender*.tar.xz
@@ -22,7 +22,7 @@ if  grep ii <(dpkg --list blender 2>/dev/null);then
     BLENDER_FILE=$(wget -qO- https://ftp.nluug.nl/pub/graphics/blender/release/"$BLENDER_VER"|grep .tar.xz|tail -n1|cut -d \" -f6)
     rm -rf blender*/ blender*.tar.xz>/dev/null
     wget -c https://ftp.nluug.nl/pub/graphics/blender/release/"$BLENDER_VER""$BLENDER_FILE"
-    sudo rm -r /opt/blender*
+    sudo rm -rf /opt/blender*>/dev/null
     sudo tar -xf blender*.tar.xz -C /opt/
     sudo mv /opt/blender* /opt/blender
     rm blender*.tar.xz
