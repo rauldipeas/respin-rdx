@@ -6,7 +6,7 @@ if  grep ii <(dpkg --list blender);then
     echo blender instalado!
     echo desinstalando blender...
     sudo apt autoremove --purge -y blender*
-    BLENDER_VER=$(wget -qO- https://ftp.nluug.nl/pub/graphics/blender/release|grep Blender3.|tail -n1|cut -d \" -f6)
+    BLENDER_VER=$(wget -qO- https://ftp.nluug.nl/pub/graphics/blender/release|grep Blender4.|tail -n1|cut -d \" -f6)
     BLENDER_FILE=$(wget -qO- https://ftp.nluug.nl/pub/graphics/blender/release/"$BLENDER_VER"|grep .tar.xz|tail -n1|cut -d \" -f6)
     rm -rf blender*/ blender*.tar.xz>/dev/null
     wget -c https://ftp.nluug.nl/pub/graphics/blender/release/"$BLENDER_VER""$BLENDER_FILE"
@@ -17,7 +17,7 @@ if  grep ii <(dpkg --list blender);then
     sudo cp /opt/blender/blender.desktop /usr/share/applications/blender.desktop
     sudo ln -sf /opt/blender/blender.svg /usr/share/pixmaps/blender.svg
     else
-    BLENDER_VER=$(wget -qO- https://ftp.nluug.nl/pub/graphics/blender/release|grep Blender3.|tail -n1|cut -d \" -f6)
+    BLENDER_VER=$(wget -qO- https://ftp.nluug.nl/pub/graphics/blender/release|grep Blender4.|tail -n1|cut -d \" -f6)
     BLENDER_FILE=$(wget -qO- https://ftp.nluug.nl/pub/graphics/blender/release/"$BLENDER_VER"|grep .tar.xz|tail -n1|cut -d \" -f6)
     rm -rf blender*/ blender*.tar.xz>/dev/null
     wget -c https://ftp.nluug.nl/pub/graphics/blender/release/"$BLENDER_VER""$BLENDER_FILE"
