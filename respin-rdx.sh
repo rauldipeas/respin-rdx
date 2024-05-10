@@ -95,19 +95,20 @@ if [ "$(whoami)" = root ];then
     fi
 
     # Miscelânea
-    if [ "$1 = cli-tools" ];then
+    if [ "$1" = cli-tools ];then
         ## Bat
         bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/bat.sh)
         ## Micro
         bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/micro.sh)
     fi
-    if [ "$1 = papirus"];then
+    if [ "$1" = papirus ];then
         ## Papirus
         bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/papirus-icon-theme.sh)
     fi
-    if [ "$1 = rustdesk"];then
+    if [ "$1" = rustdesk ];then
         ## RustDesk
         bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/rustdesk.sh)
+    fi
     ## BZip2 (vbox-extras)
     #bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/bzip2.sh)
     ## UnRAR
