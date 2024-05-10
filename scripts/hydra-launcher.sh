@@ -10,4 +10,3 @@ if  grep ii <(dpkg --list hydra-launcher 2>/dev/null);then
     sudo apt install -y ./hydra-launcher*.deb
     rm hydra-launcher*.deb
 fi
-#wget -q --show-progress https://github.com/hydralauncher/hydra/releases/download/v1.1.0/hydra-launcher_1.1.0_amd64.deb

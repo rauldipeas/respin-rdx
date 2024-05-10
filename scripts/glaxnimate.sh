@@ -2,7 +2,7 @@
 set -e
 
 ## Glaxnimate (snap)
-if  grep latest <(dpkg --list glaxnimate 2>/dev/null);then
+if grep glaxnimate <(snap list 2>/dev/null);then
     echo glaxnimate instalado!
     else
     sudo snap install glaxnimate
