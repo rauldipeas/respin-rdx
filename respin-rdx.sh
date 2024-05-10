@@ -95,7 +95,7 @@ if [ "$(whoami)" = root ];then
     fi
 
     # Miscelânea
-    if [ "$1 = cli-tools"];then
+    if [ "$1 = cli-tools" ];then
         ## Bat
         bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/bat.sh)
         ## Micro
