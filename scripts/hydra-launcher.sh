@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-## CFS Zen tweaks
+## Hydra Launcher
 if  grep ii <(dpkg --list hydra-launcher 2>/dev/null);then
     echo hydra-launcher instalado!
     else
