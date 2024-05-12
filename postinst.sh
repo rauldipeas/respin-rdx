@@ -24,6 +24,7 @@ if  grep ii <(dpkg --list flatpak 2>/dev/null);then
     else
     sudo apt install -y flatpak
     flatpak --user remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+    xargs flatpak --user install -y <(ls -1 "$HOME"/.var/app)
 fi
 ## GNOME shell extension manager
 if  grep ii <(dpkg --list gnome-shell-extension-manager 2>/dev/null);then
