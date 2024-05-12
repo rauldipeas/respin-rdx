@@ -12,6 +12,12 @@ bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/hydra
 bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/emudeck.sh)
 ## Papirus
 bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/papirus-icon-theme.sh)
+## Dropbear
+if  grep ii <(dpkg --list dropbear 2>/dev/null);then
+    echo dropbear instalado!
+    else
+    sudo apt install -y dropbear
+fi
 ## GNOME shell extension manager
 if  grep ii <(dpkg --list gnome-shell-extension-manager 2>/dev/null);then
     echo gnome-shell-extension-manager instalado!
@@ -23,12 +29,6 @@ if  grep ii <(dpkg --list mesa-utils 2>/dev/null);then
     echo mesa-utils instalado!
     else
     sudo apt install -y mesa-utils
-fi
-## Dropbear
-if  grep ii <(dpkg --list dropbear 2>/dev/null);then
-    echo dropbear instalado!
-    else
-    sudo apt install -y dropbear
 fi
 ## OpenSSH SFTP server
 if  grep ii <(dpkg --list openssh-sftp-server 2>/dev/null);then
