@@ -18,6 +18,12 @@ if  grep ii <(dpkg --list dropbear 2>/dev/null);then
     else
     sudo apt install -y dropbear
 fi
+## Flatpak
+if  grep ii <(dpkg --list flatpak 2>/dev/null);then
+    echo flatpak instalado!
+    else
+    sudo apt install -y flatpak
+fi
 ## GNOME shell extension manager
 if  grep ii <(dpkg --list gnome-shell-extension-manager 2>/dev/null);then
     echo gnome-shell-extension-manager instalado!
