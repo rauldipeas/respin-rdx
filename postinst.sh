@@ -27,11 +27,11 @@ if  grep ii <(dpkg --list flatpak 2>/dev/null);then
     find "$HOME"/.var/app -mindepth 1 -maxdepth 1 -printf '%f\n'|xargs flatpak --user install -y
 fi
 ## GNOME tweaks
-if  grep ii <(dpkg --list gnome-tweaks 2>/dev/null);then
-    echo gnome-tweaks instalado!
-    else
-    sudo apt install -y gnome-tweaks
-fi
+#if  grep ii <(dpkg --list gnome-tweaks 2>/dev/null);then
+#    echo gnome-tweaks instalado!
+#    else
+#    sudo apt install -y gnome-tweaks
+#fi
 ## GNOME shell extension manager
 if  grep ii <(dpkg --list gnome-shell-extension-manager 2>/dev/null);then
     echo gnome-shell-extension-manager instalado!
@@ -51,12 +51,12 @@ if  grep ii <(dpkg --list openssh-sftp-server 2>/dev/null);then
     sudo apt install -y openssh-sftp-server
 fi
 ## Oxygen cursor
-if  grep ii <(dpkg --list oxygen-cursor-theme 2>/dev/null);then
-    echo oxygen-cursor-theme instalado!
-    else
-    sudo apt install -y oxygen-cursor-theme
-    sudo update-alternatives --set x-cursor-theme /etc/X11/cursors/oxy-white.theme
-fi
+#if  grep ii <(dpkg --list oxygen-cursor-theme 2>/dev/null);then
+#    echo oxygen-cursor-theme instalado!
+#    else
+#    sudo apt install -y oxygen-cursor-theme
+#    sudo update-alternatives --set x-cursor-theme /etc/X11/cursors/oxy-white.theme
+#fi
 ## XScreenSaver
 if  grep ii <(dpkg --list xscreensaver 2>/dev/null) && grep ii <(dpkg --list xscreensaver-gl-extra 2>/dev/null) && grep ii <(dpkg --list xscreensaver-data-extra 2>/dev/null);then
     echo xscreensaver instalado!
