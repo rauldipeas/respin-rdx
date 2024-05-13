@@ -69,5 +69,5 @@ fi
 if [ -d $HOME/.wine ];then
     echo wine configurado!
     else
-    winetricks -f -q dxvk
+    winetricks -f -q dxvk mfc42
 fi
