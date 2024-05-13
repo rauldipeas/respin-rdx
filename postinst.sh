@@ -26,6 +26,12 @@ if  grep ii <(dpkg --list flatpak 2>/dev/null);then
     flatpak --user remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
     find "$HOME"/.var/app -mindepth 1 -maxdepth 1 -printf '%f\n'|xargs flatpak --user install -y
 fi
+## GNOME screensaver
+#if  grep ii <(dpkg --list gnome-screensaver 2>/dev/null);then
+#    echo gnome-screensave instalado!
+#    else
+#    sudo apt install -y gnome-screensaver
+#fi
 ## GNOME shell extension manager
 if  grep ii <(dpkg --list gnome-shell-extension-manager 2>/dev/null);then
     echo gnome-shell-extension-manager instalado!
@@ -43,4 +49,19 @@ if  grep ii <(dpkg --list openssh-sftp-server 2>/dev/null);then
     echo openssh-sftp-server instalado!
     else
     sudo apt install -y openssh-sftp-server
+fi
+## XScreenSaver
+if  grep ii <(dpkg --list xscreensaver 2>/dev/null) && grep ii <(dpkg --list xscreensaver-gl-extra 2>/dev/null) && grep ii <(dpkg --list xscreensaver-data-extra 2>/dev/null);then
+    echo xscreensaver instalado!
+    else
+    sudo apt install -y xscreensaver xscreensaver-data-extra xscreensaver-gl-extra
+    cat <<EOF |sudo tee /etc/xdg/autostart/xscreensaver.desktop>/dev/null
+[Desktop Entry]
+Exec=xscreensaver -nosplash
+Icon=xscreensaver
+Name=XScreenSaver
+Type=Application
+Terminal=false
+X-Ubuntu-Gettext-Domain=xscreensaver
+EOF
 fi
