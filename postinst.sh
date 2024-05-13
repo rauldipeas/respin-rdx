@@ -50,6 +50,13 @@ if  grep ii <(dpkg --list openssh-sftp-server 2>/dev/null);then
     else
     sudo apt install -y openssh-sftp-server
 fi
+## Oxygen cursor
+if  grep ii <(dpkg --list oxygen-cursor-theme 2>/dev/null);then
+    echo oxygen-cursor-theme instalado!
+    else
+    sudo apt install -y oxygen-cursor-theme
+    sudo update-alternatives --set x-cursor-theme /etc/X11/cursors/oxy-white.theme
+fi
 ## XScreenSaver
 if  grep ii <(dpkg --list xscreensaver 2>/dev/null) && grep ii <(dpkg --list xscreensaver-gl-extra 2>/dev/null) && grep ii <(dpkg --list xscreensaver-data-extra 2>/dev/null);then
     echo xscreensaver instalado!
