@@ -88,6 +88,8 @@ if [ "$(whoami)" = root ];then
         # Jogos
         ## Steam
         bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/steam.sh)
+        ## Heroic
+        bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/heroic.sh)
         ## EmuDeck
         #bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/emudeck.sh) #needs-fix
         ## Hydra Launcher
