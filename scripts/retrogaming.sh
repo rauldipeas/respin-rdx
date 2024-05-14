@@ -19,5 +19,5 @@ if [ -f "$HOME"/.local/share/appimage/emulationstation.appimage ];then
     mkdir -p "$HOME"/.local/share/appimage
     wget -q --show-progress -O "$HOME"/.local/share/appimage/emulationstation.appimage https://gitlab.com/es-de/emulationstation-de/-/package_files/127490092/download
     chmod +x "$HOME"/.local/share/appimage/emulationstation.appimage
-    gtk-launch "$HOME"/.local/share/appimage/emulationstation.appimage
+    "$HOME"/.local/share/appimage/emulationstation.appimage
 fi
