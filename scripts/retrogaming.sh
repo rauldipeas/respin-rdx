@@ -1,6 +1,12 @@
 #!/bin/bash
 set -e
 
+## PCSX2
+if  grep ii <(dpkg --list pcsx2 2>/dev/null);then
+    echo pcsx2 instalado!
+    else
+    sudo apt install -y pcsx2
+fi
 ## RetroArch
 if  grep ii <(dpkg --list retroarch 2>/dev/null);then
     echo retroarch instalado!
@@ -34,3 +40,21 @@ GenericName=Emulator Frontend
 Keywords=emulator;emulation;front-end;frontend;
 EOF
 fi
+
+#Opera*
+#VirtualJaguar
+#FBAlpha 2012 CPS2
+#FBAlpha 2012
+#MAME 2010
+#MAME 2003 Plus
+#Flycast*
+#MAME
+#Mupen64 Plus
+#SNES9X
+#Genesis Plus GX
+#PicoDrive*
+#YabaSanshiro*
+#FBNeo
+#PSXr
+#PCSX2*
+#PPSSPP
