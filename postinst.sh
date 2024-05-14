@@ -52,6 +52,16 @@ if  grep ii <(dpkg --list mesa-utils 2>/dev/null);then
     else
     sudo apt install -y mesa-utils
 fi
+## NVTop
+if [ "$(cut -d' ' -f9 <(grep NVIDIA <(sudo lshw -C display)))" == NVIDIA ];then
+    if  grep ii <(dpkg --list nvtop 2>/dev/null);then
+        echo nvtop instalado!
+        else
+        sudo apt install -y	nvtop
+    fi
+    else
+    echo GPU NVIDIA não encontrada.
+fi
 ## OpenSSH SFTP server
 if  grep ii <(dpkg --list openssh-sftp-server 2>/dev/null);then
     echo openssh-sftp-server instalado!
