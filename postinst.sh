@@ -8,8 +8,8 @@ bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/strem
 bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/steam.sh)
 ## Hydra Launcher
 bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/hydra-launcher.sh)
-## EmuDeck
-bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/emudeck.sh)
+## Retrogaming
+bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/retrogaming.sh)
 ## Papirus
 bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/papirus-icon-theme.sh)
 ## Dropbear
@@ -19,13 +19,13 @@ if  grep ii <(dpkg --list dropbear 2>/dev/null);then
     sudo apt install -y dropbear
 fi
 ## Flatpak
-if  grep ii <(dpkg --list flatpak 2>/dev/null);then
-    echo flatpak instalado!
-    else
-    sudo apt install -y flatpak
-    flatpak --user remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-    find "$HOME"/.var/app -mindepth 1 -maxdepth 1 -printf '%f\n'|xargs flatpak --user install -y
-fi
+#if  grep ii <(dpkg --list flatpak 2>/dev/null);then
+#    echo flatpak instalado!
+#    else
+#    sudo apt install -y flatpak
+#    flatpak --user remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+#    find "$HOME"/.var/app -mindepth 1 -maxdepth 1 -printf '%f\n'|xargs flatpak --user install -y
+#fi
 ## GNOME tweaks
 #if  grep ii <(dpkg --list gnome-tweaks 2>/dev/null);then
 #    echo gnome-tweaks instalado!
