@@ -104,6 +104,8 @@ if [ "$(whoami)" = root ];then
         bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/bat.sh)
         ## Micro
         bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/micro.sh)
+        ## Topgrade
+        bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/topgrade.sh)
     fi
     if [ "$1" = papirus ];then
         ## Papirus

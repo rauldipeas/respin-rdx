@@ -14,6 +14,8 @@ bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/heroi
 #bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/hydra-launcher.sh)
 ## Papirus
 bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/papirus-icon-theme.sh)
+## Topgrade
+bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/topgrade.sh)
 ## Dropbear
 if  grep ii <(dpkg --list dropbear 2>/dev/null);then
     echo dropbear instalado!
