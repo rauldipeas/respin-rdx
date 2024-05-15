@@ -60,5 +60,6 @@ Categories=Game;Emulator;
 Name=EmulationStation Desktop Edition
 GenericName=Emulator Frontend
 Keywords=emulator;emulation;front-end;frontend;
+StartupWMClass=es-de
 EOF
 fi
