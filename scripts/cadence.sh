@@ -50,8 +50,7 @@ elif [ "$(grep "^ID=" <(cat /etc/*release))" = 'ID=ubuntu' ];then
     else
     echo 'Sua distribuição não é suportada no momento.'
 fi
-
-if [ $(cut -d' ' -f14 <(grep pipewire-pulse <(ps -e))) = pipewire-pulse ];then
+if [ $(cut -d' ' -f14 <(grep pipewire-pulse <(ps -e))) = pipewire-pulse 2>/dev/null ];then
     if  grep ii <(dpkg --list pulseaudio 2>/dev/null);then
         echo pulseaudio instalado!
         systemctl --user mask pipewire.service pipewire.socket

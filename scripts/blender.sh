@@ -1,8 +1,7 @@
 #!/bin/bash
 set -e
 
-
-if  grep ii <(dpkg --list blender 2>/dev/null);then
+if  grep ii <(dpkg --list blender 2>/dev/null) || [ -f /usr/share/applications/blender.desktop ];then
     echo blender instalado!
     echo desinstalando blender...
     sudo apt autoremove --purge -y blender*
@@ -26,7 +25,6 @@ if  grep ii <(dpkg --list blender 2>/dev/null);then
     sudo cp /opt/blender/blender.desktop /usr/share/applications/blender.desktop
     sudo ln -sf /opt/blender/blender.svg /usr/share/pixmaps/blender.svg
 fi
-
 if  grep ii <(dpkg --list audacity 2>/dev/null);then
     echo audacity instalado!
     mkdir -p "$HOME"/.audacity-data/Theme
