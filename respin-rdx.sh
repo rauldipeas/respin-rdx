@@ -4,6 +4,31 @@ set -e
 if [ "$(whoami)" = root ];then
     echo Nunca execute este script como root.
     else
+    if [ "$(grep "^ID=" <(cat /etc/*release))" = 'ID=debian' ];then
+        echo 'Você está numa instalação do Debian...'
+        if [ "$(grep "^VERSION_CODENAME=" <(cat /etc/*release))" = 'VERSION_CODENAME=bookworm' ];then
+            echo Bookworm
+            if grep sudo <(groups "$USER");then
+                echo "$USER" adicionado ao grupo sudo!
+                sudo apt install -y wget
+                else
+                su -c "sudo adduser $USER sudo"
+                echo "$USER" adicionado ao grupo sudo!
+                echo 'É necessário reiniciar o terminal e executar o script novamente.'
+            fi
+            else
+            echo 'Sua versão do Debian não é suportada no momento.'
+        fi
+    elif [ "$(grep "^ID=" <(cat /etc/*release))" = 'ID=ubuntu' ];then
+        echo 'Você está numa instalação do Ubuntu...'
+        if [ "$(grep "^VERSION_CODENAME=" <(cat /etc/*release))" = 'VERSION_CODENAME=noble' ];then
+            echo Noble
+            else
+            echo 'Sua versão do Ubuntu não é suportada no momento.'
+        fi
+        else
+        echo 'Sua distribuição não é suportada no momento.'
+    fi
     # Atualização do sistema
     bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/system-update.sh)
 
@@ -58,7 +83,7 @@ if [ "$(whoami)" = root ];then
             ## Blender
             bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/blender.sh)
             ## Glaxnimate (snap)
-            bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/glaxnimate.sh)
+            #bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/glaxnimate.sh)
             ## KDEnLive
             bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/kdenlive.sh)
             ## Mini-video-me

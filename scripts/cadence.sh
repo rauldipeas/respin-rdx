@@ -10,17 +10,47 @@ if  grep ii <(dpkg --list kxstudio-repos 2>/dev/null);then
     sudo apt install -y ./kxstudio-repos*.deb
     rm kxstudio-repos*.deb
 fi
-if grep multiverse /etc/apt/sources.list.d/ubuntu.sources;then
-    echo multiverse configurado!
+
+if [ "$(grep "^ID=" <(cat /etc/*release))" = 'ID=debian' ];then
+    echo 'Você está numa instalação do Debian...'
+    if [ "$(grep "^VERSION_CODENAME=" <(cat /etc/*release))" = 'VERSION_CODENAME=bookworm' ];then
+        echo Bookworm
+        if grep contrib /etc/apt/sources.list;then
+            echo contrib configurado!
+            else
+            sudo add-apt-repository -ny contrib
+        fi
+        if grep non-free /etc/apt/sources.list;then
+            echo non-free configurado!
+            else
+            sudo add-apt-repository -ny non-free
+        fi
+        sudo apt update 2>/dev/null
+        else
+        echo 'Sua versão do Debian não é suportada no momento.'
+    fi
+elif [ "$(grep "^ID=" <(cat /etc/*release))" = 'ID=ubuntu' ];then
+    echo 'Você está numa instalação do Ubuntu...'
+    if [ "$(grep "^VERSION_CODENAME=" <(cat /etc/*release))" = 'VERSION_CODENAME=noble' ];then
+        echo Noble
+        if grep multiverse /etc/apt/sources.list.d/ubuntu.sources;then
+            echo multiverse configurado!
+            else
+            sudo add-apt-repository -ny multiverse
+        fi
+        if grep universe /etc/apt/sources.list.d/ubuntu.sources;then
+            echo universe configurado!
+            else
+            sudo add-apt-repository -ny universe
+        fi
+        sudo apt update 2>/dev/null
+        else
+        echo 'Sua versão do Ubuntu não é suportada no momento.'
+    fi
     else
-    sudo add-apt-repository -ny multiverse
+    echo 'Sua distribuição não é suportada no momento.'
 fi
-if grep universe /etc/apt/sources.list.d/ubuntu.sources;then
-    echo universe configurado!
-    else
-    sudo add-apt-repository -ny universe
-fi
-sudo apt update 2>/dev/null
+
 if [ $(cut -d' ' -f14 <(grep pipewire-pulse <(ps -e))) = pipewire-pulse ];then
     if  grep ii <(dpkg --list pulseaudio 2>/dev/null);then
         echo pulseaudio instalado!

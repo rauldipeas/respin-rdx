@@ -4,9 +4,49 @@ set -e
 if [ -f /opt/wine-tkg/bin/wine ] && [ -f /etc/environment.d/99wine.conf ];then
     echo wine-tkg instalado!
     else
-    sudo dpkg --add-architecture i386
-    sudo apt update 2>/dev/null
-    sudo apt install -y q4wine wine wine32:i386 winetricks
+    if [ "$(grep "^ID=" <(cat /etc/*release))" = 'ID=debian' ];then
+        echo 'Você está numa instalação do Debian...'
+        if [ "$(grep "^VERSION_CODENAME=" <(cat /etc/*release))" = 'VERSION_CODENAME=bookworm' ];then
+            echo Bookworm
+            if grep contrib /etc/apt/sources.list;then
+                echo contrib configurado!
+                else
+                sudo add-apt-repository -ny contrib
+            fi
+            if grep non-free /etc/apt/sources.list;then
+                echo non-free configurado!
+                else
+                sudo add-apt-repository -ny non-free
+            fi
+            sudo dpkg --add-architecture i386
+            sudo apt update 2>/dev/null
+            sudo apt install -y q4wine wine wine32:i386 winetricks
+            else
+            echo 'Sua versão do Debian não é suportada no momento.'
+        fi
+    elif [ "$(grep "^ID=" <(cat /etc/*release))" = 'ID=ubuntu' ];then
+        echo 'Você está numa instalação do Ubuntu...'
+        if [ "$(grep "^VERSION_CODENAME=" <(cat /etc/*release))" = 'VERSION_CODENAME=noble' ];then
+            echo Noble
+            if grep multiverse /etc/apt/sources.list.d/ubuntu.sources;then
+                echo multiverse configurado!
+                else
+                sudo add-apt-repository -ny multiverse
+            fi
+            if grep universe /etc/apt/sources.list.d/ubuntu.sources;then
+                echo universe configurado!
+                else
+                sudo add-apt-repository -ny universe
+            fi
+            sudo dpkg --add-architecture i386
+            sudo apt update 2>/dev/null
+            sudo apt install -y q4wine wine wine32:i386 winetricks
+            else
+            echo 'Sua versão do Ubuntu não é suportada no momento.'
+        fi
+        else
+        echo 'Sua distribuição não é suportada no momento.'
+    fi
     rm -f wine*staging-tkg-amd64.tar.xz>/dev/null
     wget -q --show-progress "$(wget -qO- https://api.github.com/repos/Kron4ek/Wine-Builds/releases|grep browser_download_url|grep staging-tkg-amd64.tar.xz|head -n1|cut -d '"' -f4)"
     tar fx wine*staging-tkg-amd64.tar.xz

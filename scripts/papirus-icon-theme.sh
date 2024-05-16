@@ -18,7 +18,7 @@ if  grep ii <(dpkg --list papirus-icon-theme 2>/dev/null);then
     fi
     if [ "$XDG_CURRENT_DESKTOP" = ubuntu:GNOME ];then
         gsettings set org.gnome.desktop.interface icon-theme Papirus-Dark
-        elif [ "$XDG_CURRENT_DESKTOP" = GNOME ];then
+    elif [ "$XDG_CURRENT_DESKTOP" = GNOME ];then
         gsettings set org.gnome.desktop.interface icon-theme Papirus-Dark
         else
         echo Ambiente gráfico não identificado.
