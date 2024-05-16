@@ -25,6 +25,11 @@ if  grep ii <(dpkg --list retroarch 2>/dev/null) && grep ii <(dpkg --list libaio
         else
         echo 'Sua distribuição não é suportada no momento.'
     fi
+    if  grep ii <(dpkg --list 7zip 2>/dev/null);then
+        echo 7zip instalado!
+        else
+        sudo apt install -y	7zip
+    fi
     rm -f RetroArch_cores.7z>/dev/null
     wget -q --show-progress https://buildbot.libretro.com/stable/1.17.0/linux/x86_64/RetroArch_cores.7z
     #wget -q --show-progress https://buildbot.libretro.com/nightly/linux/x86_64/RetroArch_cores.7z
