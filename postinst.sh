@@ -10,7 +10,7 @@ bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/retro
 bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/steam.sh)
 ## Heroic
 bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/heroic.sh)
-## Hydra Launcher
+## Hydra
 #bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/hydra-launcher.sh)
 ## Papirus
 bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/papirus-icon-theme.sh)
