@@ -10,7 +10,11 @@ if [ "$(whoami)" = root ];then
             echo Bookworm
             if grep sudo <(groups "$USER");then
                 echo "$USER" adicionado ao grupo sudo!
-                sudo apt install -y wget
+                if  grep ii <(dpkg --list wget 2>/dev/null);then
+                    echo wget instalado!
+                    else
+                    sudo apt install -y	wget
+                fi
                 else
                 su -c "sudo adduser $USER sudo"
                 echo "$USER" adicionado ao grupo sudo!
