@@ -36,11 +36,65 @@ fi
 #    else
 #    sudo apt install -y gnome-tweaks
 #fi
-## GNOME shell extension manager
+## GNOME extensions
 if  grep ii <(dpkg --list gnome-shell-extension-manager 2>/dev/null);then
     echo gnome-shell-extension-manager instalado!
     else
     sudo apt install -y gnome-shell-extension-manager
+fi
+if  grep ii <(dpkg --list pipx 2>/dev/null);then
+    echo pipx instalado!
+    else
+    sudo apt install -y pipx
+    pipx ensurepath
+    source "$HOME"/.bashrc
+fi
+if  grep gnome-extensions-cli <(pipx list --short 2>/dev/null);then
+    echo gnome-extensions-cli instalado!
+    else
+    pipx install gnome-extensions-cli
+fi
+if grep blur-my-shell@aunetx <(gext list);then
+    echo blur-my-shell@aunetx instalado!
+    else
+    gext install blur-my-shell@aunetx
+    gext enable blur-my-shell@aunetx
+fi
+if grep burn-my-windows@schneegans.github.com <(gext list);then
+    echo burn-my-windows@schneegans.github.com instalado!
+    else
+    gext install burn-my-windows@schneegans.github.com
+    gext enable burn-my-windows@schneegans.github.com
+fi
+if grep compiz-alike-magic-lamp-effect@hermes83.github.com <(gext list);then
+    echo compiz-alike-magic-lamp-effect@hermes83.github.com instalado!
+    else
+    gext install compiz-alike-magic-lamp-effect@hermes83.github.com
+    gext enable compiz-alike-magic-lamp-effect@hermes83.github.com
+fi
+if grep compiz-windows-effect@hermes83.github.com <(gext list);then
+    echo compiz-windows-effect@hermes83.github.com instalado!
+    else
+    gext install compiz-windows-effect@hermes83.github.com
+    gext enable compiz-windows-effect@hermes83.github.com
+fi
+if grep dash-to-dock@micxgx.gmail.com <(gext list);then
+    echo dash-to-dock@micxgx.gmail.com instalado!
+    else
+    gext install dash-to-dock@micxgx.gmail.com
+    gext enable dash-to-dock@micxgx.gmail.com
+fi
+if grep desktop-cube@schneegans.github.com <(gext list);then
+    echo desktop-cube@schneegans.github.com instalado!
+    else
+    gext install desktop-cube@schneegans.github.com
+    gext enable desktop-cube@schneegans.github.com
+fi
+if grep quick-settings-tweaks@qwreey <(gext list);then
+    echo quick-settings-tweaks@qwreey instalado!
+    else
+    gext install quick-settings-tweaks@qwreey
+    gext enable quick-settings-tweaks@qwreey
 fi
 ## Kubuntu wallpapers
 if  grep ii <(dpkg --list kubuntu-wallpapers 2>/dev/null);then
