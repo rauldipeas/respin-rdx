@@ -101,12 +101,12 @@ if grep quick-settings-tweaks@qwreey <(gext list);then
     gext install quick-settings-tweaks@qwreey
     gext enable quick-settings-tweaks@qwreey
 fi
-if grep forge@jmmaranan.com <(gext list);then
-    echo forge@jmmaranan.com instalado!
-    else
-    gext install forge@jmmaranan.com
-    gext enable forge@jmmaranan.com
-fi
+#if grep forge@jmmaranan.com <(gext list);then
+#    echo forge@jmmaranan.com instalado!
+#    else
+#    gext install forge@jmmaranan.com
+#    gext enable forge@jmmaranan.com
+#fi
 ## Kubuntu wallpapers
 if  grep ii <(dpkg --list kubuntu-wallpapers 2>/dev/null);then
     echo kubuntu-wallpapers instalado!
