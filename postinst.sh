@@ -101,6 +101,12 @@ if grep quick-settings-tweaks@qwreey <(gext list);then
     gext install quick-settings-tweaks@qwreey
     gext enable quick-settings-tweaks@qwreey
 fi
+if grep Vitals@CoreCoding.com <(gext list);then
+    echo Vitals@CoreCoding.com instalado!
+    else
+    gext install Vitals@CoreCoding.com
+    gext enable Vitals@CoreCoding.com
+fi
 #if grep forge@jmmaranan.com <(gext list);then
 #    echo forge@jmmaranan.com instalado!
 #    else
