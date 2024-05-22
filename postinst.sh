@@ -95,17 +95,17 @@ if grep desktop-cube@schneegans.github.com <(gext list);then
     gext install desktop-cube@schneegans.github.com
     gext enable desktop-cube@schneegans.github.com
 fi
+if grep monitor@astraext.github.io <(gext list);then
+    echo monitor@astraext.github.io instalado!
+    else
+    gext install monitor@astraext.github.io
+    gext enable monitor@astraext.github.io
+fi
 if grep quick-settings-tweaks@qwreey <(gext list);then
     echo quick-settings-tweaks@qwreey instalado!
     else
     gext install quick-settings-tweaks@qwreey
     gext enable quick-settings-tweaks@qwreey
-fi
-if grep Vitals@CoreCoding.com <(gext list);then
-    echo Vitals@CoreCoding.com instalado!
-    else
-    gext install Vitals@CoreCoding.com
-    gext enable Vitals@CoreCoding.com
 fi
 #if grep forge@jmmaranan.com <(gext list);then
 #    echo forge@jmmaranan.com instalado!
