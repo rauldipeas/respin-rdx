@@ -54,11 +54,11 @@ if  grep gnome-extensions-cli <(pipx list --short 2>/dev/null);then
     else
     pipx install gnome-extensions-cli
 fi
-if grep ubuntu-dock@ubuntu.com/ <(gext list);then
-    echo ubuntu-dock@ubuntu.com/ instalado!
-    else
-    gext disable ubuntu-dock@ubuntu.com/
-fi
+#if grep ubuntu-dock@ubuntu.com/ <(gext list);then
+#    echo ubuntu-dock@ubuntu.com/ instalado!
+#    else
+#    gext disable ubuntu-dock@ubuntu.com/
+#fi
 if grep blur-my-shell@aunetx <(gext list);then
     echo blur-my-shell@aunetx instalado!
     else
@@ -83,12 +83,12 @@ if grep compiz-windows-effect@hermes83.github.com <(gext list);then
     gext install compiz-windows-effect@hermes83.github.com
     gext enable compiz-windows-effect@hermes83.github.com
 fi
-if grep dash-to-dock@micxgx.gmail.com <(gext list);then
-    echo dash-to-dock@micxgx.gmail.com instalado!
-    else
-    gext install dash-to-dock@micxgx.gmail.com
-    gext enable dash-to-dock@micxgx.gmail.com
-fi
+#if grep dash-to-dock@micxgx.gmail.com <(gext list);then
+#    echo dash-to-dock@micxgx.gmail.com instalado!
+#    else
+#    gext install dash-to-dock@micxgx.gmail.com
+#    gext enable dash-to-dock@micxgx.gmail.com
+#fi
 if grep desktop-cube@schneegans.github.com <(gext list);then
     echo desktop-cube@schneegans.github.com instalado!
     else
