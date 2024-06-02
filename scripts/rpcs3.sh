@@ -33,9 +33,9 @@ EOF
 <systemList>
     <system>
         <name>ps3</name>
-        <fullname>PlayStation 3</fullname>
-        <path>/media/rauldipeas/Dados/Retrogaming/roms/ps3</path>
-        <extension>.ps3</extension>
+        <fullname>Sony PlayStation 3</fullname>
+        <path>%ROMPATH%/ps3</path>
+        <extension>.desktop .ps3 .PS3 .ps3dir .PS3DIR</extension>
         <command>$HOME/.local/share/applications/rpcs3.AppImage --no-gui "%ROM%"</command>
         <platform>ps3</platform>
         <theme>ps3</theme>
