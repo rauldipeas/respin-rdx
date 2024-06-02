@@ -28,7 +28,7 @@ Name=RPCS3
 Keywords=emulator;emulation;
 EOF
     mkdir -p "$HOME"/ES-DE/custom_systems/
-    cat <<EOF |tee "$HOME"/ES-DE/custom_systems/es_systems.xml
+    cat <<EOF |tee "$HOME"/ES-DE/custom_systems/es_systems.xml>/dev/null
 <?xml version="1.0"?>
 <systemList>
     <system>
