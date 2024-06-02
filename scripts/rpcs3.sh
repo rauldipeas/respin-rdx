@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-### EmulationStation DE
+### RPCS3
 if  grep ii <(dpkg --list libfuse2t64 2>/dev/null);then
     echo libfuse2t64 instalado!
     else
