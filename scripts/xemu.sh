@@ -34,13 +34,13 @@ Categories=Game;Emulator;
 Name=Xemu
 Keywords=emulator;emulation;
 EOF
+    rm -fr XEMU\ FILES.zip XEMU\ FILES>/dev/null
+    wget -q --show-progress https://archive.org/download/xemustarter/XEMU%20FILES.zip
+    unzip XEMU\ FILES.zip
+    mkdir -p "$HOME"/.local/share/xemu
+    mv XEMU\ FILES "$HOME"/.local/share/xemu/
+    rm XEMU\ FILES.zip
 fi
-rm -fr XEMU\ FILES.zip XEMU\ FILES>/dev/null
-wget -q --show-progress https://archive.org/download/xemustarter/XEMU%20FILES.zip
-unzip XEMU\ FILES.zip
-mkdir -p "$HOME"/.local/share/xemu
-mv XEMU\ FILES "$HOME"/.local/share/xemu/
-rm XEMU\ FILES.zip
 #sudo apt install git
 #git clone -q https://github.com/rikyperdana/extract-xiso
 #mv extract-xiso/extract-xiso "$HOME"/.local/share/xemu/XEMU\ FILES/
