@@ -135,6 +135,12 @@ if grep quick-settings-tweaks@qwreey <(gext list);then
     gext install quick-settings-tweaks@qwreey
     gext enable quick-settings-tweaks@qwreey
 fi
+if grep randomwallpaper@iflow.space <(gext list);then
+    echo randomwallpaper@iflow.space instalado!
+    else
+    gext install randomwallpaper@iflow.space
+    gext enable randomwallpaper@iflow.space
+fi
 #if grep forge@jmmaranan.com <(gext list);then
 #    echo forge@jmmaranan.com instalado!
 #    else
