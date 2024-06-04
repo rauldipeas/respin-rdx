@@ -41,7 +41,7 @@ bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/heroi
 ## Minigalaxy
 bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/minigalaxy.sh)
 ## Hydra
-#bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/hydra-launcher.sh)
+#bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/hydra.sh)
 ## MangoHUD
 bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/mangohud.sh)
 ## Dropbear
