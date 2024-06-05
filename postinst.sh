@@ -140,6 +140,11 @@ if [ $XDG_CURRENT_DESKTOP == GNOME ];then
     if grep randomwallpaper@iflow.space <(gext list);then
         echo randomwallpaper@iflow.space instalado!
         else
+        if  grep ii <(dpkg --list hydrapaper 2>/dev/null);then
+            echo hydrapaper instalado!
+            else
+            sudo apt install -y hydrapaper
+        fi
         gext install randomwallpaper@iflow.space
         gext enable randomwallpaper@iflow.space
     fi
