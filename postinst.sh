@@ -157,11 +157,11 @@ if [ $XDG_CURRENT_DESKTOP == GNOME ];then
     #    gext enable forge@jmmaranan.com
     #fi
     ## Kubuntu wallpapers
-    if  grep ii <(dpkg --list kubuntu-wallpapers 2>/dev/null);then
-        echo kubuntu-wallpapers instalado!
-        else
-        sudo apt install -y kubuntu-wallpapers
-    fi
+    #if  grep ii <(dpkg --list kubuntu-wallpapers 2>/dev/null);then
+    #    echo kubuntu-wallpapers instalado!
+    #    else
+    #    sudo apt install -y kubuntu-wallpapers
+    #fi
     ## MESA utils
     if  grep ii <(dpkg --list mesa-utils 2>/dev/null);then
         echo mesa-utils instalado!
