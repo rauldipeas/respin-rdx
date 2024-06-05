@@ -8,6 +8,8 @@ bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/retro
 bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/cemu.sh)
 ### RPCS3
 bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/rpcs3.sh)
+### Vita3K
+bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/vita3k.sh)
 ### XEmu
 bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/xemu.sh)
 ### EmulationStation DE
