@@ -1,14 +1,22 @@
 #!/bin/bash
 set -e
 
-if  grep ii <(dpkg --list python3-tk 2>/dev/null);then
-    echo python3-tk instalado!
-    else
-    sudo apt install -y python3-tk
-fi
-if [ -f $HOME/.local/bin/rtcqs_gui ] && [ -f $HOME/.local/share/applications/rtcqs.desktop ] && [ -f $HOME/.local/share/icons/rtcqs.svg ];then
+# rtcqs
+if  grep rtcqs <(pipx list --short 2>/dev/null) && [ -f "$HOME"/.local/share/applications/rtcqs.desktop ] && [ -f "$HOME"/.local/share/icons/rtcqs.svg ];then
     echo rtcqs instalado!
     else
+    if  grep ii <(dpkg --list python3-tk 2>/dev/null);then
+        echo python3-tk instalado!
+        else
+        sudo apt install -y python3-tk
+    fi
+    if  grep ii <(dpkg --list pipx 2>/dev/null);then
+        echo pipx instalado!
+        else
+        sudo apt install -y pipx
+        pipx ensurepath
+        source "$HOME"/.bashrc
+    fi
     pipx install rtcqs
     mkdir -p "$HOME"/.local/share/{applications,icons}
     wget -qO "$HOME"/.local/share/applications/rtcqs.desktop https://github.com/autostatic/rtcqs/raw/main/rtcqs.desktop

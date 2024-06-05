@@ -44,6 +44,8 @@ bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/minig
 #bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/hydra.sh)
 ## MangoHUD
 bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/mangohud.sh)
+## Superpaper
+bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/superpaper.sh)
 ## Dropbear
 if  grep ii <(dpkg --list dropbear 2>/dev/null);then
     echo dropbear instalado!
@@ -137,17 +139,17 @@ if [ $XDG_CURRENT_DESKTOP == GNOME ];then
         gext install quick-settings-tweaks@qwreey
         gext enable quick-settings-tweaks@qwreey
     fi
-    if grep randomwallpaper@iflow.space <(gext list);then
-        echo randomwallpaper@iflow.space instalado!
-        else
-        if  grep ii <(dpkg --list hydrapaper 2>/dev/null);then
-            echo hydrapaper instalado!
-            else
-            sudo apt install -y hydrapaper
-        fi
-        gext install randomwallpaper@iflow.space
-        gext enable randomwallpaper@iflow.space
-    fi
+    #if grep randomwallpaper@iflow.space <(gext list);then
+    #    echo randomwallpaper@iflow.space instalado!
+    #    else
+    #    if  grep ii <(dpkg --list hydrapaper 2>/dev/null);then
+    #        echo hydrapaper instalado!
+    #        else
+    #        sudo apt install -y hydrapaper
+    #    fi
+    #    gext install randomwallpaper@iflow.space
+    #    gext enable randomwallpaper@iflow.space
+    #fi
     #if grep forge@jmmaranan.com <(gext list);then
     #    echo forge@jmmaranan.com instalado!
     #    else
