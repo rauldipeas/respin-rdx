@@ -6,6 +6,8 @@ set -e
 bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/retroarch.sh)
 ### Cemu
 bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/cemu.sh)
+### PCSX2
+bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/pcsx2.sh)
 ### RPCS3
 bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/rpcs3.sh)
 ### Vita3K
