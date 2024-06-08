@@ -41,10 +41,19 @@ EOF
         <theme>psx</theme>
     </system>
     <system>
+        <name>psp</name>
+        <fullname>Sony PlayStation Portable</fullname>
+        <path>%ROMPATH%/psp</path>
+        <extension>.chd .CHD .cso .CSO .elf .ELF .iso .ISO .pbp .PBP .prx .PRX .7z .7Z .zip .ZIP</extension>
+        <command>$HOME/Applications/PPSSPP.AppImage %ROM%</command>
+        <platform>psp</platform>
+        <theme>psp</theme>
+    </system>
+    <system>
         <name>ps2</name>
         <fullname>Sony PlayStation 2</fullname>
         <path>%ROMPATH%/ps2</path>
-        <extension>.arcadef .bin .BIN .chd .CHD .ciso .CISO .cso .CSO .dump .DUMP .elf .ELF .gz .GZ .m3u .M3U .mdf .MDF .img .IMG .iso .ISO .isz .ISZ .ngt .NGR .zso .ZSO</extension>
+        <extension>.arcadef .bin .BIN .chd .CHD .ciso .CISO .cso .CSO .dump .DUMP .elf .ELF .gz .GZ .img .IMG .iso .ISO .isz .ISZ .m3u .M3U .mdf .MDF .ngt .NGR .zso .ZSO</extension>
         <command>$HOME/Applications/PCSX2.AppImage %ROM%</command>
         <platform>ps2</platform>
         <theme>ps2</theme>

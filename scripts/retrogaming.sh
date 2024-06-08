@@ -8,6 +8,8 @@ bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/retro
 bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/duckstation.sh)
 ### Cemu
 bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/cemu.sh)
+### Flycast
+bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/flycast.sh)
 ### PCSX2
 bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/pcsx2.sh)
 ### RPCS3

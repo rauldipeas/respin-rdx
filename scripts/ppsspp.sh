@@ -1,29 +1,29 @@
 #!/bin/bash
 set -e
 
-## PCSX2
+## PPSSPP
 if  grep ii <(dpkg --list libfuse2t64 2>/dev/null);then
     echo libfuse2t64 instalado!
     else
     sudo apt install -y	libfuse2t64
 fi
-if [ -f "$HOME"/Applications/PCSX2.AppImage ] && [ -f "$HOME"/.local/share/applications/pcsx2.desktop ];then
-    echo pcsx2 instalado!
+if [ -f "$HOME"/Applications/PPSSPP.AppImage ] && [ -f "$HOME"/.local/share/applications/ppsspp.desktop ];then
+    echo ppsspp instalado!
     else
     mkdir -p "$HOME"/Applications "$HOME"/.local/share/applications
-    wget -cq --show-progress -O "$HOME"/Applications/PCSX2.AppImage "$(wget -qO- https://api.github.com/repos/PCSX2/pcsx2/releases|grep browser_download_url|grep .AppImage|head -n1|cut -d '"' -f4)"
-    chmod +x "$HOME"/Applications/PCSX2.AppImage
-cat <<EOF |tee "$HOME"/.local/share/applications/pcsx2.desktop>/dev/null
+    wget -cq --show-progress -O "$HOME"/Applications/PPSSPP.AppImage 'https://gitlab.com/Miguel-hrvs/ppsspp-appimage/-/raw/main/builds/PPSSPPSDL-V1.17.1.AppImage?inline=false'
+    chmod +x "$HOME"/Applications/PPSSPP.AppImage
+    cat <<EOF |tee "$HOME"/.local/share/applications/ppsspp.desktop>/dev/null
 [Desktop Entry]
 Version=1.0
-Exec=$HOME/Applications/PCSX2.AppImage
-Icon=pcsx2
+Exec=$HOME/Applications/PPSSPP.AppImage
+Icon=ppsspp
 Terminal=false
 Type=Application
 StartupNotify=true
 Hidden=false
 Categories=Game;Emulator;
-Name=PCSX2
+Name=PPSSPP
 Keywords=emulator;emulation;
 EOF
     mkdir -p "$HOME"/ES-DE/custom_systems/
