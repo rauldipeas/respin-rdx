@@ -71,6 +71,7 @@ fi
 ## GNOME extensions
 if [ $XDG_CURRENT_DESKTOP == GNOME ];then
     echo Você está executando o GNOME...
+    gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
     if  grep ii <(dpkg --list gnome-shell-extension-manager 2>/dev/null);then
         echo gnome-shell-extension-manager instalado!
         else
