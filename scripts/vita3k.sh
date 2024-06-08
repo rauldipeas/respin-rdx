@@ -7,7 +7,7 @@ if  grep ii <(dpkg --list libfuse2t64 2>/dev/null);then
     else
     sudo apt install -y	libfuse2t64
 fi
-if [ -f "$HOME/Applications/Vita3K.AppImage" ] && [ -f "$HOME"/.local/share/applications/vita3k.desktop ];then
+if [ -f "$HOME"/Applications/Vita3K.AppImage ] && [ -f "$HOME"/.local/share/applications/vita3k.desktop ];then
     echo vita3k instalado!
     else
     mkdir -p "$HOME"/Applications "$HOME"/.local/share/applications

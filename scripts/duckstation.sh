@@ -1,30 +1,29 @@
 #!/bin/bash
 set -e
 
-### RPCS3
+## DuckStation
 if  grep ii <(dpkg --list libfuse2t64 2>/dev/null);then
     echo libfuse2t64 instalado!
     else
     sudo apt install -y	libfuse2t64
 fi
-if [ -f "$HOME"/Applications/rpcs3.AppImage ] && [ -f "$HOME"/.local/share/applications/rpcs3.desktop ];then
-    echo rpcs3 instalado!
+if [ -f "$HOME"/Applications/duckstation.AppImage ] && [ -f "$HOME"/.local/share/applications/duckstation.desktop ];then
+    echo pcsx2 instalado!
     else
     mkdir -p "$HOME"/Applications "$HOME"/.local/share/applications
-    #wget -cq --show-progress http://dus01.ps3.update.playstation.net/update/ps3/image/us/2024_0227_3694eb3fb8d9915c112e6ab41a60c69f/PS3UPDAT.PUP
-    wget -cq --show-progress -O "$HOME"/Applications/rpcs3.AppImage --content-disposition https://rpcs3.net/latest-appimage
-    chmod +x "$HOME"/Applications/rpcs3.AppImage
-cat <<EOF |tee "$HOME"/.local/share/applications/rpcs3.desktop>/dev/null
+    wget -cq --show-progress -O "$HOME"/Applications/duckstation.AppImage "$(wget -qO- https://api.github.com/repos/stenzek/duckstation/releases|grep browser_download_url|grep .AppImage|head -n1|cut -d '"' -f4)"
+    chmod +x "$HOME"/Applications/duckstation.AppImage
+cat <<EOF |tee "$HOME"/.local/share/applications/duckstation.desktop>/dev/null
 [Desktop Entry]
 Version=1.0
-Exec=$HOME/Applications/rpcs3.AppImage
-Icon=rpcs3
+Exec=$HOME/Applications/duckstation.AppImage
+Icon=duckstation
 Terminal=false
 Type=Application
 StartupNotify=true
 Hidden=false
 Categories=Game;Emulator;
-Name=RPCS3
+Name=DuckStation
 Keywords=emulator;emulation;
 EOF
     mkdir -p "$HOME"/ES-DE/custom_systems/

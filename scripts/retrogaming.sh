@@ -4,6 +4,8 @@ set -e
 ## Retrogaming
 ### RetroArch
 bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/retroarch.sh)
+### DuckStation
+bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/duckstation.sh)
 ### Cemu
 bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/cemu.sh)
 ### PCSX2

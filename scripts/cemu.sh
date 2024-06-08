@@ -7,7 +7,7 @@ if  grep ii <(dpkg --list libfuse2t64 2>/dev/null);then
     else
     sudo apt install -y	libfuse2t64
 fi
-if [ -f "$HOME/Applications/Cemu.AppImage" ] && [ -f "$HOME"/.local/share/applications/cemu.desktop ];then
+if [ -f "$HOME"/Applications/Cemu.AppImage ] && [ -f "$HOME"/.local/share/applications/cemu.desktop ];then
     echo cemu instalado!
     else
     mkdir -p "$HOME"/Applications "$HOME"/.local/share/applications
