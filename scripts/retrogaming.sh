@@ -8,8 +8,12 @@ bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/retro
 bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/duckstation.sh)
 ### Cemu
 bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/cemu.sh)
+### Dolphin Emulator
+bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/dolphin-emu.sh)
 ### Flycast
 bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/flycast.sh)
+### Mupen64Plus
+bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/mupen64plus.sh)
 ### PCSX2
 bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/pcsx2.sh)
 ### RPCS3
@@ -18,5 +22,7 @@ bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/rpcs3
 bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/vita3k.sh)
 ### XEmu
 bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/xemu.sh)
+### Yabause
+bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/yabauset.sh)
 ### EmulationStation DE
 bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/emulationstation-de.sh)
