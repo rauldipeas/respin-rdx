@@ -30,29 +30,29 @@ StartupWMClass=es-de
 EOF
 fi
 
-# RetroArch-Linux*.AppImage
 # Cemu*.AppImage
+# duckstation-qt*.AppImage
+    #duckstation-nogui*.AppImage
+    #DuckStation*.AppImage
+#Dolphin_Emulator*.AppImage
+    #dolphin-emu-triforce*.AppImage
+# flycast-x86*.AppImage
+    #flycast-dojo*.AppImage
+# pcsx2*.AppImage
+# RetroArch-Linux*.AppImage
 # rpcs3*.AppImage
+# Vita3K*.AppImage
 # xemu*.AppImage
 
+#Alber-*.AppImage
 #BasiliskII*.AppImage
 #citra-qt*.AppImage
-#Dolphin_Emulator*.AppImage
-#DuckStation*.AppImage
-#duckstation-nogui*.AppImage
-#duckstation-qt*.AppImage
 #EKA2L1*.AppImage
-#flycast-x86*.AppImage
-#flycast-dojo*.AppImage
 #Gargoyle*.AppImage
 #lime-qt*.AppImage
 #Mesen*.AppImage
 #mGBA*.AppImage
-#Alber-*.AppImage
-#pcsx2*.AppImage
 #Play!*.AppImage
 #RMG*.AppImage
 #SheepShaver*.AppImage
 #Snes9x*.AppImage
-#dolphin-emu-triforce*.AppImage
-#Vita3K*.AppImage
