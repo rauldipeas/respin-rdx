@@ -12,6 +12,8 @@ bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/cemu.
 bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/dolphin-emu.sh)
 ### Flycast
 bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/flycast.sh)
+### Kega Fusion
+bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/kega-fusion.sh)
 ### Mupen64Plus
 bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/mupen64plus.sh)
 ### PCSX2
