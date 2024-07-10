@@ -152,6 +152,10 @@ if [ "$(whoami)" = root ];then
         ## RustDesk
         bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/superpaper.sh)
     fi
+    if [ "$1" = warp ];then
+        ## Warp
+        bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/warp-terminal.sh)
+    fi
     ## BZip2 (vbox-extras)
     #bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/bzip2.sh)
     ## UnRAR
