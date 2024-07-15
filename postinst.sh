@@ -167,6 +167,13 @@ if [ $XDG_CURRENT_DESKTOP == GNOME ];then
     #    else
     #    sudo apt install -y kubuntu-wallpapers
     #fi
+    ## File roller
+    if  grep ii <(dpkg --list file-roller 2>/dev/null);then
+        echo file-roller instalado!
+        else
+        sudo apt install -y file-roller
+    fi
+    echo Você não está executando o GNOME.
     ## MESA utils
     if  grep ii <(dpkg --list mesa-utils 2>/dev/null);then
         echo mesa-utils instalado!
