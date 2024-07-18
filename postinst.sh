@@ -180,6 +180,12 @@ if [ $XDG_CURRENT_DESKTOP == GNOME ];then
         else
         sudo apt install -y mesa-utils
     fi
+    ## Transmission
+    if  grep ii <(dpkg --list transmission-gtk 2>/dev/null);then
+        echo transmission-gtk instalado!
+        else
+        sudo apt install -y transmission-gtk
+    fi
     else
     echo Você não está executando o GNOME.
 fi
