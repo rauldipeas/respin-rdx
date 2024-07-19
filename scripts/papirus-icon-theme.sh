@@ -16,11 +16,8 @@ if  grep ii <(dpkg --list papirus-icon-theme 2>/dev/null);then
         else
         echo tuxguitar não encontrado!
     fi
-    if [ "$XDG_CURRENT_DESKTOP" = ubuntu:GNOME ];then
+    if [[ "$XDG_CURRENT_DESKTOP" =~ ^(ubuntu:GNOME|GNOME)$ ]];then
         echo Você está executando o GNOME no Ubuntu...
-        gsettings set org.gnome.desktop.interface icon-theme Papirus-Dark
-    elif [ "$XDG_CURRENT_DESKTOP" = GNOME ];then
-        echo Você está executando o GNOME...
         gsettings set org.gnome.desktop.interface icon-theme Papirus-Dark
     elif [ "$XDG_CURRENT_DESKTOP" == MATE ];then
         echo Você está executando o MATE...
