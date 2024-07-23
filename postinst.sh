@@ -251,6 +251,12 @@ if  grep ii <(dpkg --list openssh-sftp-server 2>/dev/null);then
     else
     sudo apt install -y openssh-sftp-server
 fi
+## Speedtest
+if  grep ii <(dpkg --list speedtest-cli 2>/dev/null);then
+    echo speedtest-cli instalado!
+    else
+    sudo apt install -y speedtest-cli
+fi
 ## Oxygen cursor
 #if  grep ii <(dpkg --list oxygen-cursor-theme 2>/dev/null);then
 #    echo oxygen-cursor-theme instalado!
@@ -273,9 +279,9 @@ Terminal=false
 X-Ubuntu-Gettext-Domain=xscreensaver
 EOF
 fi
-## Speedtest
-if  grep ii <(dpkg --list speedtest-cli 2>/dev/null);then
-    echo speedtest-cli instalado!
+# Ora
+if grep ora <(snap list);then
+    echo ora instalado!
     else
-    sudo apt install -y speedtest-cli
+    sudo snap install ora
 fi
