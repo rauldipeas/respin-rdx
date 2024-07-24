@@ -125,8 +125,14 @@ if [[ "$XDG_CURRENT_DESKTOP" =~ ^(ubuntu:GNOME|GNOME)$ ]];then
                 else
                 gext install dash-to-dock@micxgx.gmail.com
                 gext enable dash-to-dock@micxgx.gmail.com
-            fi    
+            fi
             #gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
+            if grep appindicatorsupport@rgcjonas.gmail.com <(gext list);then
+                echo appindicatorsupport@rgcjonas.gmail.com instalado!
+                else
+                gext install appindicatorsupport@rgcjonas.gmail.com
+                gext enable appindicatorsupport@rgcjonas.gmail.com
+            fi
             else
             echo 'Sua versão do Debian não é suportada no momento.'
         fi
