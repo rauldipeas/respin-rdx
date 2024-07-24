@@ -37,7 +37,7 @@ bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/strem
 ## VLC
 bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/vlc.sh)
 ## Retrogaming
-bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/retrogaming.sh)
+bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/retrogaming.sh) #link-folders
 ## Steam
 bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/steam.sh)
 ## Heroic
@@ -47,7 +47,7 @@ bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/minig
 ## MangoHUD
 bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/mangohud.sh)
 ## Superpaper
-bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/superpaper.sh)
+bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/superpaper.sh) #link-folders
 ## Dropbear
 if  grep ii <(dpkg --list dropbear 2>/dev/null);then
     echo dropbear instalado!
@@ -126,7 +126,6 @@ if [[ "$XDG_CURRENT_DESKTOP" =~ ^(ubuntu:GNOME|GNOME)$ ]];then
                 gext install dash-to-dock@micxgx.gmail.com
                 gext enable dash-to-dock@micxgx.gmail.com
             fi
-            #gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
             if grep appindicatorsupport@rgcjonas.gmail.com <(gext list);then
                 echo appindicatorsupport@rgcjonas.gmail.com instalado!
                 else
