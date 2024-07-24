@@ -59,7 +59,25 @@ fi
 ## Steam
 bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/steam.sh)
 ## Heroic
-bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/heroic.sh)
+if [ "$(grep "^ID=" <(cat /etc/*release))" = 'ID=debian' ];then
+    echo 'Você está numa instalação do Debian...'
+    if [ "$(grep "^VERSION_CODENAME=" <(cat /etc/*release))" = 'VERSION_CODENAME=bookworm' ];then
+        echo Bookworm
+        bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/heroic.sh|sed 's/libfuse2t64/libfuse2/g')
+        else
+        echo 'Sua versão do Debian não é suportada no momento.'
+    fi
+elif [ "$(grep "^ID=" <(cat /etc/*release))" = 'ID=ubuntu' ];then
+    echo 'Você está numa instalação do Ubuntu...'
+    if [ "$(grep "^VERSION_CODENAME=" <(cat /etc/*release))" = 'VERSION_CODENAME=noble' ];then
+        echo Noble
+        bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/heroic.sh)
+        else
+        echo 'Sua versão do Ubuntu não é suportada no momento.'
+    fi
+    else
+    echo 'Sua distribuição não é suportada no momento.'
+fi
 ## Minigalaxy
 bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/minigalaxy.sh)
 ## MangoHUD
