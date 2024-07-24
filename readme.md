@@ -5,7 +5,6 @@ bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/respin-rdx.sh
 bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/respin-rdx.sh) multimedia video # vídeo
 bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/respin-rdx.sh) multimedia image # imagem
 bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/respin-rdx.sh) game # jogos
-bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/respin-rdx.sh) game-debian # jogos Debian
 bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/respin-rdx.sh) cli-tools # ferramentas cli
 bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/respin-rdx.sh) warp-terminal # warp-terminal
 bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/respin-rdx.sh) waveterm # waveterm

@@ -2,10 +2,36 @@
 set -e
 
 ## PCSX2
-if  grep ii <(dpkg --list libfuse2t64 2>/dev/null);then
-    echo libfuse2t64 instalado!
+if [ "$(grep "^ID=" <(cat /etc/*release))" = 'ID=debian' ];then
+    echo 'Você está numa instalação do Debian...'
+    if [ "$(grep "^VERSION_CODENAME=" <(cat /etc/*release))" = 'VERSION_CODENAME=bookworm' ];then
+        echo Bookworm
+        if  grep ii <(dpkg --list libfuse2 2>/dev/null);then
+            echo libfuse2 instalado!
+            else
+            sudo apt install -y	libfuse2
+        fi
+        else
+        echo 'Sua versão do Debian não é suportada no momento.'
+    fi
+elif [ "$(grep "^ID=" <(cat /etc/*release))" = 'ID=ubuntu' ];then
+    echo 'Você está numa instalação do Ubuntu...'
+    if [ "$(grep "^VERSION_CODENAME=" <(cat /etc/*release))" = 'VERSION_CODENAME=noble' ];then
+        echo Noble
+        if  grep ii <(dpkg --list libfuse2t64 2>/dev/null);then
+            echo libfuse2t64 instalado!
+            else
+            if  grep ii <(dpkg --list libfuse2t64 2>/dev/null);then
+                echo libfuse2t64 instalado!
+                else
+                sudo apt install -y	libfuse2t64
+            fi
+        fi
+        else
+        echo 'Sua versão do Ubuntu não é suportada no momento.'
+    fi
     else
-    sudo apt install -y	libfuse2t64
+    echo 'Sua distribuição não é suportada no momento.'
 fi
 if [ -f "$HOME"/Applications/PCSX2.AppImage ] && [ -f "$HOME"/.local/share/applications/pcsx2.desktop ];then
     echo pcsx2 instalado!
