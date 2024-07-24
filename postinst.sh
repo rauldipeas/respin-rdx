@@ -159,19 +159,19 @@ if [[ "$XDG_CURRENT_DESKTOP" =~ ^(ubuntu:GNOME|GNOME)$ ]];then
         else
         echo 'Sua distribuição não é suportada no momento.'
     fi
-    ## File roller
+    ### File roller
     if  grep ii <(dpkg --list file-roller 2>/dev/null);then
         echo file-roller instalado!
         else
         sudo apt install -y file-roller
     fi
-    ## MESA utils
+    ### MESA utils
     if  grep ii <(dpkg --list mesa-utils 2>/dev/null);then
         echo mesa-utils instalado!
         else
         sudo apt install -y mesa-utils
     fi
-    ## Transmission
+    ### Transmission
     if  grep ii <(dpkg --list transmission-gtk 2>/dev/null);then
         echo transmission-gtk instalado!
         else
@@ -268,7 +268,7 @@ Terminal=false
 X-Ubuntu-Gettext-Domain=xscreensaver
 EOF
 fi
-# Ora
+## Ora
 if  grep ii <(dpkg --list snapd 2>/dev/null);then
     echo snapd instalado!
     if grep ora <(snap list);then
@@ -280,3 +280,12 @@ if  grep ii <(dpkg --list snapd 2>/dev/null);then
     sudo apt install -y snapd
     sudo snap install ora
 fi
+
+# Debian cleanup
+#sudo apt autoremove --purge -y\
+#    anthy*\
+#    gnome-games\
+#    goldendict*\
+#    mlterm*\
+#    *mozc*\
+#    xiterm*
