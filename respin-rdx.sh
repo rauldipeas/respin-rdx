@@ -121,14 +121,26 @@ if [ "$(whoami)" = root ];then
         bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/heroic.sh)
         ## Minigalaxy
         bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/minigalaxy.sh)
-        ## EmuDeck
-        #bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/emudeck.sh) #needs-fix
         ## Hydra
         bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/hydra.sh)
         ## MangoHUD
         bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/mangohud.sh)
         ## Retrogaming
         bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/retrogaming.sh)
+    elif [ "$1" = debian-game ];then
+        # Jogos Debian
+        ## Steam
+        bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/steam.sh)
+        ## Heroic
+        bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/heroic.sh|sed 's/libfuse2t64/libfuse2/g')
+        ## Minigalaxy
+        bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/minigalaxy.sh)
+        ## Hydra
+        bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/hydra.sh)
+        ## MangoHUD
+        bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/mangohud.sh)
+        ## Retrogaming
+        bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/retrogaming.sh|sed 's/libfuse2t64/libfuse2/g')
     fi
 
     # Miscelânea

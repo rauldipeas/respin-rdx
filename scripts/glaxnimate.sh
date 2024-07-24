@@ -2,9 +2,15 @@
 set -e
 
 ## Glaxnimate (snap)
-if grep glaxnimate <(snap list 2>/dev/null);then
-    echo glaxnimate instalado!
+if  grep ii <(dpkg --list snapd 2>/dev/null);then
+    echo snapd instalado!
+    if grep glaxnimate <(snap list 2>/dev/null);then
+        echo glaxnimate instalado!
+        else
+        sudo snap install glaxnimate
+    fi
     else
+    sudo apt install -y snapd
     sudo snap install glaxnimate
 fi
 

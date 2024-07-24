@@ -37,15 +37,31 @@ bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/strem
 ## VLC
 bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/vlc.sh)
 ## Retrogaming
-bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/retrogaming.sh)
+if [ "$(grep "^ID=" <(cat /etc/*release))" = 'ID=debian' ];then
+    echo 'Você está numa instalação do Debian...'
+    if [ "$(grep "^VERSION_CODENAME=" <(cat /etc/*release))" = 'VERSION_CODENAME=bookworm' ];then
+        echo Bookworm
+        bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/retrogaming.sh|sed 's/libfuse2t64/libfuse2/g')
+        else
+        echo 'Sua versão do Debian não é suportada no momento.'
+    fi
+elif [ "$(grep "^ID=" <(cat /etc/*release))" = 'ID=ubuntu' ];then
+    echo 'Você está numa instalação do Ubuntu...'
+    if [ "$(grep "^VERSION_CODENAME=" <(cat /etc/*release))" = 'VERSION_CODENAME=noble' ];then
+        echo Noble
+        bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/retrogaming.sh)
+        else
+        echo 'Sua versão do Ubuntu não é suportada no momento.'
+    fi
+    else
+    echo 'Sua distribuição não é suportada no momento.'
+fi
 ## Steam
 bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/steam.sh)
 ## Heroic
 bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/heroic.sh)
 ## Minigalaxy
 bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/minigalaxy.sh)
-## Hydra
-#bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/hydra.sh)
 ## MangoHUD
 bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/mangohud.sh)
 ## Superpaper
@@ -56,24 +72,9 @@ if  grep ii <(dpkg --list dropbear 2>/dev/null);then
     else
     sudo apt install -y dropbear
 fi
-## Flatpak
-#if  grep ii <(dpkg --list flatpak 2>/dev/null);then
-#    echo flatpak instalado!
-#    else
-#    sudo apt install -y flatpak
-#    flatpak --user remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-#    find "$HOME"/.var/app -mindepth 1 -maxdepth 1 -printf '%f\n'|xargs flatpak --user install -y
-#fi
 ## GNOME tweaks
-#if  grep ii <(dpkg --list gnome-tweaks 2>/dev/null);then
-#    echo gnome-tweaks instalado!
-#    else
-#    sudo apt install -y gnome-tweaks
-#fi
-## GNOME extensions
 if [[ "$XDG_CURRENT_DESKTOP" =~ ^(ubuntu:GNOME|GNOME)$ ]];then
     echo Você está executando o GNOME...
-    gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
     if  grep ii <(dpkg --list gnome-shell-extension-manager 2>/dev/null);then
         echo gnome-shell-extension-manager instalado!
         else
@@ -91,11 +92,6 @@ if [[ "$XDG_CURRENT_DESKTOP" =~ ^(ubuntu:GNOME|GNOME)$ ]];then
         else
         pipx install gnome-extensions-cli
     fi
-    #if grep ubuntu-dock@ubuntu.com/ <(gext list);then
-    #    echo ubuntu-dock@ubuntu.com/ instalado!
-    #    else
-    #    gext disable ubuntu-dock@ubuntu.com/
-    #fi
     if grep blur-my-shell@aunetx <(gext list);then
         echo blur-my-shell@aunetx instalado!
         else
@@ -120,12 +116,6 @@ if [[ "$XDG_CURRENT_DESKTOP" =~ ^(ubuntu:GNOME|GNOME)$ ]];then
         gext install compiz-windows-effect@hermes83.github.com
         gext enable compiz-windows-effect@hermes83.github.com
     fi
-    #if grep dash-to-dock@micxgx.gmail.com <(gext list);then
-    #    echo dash-to-dock@micxgx.gmail.com instalado!
-    #    else
-    #    gext install dash-to-dock@micxgx.gmail.com
-    #    gext enable dash-to-dock@micxgx.gmail.com
-    #fi
     if grep desktop-cube@schneegans.github.com <(gext list);then
         echo desktop-cube@schneegans.github.com instalado!
         else
@@ -144,36 +134,37 @@ if [[ "$XDG_CURRENT_DESKTOP" =~ ^(ubuntu:GNOME|GNOME)$ ]];then
         gext install quick-settings-tweaks@qwreey
         gext enable quick-settings-tweaks@qwreey
     fi
-    #if grep randomwallpaper@iflow.space <(gext list);then
-    #    echo randomwallpaper@iflow.space instalado!
-    #    else
-    #    if  grep ii <(dpkg --list hydrapaper 2>/dev/null);then
-    #        echo hydrapaper instalado!
-    #        else
-    #        sudo apt install -y hydrapaper
-    #    fi
-    #    gext install randomwallpaper@iflow.space
-    #    gext enable randomwallpaper@iflow.space
-    #fi
-    #if grep forge@jmmaranan.com <(gext list);then
-    #    echo forge@jmmaranan.com instalado!
-    #    else
-    #    gext install forge@jmmaranan.com
-    #    gext enable forge@jmmaranan.com
-    #fi
-    ## Kubuntu wallpapers
-    #if  grep ii <(dpkg --list kubuntu-wallpapers 2>/dev/null);then
-    #    echo kubuntu-wallpapers instalado!
-    #    else
-    #    sudo apt install -y kubuntu-wallpapers
-    #fi
+    if [ "$(grep "^ID=" <(cat /etc/*release))" = 'ID=debian' ];then
+        echo 'Você está numa instalação do Debian...'
+        if [ "$(grep "^VERSION_CODENAME=" <(cat /etc/*release))" = 'VERSION_CODENAME=bookworm' ];then
+            echo Bookworm
+            if grep dash-to-dock@micxgx.gmail.com <(gext list);then
+                echo dash-to-dock@micxgx.gmail.com instalado!
+                else
+                gext install dash-to-dock@micxgx.gmail.com
+                gext enable dash-to-dock@micxgx.gmail.com
+            fi    
+            gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
+            else
+            echo 'Sua versão do Debian não é suportada no momento.'
+        fi
+    elif [ "$(grep "^ID=" <(cat /etc/*release))" = 'ID=ubuntu' ];then
+        echo 'Você está numa instalação do Ubuntu...'
+        if [ "$(grep "^VERSION_CODENAME=" <(cat /etc/*release))" = 'VERSION_CODENAME=noble' ];then
+            echo Noble
+            gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
+            else
+            echo 'Sua versão do Ubuntu não é suportada no momento.'
+        fi
+        else
+        echo 'Sua distribuição não é suportada no momento.'
+    fi
     ## File roller
     if  grep ii <(dpkg --list file-roller 2>/dev/null);then
         echo file-roller instalado!
         else
         sudo apt install -y file-roller
     fi
-    echo Você não está executando o GNOME.
     ## MESA utils
     if  grep ii <(dpkg --list mesa-utils 2>/dev/null);then
         echo mesa-utils instalado!
@@ -204,6 +195,11 @@ if [ "$(grep "^ID=" <(cat /etc/*release))" = 'ID=debian' ];then
             else
             sudo add-apt-repository -ny non-free
         fi
+        if  grep ii <(dpkg --list lshw 2>/dev/null);then
+            echo lshw instalado!
+            else
+            sudo apt install -y lshw
+        fi            
         if [ "$(cut -d' ' -f9 <(grep NVIDIA <(sudo lshw -C display)))" == NVIDIA ];then
             if  grep ii <(dpkg --list nvtop 2>/dev/null);then
                 echo nvtop instalado!
@@ -257,13 +253,6 @@ if  grep ii <(dpkg --list speedtest-cli 2>/dev/null);then
     else
     sudo apt install -y speedtest-cli
 fi
-## Oxygen cursor
-#if  grep ii <(dpkg --list oxygen-cursor-theme 2>/dev/null);then
-#    echo oxygen-cursor-theme instalado!
-#    else
-#    sudo apt install -y oxygen-cursor-theme
-#    sudo update-alternatives --set x-cursor-theme /etc/X11/cursors/oxy-white.theme
-#fi
 ## XScreenSaver
 if  grep ii <(dpkg --list xscreensaver 2>/dev/null) && grep ii <(dpkg --list xscreensaver-gl-extra 2>/dev/null) && grep ii <(dpkg --list xscreensaver-data-extra 2>/dev/null);then
     echo xscreensaver instalado!
@@ -280,8 +269,14 @@ X-Ubuntu-Gettext-Domain=xscreensaver
 EOF
 fi
 # Ora
-if grep ora <(snap list);then
-    echo ora instalado!
+if  grep ii <(dpkg --list snapd 2>/dev/null);then
+    echo snapd instalado!
+    if grep ora <(snap list);then
+        echo ora instalado!
+        else
+        sudo snap install ora
+    fi
     else
+    sudo apt install -y snapd
     sudo snap install ora
 fi
