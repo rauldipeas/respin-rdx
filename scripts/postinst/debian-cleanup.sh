@@ -7,12 +7,12 @@ if [ "$(grep "^ID=" <(cat /etc/*release))" = 'ID=debian' ];then
     if [ "$(grep "^VERSION_CODENAME=" <(cat /etc/*release))" = 'VERSION_CODENAME=bookworm' ];then
         echo Bookworm
         sudo apt autoremove --purge -y\
-            "anthy*\
+            anthy*\
             gnome-games\
             goldendict*\
             mlterm*\
             *mozc*\
-            xiterm*"
+            xiterm*
         else
         echo 'Sua versão do Debian não é suportada no momento.'
     fi
