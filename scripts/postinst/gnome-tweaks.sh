@@ -57,6 +57,12 @@ if [[ "$XDG_CURRENT_DESKTOP" =~ ^(ubuntu:GNOME|GNOME)$ ]];then
         gext install monitor@astraext.github.io
         gext enable monitor@astraext.github.io
     fi
+    if grep pano@elhan.io <(gext list);then
+        echo pano@elhan.io instalado!
+        else
+        gext install pano@elhan.io
+        gext enable pano@elhan.io
+    fi
     if grep quick-settings-tweaks@qwreey <(gext list);then
         echo quick-settings-tweaks@qwreey instalado!
         else
