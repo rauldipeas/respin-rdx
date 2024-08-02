@@ -122,11 +122,13 @@ if [ "$(whoami)" = root ];then
         ## Minigalaxy
         bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/minigalaxy.sh)
         ## Hydra
-        bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/hydra.sh)
+        #bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/hydra.sh)
         ## MangoHUD
         bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/mangohud.sh)
         ## Retrogaming
         bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/retrogaming.sh)
+        ## PortProton
+        bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/portproton.sh)
     fi
 
     # Miscelânea

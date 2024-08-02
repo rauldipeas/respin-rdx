@@ -26,6 +26,8 @@ bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/heroi
 bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/minigalaxy.sh)
 ## MangoHUD
 bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/mangohud.sh)
+## PortProton
+bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/portproton.sh)
 ## Superpaper
 bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/superpaper.sh) #link-folders
 ## GNOME tweaks
