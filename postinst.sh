@@ -41,8 +41,8 @@ bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/posti
 ## Speedtest
 bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/postinst/speedtest.sh)
 ## XScreenSaver
-bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/postinst/xscreensaver.sh)
+bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/postinst/xscreensaver.sh) #link-folders
 ## Ora
-bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/postinst/ora.sh)
+bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/postinst/ora.sh) #link-folders
 ## Debian cleanup
 bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/postinst/debian-cleanup.sh)
