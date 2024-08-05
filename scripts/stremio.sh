@@ -77,8 +77,8 @@ if [ -f /usr/bin/stremio ];then
     if grep ii <(dpkg --list libssl1.1 2>/dev/null);then
         echo libssl1.1 instalado
         else
-        rm -f libssl1.1*.deb>/dev/null
-        wget -cq --show-progress http://security.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2.22_amd64.deb
+        #rm -f libssl1.1*.deb>/dev/null
+        wget -cq --show-progress http://security.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.0g-2ubuntu4_amd64.deb
         sudo apt install ./libssl1.1*.deb
         rm libssl1.1*.deb
     fi

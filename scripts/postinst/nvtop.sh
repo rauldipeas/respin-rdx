@@ -14,7 +14,7 @@ if [ "$(grep "^ID=" <(cat /etc/*release))" = 'ID=debian' ];then
         if grep non-free /etc/apt/sources.list;then
             echo non-free configurado!
             else
-            sudo add-apt-repository -ny non-free
+            sudo add-apt-repository -y non-free
         fi
         if  grep ii <(dpkg --list lshw 2>/dev/null);then
             echo lshw instalado!
@@ -25,7 +25,7 @@ if [ "$(grep "^ID=" <(cat /etc/*release))" = 'ID=debian' ];then
             if  grep ii <(dpkg --list nvtop 2>/dev/null);then
                 echo nvtop instalado!
                 else
-                sudo apt install -y	nvtop
+                sudo apt install -y nvtop
             fi
             else
             echo GPU NVIDIA não encontrada.
@@ -45,13 +45,13 @@ elif [ "$(grep "^ID=" <(cat /etc/*release))" = 'ID=ubuntu' ];then
         if grep universe /etc/apt/sources.list.d/ubuntu.sources;then
             echo universe configurado!
             else
-            sudo add-apt-repository -ny universe
+            sudo add-apt-repository -y universe
         fi
         if [ "$(cut -d' ' -f9 <(grep NVIDIA <(sudo lshw -C display)))" == NVIDIA ];then
             if  grep ii <(dpkg --list nvtop 2>/dev/null);then
                 echo nvtop instalado!
                 else
-                sudo apt install -y	nvtop
+                sudo apt install -y nvtop
             fi
             else
             echo GPU NVIDIA não encontrada.
