@@ -18,6 +18,7 @@ if [ "$(grep "^ID=" <(cat /etc/*release))" = 'ID=debian' ];then
         #    gnome-contacts\
         #    gnome-maps\
         #    gnome-music\
+        #    gnome-shell-extension-manager\
         #    gnome-weather\
         #    evolution\
         #    hdate-applet\
