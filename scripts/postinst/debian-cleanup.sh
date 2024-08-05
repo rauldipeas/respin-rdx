@@ -13,6 +13,18 @@ if [ "$(grep "^ID=" <(cat /etc/*release))" = 'ID=debian' ];then
             mlterm*\
             *mozc*\
             xiterm*
+        #    gnome-calendar\
+        #    gnome-clocks\
+        #    gnome-contacts\
+        #    gnome-maps\
+        #    gnome-weather\
+        #    evolution\
+        #    hdate-applet\
+        #    rhythmbox*\
+        #    simple-scan cheese*\
+        #    thunderbird*\
+        #    totem*\
+        #    yelp*
         else
         echo 'Sua versão do Debian não é suportada no momento.'
     fi
