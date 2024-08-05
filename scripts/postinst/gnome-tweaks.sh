@@ -79,11 +79,23 @@ if [[ "$XDG_CURRENT_DESKTOP" =~ ^(ubuntu:GNOME|GNOME)$ ]];then
                 gext install dash-to-dock@micxgx.gmail.com
                 gext enable dash-to-dock@micxgx.gmail.com
             fi
-            if grep appindicatorsupport@rgcjonas.gmail.com <(gext list);then
-                echo appindicatorsupport@rgcjonas.gmail.com instalado!
+            #if grep appindicatorsupport@rgcjonas.gmail.com <(gext list);then
+            #    echo appindicatorsupport@rgcjonas.gmail.com instalado!
+            #    else
+            #    gext install appindicatorsupport@rgcjonas.gmail.com
+            #    gext enable appindicatorsupport@rgcjonas.gmail.com
+            #fi
+            if grep topIcons@adel.gadllah@gmail.com <(gext list);then
+                echo topIcons@adel.gadllah@gmail.com instalado!
                 else
-                gext install appindicatorsupport@rgcjonas.gmail.com
-                gext enable appindicatorsupport@rgcjonas.gmail.com
+                gext install topIcons@adel.gadllah@gmail.com
+                gext enable topIcons@adel.gadllah@gmail.com
+            fi
+            if grep system-monitor@gnome-shell-extensions.gcampax.github.com <(gext list);then
+                echo system-monitor@gnome-shell-extensions.gcampax.github.com instalado!
+                else
+                gext install system-monitor@gnome-shell-extensions.gcampax.github.com
+                gext enable system-monitor@gnome-shell-extensions.gcampax.github.com
             fi
             else
             echo 'Sua versão do Debian não é suportada no momento.'
