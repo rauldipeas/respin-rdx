@@ -51,6 +51,12 @@ if [[ "$XDG_CURRENT_DESKTOP" =~ ^(ubuntu:GNOME|GNOME)$ ]];then
         gext install desktop-cube@schneegans.github.com
         gext enable desktop-cube@schneegans.github.com
     fi
+    if grep status-area-horizontal-spacing@mathematical.coffee.gmail.com <(gext list);then
+        echo status-area-horizontal-spacing@mathematical.coffee.gmail.com instalado!
+        else
+        gext install status-area-horizontal-spacing@mathematical.coffee.gmail.com
+        gext enable status-area-horizontal-spacing@mathematical.coffee.gmail.com
+    fi
     if grep monitor@astraext.github.io <(gext list);then
         echo monitor@astraext.github.io instalado!
         else
