@@ -46,3 +46,5 @@ bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/posti
 bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/postinst/ora.sh) #link-folders
 ## Debian cleanup
 bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/postinst/debian-cleanup.sh)
+## Debian backports kernel
+bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/postinst/debian-backports-kernel.sh)
