@@ -79,6 +79,16 @@ if [[ "$XDG_CURRENT_DESKTOP" =~ ^(ubuntu:GNOME|GNOME)$ ]];then
         echo 'Você está numa instalação do Debian...'
         if [ "$(grep "^VERSION_CODENAME=" <(cat /etc/*release))" = 'VERSION_CODENAME=bookworm' ];then
             echo Bookworm
+            if  grep ii <(dpkg --list syncthing 2>/dev/null);then
+                echo syncthing instalado!
+                if  grep ii <(dpkg --list syncthing-gtk 2>/dev/null);then
+                    echo syncthing-gtk instalado!
+                    else
+                    sudo apt install -y syncthing-gtk
+                fi                
+                else
+                echo syncthing não instalado!
+            fi            
             gsettings set org.gnome.desktop.peripherals.touchpad tap-to-click true
             if grep dash-to-dock@micxgx.gmail.com <(gext list);then
                 echo dash-to-dock@micxgx.gmail.com instalado!

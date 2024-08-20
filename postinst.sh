@@ -30,6 +30,8 @@ bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/mango
 bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/portproton.sh)
 ## Superpaper
 bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/superpaper.sh) #link-folders
+## Syncthing
+bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/postinst/syncthing.sh)
 ## GNOME tweaks
 bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/postinst/gnome-tweaks.sh)
 ## Dropbear
