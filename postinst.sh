@@ -6,6 +6,8 @@ set -e
 bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/system-update.sh)
 ## Topgrade
 bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/topgrade.sh)
+## ZeroTier
+bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/zerotier.sh)
 ## Papirus
 bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/papirus-icon-theme.sh)
 ## Warp
