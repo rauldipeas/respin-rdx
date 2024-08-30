@@ -13,18 +13,20 @@ if [ "$(grep "^ID=" <(cat /etc/*release))" = 'ID=debian' ];then
             mlterm*\
             *mozc*\
             xiterm*
+        #    cheese*\
+        #    evolution\
+        #    evolution-data-server\
         #    gnome-calendar\
         #    gnome-clocks\
         #    gnome-contacts\
         #    gnome-maps\
         #    gnome-music\
-        #    gnome-shell-extension-manager\
+        #    gnome-shell-extension-prefs\
         #    gnome-sound-recorder\
         #    gnome-weather\
-        #    evolution\
         #    hdate-applet\
         #    rhythmbox*\
-        #    simple-scan cheese*\
+        #    simple-scan
         #    thunderbird*\
         #    totem*\
         #    yelp*

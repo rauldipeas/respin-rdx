@@ -46,6 +46,8 @@ bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/posti
 bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/postinst/openssh-sftp-server.sh)
 ## Speedtest
 bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/postinst/speedtest.sh)
+## Timeshift
+bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/postinst/timeshift.sh)
 ## XScreenSaver
 bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/postinst/xscreensaver.sh) #link-folders
 ## Ora
