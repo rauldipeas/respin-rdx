@@ -26,6 +26,7 @@ if [ "$(grep "^ID=" <(cat /etc/*release))" = 'ID=debian' ];then
         #    gnome-weather\
         #    hdate-applet\
         #    rhythmbox*\
+        #    shotwell*\
         #    simple-scan
         #    thunderbird*\
         #    totem*\
