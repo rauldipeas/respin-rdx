@@ -7,13 +7,15 @@ bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/syste
 ## Topgrade
 bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/topgrade.sh)
 ## ZeroTier
-bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/zerotier.sh)
+bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/postinst/zerotier.sh)
 ## Papirus
 bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/papirus-icon-theme.sh)
 ## Warp
 bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/warp-terminal.sh)
 ## RustDesk
 bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/rustdesk.sh)
+## FreeTube
+bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/postinst/freetube.sh)
 ## Stremio
 bash <(wget -qO- https://github.com/rauldipeas/respin-rdx/raw/main/scripts/stremio.sh)
 ## VLC
