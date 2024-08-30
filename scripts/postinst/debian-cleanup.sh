@@ -30,7 +30,7 @@ if [ "$(grep "^ID=" <(cat /etc/*release))" = 'ID=debian' ];then
         #    simple-scan
         #    thunderbird*\
         #    totem*\
-        #    yelp*
+        #    *yelp*
         else
         echo 'Sua versão do Debian não é suportada no momento.'
     fi
