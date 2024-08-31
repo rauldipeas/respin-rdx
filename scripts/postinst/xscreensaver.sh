@@ -6,6 +6,6 @@ if  grep ii <(dpkg --list xscreensaver 2>/dev/null) && grep ii <(dpkg --list xsc
     echo xscreensaver instalado!
     else
     sudo apt install -y xscreensaver xscreensaver-data-extra xscreensaver-gl-extra
-    systemctl --user enable xscreensaver.service
-    systemctl --user start xscreensaver.service
+    mkdir -p "$HOME"/.config/autostart
+    cp /usr/share/xscreensaver/xscreensaver.desktop "$HOME"/.config/autostart
 fi
