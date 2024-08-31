@@ -21,88 +21,88 @@ if [[ "$XDG_CURRENT_DESKTOP" =~ ^(ubuntu:GNOME|GNOME)$ ]];then
         else
         pipx install gnome-extensions-cli
     fi
-    if grep blur-my-shell@aunetx <(gext list);then
+    if grep blur-my-shell@aunetx <("$HOME"/.local/bin/gext list);then
         echo blur-my-shell@aunetx instalado!
         else
-        gext install blur-my-shell@aunetx
-        gext enable blur-my-shell@aunetx
+        "$HOME"/.local/bin/gext install blur-my-shell@aunetx
+        "$HOME"/.local/bin/gext enable blur-my-shell@aunetx
     fi
-    if grep burn-my-windows@schneegans.github.com <(gext list);then
+    if grep burn-my-windows@schneegans.github.com <("$HOME"/.local/bin/gext list);then
         echo burn-my-windows@schneegans.github.com instalado!
         else
-        gext install burn-my-windows@schneegans.github.com
-        gext enable burn-my-windows@schneegans.github.com
+        "$HOME"/.local/bin/gext install burn-my-windows@schneegans.github.com
+        "$HOME"/.local/bin/gext enable burn-my-windows@schneegans.github.com
     fi
-    if grep compiz-alike-magic-lamp-effect@hermes83.github.com <(gext list);then
+    if grep compiz-alike-magic-lamp-effect@hermes83.github.com <("$HOME"/.local/bin/gext list);then
         echo compiz-alike-magic-lamp-effect@hermes83.github.com instalado!
         else
-        gext install compiz-alike-magic-lamp-effect@hermes83.github.com
-        gext enable compiz-alike-magic-lamp-effect@hermes83.github.com
+        "$HOME"/.local/bin/gext install compiz-alike-magic-lamp-effect@hermes83.github.com
+        "$HOME"/.local/bin/gext enable compiz-alike-magic-lamp-effect@hermes83.github.com
     fi
-    if grep compiz-windows-effect@hermes83.github.com <(gext list);then
+    if grep compiz-windows-effect@hermes83.github.com <("$HOME"/.local/bin/gext list);then
         echo compiz-windows-effect@hermes83.github.com instalado!
         else
-        gext install compiz-windows-effect@hermes83.github.com
-        gext enable compiz-windows-effect@hermes83.github.com
+        "$HOME"/.local/bin/gext install compiz-windows-effect@hermes83.github.com
+        "$HOME"/.local/bin/gext enable compiz-windows-effect@hermes83.github.com
     fi
-    if grep desktop-cube@schneegans.github.com <(gext list);then
+    if grep desktop-cube@schneegans.github.com <("$HOME"/.local/bin/gext list);then
         echo desktop-cube@schneegans.github.com instalado!
         else
-        gext install desktop-cube@schneegans.github.com
-        gext enable desktop-cube@schneegans.github.com
+        "$HOME"/.local/bin/gext install desktop-cube@schneegans.github.com
+        "$HOME"/.local/bin/gext enable desktop-cube@schneegans.github.com
     fi
-    if grep status-area-horizontal-spacing@mathematical.coffee.gmail.com <(gext list);then
+    if grep status-area-horizontal-spacing@mathematical.coffee.gmail.com <("$HOME"/.local/bin/gext list);then
         echo status-area-horizontal-spacing@mathematical.coffee.gmail.com instalado!
         else
-        gext install status-area-horizontal-spacing@mathematical.coffee.gmail.com
-        gext enable status-area-horizontal-spacing@mathematical.coffee.gmail.com
+        "$HOME"/.local/bin/gext install status-area-horizontal-spacing@mathematical.coffee.gmail.com
+        "$HOME"/.local/bin/gext enable status-area-horizontal-spacing@mathematical.coffee.gmail.com
     fi
-    if grep monitor@astraext.github.io <(gext list);then
+    if grep monitor@astraext.github.io <("$HOME"/.local/bin/gext list);then
         echo monitor@astraext.github.io instalado!
         else
-        gext install monitor@astraext.github.io
-        gext enable monitor@astraext.github.io
+        "$HOME"/.local/bin/gext install monitor@astraext.github.io
+        "$HOME"/.local/bin/gext enable monitor@astraext.github.io
     fi
-    if grep pano@elhan.io <(gext list);then
+    if grep pano@elhan.io <("$HOME"/.local/bin/gext list);then
         echo pano@elhan.io instalado!
         else
-        gext install pano@elhan.io
-        gext enable pano@elhan.io
+        "$HOME"/.local/bin/gext install pano@elhan.io
+        "$HOME"/.local/bin/gext enable pano@elhan.io
     fi
-    if grep quick-settings-tweaks@qwreey <(gext list);then
+    if grep quick-settings-tweaks@qwreey <("$HOME"/.local/bin/gext list);then
         echo quick-settings-tweaks@qwreey instalado!
         else
-        gext install quick-settings-tweaks@qwreey
-        gext enable quick-settings-tweaks@qwreey
+        "$HOME"/.local/bin/gext install quick-settings-tweaks@qwreey
+        "$HOME"/.local/bin/gext enable quick-settings-tweaks@qwreey
     fi
     if [ "$(grep "^ID=" <(cat /etc/*release))" = 'ID=debian' ];then
         echo 'Você está numa instalação do Debian...'
         if [ "$(grep "^VERSION_CODENAME=" <(cat /etc/*release))" = 'VERSION_CODENAME=bookworm' ];then
             echo Bookworm
             gsettings set org.gnome.desktop.peripherals.touchpad tap-to-click true
-            if grep dash-to-dock@micxgx.gmail.com <(gext list);then
+            if grep dash-to-dock@micxgx.gmail.com <("$HOME"/.local/bin/gext list);then
                 echo dash-to-dock@micxgx.gmail.com instalado!
                 else
-                gext install dash-to-dock@micxgx.gmail.com
-                gext enable dash-to-dock@micxgx.gmail.com
+                "$HOME"/.local/bin/gext install dash-to-dock@micxgx.gmail.com
+                "$HOME"/.local/bin/gext enable dash-to-dock@micxgx.gmail.com
             fi
-            if grep appindicatorsupport@rgcjonas.gmail.com <(gext list);then
+            if grep appindicatorsupport@rgcjonas.gmail.com <("$HOME"/.local/bin/gext list);then
                 echo appindicatorsupport@rgcjonas.gmail.com instalado!
                 else
-                gext install appindicatorsupport@rgcjonas.gmail.com
-                gext enable appindicatorsupport@rgcjonas.gmail.com
+                "$HOME"/.local/bin/gext install appindicatorsupport@rgcjonas.gmail.com
+                "$HOME"/.local/bin/gext enable appindicatorsupport@rgcjonas.gmail.com
             fi
-            #if grep topIcons@adel.gadllah@gmail.com <(gext list);then
+            #if grep topIcons@adel.gadllah@gmail.com <("$HOME"/.local/bin/gext list);then
             #    echo topIcons@adel.gadllah@gmail.com instalado!
             #    else
-            #    gext install topIcons@adel.gadllah@gmail.com
-            #    gext enable topIcons@adel.gadllah@gmail.com
+            #    "$HOME"/.local/bin/gext install topIcons@adel.gadllah@gmail.com
+            #    "$HOME"/.local/bin/gext enable topIcons@adel.gadllah@gmail.com
             #fi
-            #if grep system-monitor@gnome-shell-extensions.gcampax.github.com <(gext list);then
+            #if grep system-monitor@gnome-shell-extensions.gcampax.github.com <("$HOME"/.local/bin/gext list);then
             #    echo system-monitor@gnome-shell-extensions.gcampax.github.com instalado!
             #    else
-            #    gext install system-monitor@gnome-shell-extensions.gcampax.github.com
-            #    gext enable system-monitor@gnome-shell-extensions.gcampax.github.com
+            #    "$HOME"/.local/bin/gext install system-monitor@gnome-shell-extensions.gcampax.github.com
+            #    "$HOME"/.local/bin/gext enable system-monitor@gnome-shell-extensions.gcampax.github.com
             #fi
             else
             echo 'Sua versão do Debian não é suportada no momento.'
