@@ -31,6 +31,7 @@ if [ "$(grep "^ID=" <(cat /etc/*release))" = 'ID=debian' ];then
         #    thunderbird*\
         #    totem*\
         #    *yelp*
+        grep ii <(dpkg --list firefox-esr-l10n-*)|cut -d' ' -f3|grep -v pt-br|xargs sudo apt autoremove --purge -y
         else
         echo 'Sua versão do Debian não é suportada no momento.'
     fi
