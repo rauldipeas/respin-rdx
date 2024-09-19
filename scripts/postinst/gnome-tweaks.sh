@@ -66,6 +66,16 @@ if [[ "$XDG_CURRENT_DESKTOP" =~ ^(ubuntu:GNOME|GNOME)$ ]];then
     if grep pano@elhan.io <("$HOME"/.local/bin/gext list);then
         echo pano@elhan.io instalado!
         else
+        if  grep ii <(dpkg --list gir1.2-gda-5.0 2>/dev/null);then
+            echo gir1.2-gda-5.0 instalado!
+            else
+            sudo apt install -y gir1.2-gda-5.0
+        fi
+        if  grep ii <(dpkg --list gir1.2-gsound-1.0 2>/dev/null);then
+            echo gir1.2-gsound-1.0 instalado!
+            else
+            sudo apt install -y gir1.2-gsound-1.0
+        fi
         "$HOME"/.local/bin/gext install pano@elhan.io
         "$HOME"/.local/bin/gext enable pano@elhan.io
     fi
