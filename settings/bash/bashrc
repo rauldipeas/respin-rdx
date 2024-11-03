@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# bashrc.d
+for script in "$HOME"/.bashrc.d/*.bash;do
+	source "$script"
+done

@@ -1,0 +1,55 @@
+name: Respin RDX
+on:
+  push:
+    branches:
+      - 'main'
+    paths-ignore:
+      - '.editorconfig'
+      - '.gitignore'
+      - 'leiame.md'
+      - 'readme.md'
+      - 'to-do.log'
+      - '*.jpg'
+      - '*.png'
+      - '*.svg'
+      - 'site/**'
+      - 'site-deploy.ps1'
+  schedule:
+    - cron:  '0 */12 * * *'
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Respin RDX build
+        run: bash scripts/build.sh
+      - name: MEGA upload
+        uses: Mamami-Digital/action-megacmd@master
+        with:
+          args: put -c ./respin-rdx*.iso /respin-rdx/
+        env:
+          USERNAME: ${{ secrets.MEGA_USERNAME }}
+          PASSWORD: ${{ secrets.MEGA_PASSWORD }}
+      - name: SFTP upload
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
+        with:
+          username: rauldipeas
+          server: frs.sourceforge.net
+          port: 22
+          local_path: './respin-rdx*.iso'
+          remote_path: '/home/pfs/project/respin-rdx'
+          sftp_only: true
+          ssh_private_key: ''
+          password: ${{ secrets.SFTP_PASSWORD }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: respin-rdx
+          path: ./respin-rdx*.iso
+      - uses: otto-de/purge-deprecated-workflow-runs@v2
+        with:
+          remove-cancelled: true
+          remove-failed: true
+          remove-obsolete: false
+          token: ${{ secrets.PAT }}
+          #remove-older-than: 7d

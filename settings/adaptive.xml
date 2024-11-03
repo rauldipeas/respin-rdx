@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+ Adaptive style scheme
+
+ Copyright (C) 2020 Romain Vigier
+
+ This program is free software: you can redistribute it and/or modify it under
+ the terms of the GNU General Public License as published by the Free Software
+ Foundation, either version 3 of the License, or (at your option) any later
+ version.
+
+ This program is distributed in the hope that it will be useful, but WITHOUT
+ ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License along with
+ this program. If not, see <http s ://www.gnu.org/licenses/>.
+
+-->
+<style-scheme id="adaptive" _name="Adaptive" version="1.0">
+  <author>Romain Vigier</author>
+  <_description>Adaptive color scheme based on the GNOME palette</_description>
+
+  <!-- GNOME Palette -->
+  <color name="Blue1"                       value="#99c1f1"/>
+  <color name="Blue2"                       value="#62a0ea"/>
+  <color name="Blue3"                       value="#3584e4"/>
+  <color name="Blue4"                       value="#1c71d8"/>
+  <color name="Blue5"                       value="#1a5fb4"/>
+  <color name="Green1"                      value="#8ff0a4"/>
+  <color name="Green2"                      value="#57e389"/>
+  <color name="Green3"                      value="#33d17a"/>
+  <color name="Green4"                      value="#2ec27e"/>
+  <color name="Green5"                      value="#26a269"/>
+  <color name="Yellow1"                     value="#f9f06b"/>
+  <color name="Yellow2"                     value="#f8e45c"/>
+  <color name="Yellow3"                     value="#f6d32d"/>
+  <color name="Yellow4"                     value="#f5c211"/>
+  <color name="Yellow5"                     value="#e5a50a"/>
+  <color name="Orange1"                     value="#ffbe6f"/>
+  <color name="Orange2"                     value="#ffa348"/>
+  <color name="Orange3"                     value="#ff7800"/>
+  <color name="Orange4"                     value="#e66100"/>
+  <color name="Orange5"                     value="#c64600"/>
+  <color name="Red1"                        value="#f66151"/>
+  <color name="Red2"                        value="#ed333b"/>
+  <color name="Red3"                        value="#e01b24"/>
+  <color name="Red4"                        value="#c01c28"/>
+  <color name="Red5"                        value="#a51d2d"/>
+  <color name="Purple1"                     value="#dc8add"/>
+  <color name="Purple2"                     value="#c061cb"/>
+  <color name="Purple3"                     value="#9141ac"/>
+  <color name="Purple4"                     value="#813d9c"/>
+  <color name="Purple5"                     value="#613583"/>
+  <color name="Brown1"                      value="#cdab8f"/>
+  <color name="Brown2"                      value="#b5835a"/>
+  <color name="Brown3"                      value="#986a44"/>
+  <color name="Brown4"                      value="#865e3c"/>
+  <color name="Brown5"                      value="#63452c"/>
+  <color name="Light1"                      value="#ffffff"/>
+  <color name="Light2"                      value="#f6f5f4"/>
+  <color name="Light3"                      value="#deddda"/>
+  <color name="Light4"                      value="#c0bfbc"/>
+  <color name="Light5"                      value="#9a9996"/>
+  <color name="Dark1"                       value="#77767b"/>
+  <color name="Dark2"                       value="#5e5c64"/>
+  <color name="Dark3"                       value="#3d3846"/>
+  <color name="Dark4"                       value="#241f31"/>
+  <color name="Dark5"                       value="#000000"/>
+
+  <!-- Global Settings -->
+  <style name="line-numbers"                background="#rgba(0,0,0,0.005)"/>
+  <style name="current-line"                background="#rgba(152,152,152,0.1)"/>
+  <style name="current-line-number"         background="#rgba(152,152,152,0.1)"/>
+  <style name="draw-spaces"                 foreground="#rgba(136,136,136,0.45)"/>
+  <style name="background-pattern"          background="#rgba(128,128,128,0.04)"/>
+
+  <!-- Bracket Matching -->
+  <style name="bracket-match"               foreground="Light2" background="#rgba(96,96,96,0.4)"/>
+  <style name="bracket-mismatch"            foreground="Light2" background="Red3"/>
+
+  <!-- Right Margin -->
+  <style name="right-margin"                foreground="#000000" background="#000000"/>
+
+  <!-- Search Matching -->
+  <style name="search-match"                foreground="Dark4" background="Yellow3"/>
+
+  <!-- Comments -->
+  <style name="def:comment"                 foreground="#rgba(136,136,136,0.8)" italic="true"/>
+  <style name="def:shebang"                 foreground="#rgba(136,136,136,0.8)" bold="true"/>
+  <style name="def:doc-comment-element"     italic="true"/>
+
+  <!-- Constants -->
+  <style name="def:constant"                foreground="Purple2"/>
+  <style name="def:special-char"            foreground="Purple2"/>
+
+  <!-- Identifiers -->
+  <style name="def:identifier"              foreground="Blue3"/>
+
+  <!-- Statements -->
+  <style name="def:statement"               foreground="Yellow5" bold="true"/>
+
+  <!-- Types -->
+  <style name="def:type"                    foreground="Green5" bold="true"/>
+
+  <!-- Markup -->
+  <style name="def:emphasis"                italic="true"/>
+  <style name="def:strong-emphasis"         foreground="Red2" bold="true"/>
+  <style name="def:inline-code"             foreground="Purple2"/>
+  <style name="def:insertion"               underline="single"/>
+  <style name="def:deletion"                strikethrough="true"/>
+  <style name="def:link-text"               foreground="Blue3"/>
+  <style name="def:link-symbol"             foreground="Blue3" bold="true"/>
+  <style name="def:link-destination"        italic="true" underline="single"/>
+  <style name="def:heading"                 foreground="Green5" bold="true"/>
+  <style name="def:thematic-break"          foreground="Green5" bold="true"/>
+  <style name="def:preformatted-section"    foreground="Purple2"/>
+  <style name="def:list-marker"             foreground="Red2" bold="true"/>
+
+  <!-- Others -->
+  <style name="def:preprocessor"            foreground="Brown2"/>
+  <style name="def:error"                   foreground="Light2" background="Red3" bold="true"/>
+  <style name="def:warning"                 foreground="Dark4" background="Yellow3"/>
+  <style name="def:note"                    foreground="Light2" background="Orange3" bold="true"/>
+  <style name="def:net-address"             italic="true" underline="single"/>
+
+  <!-- Heading styles, uncomment to enable -->
+  <!--
+  <style name="def:heading0"                scale="5.0"/>
+  <style name="def:heading1"                scale="2.5"/>
+  <style name="def:heading2"                scale="2.0"/>
+  <style name="def:heading3"                scale="1.7"/>
+  <style name="def:heading4"                scale="1.5"/>
+  <style name="def:heading5"                scale="1.3"/>
+  <style name="def:heading6"                scale="1.2"/>
+  -->
+
+  <!-- Language specific -->
+  <style name="diff:added-line"             foreground="Green5"/>
+  <style name="diff:removed-line"           foreground="Purple2"/>
+  <style name="diff:changed-line"           use-style="def:preprocessor"/>
+  <style name="diff:diff-file"              use-style="def:type"/>
+  <style name="diff:location"               use-style="def:statement"/>
+  <style name="diff:special-case"           use-style="def:constant"/>
+
+  <style name="xml:tags"                    foreground="Green5"/>
+  <style name="xml:namespace"               bold="true"/>
+
+  <style name="js:built-in-constructor"     foreground="Green5"/>
+
+  <style name="latex:display-math"          foreground="Purple2"/>
+  <style name="latex:command"               foreground="Green5" bold="true"/>
+  <style name="latex:include"               use-style="def:preprocessor"/>
+  <style name="latex:special-char"          use-style="def:constant"/>
+
+  <style name="sh:variable"                 foreground="Purple2"/>
+  <style name="sh:variable-definition"      foreground="Green5"/>
+
+</style-scheme>
