@@ -21,7 +21,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: debian:bookworm
+    #container: debian:bookworm
     steps:
       - uses: actions/checkout@v4
       - name: Respin RDX build
