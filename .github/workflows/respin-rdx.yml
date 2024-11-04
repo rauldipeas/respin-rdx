@@ -20,9 +20,8 @@ on:
   workflow_dispatch:
 jobs:
   build:
-    runs-on: ubuntu-24.04
-    container:
-      image: debian:bookworm
+    runs-on: ubuntu-latest
+    container: debian:bookworm
     steps:
       - uses: actions/checkout@v4
       - name: Respin RDX build
