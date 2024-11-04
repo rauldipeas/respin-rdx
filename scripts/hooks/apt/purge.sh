@@ -1,15 +1,65 @@
 #!/bin/bash
 set -e
 apt autoremove --purge -y\
-    "*apache*"\
+    apache2-bin\
     gnome-accessibility-themes\
     gnome-icon-theme\
     gnome-remote-desktop\
-    "*im-config*"\
+    im-config\
     libfishcamp1\
     libsbig4\
+    libyelp0\
     network-manager-gnome\
     pipewire-pulse\
     rygel\
     wireplumber\
-    "*yelp*"
+    yelp\
+    yelp-xsl
+
+#apache2-bin*
+#docbook-xml*
+#fonts-dejavu*
+#fonts-dejavu-extra*
+#gettext-base*
+#gnome-accessibility-themes*
+#gnome-icon-theme*
+#gnome-remote-desktop*
+#gnome-user-docs*
+#gnome-user-share*
+#gstreamer1.0-plugins-ugly*
+#im-config*
+#liba52-0.7.4*
+#libapache2-mod-dnssd*
+#libapr1*
+#libaprutil1*
+#libaprutil1-dbd-sqlite3*
+#libaprutil1-ldap*
+#libfishcamp1*
+#libfreerdp-server2-2*
+#libfreerdp2-2*
+#libges-1.0-0*
+#libgupnp-av-1.0-3*
+#libgupnp-dlna-2.0-4*
+#liblua5.3-0*
+#libmediaart-2.0-0*
+#libmpeg2-4*
+#libopencore-amrnb0*
+#libopencore-amrwb0*
+#librygel-core-2.8-0*
+#librygel-db-2.8-0*
+#librygel-renderer-2.8-0*
+#librygel-server-2.8-0*
+#libsbig4*
+#libsidplay1v5*
+#libtss2-tctildr0*
+#libwinpr2-2*
+#libwireplumber-0.4-0*
+#libyelp0*
+#mobile-broadband-provider-info*
+#network-manager-gnome*
+#pipewire-pulse*
+#rygel*
+#sgml-data*
+#wireplumber*
+#yelp*
+#yelp-xsl*

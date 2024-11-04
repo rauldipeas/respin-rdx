@@ -1,5 +1,7 @@
 #!/bin/bash
 set -e
+LATEST_LINUX_IMAGE="apt search linux-image|grep image|grep bpo-amd64|head -n1|cut -d'/' -f1"
+LATEST_LINUX_HEADERS="apt search linux-headers|grep headers|grep bpo-amd64|head -n1|cut -d'/' -f1"
 cd /tmp/respin-rdx
 lb config\
     --apt-source-archives false\
@@ -17,7 +19,7 @@ lb config\
     --iso-application "Respin RDX"\
     --iso-publisher "Respin RDX; https://respin-rdx.sourceforge.io; respin-rdx.rauldipeas@lock.email"\
     --iso-volume "Respin RDX"\
-    --linux-packages none\
+    --linux-packages "$LATEST_LINUX_IMAGE $LATEST_LINUX_HEADERS"\
     --mirror-bootstrap "https://deb.debian.org/debian/"\
     --mirror-binary "https://deb.debian.org/debian/"\
     --mirror-chroot "https://deb.debian.org/debian/"\
