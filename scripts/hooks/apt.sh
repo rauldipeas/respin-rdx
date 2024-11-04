@@ -7,4 +7,4 @@ Dpkg::Options {
    "--force-confold";
 }
 EOF
-sudo apt update
+apt update

@@ -5,7 +5,7 @@ chmod +x /tmp/genymotion.bin
 /tmp/genymotion.bin -y
 rm /tmp/genymotion.bin
 sed -i 's|Icon=|#Icon=|' /usr/local/share/applications/genymobile-genymotion.desktop
-cat <<EOF |sudo tee -a /usr/local/share/applications/genymobile-genymotion.desktop
+cat <<EOF |tee -a /usr/local/share/applications/genymobile-genymotion.desktop
 Icon=genymotion
 StartupWMClass=genymotion
 EOF
