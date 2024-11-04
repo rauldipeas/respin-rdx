@@ -16,6 +16,7 @@ lb config \
     --iso-application "Respin RDX" \
     --iso-publisher "Respin RDX; https://respin-rdx.sourceforge.io; respin-rdx.rauldipeas@lock.email" \
     --iso-volume "Respin RDX" \
+    --linux-packages none\
     --mirror-bootstrap "https://deb.debian.org/debian/" \
     --mirror-binary "https://deb.debian.org/debian/" \
     --mirror-chroot "https://deb.debian.org/debian/" \
