@@ -28,6 +28,7 @@ nohang
 ntp
 openssh-sftp-server
 polkitd-pkla
+preload
 pulseaudio
 pulseaudio-module-bluetooth
 pulseaudio-module-jack
@@ -60,6 +61,7 @@ gnome-calculator
 gnome-disk-utility
 gnome-network-displays
 gtkhash
+gufw
 nemo
 nemo-gtkhash
 software-properties-gtk
