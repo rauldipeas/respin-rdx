@@ -79,6 +79,7 @@ chown -R "\$(ls /home)"\
     /opt/appimagepool\
     /opt/bat\
     /opt/casterr\
+    /opt/chat-gpt\
     /opt/everdo\
     /opt/fd\
     /opt/freetube\
