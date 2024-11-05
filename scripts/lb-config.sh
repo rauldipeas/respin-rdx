@@ -24,5 +24,6 @@ lb config\
     --mirror-binary "https://deb.debian.org/debian/"\
     --mirror-chroot "https://deb.debian.org/debian/"\
     --quiet\
+    --swap-file-path '/swapfile'\
     --system live\
     --utc-time true\
