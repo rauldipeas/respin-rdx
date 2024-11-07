@@ -52,6 +52,6 @@ jobs:
         with:
           remove-cancelled: true
           remove-failed: true
-          remove-obsolete: false
+          remove-obsolete: true
           token: ${{ secrets.PAT }}
-          #remove-older-than: 7d
+          remove-older-than: 5d
