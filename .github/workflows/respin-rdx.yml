@@ -33,20 +33,6 @@ jobs:
         env:
           USERNAME: ${{ secrets.MEGA_USERNAME }}
           PASSWORD: ${{ secrets.MEGA_PASSWORD }}
-      - name: Send email
-        uses: devellany/send-mail@v1.0.2
-        with:
-          host: disroot.org
-          port: 587
-          account: ${{secrets.MAIL_ADDRESS}}
-          password: ${{secrets.MAIL_PASSWORD}}
-          sender: github-actions.rauldipeas@lock.email
-          from: ${{secrets.MAIL_ADDRESS}}
-          to: ${{secrets.MAIL_ADDRESS}}
-          subject: Respin RDX actions report
-          body: A GitHub Action run has completed
-          contentType: text/plain
-          #attachments: '[{"path":"README.md"}]'
       - name: SFTP upload
         uses: wlixcc/SFTP-Deploy-Action@v1.2.4
         with:
