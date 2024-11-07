@@ -34,7 +34,7 @@ jobs:
           USERNAME: ${{ secrets.MEGA_USERNAME }}
           PASSWORD: ${{ secrets.MEGA_PASSWORD }}
       - name: Send email
-        uses: devellany/send-mailer@v1.0.2
+        uses: devellany/send-mail@v1.0.2
         with:
           host: disroot.org
           port: 587
