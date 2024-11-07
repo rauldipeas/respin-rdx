@@ -14,6 +14,9 @@ cp /opt/rdx-user-settings/adaptive.xml /usr/local/share/gtksourceview-4/styles/a
 wget -qO /opt/rdx-user-settings/topgrade-config.toml https://github.com/topgrade-rs/topgrade/raw/main/config.example.toml
 sed -i 's|# no_self_update|no_self_update|' /opt/rdx-user-settings/topgrade-config.toml
 sed -i 's|\[deno\]|#\[deno\]|' /opt/rdx-user-settings/topgrade-config.toml
+cat <<EOF |tee -a /usr/share/applications/org.tribler.Tribler.desktop
+StartupWMClass=tribler
+EOF
 cat <<EOF |tee /usr/local/share/applications/respinrdx.featurebase.app.desktop>/dev/null
 [Desktop Entry]
 Version=1.0
