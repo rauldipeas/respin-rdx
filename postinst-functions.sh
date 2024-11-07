@@ -7,8 +7,8 @@ amaddclass() {
 }
 
 aminst() {
-    am -i "$@"
-    am icons --all
+    am -i --icons "$@"
+    #am icons --all
 }
 
 changeicon() {

@@ -19,6 +19,7 @@ wget -q --show-progress "$(wget -qO- https://api.github.com/repos/zyedidia/micro
 dpkg-name micro*.deb
 #tribler
 wget -q --show-progress "$(wget -qO- https://api.github.com/repos/Tribler/tribler/releases|grep browser_download_url|grep all.deb|head -n1|cut -d '"' -f4)"
+dpkg-name tribler*.deb
 #veracrypt
 wget -q --show-progress "$(wget -qO- https://www.veracrypt.fr/en/Downloads.html|grep amd64.deb|head -n1|cut -d '"' -f2|sed 's|&#43;|+|')"
 dpkg-name veracrypt*.deb
