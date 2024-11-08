@@ -12,6 +12,7 @@ EOF
 cat <<EOF |tee -a  /usr/local/share/themes/adw-gtk3-dark/index.theme
 IconTheme=Papirus-Dark
 EOF
+mkdir -p /usr/share/backgrounds/gdm
 convert /usr/share/backgrounds/unsplash/unsplash-gnome.jpg -blur 0x80 /usr/share/backgrounds/gdm/blured_unsplash-gnome.jpg
 set-gdm-theme set adw-gtk3-dark /usr/share/backgrounds/gdm/blured_unsplash-gnome.jpg
 echo y|./uninstall.sh --purge
