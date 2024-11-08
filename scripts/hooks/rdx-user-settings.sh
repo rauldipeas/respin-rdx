@@ -56,7 +56,7 @@ install() {
     esac
 }
 pin() {
-    gsettings set org.gnome.shell favorite-apps "\$(gsettings get org.gnome.shell favorite-apps|sed s/browser-installer/\$(fd \$1 /usr/share /usr/local/share|grep .desktop|sed s/.*\$1/\$1/|sed s/.desktop//)/)"
+    gsettings set org.gnome.shell favorite-apps "\$(gsettings get org.gnome.shell favorite-apps|sed s/browser-installer/\$(fd \$1 /usr/share /usr/local/share|grep .desktop\$|sed s/.*\$1/\$1/|sed s/.desktop//)/)"
 }
 browser=\$(yad --list --title="Browser installer" --text="Choose the browser to install:" \\
     --column="Icon:IMG" --column="Browser" --column="package" \\
@@ -82,7 +82,7 @@ if [[ \$? -ne 0 || -z "\$browser" ]]; then
     yad --error --text="Nothing selected..."
     exit 1
 fi
-browser=\$(echo "\$browser" | awk -F'|' '{print $3}')
+browser=\$(echo "\$browser" | awk -F'|' '{print \$3}')
 yad --question --text="Install \$browser?" --window-icon="\$ICON_DIR/web-browser.svg"
 if [[ \$? -eq 0 ]]; then
     install "\$browser" && yad --info --text="\$browser installed!" ||
@@ -171,8 +171,7 @@ chown -R "\$(ls /home)"\
     /opt/squirrel-disk\
     /opt/stretchly\
     /opt/topgrade\
-    /opt/walc\
-    /opt/zen-browser
+    /opt/walc
 rm /etc/rc.local
 EOF
 chmod +x /etc/rc.local
