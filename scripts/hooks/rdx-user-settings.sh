@@ -56,36 +56,36 @@ install() {
     esac
 }
 pin() {
-    gsettings set org.gnome.shell favorite-apps "\$(gsettings get org.gnome.shell favorite-apps|sed s/browser-installer/$(fd \$1 /usr/share /usr/local/share|grep .desktop|sed s/.\*\$1/\$1/|sed s/.desktop//)/)"
+    gsettings set org.gnome.shell favorite-apps "\$(gsettings get org.gnome.shell favorite-apps|sed s/browser-installer/\$(fd \$1 /usr/share /usr/local/share|grep .desktop|sed s/.*\$1/\$1/|sed s/.desktop//)/)"
 }
-browser=\$(yad --list --title="Browser installer" --text="Choose the browser to install:" \
-    --column="Ícone:IMG" --column="Browser" --column="package"\
-    "\$ICON_DIR/brave.svg" "Brave" "brave-browser" \
-    "\$ICON_DIR/chromium.svg" "Chromium" "chromium" \
-    "\$ICON_DIR/org.gnome.Epiphany.svg" "org.gnome.Epiphany" \
-    "\$ICON_DIR/firefox.svg" "Firefox" "firefox" \
-    "\$ICON_DIR/falkon.svg" "Falkon" "org.kde.falkon" \
-    "\$ICON_DIR/google-chrome.svg" "Google Chrome" "google-chrome" \
-    "\$ICON_DIR/librewolf.svg" "Librewolf" "libre-wolf" \
-    "\$ICON_DIR/mercury.svg" "Mercury" "mercury" \
-    "\$ICON_DIR/mullvad-browser.svg" "Mullvad" "mullvad-browser" \
-    "\$ICON_DIR/com.github.Eloston.UngoogledChromium.svg" "Ungoogled Chromium" "ungoogled-chromium" \
-    "\$ICON_DIR/opera.svg" "Opera" "opera" \
-    "\$ICON_DIR/palemoon.svg" "Palemoon" "palemoon" \
-    "\$ICON_DIR/tor-browser.svg" "Tor Browser" "tor-browser" \
-    "\$ICON_DIR/vivaldi.svg" "Vivaldi" "vivaldi-stable" \
-    "\$ICON_DIR/waterfox.svg" "Waterfox" "waterfox" \
-    "\$ICON_DIR/zen.svg" "Zen Browser" "zen-browser" \
-    --window-icon="\$ICON_DIR/web-browser.svg" \
+browser=\$(yad --list --title="Browser installer" --text="Choose the browser to install:" \\
+    --column="Icon:IMG" --column="Browser" --column="package" \\
+    "\$ICON_DIR/brave.svg" "Brave" "brave-browser" \\
+    "\$ICON_DIR/chromium.svg" "Chromium" "chromium" \\
+    "\$ICON_DIR/org.gnome.Epiphany.svg" "GNOME Web" "org.gnome.Epiphany" \\
+    "\$ICON_DIR/firefox.svg" "Firefox" "firefox" \\
+    "\$ICON_DIR/falkon.svg" "Falkon" "org.kde.falkon" \\
+    "\$ICON_DIR/google-chrome.svg" "Google Chrome" "google-chrome" \\
+    "\$ICON_DIR/librewolf.svg" "Librewolf" "libre-wolf" \\
+    "\$ICON_DIR/mercury.svg" "Mercury" "mercury" \\
+    "\$ICON_DIR/mullvad-browser.svg" "Mullvad" "mullvad-browser" \\
+    "\$ICON_DIR/com.github.Eloston.UngoogledChromium.svg" "Ungoogled Chromium" "ungoogled-chromium" \\
+    "\$ICON_DIR/opera.svg" "Opera" "opera" \\
+    "\$ICON_DIR/palemoon.svg" "Palemoon" "palemoon" \\
+    "\$ICON_DIR/tor-browser.svg" "Tor Browser" "tor-browser" \\
+    "\$ICON_DIR/vivaldi.svg" "Vivaldi" "vivaldi-stable" \\
+    "\$ICON_DIR/waterfox.svg" "Waterfox" "waterfox" \\
+    "\$ICON_DIR/zen.svg" "Zen Browser" "zen-browser" \\
+    --window-icon="\$ICON_DIR/web-browser.svg" \\
     --width=600 --height=490 --button="Instalar":0 --button="Cancelar":1)
 if [[ \$? -ne 0 || -z "\$browser" ]]; then
     yad --error --text="Nothing selected..."
     exit 1
 fi
-browser=$(echo "\$browser" | awk -F'|' '{print $3}')
+browser=\$(echo "\$browser" | awk -F'|' '{print $3}')
 yad --question --text="Install \$browser?" --window-icon="\$ICON_DIR/web-browser.svg"
 if [[ \$? -eq 0 ]]; then
-    install "\$navegador" && yad --info --text="\$navegador installed!" ||
+    install "\$browser" && yad --info --text="\$browser installed!" ||
     yad --error --text="Error."
 else
     yad --info --text="Canceled."
@@ -104,7 +104,7 @@ Name[pt_BR]=Navegador web
 Comment=Choose your favorite browser
 Comment[pt_BR]=Escolha seu navegador favorito
 Categories=Internet;
-Exec=browser-installer
+Exec=x-terminal-emulator -e /usr/local/bin/browser-installer
 EOF
 cat <<EOF |tee /etc/profile.d/rdx-user-settings.sh /etc/X11/Xsession.d/90-rdx-user-settings>/dev/null
 if ! [ -f "\$HOME"/.rdx-user-settings ];then

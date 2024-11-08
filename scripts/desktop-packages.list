@@ -45,6 +45,7 @@ fonts-powerline
 fonts-quicksand
 gnome-themes-extra
 gtk2-engines-murrine
+orchis-gtk-theme
 plymouth-themes
 qt5-gtk2-platformtheme
 
@@ -67,6 +68,7 @@ software-properties-gtk
 sysprof
 tilix
 timeshift
+yad
 
 # gnome deps
 gir1.2-gda-5.0

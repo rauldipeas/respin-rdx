@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
-LATEST_LINUX_IMAGE="$(wget -qO- 'https://packages.debian.org/search?suite=bookworm-backports&searchon=names&keywords=bpo-amd64'|grep linux-image|head -n1|cut -d' ' -f4|cut -d'<' -f1|sed 's/-amd64//')"
-LATEST_LINUX_HEADERS="$(wget -qO- 'https://packages.debian.org/search?suite=bookworm-backports&searchon=names&keywords=bpo-amd64'|grep linux-headers|head -n1|cut -d' ' -f4|cut -d'<' -f1|sed 's/-amd64//')"
+LATEST_LINUX_IMAGE="$(wget -qO- 'https://packages.debian.org/search?suite=bookworm-backports&searchon=names&keywords=bpo-amd64'|grep linux-image|head -n1|cut -d' ' -f4|cut -d'<' -f1|sed 's|-amd64||')"
+LATEST_LINUX_HEADERS="$(wget -qO- 'https://packages.debian.org/search?suite=bookworm-backports&searchon=names&keywords=bpo-amd64'|grep linux-headers|head -n1|cut -d' ' -f4|cut -d'<' -f1|sed 's|-amd64||')"
 cd /tmp/respin-rdx
 lb config\
     --apt-source-archives false\
