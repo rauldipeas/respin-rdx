@@ -4,5 +4,5 @@ wget -q --show-progress "$(wget -qO- https://api.github.com/repos/lassekongo83/a
 mkdir -p /usr/local/share/themes
 tar -xf adw-gtk3*.tar.xz -C /usr/local/share/themes/
 rm adw-gtk3*.tar.xz
-flatpak install org.gtk.Gtk3theme.adw-gtk3 org.gtk.Gtk3theme.adw-gtk3-dark
+flatpak install -y org.gtk.Gtk3theme.adw-gtk3 org.gtk.Gtk3theme.adw-gtk3-dark
 snap install adw-gtk3-theme
