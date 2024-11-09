@@ -16,7 +16,7 @@ on:
       - 'site/**'
       - 'site-deploy.ps1'
   schedule:
-    - cron:  '0 10 * * *'
+    - cron:  '0 10,22 * * *'
   workflow_dispatch:
 jobs:
   build:
