@@ -66,7 +66,7 @@ browser=\$(yad --list --title="Browser installer" --text="Choose the browser to 
     "\$ICON_DIR/firefox.svg" "Firefox" "firefox" \\
     "\$ICON_DIR/falkon.svg" "Falkon" "org.kde.falkon" \\
     "\$ICON_DIR/google-chrome.svg" "Google Chrome" "google-chrome" \\
-    "\$ICON_DIR/librewolf.svg" "Librewolf" "libre-wolf" \\
+    "\$ICON_DIR/librewolf.svg" "Librewolf" "librewolf" \\
     "\$ICON_DIR/mercury.svg" "Mercury" "mercury" \\
     "\$ICON_DIR/mullvad-browser.svg" "Mullvad" "mullvad-browser" \\
     "\$ICON_DIR/com.github.Eloston.UngoogledChromium.svg" "Ungoogled Chromium" "ungoogled-chromium" \\
