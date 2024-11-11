@@ -4,12 +4,12 @@ curl
 distrobox
 extrepo
 gamemode
-liquidprompt
 lsb-release
 lshw
 nala
 openssh-client
 pipx
+powerline
 sd
 speedtest-cli
 wget

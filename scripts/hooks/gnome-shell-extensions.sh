@@ -17,6 +17,8 @@ pipx install gnome-extensions-cli --system-site-packages
 "$HOME"/.local/bin/gext install notification-banner-reloaded@marcinjakubowski.github.com
 #pano
 "$HOME"/.local/bin/gext install pano@elhan.io
+#quick settings audio panel
+"$HOME"/.local/bin/gext install quick-settings-audio-panel@rayzeq.github.io
 #status area horizontal spacing
 "$HOME"/.local/bin/gext install status-area-horizontal-spacing@mathematical.coffee.gmail.com
 #tray-icons-reloaded

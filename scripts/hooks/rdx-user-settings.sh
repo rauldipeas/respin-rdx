@@ -4,8 +4,9 @@ mkdir -p /opt/rdx-user-settings/bash
 wget -qO /opt/rdx-user-settings/bash/bashrc https://github.com/rauldipeas/respin-rdx/raw/main/settings/bash/bashrc
 wget -qO /opt/rdx-user-settings/bash/bash-preexec.sh https://github.com/rcaloras/bash-preexec/raw/master/bash-preexec.sh
 wget -qO /opt/rdx-user-settings/bash/atuin.bash https://github.com/rauldipeas/respin-rdx/raw/main/settings/bash/atuin.bash
-wget -qO /opt/rdx-user-settings/bash/liquidprompt.bash https://github.com/rauldipeas/respin-rdx/raw/main/settings/bash/liquidprompt.bash
+#wget -qO /opt/rdx-user-settings/bash/liquidprompt.bash https://github.com/rauldipeas/respin-rdx/raw/main/settings/bash/liquidprompt.bash
 wget -qO /opt/rdx-user-settings/bash/local-bin.bash https://github.com/rauldipeas/respin-rdx/raw/main/settings/bash/local-bin.bash
+wget -qO /opt/rdx-user-settings/bash/powerline.bash https://github.com/rauldipeas/respin-rdx/raw/main/settings/bash/powerline.bash
 wget -qO /opt/rdx-user-settings/dconf-settings.ini https://github.com/rauldipeas/respin-rdx/raw/main/settings/dconf-settings.ini
 wget -qO /opt/rdx-user-settings/onlyoffice-desktopeditors.conf https://github.com/rauldipeas/respin-rdx/raw/main/settings/onlyoffice-desktopeditors.conf
 wget -qO /opt/rdx-user-settings/adaptive.xml https://github.com/rauldipeas/respin-rdx/raw/main/settings/adaptive.xml
@@ -67,7 +68,7 @@ browser=\$(yad --list --title="Browser installer" --text="Choose the browser to 
     "\$ICON_DIR/falkon.svg" "Falkon" "org.kde.falkon" \\
     "\$ICON_DIR/google-chrome.svg" "Google Chrome" "google-chrome" \\
     "\$ICON_DIR/librewolf.svg" "Librewolf" "librewolf" \\
-    "\$ICON_DIR/mercury.svg" "Mercury" "mercury" \\
+    "\$ICON_DIR/web-browser.svg" "Mercury" "mercury" \\
     "\$ICON_DIR/mullvad-browser.svg" "Mullvad" "mullvad-browser" \\
     "\$ICON_DIR/com.github.Eloston.UngoogledChromium.svg" "Ungoogled Chromium" "ungoogled-chromium" \\
     "\$ICON_DIR/opera.svg" "Opera" "opera" \\
@@ -75,7 +76,7 @@ browser=\$(yad --list --title="Browser installer" --text="Choose the browser to 
     "\$ICON_DIR/tor-browser.svg" "Tor Browser" "tor-browser" \\
     "\$ICON_DIR/vivaldi.svg" "Vivaldi" "vivaldi-stable" \\
     "\$ICON_DIR/waterfox.svg" "Waterfox" "waterfox" \\
-    "\$ICON_DIR/zen.svg" "Zen Browser" "zen-browser" \\
+    "\$ICON_DIR/web-browser.svg" "Zen Browser" "zen-browser" \\
     --window-icon="\$ICON_DIR/web-browser.svg" \\
     --width=600 --height=490 --button="Instalar":0 --button="Cancelar":1)
 if [[ \$? -ne 0 || -z "\$browser" ]]; then
