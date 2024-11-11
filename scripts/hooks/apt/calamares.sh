@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 apt install -o Dpkg::Options::="--force-confold" --no-install-recommends -y calamares calamares-settings-debian
-sed -i 's|pkexec|sudo -E|' /usr/bin/install-debian
+sed -i 's|pkexec|GTK2_RC_FILES=/usr/share/themes/Orchis-Dark-Compact/gtk-2.0/gtkrc sudo -E|' /usr/bin/install-debian
 sed -i 's|calamares-settings-debian|calamares|' /etc/calamares/modules/packages.conf
 sed -i "s|  - sources-final|  - sources-final\n  - shellprocess|" /etc/calamares/settings.conf 
 sed -i "s|        - root|        - root\n        - internet|" /etc/calamares/settings.conf 
