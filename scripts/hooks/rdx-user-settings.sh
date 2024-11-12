@@ -4,9 +4,9 @@ mkdir -p /opt/rdx-user-settings/bash
 wget -qO /opt/rdx-user-settings/bash/bashrc https://github.com/rauldipeas/respin-rdx/raw/main/settings/bash/bashrc
 wget -qO /opt/rdx-user-settings/bash/bash-preexec.sh https://github.com/rcaloras/bash-preexec/raw/master/bash-preexec.sh
 wget -qO /opt/rdx-user-settings/bash/atuin.bash https://github.com/rauldipeas/respin-rdx/raw/main/settings/bash/atuin.bash
-#wget -qO /opt/rdx-user-settings/bash/liquidprompt.bash https://github.com/rauldipeas/respin-rdx/raw/main/settings/bash/liquidprompt.bash
+wget -qO /opt/rdx-user-settings/bash/liquidprompt.bash https://github.com/rauldipeas/respin-rdx/raw/main/settings/bash/liquidprompt.bash
 wget -qO /opt/rdx-user-settings/bash/local-bin.bash https://github.com/rauldipeas/respin-rdx/raw/main/settings/bash/local-bin.bash
-wget -qO /opt/rdx-user-settings/bash/powerline.bash https://github.com/rauldipeas/respin-rdx/raw/main/settings/bash/powerline.bash
+#wget -qO /opt/rdx-user-settings/bash/powerline.bash https://github.com/rauldipeas/respin-rdx/raw/main/settings/bash/powerline.bash
 wget -qO /opt/rdx-user-settings/dconf-settings.ini https://github.com/rauldipeas/respin-rdx/raw/main/settings/dconf-settings.ini
 wget -qO /opt/rdx-user-settings/onlyoffice-desktopeditors.conf https://github.com/rauldipeas/respin-rdx/raw/main/settings/onlyoffice-desktopeditors.conf
 wget -qO /opt/rdx-user-settings/adaptive.xml https://github.com/rauldipeas/respin-rdx/raw/main/settings/adaptive.xml
