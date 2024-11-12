@@ -55,6 +55,7 @@ install() {
         tor-browser) am -i --icons tor-browser ;;
         vivaldi-stable) am -i --icons vivaldi-stable ;;
         waterfox) am -i --icons waterfox ;;
+        yandex-browser) am -i --icons yandex-browser ;;
         zen-browser) am -i --icons zen-browser ;;
         *) echo "Invalid" ;;
     esac
@@ -79,6 +80,7 @@ browser=\$(yad --list --title="Browser installer" --text="Choose the browser to 
     "\$ICON_DIR/tor-browser.svg" "Tor Browser" "tor-browser" \\
     "\$ICON_DIR/vivaldi.svg" "Vivaldi" "vivaldi-stable" \\
     "\$ICON_DIR/waterfox.svg" "Waterfox" "waterfox" \\
+    "\$ICON_DIR/yandex-browser.svg" "Yandex Browser" "yandex-browser" \\
     "\$ICON_DIR/web-browser.svg" "Zen Browser" "zen-browser" \\
     --window-icon="\$ICON_DIR/web-browser.svg" \\
     --width=600 --height=490 --button="Instalar":0 --button="Cancelar":1)
@@ -109,6 +111,7 @@ Comment=Choose your favorite browser
 Comment[pt_BR]=Escolha seu navegador favorito
 Categories=Internet;
 Exec=x-terminal-emulator -e /usr/local/bin/browser-installer
+StartupWMClass=yad
 EOF
 cat <<EOF |tee /etc/profile.d/rdx-user-settings.sh /etc/X11/Xsession.d/90-rdx-user-settings>/dev/null
 if ! [ -f "\$HOME"/.rdx-user-settings ];then
