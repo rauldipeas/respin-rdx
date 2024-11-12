@@ -12,6 +12,7 @@ sed -i 's|deb-src|#deb-src|' /usr/sbin/sources-final
 sed -i 's|welcomeStyleCalamares: true|welcomeStyleCalamares: false|' /etc/calamares/branding/debian/branding.desc
 sed -i 's|windowExpanding: normal|windowExpanding: noexpand|' /etc/calamares/branding/debian/branding.desc
 sed -i 's|windowSize: 800px,520px|windowSize: 800px,750px|' /etc/calamares/branding/debian/branding.desc
+sed -i 's|#292F34|#FFFFFF|' /etc/calamares/branding/debian/branding.desc
 cp /usr/share/icons/Papirus/64x64/apps/org.linux_hardware.hw-probe.svg /etc/skel/.face
 wget -q --show-progress -O /etc/calamares/branding/debian/welcome.png https://github.com/rauldipeas/respin-rdx/raw/main/assets/calamares-welcome.png
 cat <<EOF |tee /etc/calamares/modules/locale.conf>/dev/null
