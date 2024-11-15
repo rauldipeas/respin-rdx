@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Terminal=false
+Icon=preferences-desktop-feedback
+Name=User feedback
+Name[pt_BR]=Feedback do usuário
+Comment=Share your thoughts and help to improve the Respin RDX
+Comment[pt_BR]=Compartilhe suas ideias e ajude a melhorar o Respin RDX
+Categories=Internet;
+Exec=xdg-open https://respinrdx.featurebase.app

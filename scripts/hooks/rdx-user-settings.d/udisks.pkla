@@ -1,0 +1,4 @@
+[Allow local mount without password]
+Identity=unix-group:sudo;unix-group:plugdev
+Action=org.freedesktop.udisks*
+ResultActive=yes
