@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e
-chown -R "\$(ls /home)"\
+chown -R "$(ls /home)"\
     /opt/am\
     /opt/appimagepool\
     /opt/bat\
