@@ -6,10 +6,10 @@ chown -R "$(ls /home)"\
     /opt/bat\
     /opt/casterr\
     /opt/chat-gpt\
-    /opt/everdo\
     /opt/fd\
     /opt/freetube\
     /opt/got\
+    /opt/lunatask\
     /opt/mission-center\
     /opt/muffon\
     /opt/nyrna\
