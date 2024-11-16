@@ -1,3 +1,3 @@
 #!/bin/bash
 set -e
-am -i --icons lunatask
+am -i lunatask
