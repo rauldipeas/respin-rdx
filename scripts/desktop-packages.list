@@ -79,6 +79,7 @@ gir1.2-gsound-1.0
 gnome-session
 gnome-software-plugin-flatpak
 gnome-software-plugin-snap
+libcanberra-gtk-module
 libkeybinder-3.0-0
 
 # gnome extensions
