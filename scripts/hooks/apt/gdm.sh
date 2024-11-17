@@ -5,7 +5,7 @@ git clone --depth=1 --single-branch https://github.com/realmazharhussain/gdm-too
 cd gdm-tools
 echo y|./install.sh
 mkdir -p /usr/share/backgrounds/gdm
-convert /usr/share/backgrounds/unsplash/john-towner-JgOeRuGD_Y4-unsplash.jpg -blur 0x60 /usr/share/backgrounds/gdm/blurred_unsplash-gdm.jpg
+convert /usr/share/backgrounds/unsplash/john-towner-JgOeRuGD_Y4-unsplash.jpg -blur 0x30 /usr/share/backgrounds/gdm/blurred_unsplash-gdm.jpg
 set-gdm-theme set Orchis-Dark-Compact /usr/share/backgrounds/gdm/blurred_unsplash-gdm.jpg
 echo y|./uninstall.sh --purge
 cd ..

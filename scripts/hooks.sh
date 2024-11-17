@@ -1,11 +1,11 @@
 #!/bin/bash
 set -e
 cd scripts/hooks
-find . -type f -maxdepth 1 -printf "%f\n" -exec cp {} /tmp/respin-rdx/config/hooks/normal/{}.hook.chroot \;
+find . -type f -name "*.sh" -maxdepth 1 -printf "%f\n" -exec cp {} /tmp/respin-rdx/config/hooks/normal/{}.hook.chroot \;
 cd am
-find . -type f -printf "%f\n" -exec cp {} /tmp/respin-rdx/config/hooks/normal/{}.hook.chroot \;
+find . -type f -name "*.sh" -printf "%f\n" -exec cp {} /tmp/respin-rdx/config/hooks/normal/{}.hook.chroot \;
 cd ../apt
-find . -type f -printf "%f\n" -exec cp {} /tmp/respin-rdx/config/hooks/normal/{}.hook.chroot \;
+find . -type f -name "*.sh" -printf "%f\n" -exec cp {} /tmp/respin-rdx/config/hooks/normal/{}.hook.chroot \;
 mv /tmp/respin-rdx/config/hooks/normal/am.sh.hook.chroot /tmp/respin-rdx/config/hooks/normal/01-am.sh.hook.chroot
 mv /tmp/respin-rdx/config/hooks/normal/flathub.sh.hook.chroot /tmp/respin-rdx/config/hooks/normal/01-flathub.sh.hook.chroot
 mv /tmp/respin-rdx/config/hooks/normal/alsa-firmware.sh.hook.chroot /tmp/respin-rdx/config/hooks/normal/zz-alsa-firmware.sh.hook.chroot
