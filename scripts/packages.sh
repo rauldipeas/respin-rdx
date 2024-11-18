@@ -19,6 +19,7 @@ wget -q --show-progress "$(wget -qO- https://api.github.com/repos/zyedidia/micro
 dpkg-name micro*.deb
 #portmaster
 wget -q --show-progress https://updates.safing.io/latest/linux_amd64/packages/portmaster-installer.deb
+dpkg-name portmaster-installer.deb
 #tribler
 wget -q --show-progress "$(wget -qO- https://api.github.com/repos/Tribler/tribler/releases|grep browser_download_url|grep all.deb|head -n1|cut -d '"' -f4)"
 dpkg-name tribler*.deb
