@@ -28,3 +28,5 @@ wget -qO /etc/rc.local https://github.com/rauldipeas/respin-rdx/raw/main/scripts
 chmod +x /etc/rc.local
 wget -qO /usr/local/bin/reset-user-settings https://github.com/rauldipeas/respin-rdx/raw/main/scripts/hooks/rdx-user-settings.d/reset-user-settings.bash
 chmod +x /usr/local/bin/reset-user-settings
+wget -qO /usr/local/bin/gtk2-fix https://github.com/rauldipeas/respin-rdx/raw/main/scripts/hooks/rdx-user-settings.d/gtk2-fix.bash
+chmod +x /usr/local/bin/gtk2-fix
