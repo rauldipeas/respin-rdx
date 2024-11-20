@@ -25,6 +25,8 @@ pipx install gnome-extensions-cli --system-site-packages
 "$HOME"/.local/bin/gext install trayIconsReloaded@selfmade.pl
 #user themes
 "$HOME"/.local/bin/gext install user-theme@gnome-shell-extensions.gcampax.github.com
+#workspace indicator
+"$HOME"/.local/bin/gext install horizontal-workspace-indicator@tty2.io
 #x11 gestures
 #"$HOME"/.local/bin/gext install x11gestures@joseexposito.github.io
 mkdir -p /opt/rdx-user-settings/gnome-shell
