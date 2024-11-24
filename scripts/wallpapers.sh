@@ -134,42 +134,42 @@ cat <<EOF |tee /tmp/respin-rdx/config/includes.chroot/usr/share/gnome-background
 		<options>zoom</options>
 	</wallpaper>
 	<wallpaper deleted="false">
-		<name>Unknown 1</name>
+		<name>Unknown 2</name>
 		<filename>/usr/share/backgrounds/unknown/abstract-blue-wave-background-digital-art-4k-wallpaper-uhdpaper.com-486@0@f.jpg</filename>
 		<options>zoom</options>
 	</wallpaper>
 	<wallpaper deleted="false">
-		<name>Unknown 1</name>
+		<name>Unknown 3</name>
 		<filename>/usr/share/backgrounds/unknown/abstract-colorful-wave-3-4k.jpg</filename>
 		<options>zoom</options>
 	</wallpaper>
 	<wallpaper deleted="false">
-		<name>Unknown 1</name>
+		<name>Unknown 4</name>
 		<filename>/usr/share/backgrounds/unknown/abstract-digital-art-uhdpaper.com-4K-4.301.jpg</filename>
 		<options>zoom</options>
 	</wallpaper>
 	<wallpaper deleted="false">
-		<name>Unknown 1</name>
+		<name>Unknown 5</name>
 		<filename>/usr/share/backgrounds/unknown/abstract-illustration-colorful-art-15-4k.jpg</filename>
 		<options>zoom</options>
 	</wallpaper>
 	<wallpaper deleted="false">
-		<name>Unknown 1</name>
+		<name>Unknown 6</name>
 		<filename>/usr/share/backgrounds/unknown/backiee-292330-landscape.jpg</filename>
 		<options>zoom</options>
 	</wallpaper>
 	<wallpaper deleted="false">
-		<name>Unknown 1</name>
+		<name>Unknown 7</name>
 		<filename>/usr/share/backgrounds/unknown/Waves-Dark-6016x6016.jpg</filename>
 		<options>zoom</options>
 	</wallpaper>
 	<wallpaper deleted="false">
-		<name>Unknown 1</name>
+		<name>Unknown 8</name>
 		<filename>/usr/share/backgrounds/unknown/Waves-Dark-Alt-6016x6016.jpg</filename>
 		<options>zoom</options>
 	</wallpaper>
 	<wallpaper deleted="false">
-		<name>Unknown 1</name>
+		<name>Unknown 9</name>
 		<filename>/usr/share/backgrounds/unknown/Waves-Light-6016x6016.jpg</filename>
 		<options>zoom</options>
 	</wallpaper>
