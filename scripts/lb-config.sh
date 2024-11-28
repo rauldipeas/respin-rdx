@@ -11,7 +11,7 @@ lb config\
     --bootappend-live "boot=live components cpufreq.default_governor=performance mitigations=off preempt=full quiet splash threadirqs vt.global_cursor_default=0 zswap.enabled=1 zswap.compressor=lz4 zswap.max_pool_percent=20 zswap.zpool=z3fold"\
     --checksums md5\
     --color\
-    --compression xz\
+    --compression lzma\
     --debconf-frontend noninteractive\
     --debian-installer none\
     --distribution bookworm\
