@@ -24,6 +24,7 @@ btrfs-progs
 bzip2
 dropbear
 f2fs-tools
+lzip
 nohang
 ntp
 openssh-sftp-server
