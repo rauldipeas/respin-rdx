@@ -14,6 +14,8 @@ chown -R "$(ls /home)"\
     /opt/muffon\
     /opt/nyrna\
     /opt/onlyoffice\
+    /opt/rclone\
+    /opt/rclone-browser\
     /opt/rustdesk\
     /opt/squirrel-disk\
     /opt/stretchly\
