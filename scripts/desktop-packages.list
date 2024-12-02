@@ -60,12 +60,14 @@ drawing
 eog
 epiphany-browser
 evince
-gedit
+gedit-plugins
 gnome-calculator
 gnome-disk-utility
 gnome-network-displays
 gtkhash
+gthumb
 nemo
+nemo-font-manager
 nemo-gtkhash
 software-properties-gtk
 sysprof
