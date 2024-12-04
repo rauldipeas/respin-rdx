@@ -64,7 +64,7 @@ yarn install
 yarn build
 ln -s "$PWD"/dist "$HOME"/.local/share/gnome-shell/extensions/pano@elhan.io
 cd ..
-rm -r gnome-shell-pane
+rm -r gnome-shell-pano
 #quick settings audio panel
 #"$HOME"/.local/bin/gext install quick-settings-audio-panel@rayzeq.github.io
 git clone https://github.com/Rayzeq/quick-settings-audio-panel "$HOME"/.local/share/gnome-shell/extensions/quick-settings-audio-panel@rayzeq.github.io
