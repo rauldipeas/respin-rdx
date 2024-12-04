@@ -32,7 +32,7 @@ cd Emoji-Copy
 make install
 cd ..
 rm -r Emoji-Copy
-apt autoremove --purge zip
+apt autoremove --purge -y zip
 #extensions-sync
 #"$HOME"/.local/bin/gext install extensions-sync@elhan.io
 apt install -y yarnpkg
