@@ -29,11 +29,13 @@ rm -r gnome-shell-extension-debian-updates-indicator
 apt autoremove --purge -y meson
 #emoji copy
 #"$HOME"/.local/bin/gext install emoji-copy@felipeftn
+apt install -y zip
 git clone https://github.com/FelipeFTN/Emoji-Copy
 cd Emoji-Copy
 make install
 cd ..
 rm Emoji-Copy
+apt autoremove --purge zip
 #extensions-sync
 #"$HOME"/.local/bin/gext install extensions-sync@elhan.io
 apt install -y yarnpkg
