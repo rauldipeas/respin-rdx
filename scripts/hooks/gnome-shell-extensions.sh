@@ -1,7 +1,10 @@
 #!/bin/bash
 set -e
 pipx install gnome-extensions-cli --system-site-packages
-apt install -y git
+wget -qO- https://dl.yarnpkg.com/debian/pubkey.gpg|gpg --dearmor -o /etc/apt/trusted.gpg.d/yarn.gpg
+echo 'deb https://dl.yarnpkg.com/debian/ stable main'|tee /etc/apt/sources.list.d/yarn.list
+apt update
+apt install -y git yarn
 #arcmenu
 #"$HOME"/.local/bin/gext install arcmenu@arcmenu.com
 apt install -y libgettextpo-dev gettext
@@ -35,7 +38,6 @@ rm -r Emoji-Copy
 apt autoremove --purge -y zip
 #extensions-sync
 #"$HOME"/.local/bin/gext install extensions-sync@elhan.io
-apt install -y yarnpkg
 git clone https://github.com/oae/gnome-shell-extensions-sync
 cd gnome-shell-extensions-sync
 yarn install
@@ -43,7 +45,6 @@ yarn build
 ln -s "$PWD"/dist "$HOME"/.local/share/gnome-shell/extensions/extensions-sync@elhan.io
 cd ..
 rm -r gnome-shell-extensions-sync
-#apt autoremove --purge -y yarnpkg
 #forge
 #"$HOME"/.local/bin/gext install forge@jmmaranan.com
 git clone https://github.com/forge-ext/forge
@@ -56,7 +57,6 @@ rm -r forge
 git clone https://github.com/marcinjakubowski/notification-position-reloaded "$HOME"/.local/share/gnome-shell/extensions/notification-banner-reloaded@marcinjakubowski.github.com
 #pano
 #"$HOME"/.local/bin/gext install pano@elhan.io
-#apt install -y yarn
 git clone https://github.com/oae/gnome-shell-pano.git
 cd gnome-shell-pano
 yarn install
@@ -64,7 +64,6 @@ yarn build
 ln -s "$PWD"/dist "$HOME"/.local/share/gnome-shell/extensions/pano@elhan.io
 cd ..
 rm -r gnome-shell-pane
-apt autoremove --purge -y yarnpkg
 #quick settings audio panel
 #"$HOME"/.local/bin/gext install quick-settings-audio-panel@rayzeq.github.io
 git clone https://github.com/Rayzeq/quick-settings-audio-panel "$HOME"/.local/share/gnome-shell/extensions/quick-settings-audio-panel@rayzeq.github.io
@@ -91,6 +90,8 @@ cd ..
 rm -r window-thumbnails
 #x11 gestures
 #"$HOME"/.local/bin/gext install x11gestures@joseexposito.github.io
-apt autoremove --purge -y git
+apt autoremove --purge -y git yarn
+rm /etc/apt/sources.list.d/yarn.list /etc/apt/trusted.gpg.d/yarn.gpg
+apt update
 mkdir -p /opt/rdx-user-settings/gnome-shell
 mv /root/.local/share/gnome-shell/extensions /opt/rdx-user-settings/gnome-shell/
