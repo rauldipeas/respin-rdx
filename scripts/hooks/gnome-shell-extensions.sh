@@ -34,7 +34,7 @@ git clone https://github.com/FelipeFTN/Emoji-Copy
 cd Emoji-Copy
 make install
 cd ..
-rm Emoji-Copy
+rm -r Emoji-Copy
 apt autoremove --purge zip
 #extensions-sync
 #"$HOME"/.local/bin/gext install extensions-sync@elhan.io
@@ -45,7 +45,7 @@ yarn install
 yarn build
 ln -s "$PWD"/dist "$HOME"/.local/share/gnome-shell/extensions/extensions-sync@elhan.io
 cd ..
-rm gnome-shell-extensions-sync
+rm -r gnome-shell-extensions-sync
 #apt autoremove --purge -y yarnpkg
 #forge
 #"$HOME"/.local/bin/gext install forge@jmmaranan.com
@@ -66,7 +66,7 @@ yarn install
 yarn build
 ln -s "$PWD"/dist "$HOME"/.local/share/gnome-shell/extensions/pano@elhan.io
 cd ..
-rm gnome-shell-pane
+rm -r gnome-shell-pane
 apt autoremove --purge -y yarnpkg
 #quick settings audio panel
 #"$HOME"/.local/bin/gext install quick-settings-audio-panel@rayzeq.github.io
@@ -91,7 +91,7 @@ cd window-thumbnails
 git checkout gnome-42-44
 make install
 cd ..
-rm window-thumbnails
+rm -r window-thumbnails
 #x11 gestures
 #"$HOME"/.local/bin/gext install x11gestures@joseexposito.github.io
 apt autoremove --purge -y git
