@@ -49,6 +49,7 @@ rm -r gnome-shell-extensions-sync
 #"$HOME"/.local/bin/gext install forge@jmmaranan.com
 git clone https://github.com/forge-ext/forge
 cd forge
+make build
 make install
 cd ..
 rm -r forge
