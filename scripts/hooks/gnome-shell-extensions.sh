@@ -26,7 +26,7 @@ meson setup --prefix="$HOME"/.local _build
 meson install -C _build
 cd ..
 rm -r gnome-shell-extension-debian-updates-indicator
-apt autoremove --purge meson
+apt autoremove --purge -y meson
 #emoji copy
 #"$HOME"/.local/bin/gext install emoji-copy@felipeftn
 git clone https://github.com/FelipeFTN/Emoji-Copy
