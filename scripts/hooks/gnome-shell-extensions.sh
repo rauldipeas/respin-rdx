@@ -19,14 +19,11 @@ cd ..
 rm -r blur-my-shell
 #debian-updates-indicator
 #"$HOME"/.local/bin/gext install debian-updates-indicator@glerro.pm.me
-apt install -y meson
-git clone https://gitlab.gnome.org/glerro/gnome-shell-extension-debian-updates-indicator
-cd gnome-shell-extension-debian-updates-indicator
-meson setup --prefix="$HOME"/.local _build
-meson install -C _build
+git clone https://github.com/franglais125/apt-update-indicator
+cd apt-update-indicator
+make install
 cd ..
-rm -r gnome-shell-extension-debian-updates-indicator
-apt autoremove --purge -y meson
+rm -r apt-update-indicator
 #emoji copy
 #"$HOME"/.local/bin/gext install emoji-copy@felipeftn
 apt install -y zip
