@@ -1,6 +1,7 @@
 #!/bin/bash
 set -e
 pipx install gnome-extensions-cli --system-site-packages
+apt install -y git
 #arcmenu
 #"$HOME"/.local/bin/gext install arcmenu@arcmenu.com
 apt install -y libgettextpo-dev gettext
@@ -91,5 +92,6 @@ cd ..
 rm window-thumbnails
 #x11 gestures
 #"$HOME"/.local/bin/gext install x11gestures@joseexposito.github.io
+apt autoremove --purge -y git
 mkdir -p /opt/rdx-user-settings/gnome-shell
 mv /root/.local/share/gnome-shell/extensions /opt/rdx-user-settings/gnome-shell/
