@@ -4,7 +4,7 @@ pipx install gnome-extensions-cli --system-site-packages
 wget -qO- https://dl.yarnpkg.com/debian/pubkey.gpg|gpg --dearmor -o /etc/apt/trusted.gpg.d/yarn.gpg
 echo 'deb https://dl.yarnpkg.com/debian/ stable main'|tee /etc/apt/sources.list.d/yarn.list
 apt update
-apt install -y git yarn
+apt install -y git yarn zip
 #arcmenu
 #"$HOME"/.local/bin/gext install arcmenu@arcmenu.com
 apt install -y libgettextpo-dev gettext
@@ -29,13 +29,11 @@ cd ..
 rm -r apt-update-indicator
 #emoji copy
 #"$HOME"/.local/bin/gext install emoji-copy@felipeftn
-apt install -y zip
 git clone https://github.com/FelipeFTN/Emoji-Copy
 cd Emoji-Copy
 make install
 cd ..
 rm -r Emoji-Copy
-apt autoremove --purge -y zip
 #extensions-sync
 #"$HOME"/.local/bin/gext install extensions-sync@elhan.io
 git clone https://github.com/oae/gnome-shell-extensions-sync
@@ -91,7 +89,7 @@ cd ..
 rm -r window-thumbnails
 #x11 gestures
 #"$HOME"/.local/bin/gext install x11gestures@joseexposito.github.io
-apt autoremove --purge -y git yarn
+apt autoremove --purge -y git yarn zip
 rm /etc/apt/sources.list.d/yarn.list /etc/apt/trusted.gpg.d/yarn.gpg
 apt update
 mkdir -p /opt/rdx-user-settings/gnome-shell
