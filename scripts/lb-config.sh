@@ -18,7 +18,7 @@ lb config\
     --distribution bookworm\
     --image-name "respin-rdx"\
     --iso-application "Respin RDX"\
-    --iso-publisher "Respin RDX; https://respin-rdx.sourceforge.io; respin-rdx.rauldipeas@lock.email"\
+    --iso-publisher "Respin RDX; https://respin-rdx.sourceforge.io; respin-rdx@rauldipeas.com.br"\
     --iso-volume "Respin RDX"\
     --linux-packages "$LATEST_LINUX_IMAGE $LATEST_LINUX_HEADERS"\
     --mirror-bootstrap "https://deb.debian.org/debian/"\
