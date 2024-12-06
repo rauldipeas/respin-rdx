@@ -11,6 +11,9 @@ cd /tmp/respin-rdx/config/packages.chroot
 #atuin
 wget -q --show-progress "$(wget -qO- https://api.github.com/repos/ellie/atuin/releases|grep browser_download_url|grep .deb|head -n1|cut -d '"' -f4)"
 dpkg-name atuin*.deb
+#container-desktop
+wget -q --show-progress "$(wget -qO- https://api.github.com/repos/iongion/container-desktop/releases|grep browser_download_url|grep amd64|grep .deb|head -n1|cut -d '"' -f4)"
+dpkg-name container-desktop*.deb
 #gpu-viewer
 wget -q --show-progress "$(wget -qO- https://api.github.com/repos/arunsivaramanneo/GPU-Viewer/releases|grep browser_download_url|grep .deb|head -n1|cut -d '"' -f4)"
 dpkg-name gpu-viewer*.deb

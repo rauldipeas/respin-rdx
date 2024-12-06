@@ -13,6 +13,8 @@ pipx install gnome-extensions-cli --system-site-packages
 #make install
 #cd ..
 #rm -r ArcMenu
+#bluetooth quick connect
+"$HOME"/.local/bin/gext install bluetooth-quick-connect@bjarosze.gmail.com
 #blur my shell
 "$HOME"/.local/bin/gext install blur-my-shell@aunetx
 #git clone https://github.com/aunetx/blur-my-shell
@@ -66,6 +68,8 @@ pipx install gnome-extensions-cli --system-site-packages
 #quick settings audio panel
 "$HOME"/.local/bin/gext install quick-settings-audio-panel@rayzeq.github.io
 #git clone https://github.com/Rayzeq/quick-settings-audio-panel "$HOME"/.local/share/gnome-shell/extensions/quick-settings-audio-panel@rayzeq.github.io
+#rounded window corners
+"$HOME"/.local/bin/gext install rounded-window-corners@yilozt
 #status area horizontal spacing
 "$HOME"/.local/bin/gext install status-area-horizontal-spacing@mathematical.coffee.gmail.com
 #git clone https://gitlab.com/p91paul/status-area-horizontal-spacing-gnome-shell-extension
