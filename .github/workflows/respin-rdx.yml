@@ -29,7 +29,7 @@ jobs:
       - name: MEGA upload
         uses: Mamami-Digital/action-megacmd@master
         with:
-          args: -force=true put -c ./respin-rdx*.iso /respin-rdx/
+          args: put -c ./respin-rdx*.iso /respin-rdx/
         env:
           USERNAME: ${{ secrets.MEGA_USERNAME }}
           PASSWORD: ${{ secrets.MEGA_PASSWORD }}
