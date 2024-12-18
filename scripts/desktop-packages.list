@@ -1,5 +1,6 @@
 # cli/tui
 bash-completion
+cpufrequtils
 curl
 distrobox
 extrepo
