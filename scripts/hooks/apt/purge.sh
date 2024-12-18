@@ -11,6 +11,7 @@ apt autoremove --purge -y\
     libyelp0\
     network-manager-gnome\
     pipewire-pulse\
+    raspi-firmware\
     rygel\
     wireplumber\
     yelp\
