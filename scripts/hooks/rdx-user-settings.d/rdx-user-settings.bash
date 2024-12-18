@@ -14,7 +14,7 @@ if ! [ -f "$HOME"/.rdx-user-settings ];then
     if [ "$(xrandr --query|grep -c ' connected')" -eq 1 ]; then
         dconf load / < /opt/rdx-user-settings/dconf-settings.ini
         else
-        sed 's/{"0":/{"1":/' /opt/rdx-user-settings/dconf-settings.ini|dconf load /
+        sed 's|{"0":|{"1":|' /opt/rdx-user-settings/dconf-settings.ini|dconf load /
     fi
     #gnome-shell-extensions
     cp -r /opt/rdx-user-settings/gnome-shell "$HOME"/.local/share/
