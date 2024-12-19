@@ -10,6 +10,7 @@ apt autoremove --purge -y\
     libsbig4\
     libyelp0\
     network-manager-gnome\
+    "*nvidia*"\
     pipewire-pulse\
     raspi-firmware\
     rygel\
