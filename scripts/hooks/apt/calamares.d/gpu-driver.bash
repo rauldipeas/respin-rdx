@@ -1,6 +1,7 @@
 #!/bin/bash
 set -e
 if [ "$(cut -d' ' -f9 <(grep NVIDIA <(sudo lshw -C display)))" == NVIDIA ];then
+    sudo apt autoremove --purge -y "*nvidia*"
     sudo apt install -y -t bookworm-backports firmware-misc-nonfree nvidia-driver
     echo 'NVIDIA'|sudo tee /home/"$(ls /home)"/.gpu-driver>/dev/null
 elif [ "$(cut -d' ' -f9 <(grep AMD <(sudo lshw -C display)))" == AMD ];then

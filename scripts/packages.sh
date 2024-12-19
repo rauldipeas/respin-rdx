@@ -23,6 +23,9 @@ dpkg-name portmaster-installer.deb
 #rclonetray
 wget -q --show-progress "$(wget -qO- https://api.github.com/repos/dimitrov-adrian/RcloneTray/releases|grep browser_download_url|grep .deb|head -n1|cut -d '"' -f4)"
 dpkg-name rclonetray*.deb
+#rustdesk
+wget -q --show-progress "$(wget -qO- https://api.github.com/repos/rustdesk/rustdesk/releases|grep browser_download_url|grep x86_64.deb|head -n1|cut -d '"' -f4)"
+dpkg-name rustdesk*.deb
 #tribler
 wget -q --show-progress "$(wget -qO- https://api.github.com/repos/Tribler/tribler/releases|grep browser_download_url|grep all.deb|head -n1|cut -d '"' -f4)"
 dpkg-name tribler*.deb

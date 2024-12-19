@@ -16,7 +16,6 @@ chown -R "$(ls /home)"\
     /opt/onlyoffice\
     /opt/rclone\
     /opt/rclone-browser\
-    /opt/rustdesk\
     /opt/squirrel-disk\
     /opt/stretchly\
     /opt/topgrade\
