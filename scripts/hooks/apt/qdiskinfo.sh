@@ -1,3 +1,3 @@
 #!/bin/bash
 set -e
-apt install -y -t bookworm-backports qdiskinfo
+apt install -y -t trixie-backports qdiskinfo

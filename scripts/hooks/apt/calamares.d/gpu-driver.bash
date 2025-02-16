@@ -2,7 +2,7 @@
 set -e
 if [ "$(cut -d' ' -f9 <(grep NVIDIA <(lshw -C display)))" == NVIDIA ];then
     apt install -y nvidia-detect
-    apt install -y -t bookworm-backports firmware-misc-nonfree "$(nvidia-detect|grep nvidia-|cut -d ' ' -f5)"
+    apt install -y -t trixie-backports firmware-misc-nonfree "$(nvidia-detect|grep nvidia-|cut -d ' ' -f5)"
     echo 'options nvidia-drm modeset=1'|tee /etc/modprobe.d/nvidia-drm.conf>/dev/null
     update-initramfs -u -k all
     echo 'NVIDIA'|tee /home/"$(ls /home)"/.gpu-driver>/dev/null
@@ -18,6 +18,8 @@ EOF
     fi
 elif [ "$(cut -d' ' -f9 <(grep AMD <(lshw -C display)))" == AMD ];then
     echo 'AMD'|tee /home/"$(ls /home)"/.gpu-driver>/dev/null
+elif [ "$(cut -d' ' -f9 <(grep Radeon <(lshw -C display)))" == Radeon ];then
+    echo 'Radeon'|tee /home/"$(ls /home)"/.gpu-driver>/dev/null
 elif [ "$(cut -d' ' -f9 <(grep Intel <(lshw -C display)))" == Intel ];then
     cat <<EOF |tee /etc/X11/xorg.conf.d/20-intel.conf>/dev/null
 Section "Device"

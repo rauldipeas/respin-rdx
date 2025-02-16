@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
-LATEST_LINUX_IMAGE="$(wget -qO- 'https://packages.debian.org/search?suite=bookworm-backports&searchon=names&keywords=bpo-amd64'|grep linux-image|grep -v unsigned|grep -v dbg|grep -v 6.9|grep -v 6.10|grep -v 6.11|head -n1|cut -d' ' -f4|cut -d'<' -f1|sed 's|-amd64||')"
-LATEST_LINUX_HEADERS="$(wget -qO- 'https://packages.debian.org/search?suite=bookworm-backports&searchon=names&keywords=bpo-amd64'|grep linux-headers|grep -v unsigned|grep -v dbg|grep -v 6.9|grep -v 6.10|grep -v 6.11|head -n1|cut -d' ' -f4|cut -d'<' -f1|sed 's|-amd64||')"
+LATEST_LINUX_IMAGE="$(wget -qO- 'https://packages.debian.org/search?suite=trixie-backports&searchon=names&keywords=bpo-amd64'|grep linux-image|grep -v unsigned|grep -v dbg|grep -v 6.9|grep -v 6.10|grep -v 6.11|head -n1|cut -d' ' -f4|cut -d'<' -f1|sed 's|-amd64||')"
+LATEST_LINUX_HEADERS="$(wget -qO- 'https://packages.debian.org/search?suite=trixie-backports&searchon=names&keywords=bpo-amd64'|grep linux-headers|grep -v unsigned|grep -v dbg|grep -v 6.9|grep -v 6.10|grep -v 6.11|head -n1|cut -d' ' -f4|cut -d'<' -f1|sed 's|-amd64||')"
 cd /tmp/respin-rdx
 lb config\
     --apt-source-archives false\
@@ -15,7 +15,7 @@ lb config\
     --compression xz\
     --debconf-frontend noninteractive\
     --debian-installer none\
-    --distribution bookworm\
+    --distribution trixie\
     --image-name "respin-rdx"\
     --iso-application "Respin RDX"\
     --iso-publisher "Respin RDX; https://respin-rdx.sourceforge.io; respin-rdx@rauldipeas.com.br"\
