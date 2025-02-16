@@ -3,7 +3,7 @@ set -e
 mkdir -p /tmp/respin-rdx/config/includes.chroot/etc/apt/preferences.d
 cat <<EOF |tee /tmp/respin-rdx/config/includes.chroot/etc/apt/preferences.d/backports.pref>/dev/null
 Package: *
-Pin: release n=trixie-backports
+Pin: release n=bookworm-backports
 Pin-Priority: -1
 EOF
 cp scripts/desktop-packages.list /tmp/respin-rdx/config/package-lists/desktop.list.chroot
