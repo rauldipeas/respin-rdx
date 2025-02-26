@@ -30,8 +30,8 @@ dpkg-name rustdesk*.deb
 wget -q --show-progress "$(wget -qO- https://api.github.com/repos/Tribler/tribler/releases|grep browser_download_url|grep all.deb|head -n1|cut -d '"' -f4)"
 dpkg-name tribler*.deb
 #veracrypt
-wget -q --show-progress "$(wget -qO- https://www.veracrypt.fr/en/Downloads.html|grep amd64.deb|head -n1|cut -d '"' -f2|sed 's|&#43;|+|')"
-dpkg-name veracrypt*.deb
+#wget -q --show-progress "$(wget -qO- https://www.veracrypt.fr/en/Downloads.html|grep amd64.deb|head -n1|cut -d '"' -f2|sed 's|&#43;|+|')"
+#dpkg-name veracrypt*.deb
 #sparkleshare
 #wget -q --show-progress https://github.com/rauldipeas/respin-rdx/raw/main/assets/deb/libappindicator3-0.1-cil_12.10.0+git20151221-5.1_amd64.deb
 #wget -q --show-progress https://github.com/rauldipeas/respin-rdx/raw/main/assets/deb/libwebkit2-sharp-4.0-cil_2.10.9+git20160917-1.1_amd64.deb

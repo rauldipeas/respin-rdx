@@ -6,6 +6,7 @@ chown -R "$(ls /home)"\
     /opt/bat\
     /opt/casterr\
     /opt/chat-gpt\
+    /opt/cryptomator\
     /opt/fd\
     /opt/freetube\
     /opt/got\
