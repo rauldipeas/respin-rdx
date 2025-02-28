@@ -34,6 +34,7 @@ preload
 pulseaudio
 pulseaudio-module-bluetooth
 pulseaudio-module-jack
+rtirq-init
 torsocks
 xfsprogs
 xz-utils
