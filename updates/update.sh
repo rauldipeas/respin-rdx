@@ -4,10 +4,10 @@ set -e
 # Alpha 0.2
 sudo nala install -y -t bookworm-backports\
     linux-headers-rt\
-    linux-image-rt
+    linux-image-rt #;sudo nala autoremove --purge linux*generic*
 sudo nala install -y\
     rtirq-init
-am -i cryptomator
+am -i cryptomator #;sudo nala autoremove --purge veracrypt
 
 # 09/03/2025 | 19:38
 am icons mission-center
