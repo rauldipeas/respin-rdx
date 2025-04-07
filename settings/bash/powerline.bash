@@ -1,1 +1,0 @@
-. /usr/share/powerline/bindings/bash/powerline.sh

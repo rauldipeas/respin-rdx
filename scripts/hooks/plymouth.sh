@@ -6,12 +6,6 @@ rm debian-mac-style.zip
 cp -R debian-mac-style /usr/share/plymouth/themes/
 rm -r debian-mac-style
 plymouth-set-default-theme -R debian-mac-style
-#wget -q --show-progress https://github.com/rauldipeas/respin-rdx/raw/main/assets/compressed/rings_2.tar.gz
-#tar -xf rings_2.tar.gz
-#rm rings_2.tar.gz
-#cp -R rings_2 /usr/share/plymouth/themes/
-#rm -r rings_2
-#plymouth-set-default-theme -R rings_2
 update-initramfs -u
 mkdir -p /etc/systemd/system/display-manager.service.d
 cat <<EOF |tee /etc/systemd/system/display-manager.service.d/plymouth.conf>/dev/null
