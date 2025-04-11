@@ -7,6 +7,7 @@ if [ "$(cut -d' ' -f9 <(grep NVIDIA <(lshw -C display)))" == NVIDIA ];then
     update-initramfs -u -k all
     echo 'NVIDIA'|tee /home/"$(ls /home)"/.gpu-driver>/dev/null
     if [ "$(cut -d' ' -f9 <(grep Intel <(lshw -C display)))" == Intel ];then
+        apt install -y -t bookworm-backports libgl1-mesa-dri libglx-mesa0 mesa-vulkan-drivers mesa-va-drivers mesa-utils libegl-mesa0 libgbm1 libglapi-mesa
         cat <<EOF |tee /etc/X11/xorg.conf.d/20-intel.conf>/dev/null
 Section "Device"
    Identifier  "Intel Graphics"
@@ -17,10 +18,13 @@ EOF
         echo 'Intel+NVIDIA'|tee /home/"$(ls /home)"/.gpu-driver>/dev/null
     fi
 elif [ "$(cut -d' ' -f9 <(grep AMD <(lshw -C display)))" == AMD ];then
+    apt install -y -t bookworm-backports libgl1-mesa-dri libglx-mesa0 mesa-vulkan-drivers mesa-va-drivers mesa-utils libegl-mesa0 libgbm1 libglapi-mesa
     echo 'AMD'|tee /home/"$(ls /home)"/.gpu-driver>/dev/null
 elif [ "$(cut -d' ' -f9 <(grep Radeon <(lshw -C display)))" == Radeon ];then
+    apt install -y -t bookworm-backports libgl1-mesa-dri libglx-mesa0 mesa-vulkan-drivers mesa-va-drivers mesa-utils libegl-mesa0 libgbm1 libglapi-mesa
     echo 'Radeon'|tee /home/"$(ls /home)"/.gpu-driver>/dev/null
 elif [ "$(cut -d' ' -f9 <(grep Intel <(lshw -C display)))" == Intel ];then
+    apt install -y -t bookworm-backports libgl1-mesa-dri libglx-mesa0 mesa-vulkan-drivers mesa-va-drivers mesa-utils libegl-mesa0 libgbm1 libglapi-mesa
     cat <<EOF |tee /etc/X11/xorg.conf.d/20-intel.conf>/dev/null
 Section "Device"
    Identifier  "Intel Graphics"
