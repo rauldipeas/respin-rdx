@@ -30,7 +30,7 @@ sudo nala install -y -t bookworm-backports\
 
 # 27/04/2025 | 16:23
 # XFCE
-echo 'deb http://ppa.launchpad.net/xubuntu-dev/extras/ubuntu noble main'|sudo tee /etc/apt/sources.list.d/xubuntu-dev-extras.list
+echo 'deb http://ppa.launchpad.net/xubuntu-dev/extras/ubuntu jammy main'|sudo tee /etc/apt/sources.list.d/xubuntu-dev-extras.list
 wget -qO- 'https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x53337a2d3790f409a00fe5bc4ed101bbe463faab'|sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/xubuntu-dev-extras.gpg
 sudo apt update
 sudo nala install -y --no-install-recommends xfce4
@@ -40,7 +40,8 @@ sudo nala install -y \
     pavucontrol \
     volumeicon-alsa \
     xfce4-docklike-plugin \
-    xfce4-power-manager
+    xfce4-power-manager \
+    xfce4-whiskermenu-plugin
 wget -qO- "$(wget -qO- https://api.github.com/repos/leukipp/cortile/releases/latest|jq -r '.assets[] | select(.name | contains ("linux_amd64.tar.gz")) | .browser_download_url')"|tar -xz
 rm LICENSE README.md
 mv cortile /usr/local/bin

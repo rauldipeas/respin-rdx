@@ -29,7 +29,7 @@
       <property name="style" type="uint" value="0"/>
     </property>
     <property name="plugin-6" type="string" value="systray">
-      <property name="square-icons" type="bool" value="false"/>
+      <property name="square-icons" type="bool" value="true"/>
       <property name="known-items" type="array">
         <value type="string" value="tray-icon tray app"/>
         <value type="string" value="indicator-timekpr"/>
@@ -38,7 +38,7 @@
         <value type="string" value="ethernet network connection “wired connection 1” active"/>
         <value type="string" value="volumeicon"/>
       </property>
-      <property name="icon-size" type="int" value="28"/>
+      <property name="icon-size" type="int" value="22"/>
       <property name="single-row" type="bool" value="true"/>
       <property name="hide-new-items" type="bool" value="false"/>
       <property name="symbolic-icons" type="bool" value="false"/>
