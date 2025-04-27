@@ -16,7 +16,7 @@ cat <<EOF |sudo tee -a /usr/local/share/applications/mission-center-AM.desktop
 StartupWMClass=missioncenter
 EOF
 
-# 10/04/2024 | 23:36
+# 10/04/2025 | 23:36
 sudo apt install -y -t bookworm-backports nala
 sudo nala install -y -t bookworm-backports\
     libgl1-mesa-dri \
@@ -27,3 +27,26 @@ sudo nala install -y -t bookworm-backports\
     libegl-mesa0 \
     libgbm1 \
     libglapi-mesa
+
+# 27/04/2025 | 16:23
+# XFCE
+sudo nala install -y --no-install-recommends xfce4
+sudo nala install -y \
+    pavucontrol \
+    mugshot \
+    docklike \
+    volumeicon-alsa \
+    network-manager-gnome \
+    xfce4-power-manager
+sudo mkdir -p /opt/rdx-user-settings/xfce/{volumeicon,xfce4/panel,xfce4/xfconf/xfce-perchannel-xml}
+sudo wget -qO /opt/rdx-user-settings/xfce/volumeicon/volumeicon https://github.com/rauldipeas/respin-rdx/raw/main/settings/xfce/volumeicon/volumeicon
+sudo wget -qO /opt/rdx-user-settings/xfce/xfce4/panel/docklike-4.rc https://github.com/rauldipeas/respin-rdx/raw/main/settings/xfce/xfce4/panel/docklike-4.rc
+sudo wget -qO /opt/rdx-user-settings/xfce/xfce4/panel/whiskermenu-1.rc https://github.com/rauldipeas/respin-rdx/raw/main/settings/xfce/xfce4/panel/whiskermenu-1.rc
+sudo wget -qO /opt/rdx-user-settings/xfce/xfce4/xfconf/xfce-perchannel-xml/thunar.xml https://github.com/rauldipeas/respin-rdx/raw/main/settings/xfce/xfce4/xfconf/xfce-perchannel-xml/thunar.xml
+sudo wget -qO /opt/rdx-user-settings/xfce/xfce4/xfconf/xfce-perchannel-xml/xfce4-desktop.xml https://github.com/rauldipeas/respin-rdx/raw/main/settings/xfce/xfce4/xfconf/xfce-perchannel-xml/xfce4-desktop.xml
+sudo wget -qO /opt/rdx-user-settings/xfce/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml https://github.com/rauldipeas/respin-rdx/raw/main/settings/xfce/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
+sudo wget -qO /opt/rdx-user-settings/xfce/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml https://github.com/rauldipeas/respin-rdx/raw/main/settings/xfce/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml
+sudo wget -qO /opt/rdx-user-settings/xfce/xfce4/xfconf/xfce-perchannel-xml/xfwm4.xml https://github.com/rauldipeas/respin-rdx/raw/main/settings/xfce/xfce4/xfconf/xfce-perchannel-xml/xfwm4.xml
+sudo wget -qO /opt/rdx-user-settings/xfce/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml https://github.com/rauldipeas/respin-rdx/raw/main/settings/xfce/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml
+cp -r /opt/rdx-user-settings/xfce/volumeicon "$HOME"/.config/volumeicon
+cp -r /opt/rdx-user-settings/xfce/xfce4 "$HOME"/.config/xfce4

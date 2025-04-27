@@ -33,5 +33,8 @@ if ! [ -f "$HOME"/.rdx-user-settings ];then
     #xdg-mime
     xdg-mime default gnome-software-local-file-packagekit.desktop application/vnd.debian.binary-package
     xdg-mime default nemo.desktop inode/directory
+    #xfce
+    cp -r /opt/rdx-user-settings/xfce/volumeicon "$HOME"/.config/volumeicon
+    cp -r /opt/rdx-user-settings/xfce/xfce4 "$HOME"/.config/xfce4
     touch "$HOME"/.rdx-user-settings
 fi
