@@ -8,7 +8,9 @@ set -e
 xfce4 --no-install-recommends #settings #menu #thunar
 pavucontrol #menu
 mugshot #menu
-docklike #ppa
-volumeicon-alsa #settings
+xfce4-docklike-plugin #ppa #settings
+volumeicon-alsa #settings #autostart
 network-manager-gnome #menu
 xfce4-power-manager
+xfce4-whiskermenu-plugin #settings
+cortile #settings #autostart
