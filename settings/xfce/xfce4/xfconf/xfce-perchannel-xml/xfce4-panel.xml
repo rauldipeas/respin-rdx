@@ -52,7 +52,7 @@
     </property>
     <property name="plugin-12" type="string" value="clock">
       <property name="digital-layout" type="uint" value="3"/>
-      <property name="digital-time-font" type="string" value="Quicksand 12"/>
+      <property name="digital-time-font" type="string" value="Quicksand Bold 12"/>
       <property name="digital-time-format" type="string" value="%R    "/>
     </property>
     <property name="plugin-1" type="string" value="whiskermenu"/>
