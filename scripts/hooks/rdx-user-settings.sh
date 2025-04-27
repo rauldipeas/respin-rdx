@@ -30,7 +30,7 @@ wget -qO /usr/local/bin/gtk2-fix https://github.com/rauldipeas/respin-rdx/raw/ma
 chmod +x /usr/local/bin/gtk2-fix
 
 # xfce
-mkdir -p /opt/rdx-user-settings/xfce/{volumeicon,xfce4/panel,xfce4/xfconf/xfce-perchannel-xml}
+mkdir -p /opt/rdx-user-settings/xfce/{cortile,volumeicon,xfce4/panel,xfce4/xfconf/xfce-perchannel-xml}
 wget -qO /opt/rdx-user-settings/xfce/volumeicon/volumeicon https://github.com/rauldipeas/respin-rdx/raw/main/settings/xfce/volumeicon/volumeicon
 wget -qO /opt/rdx-user-settings/xfce/xfce4/panel/docklike-4.rc https://github.com/rauldipeas/respin-rdx/raw/main/settings/xfce/xfce4/panel/docklike-4.rc
 wget -qO /opt/rdx-user-settings/xfce/xfce4/panel/whiskermenu-1.rc https://github.com/rauldipeas/respin-rdx/raw/main/settings/xfce/xfce4/panel/whiskermenu-1.rc
@@ -40,3 +40,4 @@ wget -qO /opt/rdx-user-settings/xfce/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyb
 wget -qO /opt/rdx-user-settings/xfce/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml https://github.com/rauldipeas/respin-rdx/raw/main/settings/xfce/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml
 wget -qO /opt/rdx-user-settings/xfce/xfce4/xfconf/xfce-perchannel-xml/xfwm4.xml https://github.com/rauldipeas/respin-rdx/raw/main/settings/xfce/xfce4/xfconf/xfce-perchannel-xml/xfwm4.xml
 wget -qO /opt/rdx-user-settings/xfce/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml https://github.com/rauldipeas/respin-rdx/raw/main/settings/xfce/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml
+wget -qO- https://raw.githubusercontent.com/leukipp/cortile/refs/heads/main/config.toml|sed 's/tiling_enabled = true/tiling_enabled = false/g'|sed 's/tiling_layout = "vertical-right"/tiling_layout = "vertical-left"/g'|tee /opt/rdx-user-settings/xfce/cortile/config.toml
