@@ -28,3 +28,15 @@ wget -qO /usr/local/bin/reset-user-settings https://github.com/rauldipeas/respin
 chmod +x /usr/local/bin/reset-user-settings
 wget -qO /usr/local/bin/gtk2-fix https://github.com/rauldipeas/respin-rdx/raw/main/scripts/hooks/rdx-user-settings.d/gtk2-fix.bash
 chmod +x /usr/local/bin/gtk2-fix
+
+# xfce
+mkdir -p /opt/rdx-user-settings/xfce/{volumeicon,xfce4/panel,xfce4/xfconf/xfce-perchannel-xml}
+wget -qO /opt/rdx-user-settings/xfce/volumeicon/volumeicon https://github.com/rauldipeas/respin-rdx/raw/main/settings/xfce/volumeicon/volumeicon
+wget -qO /opt/rdx-user-settings/xfce/xfce4/panel/docklike-4.rc https://github.com/rauldipeas/respin-rdx/raw/main/settings/xfce/xfce4/panel/docklike-4.rc
+wget -qO /opt/rdx-user-settings/xfce/xfce4/panel/whiskermenu-1.rc https://github.com/rauldipeas/respin-rdx/raw/main/settings/xfce/xfce4/panel/whiskermenu-1.rc
+wget -qO /opt/rdx-user-settings/xfce/xfce4/xfconf/xfce-perchannel-xml/thunar.xml https://github.com/rauldipeas/respin-rdx/raw/main/settings/xfce/xfce4/xfconf/xfce-perchannel-xml/thunar.xml
+wget -qO /opt/rdx-user-settings/xfce/xfce4/xfconf/xfce-perchannel-xml/xfce4-desktop.xml https://github.com/rauldipeas/respin-rdx/raw/main/settings/xfce/xfce4/xfconf/xfce-perchannel-xml/xfce4-desktop.xml
+wget -qO /opt/rdx-user-settings/xfce/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml https://github.com/rauldipeas/respin-rdx/raw/main/settings/xfce/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
+wget -qO /opt/rdx-user-settings/xfce/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml https://github.com/rauldipeas/respin-rdx/raw/main/settings/xfce/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml
+wget -qO /opt/rdx-user-settings/xfce/xfce4/xfconf/xfce-perchannel-xml/xfwm4.xml https://github.com/rauldipeas/respin-rdx/raw/main/settings/xfce/xfce4/xfconf/xfce-perchannel-xml/xfwm4.xml
+wget -qO /opt/rdx-user-settings/xfce/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml https://github.com/rauldipeas/respin-rdx/raw/main/settings/xfce/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml
