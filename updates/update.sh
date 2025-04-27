@@ -30,14 +30,20 @@ sudo nala install -y -t bookworm-backports\
 
 # 27/04/2025 | 16:23
 # XFCE
+echo 'deb http://ppa.launchpad.net/xubuntu-dev/extras/ubuntu noble main'|sudo tee /etc/apt/sources.list.d/xubuntu-dev-extras.list
+wget -qO- 'https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x53337a2d3790f409a00fe5bc4ed101bbe463faab'|sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/xubuntu-dev-extras.gpg
+sudo apt update
 sudo nala install -y --no-install-recommends xfce4
 sudo nala install -y \
-    pavucontrol \
     mugshot \
-    docklike \
-    volumeicon-alsa \
     network-manager-gnome \
+    pavucontrol \
+    volumeicon-alsa \
+    xfce4-docklike-plugin \
     xfce4-power-manager
+wget -qO- "$(wget -qO- https://api.github.com/repos/leukipp/cortile/releases/latest|jq -r '.assets[] | select(.name | contains ("linux_amd64.tar.gz")) | .browser_download_url')"|tar -xz
+rm LICENSE README.md
+mv cortile /usr/local/bin
 sudo mkdir -p /opt/rdx-user-settings/xfce/{volumeicon,xfce4/panel,xfce4/xfconf/xfce-perchannel-xml}
 sudo wget -qO /opt/rdx-user-settings/xfce/volumeicon/volumeicon https://github.com/rauldipeas/respin-rdx/raw/main/settings/xfce/volumeicon/volumeicon
 sudo wget -qO /opt/rdx-user-settings/xfce/xfce4/panel/docklike-4.rc https://github.com/rauldipeas/respin-rdx/raw/main/settings/xfce/xfce4/panel/docklike-4.rc
