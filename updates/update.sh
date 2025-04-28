@@ -49,7 +49,7 @@ sudo nala install -y \
 wget -qO- "$(wget -qO- https://api.github.com/repos/leukipp/cortile/releases/latest|jq -r '.assets[] | select(.name | contains ("linux_amd64.tar.gz")) | .browser_download_url')"|tar -xz
 rm LICENSE README.md
 mv cortile /usr/local/bin
-cat <<EOF |tee /etc/init.d/autostart/cortile.desktop
+cat <<EOF |tee /etc/xdg/autostart/cortile.desktop
 [Desktop Entry]
 Version=1.0
 Type=Application
@@ -59,7 +59,7 @@ Name=Cortile
 Exec=cortile
 OnlyShowIn=XFCE;
 EOF
-cat <<EOF |tee /etc/init.d/autostart/volumeicon.desktop
+cat <<EOF |tee /etc/xdg/autostart/volumeicon.desktop
 [Desktop Entry]
 Version=1.0
 Type=Application
