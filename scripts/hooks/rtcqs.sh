@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/bash
 set -e
 # swappiness
 cat <<EOF |tee -a /etc/sysctl.d/swappiness.conf>/dev/null

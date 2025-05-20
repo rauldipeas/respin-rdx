@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/bash
 
 # bashrc.d
 for script in "$HOME"/.bashrc.d/*.bash;do

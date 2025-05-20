@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/bash
 set -e
 find . -name "*splash*" -delete
 wget -q --show-progress https://github.com/rauldipeas/respin-rdx/raw/main/assets/compressed/debian-1080p.zip

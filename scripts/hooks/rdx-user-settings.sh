@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/bash
 set -e
 mkdir -p /opt/rdx-user-settings/bash
 wget -qO /opt/rdx-user-settings/bash/bashrc https://github.com/rauldipeas/respin-rdx/raw/main/settings/bash/bashrc

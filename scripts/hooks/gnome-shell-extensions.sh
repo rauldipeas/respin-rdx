@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/bash
 set -e
 pipx install gnome-extensions-cli --system-site-packages
 #wget -qO- https://dl.yarnpkg.com/debian/pubkey.gpg|gpg --dearmor -o /etc/apt/trusted.gpg.d/yarn.gpg

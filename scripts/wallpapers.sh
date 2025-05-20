@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/bash
 set -e
 mkdir -p /tmp/respin-rdx/config/includes.chroot/usr/share/{backgrounds,gnome-background-properties}
 cp -r assets/unsplash /tmp/respin-rdx/config/includes.chroot/usr/share/backgrounds/unsplash

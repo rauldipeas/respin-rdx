@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/bash
 set -e
 debconf-set-selections <<< 'jackd2 jackd/tweak_rt_limits string true'
 cat <<EOF |tee /etc/apt/preferences.d/qjackctl.pref>/dev/null

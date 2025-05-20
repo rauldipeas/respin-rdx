@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/bash
 set -e
 # extrepo
 sed -i 's|# -|-|' /etc/extrepo/config.yaml

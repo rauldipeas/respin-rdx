@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/bash
 set -e
 apt autoremove --purge -y\
     apache2-bin\

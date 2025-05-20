@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/bash
 set -e
 am -i --icons onlyoffice
 sed -i 's|Icon=onlyoffice|Icon=asc-de|' /usr/local/share/applications/onlyoffice-AM.desktop

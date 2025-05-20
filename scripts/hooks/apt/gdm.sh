@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/bash
 set -e
 apt install -y git imagemagick
 git clone --depth=1 --single-branch https://github.com/realmazharhussain/gdm-tools

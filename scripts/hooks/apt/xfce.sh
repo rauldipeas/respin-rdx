@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/bash
 set -e
 echo 'deb http://ppa.launchpad.net/xubuntu-dev/extras/ubuntu jammy main'|tee /etc/apt/sources.list.d/xubuntu-dev-extras.list
 wget -qO- 'https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x53337a2d3790f409a00fe5bc4ed101bbe463faab'|gpg --dearmor -o /etc/apt/trusted.gpg.d/xubuntu-dev-extras.gpg

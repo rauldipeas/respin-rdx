@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/bash
 set -e
 if [ "$(cut -d' ' -f9 <(grep NVIDIA <(lshw -C display)))" == NVIDIA ];then
     apt install -y nvidia-detect

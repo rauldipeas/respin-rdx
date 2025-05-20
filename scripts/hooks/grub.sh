@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/bash
 set -e
 wget -q --show-progress https://github.com/rauldipeas/respin-rdx/raw/main/assets/compressed/debian-1080p.zip
 mkdir -p /usr/share/grub/themes
