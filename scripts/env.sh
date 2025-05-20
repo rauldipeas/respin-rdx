@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 export DEBIAN_FRONTEND='noninteractive'
-echo 'deb http://archive.debian.org/debian/ bookworm main'|sudo tee /etc/apt/sources.list.d/bookworm.list
+echo 'deb http://archive.debian.org/debian bookworm main'|sudo tee /etc/apt/sources.list.d/bookworm.list
 sudo apt update -o Acquire::AllowInsecureRepositories=true -o Acquire::AllowDowngradeToInsecureRepositories=true -o APT::Get::AllowUnauthenticated=true
 sudo apt install -y --no-install-recommends -o APT::Get::AllowUnauthenticated=true debian-archive-keyring
 sudo rm /etc/apt/sources.list.d/bookworm.list
