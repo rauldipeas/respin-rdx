@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 set -e
 cd scripts/hooks
 find . -type f -name "*.sh" -maxdepth 1 -printf "%f\n" -exec cp {} /tmp/respin-rdx/config/hooks/normal/{}.hook.chroot \;

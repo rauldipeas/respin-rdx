@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 set -e
 sed -i 's|#WaylandEnable=false|WaylandEnable=false|' /etc/gdm3/daemon.conf
 cat <<EOF |tee /etc/X11/xorg.conf.d/00-touchpad.conf>/dev/null

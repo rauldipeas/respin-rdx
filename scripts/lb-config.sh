@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 set -e
 #LATEST_LINUX_IMAGE="$(wget -qO- 'https://packages.debian.org/search?suite=bookworm-backports&searchon=names&keywords=bpo-rt-amd64'|grep linux-image|grep -v unsigned|grep -v dbg|grep -v 6.9|grep -v 6.10|grep -v 6.11|head -n2|tail -n1|cut -d' ' -f4|cut -d'<' -f1|sed 's|-amd64||')"
 #LATEST_LINUX_HEADERS="$(wget -qO- 'https://packages.debian.org/search?suite=bookworm-backports&searchon=names&keywords=bpo-rt-amd64'|grep linux-headers|grep -v unsigned|grep -v dbg|grep -v 6.9|grep -v 6.10|grep -v 6.11|head -n2|tail -n1|cut -d' ' -f4|cut -d'<' -f1|sed 's|-amd64||')"

@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 set -e
 am -i --icons mission-center
 sed -i 's|Icon=mission-center|Icon=io.missioncenter.MissionCenter|' /usr/local/share/applications/mission-center-AM.desktop

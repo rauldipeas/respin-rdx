@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 set -e
 cat <<EOF |tee /etc/apt/preferences.d/iriun.pref>/dev/null
 Package: linux-headers*+bpo-amd64

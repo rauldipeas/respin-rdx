@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 set -e
 if grep -q GTK2_RC_FILES "$@";then
     echo 'Already fixed'

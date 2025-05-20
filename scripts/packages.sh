@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 set -e
 mkdir -p /tmp/respin-rdx/config/includes.chroot/etc/apt/preferences.d
 cat <<EOF |tee /tmp/respin-rdx/config/includes.chroot/etc/apt/preferences.d/backports.pref>/dev/null

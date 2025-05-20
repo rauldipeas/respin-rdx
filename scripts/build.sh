@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 set -e
 bash scripts/env.sh
 bash scripts/lb-config.sh

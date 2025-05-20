@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 set -e
 ICON_DIR="/usr/share/icons/Papirus/128x128/apps"
 install() {

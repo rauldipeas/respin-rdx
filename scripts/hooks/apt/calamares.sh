@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 set -e
 apt install -o Dpkg::Options::="--force-confold" --no-install-recommends -y calamares calamares-settings-debian
 sed -i 's|pkexec|GTK2_RC_FILES=/usr/share/themes/Orchis-Dark-Compact/gtk-2.0/gtkrc sudo -E|' /usr/bin/install-debian

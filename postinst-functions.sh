@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 set -e
 amaddclass() {
     local file="/usr/local/share/applications/$1-AM.desktop"

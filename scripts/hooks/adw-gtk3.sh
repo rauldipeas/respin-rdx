@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 set -e
 wget -q --show-progress "$(wget -qO- https://api.github.com/repos/lassekongo83/adw-gtk3/releases|grep browser_download_url|grep .tar.xz|head -n1|cut -d '"' -f4)"
 mkdir -p /usr/local/share/themes

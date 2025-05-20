@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 set -e
 cat <<EOF |tee /etc/apt/apt.conf.d/100launchers-fix
 DPkg::Post-Invoke {
@@ -6,7 +6,7 @@ DPkg::Post-Invoke {
 };
 EOF
 cat <<EOF |tee /usr/local/bin/launchers-fix
-#!/usr/bin/bash
+#!/bin/bash
 set -e
 if test -f /usr/share/applications/FreeFileSync.desktop;then
     sed -i 's|Icon=FreeFileSync|Icon=freefilesync|' /usr/share/applications/FreeFileSync.desktop

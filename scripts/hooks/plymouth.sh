@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 set -e
 wget -q --show-progress https://github.com/rauldipeas/respin-rdx/raw/main/assets/compressed/debian-mac-style.zip
 unzip debian-mac-style.zip
