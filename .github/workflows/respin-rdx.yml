@@ -26,7 +26,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Respin RDX build
-        run: bash ./scripts/build.sh
+        run: bash scripts/build.sh
       - name: MEGA upload
         uses: Mamami-Digital/action-megacmd@master
         with:
